@@ -39,8 +39,6 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="Services\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
   </ItemGroup>
