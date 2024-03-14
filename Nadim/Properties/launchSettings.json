@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Nadim (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Nadim (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
