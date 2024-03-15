@@ -51,6 +51,23 @@ namespace Nadim.Views
             titleBar.ExtendsContentIntoTitleBar = true;
 
             CenterWindow();
+
+            Activated += SignUpWindow_Activated;
+            Closed += SignUpWindow_Closed;
+        }
+
+        private void SignUpWindow_Closed(object sender, WindowEventArgs args)
+        {
+            App.openWindowCount--;
+            if (App.openWindowCount <= 0)
+            {
+                App.s_window.Close();
+            }
+        }
+
+        private void SignUpWindow_Activated(object sender, WindowActivatedEventArgs args)
+        {
+            App.openWindowCount++;
         }
 
         private AppWindow GetAppWindowForCurrentWindow()
