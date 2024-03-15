@@ -58,12 +58,12 @@ namespace Nadim.Views
             return AppWindow.GetFromWindowId(myWndId);
         }
 
-        public OverlappedPresenter GetAppWindowOverlappedPresenter(AppWindow appWindow)
+        private OverlappedPresenter GetAppWindowOverlappedPresenter(AppWindow appWindow)
         {
             return (OverlappedPresenter)appWindow.Presenter;
         }
 
-        public AppWindowTitleBar GetAppWindowTitleBar(AppWindow appWindow)
+        private AppWindowTitleBar GetAppWindowTitleBar(AppWindow appWindow)
         {
             if (AppWindowTitleBar.IsCustomizationSupported())
             {
@@ -77,7 +77,7 @@ namespace Nadim.Views
             }
         }
 
-        public void CenterWindow()
+        private void CenterWindow()
         {
             var hWnd = WinRT.Interop.WindowNative.GetWindowHandle(this);
             Microsoft.UI.WindowId windowId = Microsoft.UI.Win32Interop.GetWindowIdFromWindow(hWnd);

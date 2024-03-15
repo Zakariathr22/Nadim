@@ -1,3 +1,5 @@
+using Microsoft.UI.Windowing;
+using Microsoft.UI;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -12,6 +14,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using WinRT.Interop;
+using Nadim.Views;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -23,14 +27,41 @@ namespace Nadim
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        private AppWindow appWindow;
+        private OverlappedPresenter overlappedPresenter;
+        public static LoginWindow loginWindow;
         public MainWindow()
         {
             this.InitializeComponent();
+
+            appWindow = GetAppWindowForCurrentWindow();
+            overlappedPresenter = GetAppWindowOverlappedPresenter(appWindow);
+
+            appWindow.Title = "Nadim";
+            loginWindow = new LoginWindow();
+            loginWindow.Activate();
+            
+
+            appWindow.IsShownInSwitchers = false;           
+            this.Activated += MainWindow_Activated;
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        private void MainWindow_Activated(object sender, WindowActivatedEventArgs args)
         {
-            myButton.Content = "Clicked";
+            overlappedPresenter.Minimize();
         }
+
+        private AppWindow GetAppWindowForCurrentWindow()
+        {
+            IntPtr hWnd = WindowNative.GetWindowHandle(this);
+            WindowId myWndId = Win32Interop.GetWindowIdFromWindow(hWnd);
+            return AppWindow.GetFromWindowId(myWndId);
+        }
+
+        public OverlappedPresenter GetAppWindowOverlappedPresenter(AppWindow appWindow)
+        {
+            return (OverlappedPresenter)appWindow.Presenter;
+        }
+
     }
 }
