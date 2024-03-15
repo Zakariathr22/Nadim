@@ -7,8 +7,114 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid>
-
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+    
+    <Grid x:Name="MainGrid" FlowDirection="RightToLeft">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <!--first Column-->
+        <Border Grid.Column="0" Background="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}">
+            <!--<TextBlock Text="Content for the first column" HorizontalAlignment="Center" VerticalAlignment="Center" />-->
+            <Grid Margin="0 32 0 32">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0">
+                            <StackPanel HorizontalAlignment="Center" 
+                                        VerticalAlignment="Center" 
+                                        Orientation="Horizontal">
+                                <Image Source="\Assets\Logo.png" 
+                                       Width="96" 
+                                       Height="96">
+                                </Image>
+                                <TextBlock VerticalAlignment="Center" 
+                                           FontSize="64" 
+                                           FontWeight="Bold" 
+                                           FontFamily="Cairo"
+                                           Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}">
+                                    نديم
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Row="2">
+                            <TextBlock HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center" 
+                                       FontSize="20" 
+                                       FontFamily="Cairo" 
+                                       Width="360"
+                                       TextAlignment="Center">
+                                نديم يعمل على تبسيط وتنظيم الإجراءات
+                                <LineBreak/>
+                                القانونية في مسيرتك المهنية
+                            </TextBlock>
+                        </Border>
+                    </Grid>
+                </Border>
+                <Border Grid.Row="1">
+                    <TextBlock HorizontalAlignment="Center" 
+                               VerticalAlignment="Center" 
+                               FontSize="18" 
+                               FontFamily="Amiri" 
+                               Width="360"
+                               TextAlignment="Center"
+                               LineHeight="40">
+                               ﷽
+                               <LineBreak/>
+                               ﴿ إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ وَإِيتَاءِ ذِي الْقُرْبَىٰ وَيَنْهَىٰ
+                               <LineBreak/>
+                               عَنِ الْفَحْشَاءِ وَالْمُنكَرِ وَالْبَغْيِ ۚ يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُونَ ﴾
+                               <LineBreak/>
+                               [سورة النحل: 90]
+                    </TextBlock>
+                </Border>
+            </Grid>
+        </Border>
+        
+        <!--second Column-->
+        <Border Grid.Column="1" 
+                Background="{ThemeResource LayerOnMicaBaseAltFillColorSecondaryBrush}">
+            <StackPanel HorizontalAlignment="Center" 
+                        VerticalAlignment="Top">
+                <TextBlock Margin="8 96 8 16" 
+                           Width="300" 
+                           TextAlignment="Center" 
+                           FontSize="24" 
+                           FontWeight="Bold">تسجيل الدخول</TextBlock>
+                <TextBox Margin="8" 
+                         Width="300" 
+                         PlaceholderText="رقم الهاتف المحمول أو البريد الإلكتروني"></TextBox>
+                <PasswordBox Margin="8" 
+                             Width="300" 
+                             PlaceholderText="كلمة المرور"></PasswordBox>
+                <Button Margin="8" 
+                        Width="300" 
+                        Style="{StaticResource AccentButtonStyle}">تسجيل الدخول</Button>
+                <HyperlinkButton 
+                    Margin="8" 
+                    Width="300" 
+                    Content="نسيت كلمة المرور؟"/>
+                <Line Stroke="{StaticResource SystemFillColorNeutralBrush}"
+                      X1="0" Y1="0"
+                      X2="300" Y2="0"
+                      Margin="8"
+                      StrokeThickness="2"/>
+                <Button Margin="8"
+                        Width="300"
+                        Background="{StaticResource SystemFillColorSuccessBrush}" 
+                        Foreground="{StaticResource TextOnAccentFillColorPrimaryBrush}">إنشاء حساب لمكتبك</Button>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>

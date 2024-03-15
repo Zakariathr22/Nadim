@@ -1,4 +1,5 @@
 using Microsoft.UI;
+using Microsoft.UI.System;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -14,6 +15,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
+using Windows.UI.Core;
 using WinRT.Interop;
 
 
@@ -31,6 +34,10 @@ namespace Nadim.Views
             appWindow = GetAppWindowForCurrentWindow();
             overlappedPresenter = GetAppWindowOverlappedPresenter(appWindow);
             titleBar = GetAppWindowTitleBar(appWindow);
+            titleBar.ButtonBackgroundColor = Color.FromArgb(1, 0, 0, 0);
+            
+            titleBar.ButtonForegroundColor = Color.FromArgb(0, 128, 128, 128);
+            
 
             appWindow.Resize(new Windows.Graphics.SizeInt32(840, 500));
 
@@ -39,7 +46,7 @@ namespace Nadim.Views
             overlappedPresenter.IsMaximizable = false;
 
             titleBar.ExtendsContentIntoTitleBar = true;
-            titleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
+            //titleBar.PreferredHeightOption = TitleBarHeightOption.Tall;
 
             CenterWindow();
         }

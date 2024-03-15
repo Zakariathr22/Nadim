@@ -12,6 +12,9 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
+    <Content Remove="Assets\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Views\LoginWindow.xaml" />
   </ItemGroup>
 
@@ -43,6 +46,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Assets\Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\LoginWindow.xaml">
