@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="Views\LoginWindow.xaml" />
+    <None Remove="Views\SignUpWindow.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,6 +52,9 @@
     <None Update="Assets\Logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\SignUpWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\LoginWindow.xaml">

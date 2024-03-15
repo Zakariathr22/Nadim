@@ -25,12 +25,12 @@ namespace Nadim
     /// <summary>
     /// An empty window that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainWindow : Window
+    public sealed partial class StartWindow : Window
     {
         private AppWindow appWindow;
         private OverlappedPresenter overlappedPresenter;
         public static LoginWindow loginWindow;
-        public MainWindow()
+        public StartWindow()
         {
             this.InitializeComponent();
 
@@ -40,7 +40,7 @@ namespace Nadim
             appWindow.Title = "Nadim";
             loginWindow = new LoginWindow();
             loginWindow.Activate();
-            
+            App.openWindowCount++;
 
             appWindow.IsShownInSwitchers = false;           
             this.Activated += MainWindow_Activated;

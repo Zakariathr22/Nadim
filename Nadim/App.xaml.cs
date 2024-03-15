@@ -27,13 +27,11 @@ namespace Nadim
     /// </summary>
     public partial class App : Application
     {
-        /// <summary>
-        /// Initializes the singleton application object.  This is the first line of authored code
-        /// executed, and as such is the logical equivalent of main() or WinMain().
-        /// </summary>
+        public static int openWindowCount;
         public App()
         {
             this.InitializeComponent();
+            openWindowCount = 0;
         }
 
         /// <summary>
@@ -42,10 +40,10 @@ namespace Nadim
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            m_window = new MainWindow();
-            m_window.Activate();
+            s_window = new StartWindow();
+            s_window.Activate();
         }
 
-        private Window m_window;
+        public static Window s_window;
     }
 }

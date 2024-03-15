@@ -113,7 +113,8 @@
                 <Button Margin="8"
                         Width="300"
                         Background="{StaticResource SystemFillColorSuccessBrush}" 
-                        Foreground="{StaticResource TextOnAccentFillColorPrimaryBrush}">إنشاء حساب لمكتبك</Button>
+                        Foreground="{StaticResource TextOnAccentFillColorPrimaryBrush}"
+                        Click="Button_Click">إنشاء حساب لمكتبك</Button>
             </StackPanel>
         </Border>
     </Grid>
