@@ -9,9 +9,11 @@ using Microsoft.UI.Xaml.Shapes;
 using Nadim.Views;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -32,6 +34,15 @@ namespace Nadim
         {
             this.InitializeComponent();
             openWindowCount = 0;
+            // Get the desired culture (e.g., French)
+            CultureInfo newCulture = CultureInfo.GetCultureInfo("ar-DZ");
+
+            // Set the CurrentCulture of the current thread
+            Thread.CurrentThread.CurrentCulture = newCulture;
+
+            // Set the CurrentUICulture of the current thread (optional)
+            // This affects UI elements like date pickers and number formats
+            Thread.CurrentThread.CurrentUICulture = newCulture;
         }
 
         /// <summary>

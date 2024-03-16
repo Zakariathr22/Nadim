@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Nadim.LawyerInfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Nadim"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="360">
+
+    
+        <StackPanel Width="365">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Margin="4" Grid.Row="0" Text="1- المعلومات الشخصية:" FontWeight="Bold"/>
+                <Border Grid.Row="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="lastName" Margin="4" Grid.Column="0" PlaceholderText="اللقب"/>
+                        <TextBox x:Name="firstName" Margin="4" Grid.Column="1" PlaceholderText="الاسم"/>
+                    </Grid>
+                </Border>
+            <CalendarDatePicker PlaceholderText="اختر يوم" Header="تاريخ الميلاد" Margin="4" Grid.Row="2" Language="ar-DZ" Width="357">
+                    <CalendarDatePicker.CalendarViewStyle>
+                        <Style TargetType="CalendarView">
+                            
+                        </Style>
+                    </CalendarDatePicker.CalendarViewStyle>
+                </CalendarDatePicker>
+                <Border Grid.Row="3">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <RadioButton Margin="4" Grid.Column="0" Content="ذكر"/>
+                        <RadioButton Margin="4" Grid.Column="1" Content="أنثى"/>
+
+                    </Grid>
+                </Border>
+                <TextBlock Margin="4 8 4 4" Grid.Row="4" Text="2- المعلومات المهنية:" FontWeight="Bold"/>
+                <ComboBox Margin="4" Grid.Row="5" PlaceholderText="الإعتماد" Width="357">
+                    <x:String>معتمد(ة) لدى المحكمة العليا ومجلس الدولة</x:String>
+                    <x:String>معتمد(ة) لدى المجالس القضائية</x:String>
+                </ComboBox>
+                <CalendarDatePicker PlaceholderText="اختر يوم" Header="تاريخ بداية النشاط" Margin="4" Grid.Row="6" Language="ar-DZ" Width="357"/>
+                
+                <TextBlock Margin="4 8 4 4" Grid.Row="7" Text="3- معلومات الحساب:" FontWeight="bold"/>
+                <TextBox Margin="4" Grid.Row="8" PlaceholderText="البريد الإلكتروني" TextAlignment="Left"/>
+                <TextBox Margin="4" Grid.Row="9" PlaceholderText="رقم الهاتف" TextAlignment="Left"/>
+                <PasswordBox Margin="4" Grid.Row="10" PlaceholderText="كلمة المرور"/>
+                <PasswordBox Margin="4" Grid.Row="11" PlaceholderText="تأكيد كلمة المرور"/>
+            <Border Grid.Row="12">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Margin="4 8 4 4" Grid.Column="1" Width="174" Style="{StaticResource AccentButtonStyle}">
+                        <Button.Content>
+                            <FontIcon Glyph="&#xE892;" />
+                        </Button.Content>
+                    </Button>
+
+                </Grid>
+
+            </Border>
+        </Grid>
+
+        </StackPanel>
+    
+</Page>

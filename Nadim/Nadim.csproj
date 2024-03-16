@@ -15,6 +15,8 @@
     <Content Remove="Assets\Logo.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="BlankPage2.xaml" />
+    <None Remove="LawyerInfoPage.xaml" />
     <None Remove="Views\LoginWindow.xaml" />
     <None Remove="Views\SignUpWindow.xaml" />
   </ItemGroup>
@@ -50,8 +52,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Update="Assets\Logo.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="BlankPage2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="LawyerInfoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\SignUpWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
