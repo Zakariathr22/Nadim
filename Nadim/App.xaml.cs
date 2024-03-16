@@ -18,6 +18,7 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Globalization;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -43,6 +44,8 @@ namespace Nadim
             // Set the CurrentUICulture of the current thread (optional)
             // This affects UI elements like date pickers and number formats
             Thread.CurrentThread.CurrentUICulture = newCulture;
+
+            ApplicationLanguages.PrimaryLanguageOverride = "ar-DZ";
         }
 
         /// <summary>

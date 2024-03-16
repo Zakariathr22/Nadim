@@ -39,14 +39,9 @@
                         <TextBox x:Name="firstName" Margin="4" Grid.Column="1" PlaceholderText="الاسم"/>
                     </Grid>
                 </Border>
-            <CalendarDatePicker PlaceholderText="اختر يوم" Header="تاريخ الميلاد" Margin="4" Grid.Row="2" Language="ar-DZ" Width="357">
-                    <CalendarDatePicker.CalendarViewStyle>
-                        <Style TargetType="CalendarView">
-                            
-                        </Style>
-                    </CalendarDatePicker.CalendarViewStyle>
-                </CalendarDatePicker>
-                <Border Grid.Row="3">
+            <DatePicker Header="تاريخ الميلاد" Margin="4" Grid.Row="2" Language="ar-DZ" Width="357" />
+
+            <Border Grid.Row="3">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
@@ -63,7 +58,7 @@
                     <x:String>معتمد(ة) لدى المحكمة العليا ومجلس الدولة</x:String>
                     <x:String>معتمد(ة) لدى المجالس القضائية</x:String>
                 </ComboBox>
-                <CalendarDatePicker PlaceholderText="اختر يوم" Header="تاريخ بداية النشاط" Margin="4" Grid.Row="6" Language="ar-DZ" Width="357"/>
+                <DatePicker Header="تاريخ بداية النشاط" Margin="4" Grid.Row="6" Language="ar-DZ" Width="357" DayVisible="False"/>
                 
                 <TextBlock Margin="4 8 4 4" Grid.Row="7" Text="3- معلومات الحساب:" FontWeight="bold"/>
                 <TextBox Margin="4" Grid.Row="8" PlaceholderText="البريد الإلكتروني" TextAlignment="Left"/>
