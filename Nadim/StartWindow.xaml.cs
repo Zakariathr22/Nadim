@@ -32,16 +32,19 @@ namespace Nadim
         public static LoginWindow loginWindow;
         public StartWindow()
         {
+            
+
             this.InitializeComponent();
 
+            
             appWindow = GetAppWindowForCurrentWindow();
+            appWindow.Resize(new Windows.Graphics.SizeInt32(50, 50));
+
             overlappedPresenter = GetAppWindowOverlappedPresenter(appWindow);
 
             appWindow.Title = "Nadim";
             loginWindow = new LoginWindow();
             loginWindow.Activate();
-            App.openWindowCount++;
-            appWindow.Resize(new Windows.Graphics.SizeInt32(50, 50));
 
             appWindow.IsShownInSwitchers = false;           
             this.Activated += MainWindow_Activated;

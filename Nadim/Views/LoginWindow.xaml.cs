@@ -27,6 +27,7 @@ namespace Nadim.Views
         private AppWindow appWindow;
         private OverlappedPresenter overlappedPresenter;
         private AppWindowTitleBar titleBar;
+        private bool isActivatedOnce = false;
         public LoginWindow()
         {
             this.InitializeComponent();
@@ -49,12 +50,26 @@ namespace Nadim.Views
 
             CenterWindow();
 
+            Activated += LoginWindow_Activated;
             Closed += LoginWindow_Closed;
+        }
+
+        private void LoginWindow_Activated(object sender, Microsoft.UI.Xaml.WindowActivatedEventArgs args)
+        {
+            if (isActivatedOnce == false)
+            {
+                isActivatedOnce = true;
+                App.openWindowCount++;
+            }
         }
 
         private void LoginWindow_Closed(object sender, WindowEventArgs args)
         {
-            App.openWindowCount--;
+            if (isActivatedOnce == true)
+            {
+                isActivatedOnce = false;
+                App.openWindowCount--;
+            }
             if (App.openWindowCount <= 0) {
                 App.s_window.Close();
             }

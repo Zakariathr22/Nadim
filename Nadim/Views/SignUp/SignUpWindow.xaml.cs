@@ -34,10 +34,7 @@ namespace Nadim.Views
         private OverlappedPresenter overlappedPresenter;
         private AppWindowTitleBar titleBar;
         private int previousSelectedIndex;
-        LawyerInfoPage lawyerInfoPage = new LawyerInfoPage();
-        OfficeInfoPage officeInfoPage = new OfficeInfoPage();
-        EmailVerificationPage emailVerificationPage = new EmailVerificationPage();
-        PhoneVerificationPage phoneVerificationPage = new PhoneVerificationPage();
+        private bool isActivatedOnce = false;
         public SignUpWindow()
         {
             this.InitializeComponent();
@@ -70,7 +67,11 @@ namespace Nadim.Views
 
         private void SignUpWindow_Closed(object sender, WindowEventArgs args)
         {
-            App.openWindowCount--;
+            if (isActivatedOnce == true)
+            {
+                isActivatedOnce = false;
+                App.openWindowCount--;
+            }
             if (App.openWindowCount <= 0)
             {
                 App.s_window.Close();
@@ -79,7 +80,11 @@ namespace Nadim.Views
 
         private void SignUpWindow_Activated(object sender, WindowActivatedEventArgs args)
         {
-            App.openWindowCount++;
+            if (isActivatedOnce == false)
+            {
+                isActivatedOnce = true;
+                App.openWindowCount++;
+            }
         }
 
         private AppWindow GetAppWindowForCurrentWindow()
@@ -131,35 +136,29 @@ namespace Nadim.Views
                 SelectorBarItem selectedItem = sender.SelectedItem;
                 int currentSelectedIndex = sender.Items.IndexOf(selectedItem);
                 System.Type pageType;
-                System.Object pageObject;
 
                 switch (currentSelectedIndex)
                 {
                     case 0:
                         pageType = typeof(LawyerInfoPage);
-                        pageObject = lawyerInfoPage;
                         break;
                     case 1:
                         pageType = typeof(OfficeInfoPage);
-                        pageObject = officeInfoPage;
                         break;
                     case 2:
                         pageType = typeof(EmailVerificationPage);
-                        pageObject = emailVerificationPage;
                         break;
                     case 3:
                         pageType = typeof(PhoneVerificationPage);
-                        pageObject = phoneVerificationPage;
                         break;
                 default:
                         pageType = typeof(Page);
-                        pageObject = new Page();
                         break;
                 }
 
                 var slideNavigationTransitionEffect = currentSelectedIndex - previousSelectedIndex > 0 ? SlideNavigationTransitionEffect.FromRight : SlideNavigationTransitionEffect.FromLeft;
 
-                ContentFrame.Navigate(pageType, pageObject, new SlideNavigationTransitionInfo() { Effect = slideNavigationTransitionEffect });
+                ContentFrame.Navigate(pageType, new SlideNavigationTransitionInfo() { Effect = slideNavigationTransitionEffect });
                 
                 previousSelectedIndex = currentSelectedIndex;
             
