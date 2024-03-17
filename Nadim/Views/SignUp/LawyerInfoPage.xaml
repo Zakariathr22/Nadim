@@ -74,7 +74,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Margin="4 8 4 4" Grid.Column="1" Width="174" Style="{StaticResource AccentButtonStyle}">
+                    <Button x:Name="nextButton" Margin="4 8 4 4" Grid.Column="1" Width="174" Style="{StaticResource AccentButtonStyle}" Click="nextButton_Click">
                         <Button.Content>
                             <FontIcon Glyph="&#xE892;" />
                         </Button.Content>

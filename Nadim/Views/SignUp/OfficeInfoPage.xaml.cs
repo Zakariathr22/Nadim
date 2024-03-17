@@ -27,5 +27,19 @@ namespace Nadim.Views.SignUp
         {
             this.InitializeComponent();
         }
+
+        private void previousButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemPersonalInfo;
+            App.signUpWindow.SelectorBarItemPersonalInfo.IsEnabled = true;
+            App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = false;
+        }
+
+        private void createAccount_Click(object sender, RoutedEventArgs e)
+        {
+            App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemEmailVer;
+            App.signUpWindow.SelectorBarItemEmailVer.IsEnabled = true;
+            App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = false;
+        }
     }
 }

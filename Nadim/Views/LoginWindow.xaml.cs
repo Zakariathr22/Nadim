@@ -106,8 +106,8 @@ namespace Nadim.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SignUpWindow signUpWindow = new SignUpWindow();
-            signUpWindow.Activate();
+            App.signUpWindow = new SignUpWindow();
+            App.signUpWindow.Activate();
             this.Close();
         }
     }

@@ -6,15 +6,14 @@
     xmlns:local="using:Nadim.Views.SignUp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
     <Grid>
         <StackPanel VerticalAlignment="Center">
             <TextBlock Margin="4 0 4 8" FontWeight="Bold" Width="357">التأكيد عبر رسالة SMS</TextBlock>
             <TextBlock Margin="4 8 4 8" TextWrapping="Wrap" TextAlignment="Justify" Width="357">لقد تم إرسال رمز التأكيد على شكل رسالة SMS إلى رقم الهاتف الذي سجلته، يرجى التحقق.</TextBlock>
             <TextBox HorizontalAlignment="Center" TextAlignment="Center" Margin="4 8 4 8" Width="357" PlaceholderText="قم بإدخال الرمز"></TextBox>
-            <Button HorizontalAlignment="Center" Margin="4 8 4 8" Width="357" Style="{StaticResource AccentButtonStyle}">التالي</Button>
+            <Button HorizontalAlignment="Center" Margin="4 8 4 8" Width="357" Style="{StaticResource AccentButtonStyle}">إنشاء حساب نديم</Button>
             <HyperlinkButton HorizontalAlignment="Center" Margin="4 8 4 8" IsEnabled="False">لم تتلقى الرسالة؟ إعادة إرسال</HyperlinkButton>
         </StackPanel>
     </Grid>

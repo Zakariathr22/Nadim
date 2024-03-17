@@ -12,20 +12,27 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Nadim.Views;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
 namespace Nadim
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+
     public sealed partial class LawyerInfoPage : Page
     {
+
         public LawyerInfoPage()
         {
             this.InitializeComponent();
+        }
+
+        private void nextButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemOfficeInfo;
+            App.signUpWindow.SelectorBarItemPersonalInfo.IsEnabled = false;
+            App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = true;
         }
     }
 }

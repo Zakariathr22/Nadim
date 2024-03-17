@@ -36,23 +36,23 @@
             FontWeight="Bold"
             Margin="0 0 0 8"
             Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}">إنشاء حساب</TextBlock>
-                <SelectorBar x:Name="selectorBar" SelectionChanged="selectorBar_SelectionChanged" HorizontalAlignment="Center">
-                    <SelectorBarItem x:Name="SelectorBarItemPersonalInfo" Text="المحامي" IsEnabled="True" IsSelected="True">
+                <SelectorBar x:Name="selectorBar" SelectionChanged="selectorBar_SelectionChanged" HorizontalAlignment="Center" Visibility="Visible" x:FieldModifier="public">
+                    <SelectorBarItem x:Name="SelectorBarItemPersonalInfo" IsSelected="True" Text="المحامي" Visibility="Visible" x:FieldModifier="public">
                         <SelectorBarItem.Icon>
                             <FontIcon Glyph="&#xEA4A;" />
                         </SelectorBarItem.Icon>
                     </SelectorBarItem>
-                    <SelectorBarItem x:Name="SelectorBarItemOfficeInfo" Text="المكتب"  IsEnabled="True">
+                    <SelectorBarItem x:Name="SelectorBarItemOfficeInfo" Text="المكتب"  IsEnabled="False" Visibility="Visible" x:FieldModifier="public">
                         <SelectorBarItem.Icon>
                             <FontIcon Glyph="&#xE946;" />
                         </SelectorBarItem.Icon>
                     </SelectorBarItem>
-                    <SelectorBarItem x:Name="SelectorBarItemEmailVer" Text="تأكيد 1" IsEnabled="True">
+                    <SelectorBarItem x:Name="SelectorBarItemEmailVer" Text="تأكيد 1" IsEnabled="False" Visibility="Visible" x:FieldModifier="public">
                         <SelectorBarItem.Icon>
                             <FontIcon Glyph="&#xE715;" />
                         </SelectorBarItem.Icon>
                     </SelectorBarItem>
-                    <SelectorBarItem x:Name="SelectorBarItemphoneVer" Text="تأكيد 2" IsEnabled="True">
+                    <SelectorBarItem x:Name="SelectorBarItemphoneVer" Text="تأكيد 2" IsEnabled="False" Visibility="Visible" x:FieldModifier="public">
                         <SelectorBarItem.Icon>
                             <FontIcon Glyph="&#xE717;" />
                         </SelectorBarItem.Icon>
@@ -60,7 +60,7 @@
                 </SelectorBar>
                 <ScrollView Height="400" Width="400" HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Auto"
 VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top">
-                    <Frame x:Name="ContentFrame" IsNavigationStackEnabled="False"/>
+                    <Frame x:Name="ContentFrame"/>
                 </ScrollView>
                 <Line Stroke="{StaticResource SystemFillColorNeutralBrush}"
             X1="0" Y1="0"

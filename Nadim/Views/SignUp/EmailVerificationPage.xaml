@@ -13,7 +13,7 @@
         <TextBlock Margin="4 0 4 8" FontWeight="Bold" Width="357">التأكيد عبر البريد الإلكتروني</TextBlock>
         <TextBlock Margin="4 8 4 8" TextWrapping="Wrap" TextAlignment="Justify" Width="357">لقد تم إرسال رمز التأكيد، تحقق من بريدك الإلكتروني للحصول على رمز التأكيد الخاص بك.</TextBlock>
         <TextBox HorizontalAlignment="Center" TextAlignment="Center" Margin="4 8 4 8" Width="357" PlaceholderText="قم بإدخال الرمز"></TextBox>
-        <Button HorizontalAlignment="Center" Margin="4 8 4 8" Width="357" Style="{StaticResource AccentButtonStyle}">التالي</Button>
+        <Button x:Name="nextButton" HorizontalAlignment="Center" Margin="4 8 4 8" Width="357" Style="{StaticResource AccentButtonStyle}" Click="nextButton_Click">التالي</Button>
         <HyperlinkButton HorizontalAlignment="Center" Margin="4 8 4 8" IsEnabled="False">لم تتلقى البريد الإلكتروني؟ إعادة إرسال</HyperlinkButton>
     </StackPanel>
 </Page>

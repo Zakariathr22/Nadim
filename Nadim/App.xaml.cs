@@ -31,6 +31,7 @@ namespace Nadim
     public partial class App : Application
     {
         public static int openWindowCount;
+        public static SignUpWindow signUpWindow;
         public App()
         {
             this.InitializeComponent();
