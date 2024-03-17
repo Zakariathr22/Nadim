@@ -18,6 +18,7 @@ using WinRT.Interop;
 using Windows.UI;
 using Microsoft.UI.Xaml.Media.Animation;
 using Nadim.Views.SignUp;
+using System.Runtime.CompilerServices;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -33,7 +34,10 @@ namespace Nadim.Views
         private OverlappedPresenter overlappedPresenter;
         private AppWindowTitleBar titleBar;
         private int previousSelectedIndex;
-
+        LawyerInfoPage lawyerInfoPage = new LawyerInfoPage();
+        OfficeInfoPage officeInfoPage = new OfficeInfoPage();
+        EmailVerificationPage emailVerificationPage = new EmailVerificationPage();
+        PhoneVerificationPage phoneVerificationPage = new PhoneVerificationPage();
         public SignUpWindow()
         {
             this.InitializeComponent();
@@ -58,7 +62,11 @@ namespace Nadim.Views
 
             Activated += SignUpWindow_Activated;
             Closed += SignUpWindow_Closed;
-        }
+
+            LawyerInfoPage lawyerInfoPage = new LawyerInfoPage();
+            OfficeInfoPage officeInfoPage = new OfficeInfoPage();
+            EmailVerificationPage emailVerificationPage = new EmailVerificationPage();
+    }
 
         private void SignUpWindow_Closed(object sender, WindowEventArgs args)
         {
@@ -123,27 +131,36 @@ namespace Nadim.Views
                 SelectorBarItem selectedItem = sender.SelectedItem;
                 int currentSelectedIndex = sender.Items.IndexOf(selectedItem);
                 System.Type pageType;
+                System.Object pageObject;
 
                 switch (currentSelectedIndex)
                 {
                     case 0:
                         pageType = typeof(LawyerInfoPage);
+                        pageObject = lawyerInfoPage;
                         break;
                     case 1:
                         pageType = typeof(OfficeInfoPage);
+                        pageObject = officeInfoPage;
                         break;
                     case 2:
-                        pageType = typeof(LawyerInfoPage);
+                        pageType = typeof(EmailVerificationPage);
+                        pageObject = emailVerificationPage;
                         break;
-                    default:
-                        pageType = typeof(BlankPage2);
+                    case 3:
+                        pageType = typeof(PhoneVerificationPage);
+                        pageObject = phoneVerificationPage;
+                        break;
+                default:
+                        pageType = typeof(Page);
+                        pageObject = new Page();
                         break;
                 }
 
                 var slideNavigationTransitionEffect = currentSelectedIndex - previousSelectedIndex > 0 ? SlideNavigationTransitionEffect.FromRight : SlideNavigationTransitionEffect.FromLeft;
 
-                ContentFrame.Navigate(pageType, null, new SlideNavigationTransitionInfo() { Effect = slideNavigationTransitionEffect });
-
+                ContentFrame.Navigate(pageType, pageObject, new SlideNavigationTransitionInfo() { Effect = slideNavigationTransitionEffect });
+                
                 previousSelectedIndex = currentSelectedIndex;
             
         }
