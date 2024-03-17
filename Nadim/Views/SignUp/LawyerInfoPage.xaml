@@ -65,6 +65,7 @@
                 <TextBox Margin="4" Grid.Row="9" PlaceholderText="رقم الهاتف" TextAlignment="Left"/>
                 <PasswordBox Margin="4" Grid.Row="10" PlaceholderText="كلمة المرور"/>
                 <PasswordBox Margin="4" Grid.Row="11" PlaceholderText="تأكيد كلمة المرور"/>
+
             <Border Grid.Row="12">
                 <Grid>
                     <Grid.ColumnDefinitions>

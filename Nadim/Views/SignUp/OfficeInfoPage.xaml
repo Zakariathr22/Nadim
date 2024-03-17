@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Nadim.Views.SignUp.OfficeInfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Nadim.Views.SignUp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Width="365">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+                <RowDefinition Height = "auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Margin="4" Grid.Row="0" FontWeight="Bold">1- التسمية (كما في الديباجة):</TextBlock>
+            <TextBox Margin="4" Grid.Row="1" PlaceholderText="التسمية"/>
+            <TextBlock Margin="4" Grid.Row="2" FontWeight="Bold">2- مقر المكتب (كما في الديباجة):</TextBlock>
+            <TextBox Margin="4" Grid.Row="3" PlaceholderText="مقر المكتب"/>
+            <TextBlock Margin="4" Grid.Row="4" FontWeight="Bold">3- تفاصيل المقر:</TextBlock>
+            <Border Grid.Row="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox Margin="4" Grid.Column="0" PlaceholderText="الولاية" Width="174"/>
+                    <ComboBox Margin="4" Grid.Column="1" PlaceholderText="البلدية" Width="174"/>
+                </Grid>
+            </Border>
+            <CheckBox Margin="4" Grid.Row="6">المقر لشركة محاماة بها عدة محامين</CheckBox>
+            <TextBlock Margin="4" Grid.Row="7" FontWeight="Bold">4- معلومات الإتصال بالمكتب:</TextBlock>
+            <TextBox Margin="4" Grid.Row="8" PlaceholderText="رقم هاتف المكتب"/>
+            <TextBox Margin="4" Grid.Row="9" PlaceholderText="رقم هاتف المكتب 2 (إختياري)"/>
+            <TextBox Margin="4" Grid.Row="10" PlaceholderText="الفاكس (إختياري)"/>
+            <TextBox Margin="4" Grid.Row="11" PlaceholderText="البريد الإلكتروني الخاص بالمكتب (إختياري)"/>
+            <TextBlock Margin="8" Grid.Row="12" TextWrapping="Wrap" FontSize="12" TextAlignment="Justify">
+                بالنقر على "إنشاء حساب نديم"، فإنك توافق على
+                <Hyperlink>شروط الإستخدام</Hyperlink>
+                و
+                <Hyperlink>سياسة الخصوصية</Hyperlink>
+                مع إمكانية تلقي إشعارات عبر رسائل SMS
+                أو البريد الإلكتروني من نديم.
+            </TextBlock>
+            <Border Grid.Row="13">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Margin="4" Grid.Column="0" Width="174">
+                        <FontIcon Glyph="&#xE893;" />
+                    </Button>
+                    <Button Margin="4" Grid.Column="1" Width="174" Style="{StaticResource AccentButtonStyle}">
+                        إنشاء حساب نديم
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </StackPanel>
+</Page>

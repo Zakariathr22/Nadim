@@ -17,6 +17,7 @@ using Microsoft.UI;
 using WinRT.Interop;
 using Windows.UI;
 using Microsoft.UI.Xaml.Media.Animation;
+using Nadim.Views.SignUp;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -129,7 +130,7 @@ namespace Nadim.Views
                         pageType = typeof(LawyerInfoPage);
                         break;
                     case 1:
-                        pageType = typeof(BlankPage2);
+                        pageType = typeof(OfficeInfoPage);
                         break;
                     case 2:
                         pageType = typeof(LawyerInfoPage);
