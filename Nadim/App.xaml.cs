@@ -36,7 +36,7 @@ namespace Nadim
         {
             this.InitializeComponent();
             openWindowCount = 0;
-            // Get the desired culture (e.g., French)
+            // Get the desired culture (e.g., Arabic)
             CultureInfo newCulture = CultureInfo.GetCultureInfo("ar-DZ");
 
             // Set the CurrentCulture of the current thread

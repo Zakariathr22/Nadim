@@ -51,9 +51,6 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Update="Assets\Logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

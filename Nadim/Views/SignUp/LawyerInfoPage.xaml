@@ -36,37 +36,86 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBox x:Name="lastName" Margin="4" Grid.Column="0" PlaceholderText="اللقب"/>
-                        <TextBox x:Name="firstName" Margin="4" Grid.Column="1" PlaceholderText="الاسم"/>
+                    <StackPanel Margin="4" Grid.Column="0">
+                        <TextBox x:Name="lastNameTextBox" PlaceholderText="اللقب"/>
+                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب إدخال اللقب</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*اللقب أطول من اللازم</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*اللقب أقصر من اللازم</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*اللقب يجب أن يكون بالعربية</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب ألا يحتوي اللقب على رقم</TextBlock>
+                    </StackPanel>
+                    <StackPanel Margin="4" Grid.Column="1">
+                        <TextBox x:Name="firstNameTextBox" PlaceholderText="الاسم"/>
+                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب إدخال الاسم</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*الاسم أطول من اللازم</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*الاسم أقصر من اللازم</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*الاسم يجب أن يكون بالعربية</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب ألا يحتوي الاسم على رقم</TextBlock>
+                    </StackPanel>                            
                     </Grid>
                 </Border>
-            <DatePicker Header="تاريخ الميلاد" Margin="4" Grid.Row="2" Language="ar-DZ" Width="357" />
-
+            <StackPanel Margin="4" Grid.Row="2">
+                <DatePicker x:Name="birthDateDatePicker" Header="تاريخ الميلاد" Language="ar-DZ" Width="357" />
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب تحديد تاريخ الميلاد</TextBlock>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يرجى التأكد من تاريخ الميلاد</TextBlock>
+            </StackPanel>
             <Border Grid.Row="3">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
 
-                        <RadioButton Margin="4" Grid.Column="0" Content="ذكر"/>
-                        <RadioButton Margin="4" Grid.Column="1" Content="أنثى"/>
+                    <RadioButton x:Name="maleRadioButton" Margin="4 4 4 0" Grid.Column="0" Content="ذكر"/>
+                    <RadioButton x:Name="femaleRadiobutton" Margin="4 4 4 0" Grid.Column="1" Content="أنثى"/>
 
-                    </Grid>
-                </Border>
-                <TextBlock Margin="4 8 4 4" Grid.Row="4" Text="2- المعلومات المهنية:" FontWeight="Bold"/>
-                <ComboBox Margin="4" Grid.Row="5" PlaceholderText="الإعتماد" Width="357">
+                    <TextBlock Margin="4 0 4 4" Grid.Row="1" Grid.ColumnSpan="2" FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب تحديد الجنس ذكر أو أنثى</TextBlock>
+                </Grid>
+            </Border>
+            <TextBlock Margin="4 8 4 4" Grid.Row="4" Text="2- المعلومات المهنية:" FontWeight="Bold"/>
+            <StackPanel Margin="4" Grid.Row="5">
+                <ComboBox x:Name="accreditationComboBox" PlaceholderText="الإعتماد" Width="357">
                     <x:String>معتمد(ة) لدى المحكمة العليا ومجلس الدولة</x:String>
                     <x:String>معتمد(ة) لدى المجالس القضائية</x:String>
                 </ComboBox>
-                <DatePicker Header="تاريخ بداية النشاط" Margin="4" Grid.Row="6" Language="ar-DZ" Width="357" DayVisible="False"/>
-                
-                <TextBlock Margin="4 8 4 4" Grid.Row="7" Text="3- معلومات الحساب:" FontWeight="bold"/>
-                <TextBox Margin="4" Grid.Row="8" PlaceholderText="البريد الإلكتروني" TextAlignment="Left"/>
-                <TextBox Margin="4" Grid.Row="9" PlaceholderText="رقم الهاتف" TextAlignment="Left"/>
-                <PasswordBox Margin="4" Grid.Row="10" PlaceholderText="كلمة المرور"/>
-                <PasswordBox Margin="4" Grid.Row="11" PlaceholderText="تأكيد كلمة المرور"/>
-
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب تحديد الإعتماد</TextBlock>
+            </StackPanel>
+            <StackPanel Margin="4" Grid.Row="6">
+                <DatePicker x:Name="startingDateDatePicker" Header="تاريخ بداية النشاط" Language="ar-DZ" Width="357" DayVisible="False"/>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب تحديد تاريخ بداية النشاط</TextBlock>
+            </StackPanel>
+            <TextBlock Margin="4 8 4 4" Grid.Row="7" Text="3- معلومات الحساب:" FontWeight="bold"/>
+            <StackPanel Margin="4" Grid.Row="8">
+                <TextBox x:Name="emailTextBox" PlaceholderText="البريد الإلكتروني" TextAlignment="Left"/>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب إدخال البريد الإلكتروني</TextBlock>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*البريد الإلكتروني غير صالح</TextBlock>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*هذا الحساب موجود بالفعل</TextBlock>
+            </StackPanel>
+            <StackPanel Margin="4" Grid.Row="9">
+                <TextBox x:Name="phoneTextBox" PlaceholderText="رقم الهاتف" TextAlignment="Left"/>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب إدخال رقم الهاتف</TextBlock>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*رقم الهاتف غير صالح</TextBlock>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*رقم الهاتف أطول من اللازم</TextBlock>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*رقم الهاتف أقصر من اللازم</TextBlock>
+            </StackPanel>
+            <StackPanel Margin="4" Grid.Row="10">
+                <PasswordBox x:Name="passwordBox" PlaceholderText="كلمة المرور"/>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب إدخال كلمة المرور</TextBlock>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب أن يكون عدد أحرف كلمة المرور ثمانية على الأقل</TextBlock>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب أن تحتوي كلمة المرور حرف أبجدي واحد على الأقل</TextBlock>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب أن تحتوي كلمة المرور رقم واحد على الأقل</TextBlock>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب أن تحتوي كلمة المرور رمز واحد على الأقل مثل: * ( - _ ) = + ...إلخ</TextBlock>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*كلمة المرور أطول من اللازم</TextBlock>
+            </StackPanel>
+            <StackPanel Margin="4" Grid.Row="11">
+                <PasswordBox x:Name="confirmPasswordBox" PlaceholderText="تأكيد كلمة المرور"/>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*يجب إدخال تأكيد كلمة المرور</TextBlock>
+                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}">*كلمة المرور وتأكيدها غير متطابقين</TextBlock>
+            </StackPanel>
             <Border Grid.Row="12">
                 <Grid>
                     <Grid.ColumnDefinitions>
