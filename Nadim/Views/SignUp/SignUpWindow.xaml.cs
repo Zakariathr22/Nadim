@@ -19,6 +19,7 @@ using Windows.UI;
 using Microsoft.UI.Xaml.Media.Animation;
 using Nadim.Views.SignUp;
 using System.Runtime.CompilerServices;
+using Nadim.ViewModels;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -35,6 +36,7 @@ namespace Nadim.Views
         private AppWindowTitleBar titleBar;
         private int previousSelectedIndex;
         private bool isActivatedOnce = false;
+        public static SignUpLawyerInfoViewModel signUpLawyerInfoViewModel = new SignUpLawyerInfoViewModel();
         public SignUpWindow()
         {
             this.InitializeComponent();

@@ -14,6 +14,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using Nadim.Views;
 using Windows.UI.ViewManagement;
+using Nadim.ViewModels;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -23,10 +24,10 @@ namespace Nadim
     
     public sealed partial class LawyerInfoPage : Page
     {
-        private UISettings uiSettings = new UISettings();
         public LawyerInfoPage()
         {
             this.InitializeComponent();
+            mainPanel.DataContext = SignUpWindow.signUpLawyerInfoViewModel;
         }
 
 
@@ -34,8 +35,7 @@ namespace Nadim
         {
             App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemOfficeInfo;
             App.signUpWindow.SelectorBarItemPersonalInfo.IsEnabled = false;
-            App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = true;
-      
+            App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = true;     
         }
     }
 }

@@ -15,7 +15,6 @@
     <Content Remove="Assets\Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="BlankPage2.xaml" />
     <None Remove="LawyerInfoPage.xaml" />
     <None Remove="Views\LoginWindow.xaml" />
     <None Remove="Views\SignUpWindow.xaml" />
@@ -61,9 +60,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Update="Views\SignUp\OfficeInfoPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Update="BlankPage2.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Update="LawyerInfoPage.xaml">

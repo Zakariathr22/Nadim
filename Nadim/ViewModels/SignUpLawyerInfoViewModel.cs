@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Nadim.ViewModels
 {
-    internal partial class SignUpLawyerInfoViewModel : ObservableObject
+    public partial class SignUpLawyerInfoViewModel : ObservableObject
     {
         [ObservableProperty] private string lastName = "";
         [ObservableProperty] private string firstName = "";
@@ -59,6 +59,8 @@ namespace Nadim.ViewModels
 
         [ObservableProperty] private Visibility accreditationRequiredErrorVisibilty = Visibility.Collapsed;
 
+        [ObservableProperty] private Visibility startDateRequiredErrorVisiblity = Visibility.Collapsed;
+
         [ObservableProperty] private Visibility emailRequiredErrorVisibilty = Visibility.Collapsed;
         [ObservableProperty] private Visibility emailIsNotValidErrorVisibilty = Visibility.Collapsed;
         [ObservableProperty] private Visibility emailAllreadyExistsErrorVisibilty = Visibility.Collapsed;
@@ -70,9 +72,9 @@ namespace Nadim.ViewModels
 
         [ObservableProperty] private Visibility passwordRequiredErrorVisibilty = Visibility.Collapsed;
         [ObservableProperty] private Visibility passwordTooShortErrorVisiblity = Visibility.Collapsed;
-        [ObservableProperty] private Visibility passwordMustContainAlpabet = Visibility.Collapsed;
-        [ObservableProperty] private Visibility passwordMustContainNumber = Visibility.Collapsed;
-        [ObservableProperty] private Visibility passwordMustContainSymbol = Visibility.Collapsed;
+        [ObservableProperty] private Visibility passwordMustContainAlpabetErrorVisiblity = Visibility.Collapsed;
+        [ObservableProperty] private Visibility passwordMustContainNumberErrorVisiblity = Visibility.Collapsed;
+        [ObservableProperty] private Visibility passwordMustContainSymbolErrorVisiblity = Visibility.Collapsed;
         [ObservableProperty] private Visibility passwordTooLongErrorVisiblity = Visibility.Collapsed;
 
         [ObservableProperty] private Visibility confirmPasswoedRequiredErrorVisibilty = Visibility.Collapsed;
