@@ -37,27 +37,27 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                     <StackPanel Margin="4" Grid.Column="0">
-                        <TextBox x:Name="lastNameTextBox" PlaceholderText="اللقب"/>
+                        <TextBox x:Name="lastNameTextBox" PlaceholderText="اللقب" Background="{Binding LastNameTextBoxBackground, Mode=OneWay}"/>
                         <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameRequiredErrorVisiblity}">*يجب إدخال اللقب</TextBlock>
-                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameTooLongErrorVisiblity}">*اللقب أطول من اللازم</TextBlock>
-                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameTooShortErrorVisiblity}">*اللقب أقصر من اللازم</TextBlock>
-                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameIsNotArabicErrorVisibility}">*اللقب يجب أن يكون بالعربية</TextBlock>
-                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameContainsNumberErrorVisibility}">*يجب ألا يحتوي اللقب على رقم</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameTooLongErrorVisiblity}">*اللقب أطول من اللازم</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameTooShortErrorVisiblity}">*اللقب أقصر من اللازم</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameIsNotArabicErrorVisibility}">*اللقب يجب أن يكون بالعربية</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameContainsNumberErrorVisibility}">*يجب ألا يحتوي اللقب على رقم</TextBlock>
                     </StackPanel>
                     <StackPanel Margin="4" Grid.Column="1">
-                        <TextBox x:Name="firstNameTextBox" PlaceholderText="الاسم"/>
-                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameRequiredErrorVisiblity}">*يجب إدخال الاسم</TextBlock>
-                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameTooLongErrorVisiblity}">*الاسم أطول من اللازم</TextBlock>
-                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameTooShortErrorVisiblity}">*الاسم أقصر من اللازم</TextBlock>
-                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameIsNotArabicErrorVisibility}">*الاسم يجب أن يكون بالعربية</TextBlock>
-                        <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameContainsNumberErrorVisibility}">*يجب ألا يحتوي الاسم على رقم</TextBlock>
+                        <TextBox x:Name="firstNameTextBox" PlaceholderText="الاسم" Background="{Binding FirstNameTextBoxBackground, Mode=OneWay}"/>
+                        <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameRequiredErrorVisiblity}">*يجب إدخال الاسم</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameTooLongErrorVisiblity}">*الاسم أطول من اللازم</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameTooShortErrorVisiblity}">*الاسم أقصر من اللازم</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameIsNotArabicErrorVisibility}">*الاسم يجب أن يكون بالعربية</TextBlock>
+                        <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameContainsNumberErrorVisibility}">*يجب ألا يحتوي الاسم على رقم</TextBlock>
                     </StackPanel>                            
                     </Grid>
                 </Border>
             <StackPanel Margin="4" Grid.Row="2">
-                <DatePicker x:Name="birthDateDatePicker" Header="تاريخ الميلاد" Language="ar-DZ" Width="357" />
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding BirthDateRequiredErrorVisibilty}">*يجب تحديد تاريخ الميلاد</TextBlock>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding BirthDateVerifyErrorMessage}">*يرجى التأكد من تاريخ الميلاد</TextBlock>
+                <DatePicker x:Name="birthDateDatePicker" Header="تاريخ الميلاد" Language="ar-DZ" Width="357" Background="{Binding BirthDateDatePickerBackground, Mode=OneWay}"/>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding BirthDateRequiredErrorVisibilty}">*يجب تحديد تاريخ الميلاد</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding BirthDateVerifyErrorMessage}">*يرجى التأكد من تاريخ الميلاد</TextBlock>
             </StackPanel>
             <Border Grid.Row="3">
                 <Grid>
@@ -73,48 +73,48 @@
                     <RadioButton x:Name="maleRadioButton" Margin="4 4 4 0" Grid.Column="0" Content="ذكر"/>
                     <RadioButton x:Name="femaleRadiobutton" Margin="4 4 4 0" Grid.Column="1" Content="أنثى"/>
 
-                    <TextBlock Margin="4 0 4 4" Grid.Row="1" Grid.ColumnSpan="2" FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding GenderRequiredErrorVisibilty}">*يجب تحديد الجنس ذكر أو أنثى</TextBlock>
+                    <TextBlock Margin="4 0 4 4" Grid.Row="1" Grid.ColumnSpan="2" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding GenderRequiredErrorVisibilty}">*يجب تحديد الجنس ذكر أو أنثى</TextBlock>
                 </Grid>
             </Border>
             <TextBlock Margin="4 8 4 4" Grid.Row="4" Text="2- المعلومات المهنية:" FontWeight="Bold"/>
             <StackPanel Margin="4" Grid.Row="5">
-                <ComboBox x:Name="accreditationComboBox" PlaceholderText="الإعتماد" Width="357">
+                <ComboBox x:Name="accreditationComboBox" PlaceholderText="الإعتماد" Width="357" Background="{Binding AccreditationComboBoxBackground}">
                     <x:String>معتمد(ة) لدى المحكمة العليا ومجلس الدولة</x:String>
                     <x:String>معتمد(ة) لدى المجالس القضائية</x:String>
                 </ComboBox>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding AccreditationRequiredErrorVisibilty}">*يجب تحديد الإعتماد</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding AccreditationRequiredErrorVisibilty}">*يجب تحديد الإعتماد</TextBlock>
             </StackPanel>
             <StackPanel Margin="4" Grid.Row="6">
-                <DatePicker x:Name="startingDateDatePicker" Header="تاريخ بداية النشاط" Language="ar-DZ" Width="357" DayVisible="False"/>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding StartDateRequiredErrorVisiblity}">*يجب تحديد تاريخ بداية النشاط</TextBlock>
+                <DatePicker x:Name="startingDateDatePicker" Header="تاريخ بداية النشاط" Language="ar-DZ" Width="357" DayVisible="False" Background="{Binding StartingDateDatePickerBackground}"/>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding StartDateRequiredErrorVisiblity}">*يجب تحديد تاريخ بداية النشاط</TextBlock>
             </StackPanel>
             <TextBlock Margin="4 8 4 4" Grid.Row="7" Text="3- معلومات الحساب:" FontWeight="bold"/>
             <StackPanel Margin="4" Grid.Row="8">
-                <TextBox x:Name="emailTextBox" PlaceholderText="البريد الإلكتروني" TextAlignment="Left"/>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailRequiredErrorVisibilty}">*يجب إدخال البريد الإلكتروني</TextBlock>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailIsNotValidErrorVisibilty}">*البريد الإلكتروني غير صالح</TextBlock>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailAllreadyExistsErrorVisibilty}">*هذا الحساب موجود بالفعل</TextBlock>
+                <TextBox x:Name="emailTextBox" PlaceholderText="البريد الإلكتروني" TextAlignment="Left" Background="{Binding EmailTextBoxBackground}"/>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailRequiredErrorVisibilty}">*يجب إدخال البريد الإلكتروني</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailIsNotValidErrorVisibilty}">*البريد الإلكتروني غير صالح</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailAllreadyExistsErrorVisibilty}">*هذا الحساب موجود بالفعل</TextBlock>
             </StackPanel>
             <StackPanel Margin="4" Grid.Row="9">
-                <TextBox x:Name="phoneTextBox" PlaceholderText="رقم الهاتف" TextAlignment="Left"/>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding PhoneRequiredErrorVisibilty}">*يجب إدخال رقم الهاتف</TextBlock>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding PhoneIsNotValidErrorVisibilty}">*رقم الهاتف غير صالح</TextBlock>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding PhoneTooLongErrorVisiblity}">*رقم الهاتف أطول من اللازم</TextBlock>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding PhoneTooShortErrorVisiblity}">*رقم الهاتف أقصر من اللازم</TextBlock>
+                <TextBox x:Name="phoneTextBox" PlaceholderText="رقم الهاتف" TextAlignment="Left" Background="{Binding PhoneTextBoxBackground}"/>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PhoneRequiredErrorVisibilty}">*يجب إدخال رقم الهاتف</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PhoneIsNotValidErrorVisibilty}">*رقم الهاتف غير صالح</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PhoneTooLongErrorVisiblity}">*رقم الهاتف أطول من اللازم</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PhoneTooShortErrorVisiblity}">*رقم الهاتف أقصر من اللازم</TextBlock>
             </StackPanel>
             <StackPanel Margin="4" Grid.Row="10">
-                <PasswordBox x:Name="passwordBox" PlaceholderText="كلمة المرور"/>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordRequiredErrorVisibilty}">*يجب إدخال كلمة المرور</TextBlock>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordTooShortErrorVisiblity}">*يجب أن يكون عدد أحرف كلمة المرور ثمانية على الأقل</TextBlock>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordMustContainAlpabetErrorVisiblity}">*يجب أن تحتوي كلمة المرور حرف أبجدي واحد على الأقل</TextBlock>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordMustContainNumberErrorVisiblity}">*يجب أن تحتوي كلمة المرور رقم واحد على الأقل</TextBlock>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordMustContainSymbolErrorVisiblity}">*يجب أن تحتوي كلمة المرور رمز واحد على الأقل مثل: * ( - _ ) = + ...إلخ</TextBlock>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordTooLongErrorVisiblity}">*كلمة المرور أطول من اللازم</TextBlock>
+                <PasswordBox x:Name="passwordBox" PlaceholderText="كلمة المرور" Background="{Binding PasswordBoxBackground}"/>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordRequiredErrorVisibilty}">*يجب إدخال كلمة المرور</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordTooShortErrorVisiblity}">*يجب أن يكون عدد أحرف كلمة المرور ثمانية على الأقل</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordMustContainAlpabetErrorVisiblity}">*يجب أن تحتوي كلمة المرور حرف أبجدي واحد على الأقل</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordMustContainNumberErrorVisiblity}">*يجب أن تحتوي كلمة المرور رقم واحد على الأقل</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordMustContainSymbolErrorVisiblity}">*يجب أن تحتوي كلمة المرور رمز واحد على الأقل مثل: * ( - _ ) = + ...إلخ</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordTooLongErrorVisiblity}">*كلمة المرور أطول من اللازم</TextBlock>
             </StackPanel>
             <StackPanel Margin="4" Grid.Row="11">
-                <PasswordBox x:Name="confirmPasswordBox" PlaceholderText="تأكيد كلمة المرور"/>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding ConfirmPasswoedRequiredErrorVisibilty}">*يجب إدخال تأكيد كلمة المرور</TextBlock>
-                <TextBlock FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding ConfirmPasswoedMatchErrorVisibilty}">*كلمة المرور وتأكيدها غير متطابقين</TextBlock>
+                <PasswordBox x:Name="confirmPasswordBox" PlaceholderText="تأكيد كلمة المرور" Background="{Binding ConfirmPasswordBoxBackground}"/>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding ConfirmPasswoedRequiredErrorVisibilty}">*يجب إدخال تأكيد كلمة المرور</TextBlock>
+                <TextBlock FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding ConfirmPasswoedMatchErrorVisibilty}">*كلمة المرور وتأكيدها غير متطابقين</TextBlock>
             </StackPanel>
             <Border Grid.Row="12">
                 <Grid>
@@ -123,7 +123,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="nextButton" Margin="4 8 4 4" Grid.Column="1" Width="174" Style="{StaticResource AccentButtonStyle}" Click="nextButton_Click">
+                    <Button x:Name="nextButton" Margin="4 8 4 4" Grid.Column="1" Width="174" Style="{ThemeResource AccentButtonStyle}" Click="nextButton_Click">
                         <Button.Content>
                             <FontIcon Glyph="&#xE892;" />
                         </Button.Content>

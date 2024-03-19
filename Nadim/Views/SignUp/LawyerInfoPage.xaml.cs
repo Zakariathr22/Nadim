@@ -28,8 +28,8 @@ namespace Nadim
         {
             this.InitializeComponent();
             mainPanel.DataContext = SignUpWindow.signUpLawyerInfoViewModel;
+            
         }
-
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {

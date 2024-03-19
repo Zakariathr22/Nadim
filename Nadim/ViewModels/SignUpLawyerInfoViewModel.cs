@@ -26,17 +26,17 @@ namespace Nadim.ViewModels
         [ObservableProperty] private string password;
         [ObservableProperty] private string confirmPassword;
 
-    //------------------------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------------------
 
-        [ObservableProperty] private Brush lastNameTextBoxBackground = App.Current.Resources["CardBackgroundFillColorDefaultBrush"] as Brush;
-        [ObservableProperty] private Brush firstNameTextBoxBackground = App.Current.Resources["CardBackgroundFillColorDefaultBrush"] as Brush;
-        [ObservableProperty] private Brush birthDateDatePickerBackground = App.Current.Resources["CardBackgroundFillColorDefaultBrush"] as Brush;
-        [ObservableProperty] private Brush accreditationComboBoxBackground = App.Current.Resources["CardBackgroundFillColorDefaultBrush"] as Brush;
-        [ObservableProperty] private Brush startingDateDatePickerBackground = App.Current.Resources["CardBackgroundFillColorDefaultBrush"] as Brush;
-        [ObservableProperty] private Brush emailTextBoxBackground = App.Current.Resources["CardBackgroundFillColorDefaultBrush"] as Brush;
-        [ObservableProperty] private Brush phoneTextBoxBackground = App.Current.Resources["CardBackgroundFillColorDefaultBrush"] as Brush;
-        [ObservableProperty] private Brush passwordBoxBackground = App.Current.Resources["CardBackgroundFillColorDefaultBrush"] as Brush;
-        [ObservableProperty] private Brush confirmPasswordBoxBackground = App.Current.Resources["CardBackgroundFillColorDefaultBrush"] as Brush;
+        [ObservableProperty] private Brush lastNameTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+        [ObservableProperty] private Brush firstNameTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+        [ObservableProperty] private Brush birthDateDatePickerBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+        [ObservableProperty] private Brush accreditationComboBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+        [ObservableProperty] private Brush startingDateDatePickerBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+        [ObservableProperty] private Brush emailTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+        [ObservableProperty] private Brush phoneTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+        [ObservableProperty] private Brush passwordBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+        [ObservableProperty] private Brush confirmPasswordBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
 
     //------------------------------------------------------------------------------------------------------------------------------------------
 

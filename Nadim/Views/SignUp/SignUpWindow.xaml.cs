@@ -36,7 +36,7 @@ namespace Nadim.Views
         private AppWindowTitleBar titleBar;
         private int previousSelectedIndex;
         private bool isActivatedOnce = false;
-        public static SignUpLawyerInfoViewModel signUpLawyerInfoViewModel = new SignUpLawyerInfoViewModel();
+        public static SignUpLawyerInfoViewModel signUpLawyerInfoViewModel;
         public SignUpWindow()
         {
             this.InitializeComponent();
@@ -65,6 +65,9 @@ namespace Nadim.Views
             LawyerInfoPage lawyerInfoPage = new LawyerInfoPage();
             OfficeInfoPage officeInfoPage = new OfficeInfoPage();
             EmailVerificationPage emailVerificationPage = new EmailVerificationPage();
+
+            signUpLawyerInfoViewModel = new SignUpLawyerInfoViewModel();
+            
     }
 
         private void SignUpWindow_Closed(object sender, WindowEventArgs args)
