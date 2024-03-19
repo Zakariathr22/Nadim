@@ -28,14 +28,34 @@ namespace Nadim
         {
             this.InitializeComponent();
             mainPanel.DataContext = SignUpWindow.signUpLawyerInfoViewModel;
-            
+            birthDateDatePicker.MaxYear = DateTimeOffset.Now.AddYears(-15);
+            startingDateDatePicker.MaxYear = DateTimeOffset.Now;
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemOfficeInfo;
-            App.signUpWindow.SelectorBarItemPersonalInfo.IsEnabled = false;
-            App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = true;     
+            SignUpWindow.signUpLawyerInfoViewModel.RequiredFieldsCommand.Execute(null);
+            if (SignUpWindow.signUpLawyerInfoViewModel.EveryThingValid)
+            {
+                App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemOfficeInfo;
+                App.signUpWindow.SelectorBarItemPersonalInfo.IsEnabled = false;
+                App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = true;
+            }   
+        }
+
+        private void maleRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+            SignUpWindow.signUpLawyerInfoViewModel.Gender = "male";
+        }
+
+        private void femaleRadiobutton_Checked(object sender, RoutedEventArgs e)
+        {
+            SignUpWindow.signUpLawyerInfoViewModel.Gender = "female";
+        }
+
+        private void birthDateDatePicker_SelectedDateChanged(DatePicker sender, DatePickerSelectedValueChangedEventArgs args)
+        {
+
         }
     }
 }

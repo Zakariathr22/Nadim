@@ -62,10 +62,6 @@ namespace Nadim.Views
             Activated += SignUpWindow_Activated;
             Closed += SignUpWindow_Closed;
 
-            LawyerInfoPage lawyerInfoPage = new LawyerInfoPage();
-            OfficeInfoPage officeInfoPage = new OfficeInfoPage();
-            EmailVerificationPage emailVerificationPage = new EmailVerificationPage();
-
             signUpLawyerInfoViewModel = new SignUpLawyerInfoViewModel();
             
     }
@@ -171,6 +167,7 @@ namespace Nadim.Views
 
         private void haveAccountAlready_Click(object sender, RoutedEventArgs e)
         {
+
             LoginWindow login = new LoginWindow();
             login.Activate();
             this.Close();
