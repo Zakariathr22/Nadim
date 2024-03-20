@@ -22,7 +22,7 @@ namespace Nadim.Services
             {
                 return false;
             }
-            return text.Any(char.IsDigit);
+            return text.Any(c => Char.IsDigit(c));
         }
 
         public static bool IsValidEmail(string email)
@@ -62,30 +62,33 @@ namespace Nadim.Services
             return text.Length >= minimumLength;
         }
 
-        public static bool HasMaximumCharacters(string text, int minimumLength)
+        public static bool HasMaximumCharacters(string text, int maximumLength)
         {
-            return text.Length <= minimumLength;
+            return text.Length <= maximumLength;
         }
 
         public static bool ContainsWhitespace(string text)
         {
             return Regex.IsMatch(text, @"\s");
         }
- 
-        public static string RemoveLastWhitespace(string text)
+
+        public static bool ContainsSymbol(string text)
         {
             if (string.IsNullOrEmpty(text))
             {
-                return text;
+                return false; // Empty or null strings don't contain symbols
             }
 
-            int length = text.Length;
-            if (char.IsWhiteSpace(text[length - 1]))
+            foreach (char c in text)
             {
-                return text.Substring(0, length - 1);
+                if (!char.IsLetterOrDigit(c) && !char.IsWhiteSpace(c))
+                {
+                    return true;
+                }
             }
 
-            return text;
+            return false;
         }
+
     }
 }
