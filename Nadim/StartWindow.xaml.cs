@@ -32,10 +32,7 @@ namespace Nadim
         public static LoginWindow loginWindow;
         public StartWindow()
         {
-            
-
             this.InitializeComponent();
-
             
             appWindow = GetAppWindowForCurrentWindow();
             appWindow.Resize(new Windows.Graphics.SizeInt32(50, 50));

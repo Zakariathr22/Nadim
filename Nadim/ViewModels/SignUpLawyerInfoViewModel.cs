@@ -93,7 +93,10 @@ namespace Nadim.ViewModels
         void RequiredFields()
         {
             EveryThingValid = true;
-            
+            bool emailExistBefor = DataValidationService.DoesEmailExist(Email.TrimStart().TrimStart());
+            bool phoneExistBefor = DataValidationService.DoesPhoneExist(Phone.Replace(" ", ""));
+
+
             if ( LastName.TrimStart() == ""
                 || !DataValidationService.HasMaximumCharacters(LastName.TrimStart().TrimEnd(), 49)
                 || !DataValidationService.HasMinimumCharacters(LastName.TrimStart().TrimEnd(), 2)
@@ -266,7 +269,8 @@ namespace Nadim.ViewModels
             }
 
             if (Email.TrimStart() == ""
-                || !DataValidationService.IsValidEmail(Email.TrimStart().TrimStart()))
+                || !DataValidationService.IsValidEmail(Email.TrimStart().TrimStart())
+                || emailExistBefor)
             {
                 EveryThingValid = false;
                 EmailTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
@@ -288,6 +292,14 @@ namespace Nadim.ViewModels
                 {
                     EmailIsNotValidErrorVisibilty = Visibility.Collapsed;
                 }
+                if (emailExistBefor)
+                {
+                    EmailAllreadyExistsErrorVisibilty = Visibility.Visible;
+                }
+                else
+                {
+                    EmailAllreadyExistsErrorVisibilty = Visibility.Collapsed;
+                }
             }
             else
             {
@@ -295,12 +307,14 @@ namespace Nadim.ViewModels
                 EmailTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
                 EmailRequiredErrorVisibilty = Visibility.Collapsed;
                 EmailIsNotValidErrorVisibilty = Visibility.Collapsed;
+                EmailAllreadyExistsErrorVisibilty = Visibility.Collapsed;
             }
 
             if (Phone.TrimStart() == ""
                 || !DataValidationService.IsNumber(Phone)
                 || !DataValidationService.HasMaximumCharacters(Phone.Replace(" ", ""), 10)
-                || !DataValidationService.HasMinimumCharacters(Phone.Replace(" ", ""), 9))
+                || !DataValidationService.HasMinimumCharacters(Phone.Replace(" ", ""), 9)
+                || phoneExistBefor)
             {
                 EveryThingValid = false;
                 PhoneTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
@@ -341,6 +355,15 @@ namespace Nadim.ViewModels
                 {
                     PhoneTooShortErrorVisiblity = Visibility.Collapsed;
                 }
+
+                if (phoneExistBefor)
+                {
+                    PhoneAllreadyExistsErrorVisibilty = Visibility.Visible;
+                }
+                else
+                {
+                    PhoneAllreadyExistsErrorVisibilty = Visibility.Collapsed;
+                }
             }
             else
             {
@@ -350,7 +373,7 @@ namespace Nadim.ViewModels
                 PhoneIsNotValidErrorVisibilty = Visibility.Collapsed;
                 PhoneTooLongErrorVisiblity = Visibility.Collapsed;
                 PhoneTooShortErrorVisiblity = Visibility.Collapsed;
-
+                PhoneAllreadyExistsErrorVisibilty = Visibility.Collapsed;
             }
 
             if (Password == ""

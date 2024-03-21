@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySqlConnector;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
@@ -88,6 +89,26 @@ namespace Nadim.Services
             }
 
             return false;
+        }
+
+        public static bool DoesEmailExist(string email)
+        {
+            if (email == "") return false;
+
+            string sql = "CALL `CountUserByEmail`(@email);";
+            object countObj = App.dataAccess.ExecuteScalar(sql, new MySqlParameter("@email", email));
+            Int64 count = (Int64)countObj;
+            return count > 0;
+        }
+
+        public static bool DoesPhoneExist(string phone)
+        {
+            if (phone == "") return false;
+
+            string sql = "CALL `CountUserByPhone`(@phone);";
+            object countObj = App.dataAccess.ExecuteScalar(sql, new MySqlParameter("@phone", phone));
+            Int64 count = (Int64)countObj;
+            return count > 0;
         }
 
     }

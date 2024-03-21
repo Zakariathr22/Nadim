@@ -21,6 +21,7 @@
     <None Remove="Views\SignUp\EmailVerificationPage.xaml" />
     <None Remove="Views\SignUp\OfficeInfoPage.xaml" />
     <None Remove="Views\SignUp\PhoneVerificationPage.xaml" />
+    <None Remove="Views\SystemMessages\CustomMessageBox.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -53,6 +54,9 @@
     <None Update="Assets\Logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\SystemMessages\CustomMessageBox.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\SignUp\PhoneVerificationPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

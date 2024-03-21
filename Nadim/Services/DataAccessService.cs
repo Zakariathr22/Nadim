@@ -1,5 +1,6 @@
 ﻿using MySqlConnector;
 using System;
+using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 
 namespace Nadim.Services
@@ -19,45 +20,61 @@ namespace Nadim.Services
             return new DataAccessService(connectionString);
         }
 
-        public async Task OpenConnectionAsync()
+        public void OpenConnection()
         {
             _connection = new MySqlConnection(_connectionString);
-            await _connection.OpenAsync();
+            _connection.Open();
         }
 
-        public async Task CloseConnectionAsync()
+        public void CloseConnection()
         {
             if (_connection != null && _connection.State != System.Data.ConnectionState.Closed)
             {
-                await _connection.CloseAsync();
+                _connection.Close();
                 _connection.Dispose();
             }
         }
 
-        public async Task<object> ExecuteScalarAsync(string query, params MySqlParameter[] parameters)
+        public object ExecuteScalar(string query, params MySqlParameter[] parameters)
         {
             using var command = new MySqlCommand(query, _connection);
             command.Parameters.AddRange(parameters);
-            return await command.ExecuteScalarAsync();
+            return command.ExecuteScalar();
         }
 
-        public async Task<MySqlDataReader> ExecuteQueryAsync(string query, params MySqlParameter[] parameters)
+        public MySqlDataReader ExecuteQuery(string query, params MySqlParameter[] parameters)
         {
             using var command = new MySqlCommand(query, _connection);
             command.Parameters.AddRange(parameters);
-            return await command.ExecuteReaderAsync();
+            return command.ExecuteReader();
         }
 
-        public async Task<int> ExecuteNonQueryAsync(string query, params MySqlParameter[] parameters)
+        public int ExecuteNonQuery(string query, params MySqlParameter[] parameters)
         {
             using var command = new MySqlCommand(query, _connection);
             command.Parameters.AddRange(parameters);
-            return await command.ExecuteNonQueryAsync();
+            return command.ExecuteNonQuery();
         }
 
         public void Dispose()
         {
             _connection?.Dispose();
+        }
+
+        public bool IsConnectionAvailable()
+        {
+            try
+            {
+                using (var ping = new Ping())
+                {
+                    var reply = ping.Send("127.0.0.1", 1000);
+                    return reply.Status == IPStatus.Success;
+                }
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

@@ -6,7 +6,9 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Shapes;
+using Nadim.Services;
 using Nadim.Views;
+using Nadim.Views.SystemMessages;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -30,6 +32,7 @@ namespace Nadim
     /// </summary>
     public partial class App : Application
     {
+        public static DataAccessService dataAccess = DataAccessService.CreateInstance("server=localhost;port=3306;database=nadim_db;uid=root;pwd=");
         public static int openWindowCount;
         public static SignUpWindow signUpWindow;
         public App()
@@ -47,6 +50,17 @@ namespace Nadim
             Thread.CurrentThread.CurrentUICulture = newCulture;
 
             ApplicationLanguages.PrimaryLanguageOverride = "ar-DZ";
+
+            try
+            {
+                dataAccess.OpenConnection();
+            }
+            catch
+            {
+                CustomMessageBox messageBox = new CustomMessageBox();
+                messageBox.Activate();
+            }
+            
         }
 
         /// <summary>
