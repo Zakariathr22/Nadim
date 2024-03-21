@@ -57,8 +57,7 @@ namespace Nadim
             }
             catch
             {
-                CustomMessageBox messageBox = new CustomMessageBox();
-                messageBox.Activate();
+
             }
             
         }

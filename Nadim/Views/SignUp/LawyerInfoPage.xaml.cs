@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -37,7 +37,14 @@ namespace Nadim
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            SignUpWindow.signUpLawyerInfoViewModel.RequiredFieldsCommand.Execute(null);
+            try
+            {
+                SignUpWindow.signUpLawyerInfoViewModel.RequiredFieldsCommand.Execute(null);
+            }
+            catch
+            {
+                ShowDialog();
+            }
             if (SignUpWindow.signUpLawyerInfoViewModel.EveryThingValid)
             {
                 App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemOfficeInfo;
@@ -442,6 +449,39 @@ namespace Nadim
                 confirmPasswordBox.Background = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
                 confirmPasswoedRequiredError.Visibility = Visibility.Collapsed;
                 confirmPasswoedMatchError.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private async void ShowDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = "فشل الإتصال بالخادم";
+            dialog.PrimaryButtonText = "حاول مرة أخرى";
+            dialog.CloseButtonText = "إغلاق البرنامج";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = "تم رصد خطأ في الإتصال بالخادم، يرجى تفقد الإتصال بالإنترنت لديك";
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                try
+                {
+                    App.dataAccess.OpenConnection();
+                }
+                catch
+                {
+                    ShowDialog();
+                }
+            }
+            else
+            {
+                App.signUpWindow.Close();
             }
         }
     }

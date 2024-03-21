@@ -76,5 +76,13 @@ namespace Nadim.Services
                 return false;
             }
         }
+
+        public bool ConnectionStatIsOpened()
+        {
+
+            if (_connection.State == System.Data.ConnectionState.Open) 
+                return true;
+            else return false;
+        }
     }
 }

@@ -1,4 +1,4 @@
-using Microsoft.UI;
+﻿using Microsoft.UI;
 using Microsoft.UI.System;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -52,6 +53,16 @@ namespace Nadim.Views
 
             Activated += LoginWindow_Activated;
             Closed += LoginWindow_Closed;
+
+            MainGrid.Loaded += MainGrid_Loaded;
+        }
+
+        private void MainGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!App.dataAccess.ConnectionStatIsOpened())
+            {
+                ShowDialog();
+            }
         }
 
         private void LoginWindow_Activated(object sender, Microsoft.UI.Xaml.WindowActivatedEventArgs args)
@@ -125,5 +136,39 @@ namespace Nadim.Views
             App.signUpWindow.Activate();
             this.Close();
         }
+
+        private async void ShowDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = "فشل الإتصال بالخادم";
+            dialog.PrimaryButtonText = "حاول مرة أخرى";
+            dialog.CloseButtonText = "إغلاق البرنامج";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = "تم رصد خطأ في الإتصال بالخادم، يرجى تفقد الإتصال بالإنترنت لديك";
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                try
+                {
+                    App.dataAccess.OpenConnection();
+                }
+                catch
+                {
+                    ShowDialog();
+                }
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
     }
 }

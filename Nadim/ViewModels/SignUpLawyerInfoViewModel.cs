@@ -15,7 +15,7 @@ namespace Nadim.ViewModels
 
     public partial class SignUpLawyerInfoViewModel : ObservableObject
     {
-        public bool EveryThingValid = true;
+        public bool EveryThingValid = false;
 
         [ObservableProperty] private string lastName = "";
         [ObservableProperty] private string firstName = "";
