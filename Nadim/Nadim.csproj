@@ -21,7 +21,8 @@
     <None Remove="Views\SignUp\EmailVerificationPage.xaml" />
     <None Remove="Views\SignUp\OfficeInfoPage.xaml" />
     <None Remove="Views\SignUp\PhoneVerificationPage.xaml" />
-    <None Remove="Views\SystemMessages\CustomMessageBox.xaml" />
+    <None Remove="Views\SystemMessages\ConnectionFailedPage.xaml" />
+    <None Remove="Views\SystemMessages\ConnectionFailedTitleControl.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,7 +55,10 @@
     <None Update="Assets\Logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Page Update="Views\SystemMessages\CustomMessageBox.xaml">
+    <Page Update="Views\SystemMessages\ConnectionFailedTitleControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\SystemMessages\ConnectionFailedPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Update="Views\SignUp\PhoneVerificationPage.xaml">
@@ -77,6 +81,9 @@
     <Page Update="Views\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\CustomControls\" />
   </ItemGroup>
 
   <!-- 

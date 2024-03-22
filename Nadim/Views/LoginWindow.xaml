@@ -91,16 +91,20 @@
                            TextAlignment="Center" 
                            FontSize="24" 
                            FontWeight="Bold">تسجيل الدخول</TextBlock>
-                <TextBox Margin="8" 
+                <TextBox x:Name="emailOrPasswordTextBox"
+                         Margin="8" 
                          Width="300" 
                          PlaceholderText="رقم الهاتف المحمول أو البريد الإلكتروني"></TextBox>
-                <PasswordBox Margin="8" 
+                <PasswordBox x:Name="passwordBox"
+                             Margin="8" 
                              Width="300" 
                              PlaceholderText="كلمة المرور"></PasswordBox>
-                <Button Margin="8" 
+                <Button x:Name="LoginButton"
+                        Margin="8" 
                         Width="300" 
                         Style="{StaticResource AccentButtonStyle}">تسجيل الدخول</Button>
-                <HyperlinkButton 
+                <HyperlinkButton
+                    x:Name="forgetPasswordlinkButton"
                     Margin="8" 
                     Width="300" 
                     Content="نسيت كلمة المرور؟"/>
@@ -109,7 +113,8 @@
                       X2="300" Y2="0"
                       Margin="8"
                       StrokeThickness="2"/>
-                <Button Margin="8"
+                <Button x:Name="signUpButton"
+                        Margin="8"
                         Width="300"
                         Background="{StaticResource SystemFillColorSuccessBrush}" 
                         Foreground="{StaticResource TextOnAccentFillColorPrimaryBrush}"

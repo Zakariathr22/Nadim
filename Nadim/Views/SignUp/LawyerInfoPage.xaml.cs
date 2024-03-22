@@ -37,20 +37,7 @@ namespace Nadim
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                SignUpWindow.signUpLawyerInfoViewModel.RequiredFieldsCommand.Execute(null);
-            }
-            catch
-            {
-                ShowDialog();
-            }
-            if (SignUpWindow.signUpLawyerInfoViewModel.EveryThingValid)
-            {
-                App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemOfficeInfo;
-                App.signUpWindow.SelectorBarItemPersonalInfo.IsEnabled = false;
-                App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = true;
-            }   
+            ValidateData();
         }
 
         private void maleRadioButton_Checked(object sender, RoutedEventArgs e)
@@ -260,6 +247,7 @@ namespace Nadim
                 emailTextBox.Background = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
                 emailRequiredError.Visibility = Visibility.Collapsed;
                 emailIsNotValidError.Visibility = Visibility.Collapsed;
+                emailAllreadyExistsError.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -452,6 +440,25 @@ namespace Nadim
             }
         }
 
+        private void ValidateData()
+        {
+            try
+            {
+                SignUpWindow.signUpLawyerInfoViewModel.RequiredFieldsCommand.Execute(null);
+            }
+            catch
+            {
+                SignUpWindow.signUpLawyerInfoViewModel.EveryThingValid = false;
+                ShowDialog();
+            }
+            if (SignUpWindow.signUpLawyerInfoViewModel.EveryThingValid)
+            {
+                App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemOfficeInfo;
+                App.signUpWindow.SelectorBarItemPersonalInfo.IsEnabled = false;
+                App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = true;
+            }
+        }
+
         private async void ShowDialog()
         {
             ContentDialog dialog = new ContentDialog();
@@ -459,11 +466,11 @@ namespace Nadim
             // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
             dialog.XamlRoot = Content.XamlRoot;
             dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
-            dialog.Title = "فشل الإتصال بالخادم";
+            dialog.Title = new Views.SystemMessages.ConnectionFailedTitleControl();
             dialog.PrimaryButtonText = "حاول مرة أخرى";
             dialog.CloseButtonText = "إغلاق البرنامج";
             dialog.DefaultButton = ContentDialogButton.Primary;
-            dialog.Content = "تم رصد خطأ في الإتصال بالخادم، يرجى تفقد الإتصال بالإنترنت لديك";
+            dialog.Content = new Views.SystemMessages.ConnectionFailedPage();
             dialog.FlowDirection = FlowDirection.RightToLeft;
 
             var result = await dialog.ShowAsync();
@@ -472,7 +479,7 @@ namespace Nadim
             {
                 try
                 {
-                    App.dataAccess.OpenConnection();
+                    ValidateData();
                 }
                 catch
                 {

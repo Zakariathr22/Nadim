@@ -62,6 +62,10 @@ namespace Nadim.Views
             if (!App.dataAccess.ConnectionStatIsOpened())
             {
                 ShowDialog();
+                emailOrPasswordTextBox.IsEnabled = false;
+                passwordBox.IsEnabled = false;
+                forgetPasswordlinkButton.IsEnabled = false;
+                signUpButton.IsEnabled = false;
             }
         }
 
@@ -139,16 +143,17 @@ namespace Nadim.Views
 
         private async void ShowDialog()
         {
+            
             ContentDialog dialog = new ContentDialog();
 
             // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
             dialog.XamlRoot = Content.XamlRoot;
             dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
-            dialog.Title = "فشل الإتصال بالخادم";
+            dialog.Title = new SystemMessages.ConnectionFailedTitleControl();
             dialog.PrimaryButtonText = "حاول مرة أخرى";
             dialog.CloseButtonText = "إغلاق البرنامج";
             dialog.DefaultButton = ContentDialogButton.Primary;
-            dialog.Content = "تم رصد خطأ في الإتصال بالخادم، يرجى تفقد الإتصال بالإنترنت لديك";
+            dialog.Content = new SystemMessages.ConnectionFailedPage();
             dialog.FlowDirection = FlowDirection.RightToLeft;
 
             var result = await dialog.ShowAsync();
@@ -158,6 +163,10 @@ namespace Nadim.Views
                 try
                 {
                     App.dataAccess.OpenConnection();
+                    emailOrPasswordTextBox.IsEnabled = true;
+                    passwordBox.IsEnabled = true;
+                    forgetPasswordlinkButton.IsEnabled = true;
+                    signUpButton.IsEnabled = true;
                 }
                 catch
                 {

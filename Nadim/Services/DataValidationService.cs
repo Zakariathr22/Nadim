@@ -95,8 +95,11 @@ namespace Nadim.Services
         {
             if (email == "") return false;
 
+            if (!App.dataAccess.ConnectionStatIsOpened()) App.dataAccess.OpenConnection();
+
             string sql = "CALL `CountUserByEmail`(@email);";
             object countObj = App.dataAccess.ExecuteScalar(sql, new MySqlParameter("@email", email));
+            countObj.GetHashCode();
             Int64 count = (Int64)countObj;
             return count > 0;
         }
@@ -104,6 +107,8 @@ namespace Nadim.Services
         public static bool DoesPhoneExist(string phone)
         {
             if (phone == "") return false;
+
+            if (!App.dataAccess.ConnectionStatIsOpened()) App.dataAccess.OpenConnection();
 
             string sql = "CALL `CountUserByPhone`(@phone);";
             object countObj = App.dataAccess.ExecuteScalar(sql, new MySqlParameter("@phone", phone));
