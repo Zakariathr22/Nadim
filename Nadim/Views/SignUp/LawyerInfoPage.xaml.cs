@@ -42,13 +42,13 @@ namespace Nadim
 
         private void maleRadioButton_Checked(object sender, RoutedEventArgs e)
         {
-            SignUpWindow.signUpLawyerInfoViewModel.Gender = "male";
+            SignUpWindow.signUpLawyerInfoViewModel.Gender = "ذكر";
             genderRequiredError.Visibility = Visibility.Collapsed;
         }
 
         private void femaleRadiobutton_Checked(object sender, RoutedEventArgs e)
         {
-            SignUpWindow.signUpLawyerInfoViewModel.Gender = "female";
+            SignUpWindow.signUpLawyerInfoViewModel.Gender = "أنثى";
             genderRequiredError.Visibility = Visibility.Collapsed;
         }
 
@@ -247,7 +247,7 @@ namespace Nadim
                 emailTextBox.Background = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
                 emailRequiredError.Visibility = Visibility.Collapsed;
                 emailIsNotValidError.Visibility = Visibility.Collapsed;
-                emailAllreadyExistsError.Visibility = Visibility.Collapsed;
+                //emailAllreadyExistsError.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -444,7 +444,7 @@ namespace Nadim
         {
             try
             {
-                SignUpWindow.signUpLawyerInfoViewModel.RequiredFieldsCommand.Execute(null);
+                SignUpWindow.signUpLawyerInfoViewModel.LawyerInfoValidationCommand.Execute(null);
             }
             catch
             {

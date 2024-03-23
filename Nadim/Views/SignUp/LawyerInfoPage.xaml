@@ -38,7 +38,7 @@
                         </Grid.ColumnDefinitions>
                     <StackPanel Margin="4" Grid.Column="0">
                         <TextBox x:Name="lastNameTextBox" PlaceholderText="اللقب" Text="{Binding LastName, Mode=TwoWay}" Background="{Binding LastNameTextBoxBackground, Mode=OneWay}" TextChanged="lastNameTextBox_TextChanged"/>
-                        <TextBlock x:Name="lastNameRequiredError" FontSize="12" Foreground="{StaticResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameRequiredErrorVisiblity}">*يجب إدخال اللقب</TextBlock>
+                        <TextBlock x:Name="lastNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameRequiredErrorVisiblity}">*يجب إدخال اللقب</TextBlock>
                         <TextBlock x:Name="lastNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameTooLongErrorVisiblity}">*اللقب أطول من اللازم</TextBlock>
                         <TextBlock x:Name="lastNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameTooShortErrorVisiblity}">*اللقب أقصر من اللازم</TextBlock>
                         <TextBlock x:Name="lastNameIsNotArabicError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameIsNotArabicErrorVisibility}">*اللقب يجب أن يكون بالعربية</TextBlock>

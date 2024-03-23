@@ -90,7 +90,7 @@ namespace Nadim.ViewModels
         //-------------------------------------------------------------------------------------------------------------------------------------------------
 
         [RelayCommand]
-        void RequiredFields()
+        void LawyerInfoValidation()
         {
             EveryThingValid = true;
             bool emailExistBefor = DataValidationService.DoesEmailExist(Email.TrimStart().TrimStart());

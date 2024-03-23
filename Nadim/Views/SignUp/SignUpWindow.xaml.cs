@@ -37,6 +37,7 @@ namespace Nadim.Views
         private int previousSelectedIndex;
         private bool isActivatedOnce = false;
         public static SignUpLawyerInfoViewModel signUpLawyerInfoViewModel;
+        public static SignUpOfficeInfoViewModel signUpOfficeInfoViewModel;
         public SignUpWindow()
         {
             this.InitializeComponent();

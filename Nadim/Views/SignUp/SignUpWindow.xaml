@@ -59,17 +59,18 @@
                     </SelectorBarItem>
                 </SelectorBar>
                 <ScrollView Height="400" Width="400" HorizontalScrollMode="Auto" HorizontalScrollBarVisibility="Auto"
-VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top">
+                            VerticalScrollMode="Auto" VerticalScrollBarVisibility="Auto" VerticalAlignment="Top">
                     <Frame x:Name="ContentFrame"/>
                 </ScrollView>
-                <Line Stroke="{StaticResource SystemFillColorNeutralBrush}"
-            X1="0" Y1="0"
-            X2="360" Y2="0"
-            Margin="8"
-            StrokeThickness="2"
-          HorizontalAlignment="Center"/>
-                <HyperlinkButton Name="haveAccountAlready" HorizontalAlignment="Center"
-                     Click="haveAccountAlready_Click">لديك حساب بالفعل؟ قم بتسجيل الدخول</HyperlinkButton>
+                <Line Stroke="{ThemeResource SystemFillColorNeutralBrush}"
+                      X1="0" Y1="0"
+                      X2="360" Y2="0"
+                      Margin="8"
+                      StrokeThickness="2"
+                      HorizontalAlignment="Center"/>
+                <HyperlinkButton Name="haveAccountAlready"
+                                 HorizontalAlignment="Center"
+                                 Click="haveAccountAlready_Click">لديك حساب بالفعل؟ قم بتسجيل الدخول</HyperlinkButton>
             </StackPanel>
         </Border>
     </Grid>

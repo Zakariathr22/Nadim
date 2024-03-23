@@ -26,6 +26,8 @@ namespace Nadim.Views.SignUp
         public OfficeInfoPage()
         {
             this.InitializeComponent();
+            SignUpWindow.signUpOfficeInfoViewModel = new ViewModels.SignUpOfficeInfoViewModel();
+            mainPanel.DataContext = SignUpWindow.signUpOfficeInfoViewModel;
         }
 
         private void previousButton_Click(object sender, RoutedEventArgs e)

@@ -102,13 +102,13 @@
                 <Button x:Name="LoginButton"
                         Margin="8" 
                         Width="300" 
-                        Style="{StaticResource AccentButtonStyle}">تسجيل الدخول</Button>
+                        Style="{ThemeResource AccentButtonStyle}">تسجيل الدخول</Button>
                 <HyperlinkButton
                     x:Name="forgetPasswordlinkButton"
                     Margin="8" 
                     Width="300" 
                     Content="نسيت كلمة المرور؟"/>
-                <Line Stroke="{StaticResource SystemFillColorNeutralBrush}"
+                <Line Stroke="{ThemeResource SystemFillColorNeutralBrush}"
                       X1="0" Y1="0"
                       X2="300" Y2="0"
                       Margin="8"
@@ -116,8 +116,8 @@
                 <Button x:Name="signUpButton"
                         Margin="8"
                         Width="300"
-                        Background="{StaticResource SystemFillColorSuccessBrush}" 
-                        Foreground="{StaticResource TextOnAccentFillColorPrimaryBrush}"
+                        Background="{ThemeResource SystemFillColorSuccessBrush}" 
+                        Foreground="{ThemeResource TextOnAccentFillColorPrimaryBrush}"
                         Click="Button_Click">إنشاء حساب لمكتبك</Button>
             </StackPanel>
         </Border>
