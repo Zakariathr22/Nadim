@@ -220,7 +220,8 @@ namespace Nadim
         {
             string Email = emailTextBox.Text;
             if (Email.TrimStart() == ""
-                || !DataValidationService.IsValidEmail(Email.TrimStart().TrimStart()))
+                || !DataValidationService.IsValidEmail(Email.TrimStart().TrimStart())
+                || ExistBeforeIn(DataValidationService.existedEmails,Email))
             {
                 emailTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
                 if (Email.TrimStart() == "")
@@ -241,13 +242,21 @@ namespace Nadim
                 {
                     emailIsNotValidError.Visibility = Visibility.Collapsed;
                 }
+                if (ExistBeforeIn(DataValidationService.existedEmails, Email))
+                {
+                    emailAllreadyExistsError.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    emailAllreadyExistsError.Visibility = Visibility.Collapsed;
+                }
             }
             else
             {
                 emailTextBox.Background = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
                 emailRequiredError.Visibility = Visibility.Collapsed;
                 emailIsNotValidError.Visibility = Visibility.Collapsed;
-                //emailAllreadyExistsError.Visibility = Visibility.Collapsed;
+                emailAllreadyExistsError.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -273,7 +282,8 @@ namespace Nadim
             if (Phone.TrimStart() == ""
                 || !DataValidationService.IsNumber(Phone)
                 || !DataValidationService.HasMaximumCharacters(Phone.Replace(" ", ""), 10)
-                || !DataValidationService.HasMinimumCharacters(Phone.Replace(" ", ""), 9))
+                || !DataValidationService.HasMinimumCharacters(Phone.Replace(" ", ""), 9)
+                || ExistBeforeIn(DataValidationService.existedPhones, Phone))
             {
                 phoneTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
 
@@ -313,6 +323,15 @@ namespace Nadim
                 {
                     phoneTooShortError.Visibility = Visibility.Collapsed;
                 }
+
+                if (ExistBeforeIn(DataValidationService.existedPhones, Phone))
+                {
+                    phoneAllreadyExistsError.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    phoneAllreadyExistsError.Visibility = Visibility.Collapsed;
+                }
             }
             else
             {
@@ -321,7 +340,7 @@ namespace Nadim
                 phoneIsNotValidError.Visibility = Visibility.Collapsed;
                 phoneTooLongError.Visibility = Visibility.Collapsed;
                 phoneTooShortError.Visibility = Visibility.Collapsed;
-
+                phoneAllreadyExistsError.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -451,6 +470,7 @@ namespace Nadim
                 SignUpWindow.signUpLawyerInfoViewModel.EveryThingValid = false;
                 ShowDialog();
             }
+
             //if (SignUpWindow.signUpLawyerInfoViewModel.EveryThingValid)
             //{
                 App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemOfficeInfo;
@@ -490,6 +510,13 @@ namespace Nadim
             {
                 App.signUpWindow.Close();
             }
+        }
+
+        private bool ExistBeforeIn(List<string> list, string item)
+        {
+            for (int i = 0; i < list.Count; i++)
+                if (list[i] == item) return true;
+            return false;
         }
     }
 }
