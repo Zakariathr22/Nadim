@@ -20,6 +20,7 @@ using Microsoft.UI.Xaml.Media.Animation;
 using Nadim.Views.SignUp;
 using System.Runtime.CompilerServices;
 using Nadim.ViewModels;
+using Nadim.Services;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -78,6 +79,8 @@ namespace Nadim.Views
             {
                 App.s_window.Close();
             }
+            DataValidationService.existedEmails.Clear();
+            DataValidationService.existedPhones.Clear();
         }
 
         private void SignUpWindow_Activated(object sender, WindowActivatedEventArgs args)
