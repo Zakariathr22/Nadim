@@ -29,12 +29,12 @@
             </Grid.RowDefinitions>
             <TextBlock Margin="4" Grid.Row="0" FontWeight="Bold">1- تسمية المكتب (كما في الديباجة):</TextBlock>
             <StackPanel Margin="4" Grid.Row="1">
-                <TextBox x:Name="namingTextBox" PlaceholderText="التسمية" Text="{Binding Naming, Mode=TwoWay}"/>
+                <TextBox x:Name="namingTextBox" PlaceholderText="التسمية" Text="{Binding Naming, Mode=TwoWay}" Background="{Binding NamingTextBoxBackground}"/>
                 <TextBlock x:Name="namingRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding NamingRequiredErrorVisibility}">*يجب إدخال تسمية المكتب</TextBlock>
             </StackPanel>
             <TextBlock Margin="4" Grid.Row="2" FontWeight="Bold">2- مقر المكتب (كما في الديباجة):</TextBlock>
             <StackPanel  Margin="4" Grid.Row="3">
-                <TextBox x:Name="headquartersTextBox" PlaceholderText="مقر المكتب" Text="{Binding Headquarters ,Mode=TwoWay}"/>
+                <TextBox x:Name="headquartersTextBox" PlaceholderText="مقر المكتب" Text="{Binding Headquarters ,Mode=TwoWay}" Background="{Binding HeadquartersTextBoxBackground}"/>
                 <TextBlock x:Name="headquartersRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding HeadquartersRequiredErrorVisibility}">*يجب إدخال مقر المكتب</TextBlock>
             </StackPanel>
             <TextBlock Margin="4" Grid.Row="4" FontWeight="Bold">3- تفاصيل المقر:</TextBlock>
@@ -45,7 +45,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Margin="4" Grid.Column="0">
-                        <ComboBox x:Name="wilayaComboBox" PlaceholderText="الولاية" Width="174" SelectedIndex="{Binding Wilaya ,Mode=TwoWay}"/>
+                        <ComboBox x:Name="wilayaComboBox" PlaceholderText="الولاية" Width="174" SelectedIndex="{Binding Wilaya ,Mode=TwoWay}" Background="{Binding WilayaComboBoxBackground}"/>
                         <TextBlock x:Name="wilayaRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding WilayaRequiredErrorVisibility}">*يجب إدخال الولاية</TextBlock>
                     </StackPanel>
                     <StackPanel Margin="4" Grid.Column="1">
@@ -56,24 +56,24 @@
             <CheckBox x:Name="isCompanyCheckBox" Margin="4" Grid.Row="6">المقر لشركة محاماة بها عدة محامين</CheckBox>
             <TextBlock Margin="4" Grid.Row="7" FontWeight="Bold">4- معلومات الإتصال بالمكتب:</TextBlock>
             <StackPanel Margin="4" Grid.Row="8">
-                <TextBox x:Name="phone1TextBox" PlaceholderText="رقم هاتف المكتب" Text="{Binding Phone1, Mode=TwoWay}"/>
+                <TextBox x:Name="phone1TextBox" PlaceholderText="رقم هاتف المكتب" Text="{Binding Phone1, Mode=TwoWay}" Background="{Binding Phone1TextBoxBackground}"/>
                 <TextBlock x:Name="phone1RequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding Phone1RequiredErrorVisibility}">*يجب إدخال رقم الهاتف</TextBlock>
                 <TextBlock x:Name="phone1IsNotValidError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding Phone1IsNotValidErrorVisibility}">*رقم الهاتف غير صالح</TextBlock>
                 <TextBlock x:Name="phone1TooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding Phone1TooLongErrorVisibility}">*رقم الهاتف أطول من اللازم</TextBlock>
                 <TextBlock x:Name="phone1TooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding Phone1TooShortErrorVisibility}">*رقم الهاتف أقصر من اللازم</TextBlock>
             </StackPanel>
             <StackPanel Margin="4" Grid.Row="9">
-                <TextBox x:Name="phone2TextBox" PlaceholderText="رقم هاتف المكتب 2 (إختياري)" Text="{Binding Phone2, Mode=TwoWay}"/>
+                <TextBox x:Name="phone2TextBox" PlaceholderText="رقم هاتف المكتب 2 (إختياري)" Text="{Binding Phone2, Mode=TwoWay}" Background="{Binding Phone2TextBoxBackground}"/>
                 <TextBlock x:Name="phone2IsNotValidError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding Phone2IsNotValidErrorVisibility}">*رقم الهاتف غير صالح</TextBlock>
                 <TextBlock x:Name="phone2TooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding Phone2TooLongErrorVisibility}">*رقم الهاتف أطول من اللازم</TextBlock>
                 <TextBlock x:Name="phone2TooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding Phone2TooShortErrorVisibility}">*رقم الهاتف أقصر من اللازم</TextBlock>
             </StackPanel>
             <StackPanel Margin="4" Grid.Row="10">
-                <TextBox x:Name="emailTextBox" PlaceholderText="البريد الإلكتروني الخاص بالمكتب (إختياري)" Text="{Binding Email, Mode=TwoWay}"/>
+                <TextBox x:Name="emailTextBox" PlaceholderText="البريد الإلكتروني الخاص بالمكتب (إختياري)" Text="{Binding Email, Mode=TwoWay}" Background="{Binding EmailTextBoxBackground}"/>
                 <TextBlock x:Name="emailIsNotValidError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailIsNotValidErrorVisibility}">*البريد الإلكتروني غير صالح</TextBlock>
             </StackPanel>
             <StackPanel Margin="4" Grid.Row="11">
-                <TextBox x:Name="faxTextBox" PlaceholderText="الفاكس (إختياري)" Text="{Binding Fax, Mode=TwoWay}"/>
+                <TextBox x:Name="faxTextBox" PlaceholderText="الفاكس (إختياري)" Text="{Binding Fax, Mode=TwoWay}" Background="{Binding FaxTextBoxBackground}"/>
                 <TextBlock x:Name="faxIsNotValidError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FaxIsNotValidErrorVisibility}">*رقم الفاكس غير صالح</TextBlock>
                 <TextBlock x:Name="faxTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FaxTooLongErrorVisibility}">*رقم الفاكس أطول من اللازم</TextBlock>
                 <TextBlock x:Name="faxTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FaxTooShortErrorVisibility}">*رقم الفاكس أقصر من اللازم</TextBlock>

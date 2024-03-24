@@ -39,9 +39,18 @@ namespace Nadim.Views.SignUp
 
         private void createAccount_Click(object sender, RoutedEventArgs e)
         {
-            App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemEmailVer;
-            App.signUpWindow.SelectorBarItemEmailVer.IsEnabled = true;
-            App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = false;
+            Validate();
+        }
+
+        private void Validate()
+        {
+            SignUpWindow.signUpOfficeInfoViewModel.OfficeInfoValidationCommand.Execute(this);
+            //if (SignUpWindow.signUpOfficeInfoViewModel.EveryThingValid)
+            //{
+            //    App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemEmailVer;
+            //    App.signUpWindow.SelectorBarItemEmailVer.IsEnabled = true;
+            //    App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = false;
+            //}
         }
     }
 }

@@ -2,12 +2,14 @@
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
+using Nadim.Services;
 using Nadim.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Networking;
 
 namespace Nadim.ViewModels
 {
@@ -84,6 +86,225 @@ namespace Nadim.ViewModels
         void OfficeInfoValidation()
         {
             EveryThingValid = true;
+            if (Naming.TrimStart() == "")
+            {
+                EveryThingValid = false;
+                NamingTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                if (Naming.TrimStart() == "")
+                {
+                    EveryThingValid = false;
+                    Naming = "";
+                    NamingRequiredErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    NamingRequiredErrorVisibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                NamingTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+                Naming = Naming.TrimStart().TrimEnd();
+                NamingRequiredErrorVisibility = Visibility.Collapsed;
+            }
+
+            if (Headquarters.TrimStart() == "")
+            {
+                EveryThingValid = false;
+                HeadquartersTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                if (Headquarters.TrimStart() == "")
+                {
+                    EveryThingValid = false;
+                    Headquarters = "";
+                    HeadquartersRequiredErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    HeadquartersRequiredErrorVisibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                HeadquartersTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+                Headquarters = Headquarters.TrimStart().TrimEnd();
+                HeadquartersRequiredErrorVisibility = Visibility.Collapsed;
+            }
+
+            if (Wilaya <= -1  || Wilaya >= 58)
+            {
+                EveryThingValid = false;
+                WilayaComboBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                WilayaRequiredErrorVisibility = Visibility.Visible;
+            }
+            else
+            {
+                WilayaComboBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+                WilayaRequiredErrorVisibility = Visibility.Collapsed;
+            }
+
+            if (Phone1.TrimStart() == ""
+                || !DataValidationService.IsNumber(Phone1)
+                || !DataValidationService.HasMaximumCharacters(Phone1.Replace(" ", ""), 10)
+                || !DataValidationService.HasMinimumCharacters(Phone1.Replace(" ", ""), 9))
+            {
+                EveryThingValid = false;
+                Phone1TextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+
+                if (Phone1.TrimStart() == "")
+                {
+                    Phone1 = "";
+                    Phone1RequiredErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    Phone1RequiredErrorVisibility = Visibility.Collapsed;
+                }
+
+                if (!DataValidationService.IsNumber(Phone1) && Phone1.TrimStart() != "")
+                {
+                    Phone1IsNotValidErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    Phone1IsNotValidErrorVisibility = Visibility.Collapsed;
+                }
+
+                if (!DataValidationService.HasMaximumCharacters(Phone1.Replace(" ", ""), 10))
+                {
+                    Phone1TooLongErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    Phone1TooLongErrorVisibility = Visibility.Collapsed;
+                }
+
+                if (!DataValidationService.HasMinimumCharacters(Phone1.Replace(" ", ""), 9) && Phone1.TrimStart() != "")
+                {
+                    Phone1TooShortErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    Phone1TooShortErrorVisibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                Phone1 = Phone1.Replace(" ", "");
+                Phone1TextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+                Phone1RequiredErrorVisibility = Visibility.Collapsed;
+                Phone1IsNotValidErrorVisibility = Visibility.Collapsed;
+                Phone1TooLongErrorVisibility = Visibility.Collapsed;
+                Phone1TooShortErrorVisibility = Visibility.Collapsed;
+            }
+
+            if (Phone2.TrimStart() != ""
+                && (!DataValidationService.IsNumber(Phone2)
+                || !DataValidationService.HasMaximumCharacters(Phone2.Replace(" ", ""), 10)
+                || !DataValidationService.HasMinimumCharacters(Phone2.Replace(" ", ""), 9)))
+            {
+                EveryThingValid = false;
+                Phone2TextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+
+                if (!DataValidationService.IsNumber(Phone2) && Phone2.TrimStart() != "")
+                {
+                    Phone2IsNotValidErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    Phone2IsNotValidErrorVisibility = Visibility.Collapsed;
+                }
+
+                if (!DataValidationService.HasMaximumCharacters(Phone2.Replace(" ", ""), 10))
+                {
+                    Phone2TooLongErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    Phone2TooLongErrorVisibility = Visibility.Collapsed;
+                }
+
+                if (!DataValidationService.HasMinimumCharacters(Phone2.Replace(" ", ""), 9) && Phone2.TrimStart() != "")
+                {
+                    Phone2TooShortErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    Phone2TooShortErrorVisibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                Phone2 = Phone2.Replace(" ", "");
+                Phone2TextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+                Phone2IsNotValidErrorVisibility = Visibility.Collapsed;
+                Phone2TooLongErrorVisibility = Visibility.Collapsed;
+                Phone2TooShortErrorVisibility = Visibility.Collapsed;
+            }
+
+            if (Email.TrimStart() != "" && !DataValidationService.IsValidEmail(Email.TrimStart().TrimStart()))
+            {
+                EveryThingValid = false;
+                EmailTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+
+                if (!DataValidationService.IsValidEmail(Email.TrimStart().TrimStart()) && Email.TrimStart() != "")
+                {
+                    EmailIsNotValidErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    EmailIsNotValidErrorVisibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                Email = Email.TrimStart().TrimEnd();
+                EmailTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+                EmailIsNotValidErrorVisibility = Visibility.Collapsed;
+            }
+
+            if (Fax.TrimStart() != ""
+                && (!DataValidationService.IsNumber(Fax)
+                || !DataValidationService.HasMaximumCharacters(Fax.Replace(" ", ""), 10)
+                || !DataValidationService.HasMinimumCharacters(Fax.Replace(" ", ""), 9)))
+            {
+                EveryThingValid = false;
+                FaxTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+
+                if (!DataValidationService.IsNumber(Fax) && Fax.TrimStart() != "")
+                {
+                    FaxIsNotValidErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    FaxIsNotValidErrorVisibility = Visibility.Collapsed;
+                }
+
+                if (!DataValidationService.HasMaximumCharacters(Fax.Replace(" ", ""), 10))
+                {
+                    FaxTooLongErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    FaxTooLongErrorVisibility = Visibility.Collapsed;
+                }
+
+                if (!DataValidationService.HasMinimumCharacters(Fax.Replace(" ", ""), 9) && Fax.TrimStart() != "")
+                {
+                    FaxTooShortErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    FaxTooShortErrorVisibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                Fax = Fax.Replace(" ", "");
+                FaxTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+                FaxIsNotValidErrorVisibility = Visibility.Collapsed;
+                FaxTooLongErrorVisibility = Visibility.Collapsed;
+                FaxTooShortErrorVisibility = Visibility.Collapsed;
+            }
         }
 
     }

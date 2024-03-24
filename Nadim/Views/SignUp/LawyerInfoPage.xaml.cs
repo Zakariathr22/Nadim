@@ -451,12 +451,12 @@ namespace Nadim
                 SignUpWindow.signUpLawyerInfoViewModel.EveryThingValid = false;
                 ShowDialog();
             }
-            if (SignUpWindow.signUpLawyerInfoViewModel.EveryThingValid)
-            {
+            //if (SignUpWindow.signUpLawyerInfoViewModel.EveryThingValid)
+            //{
                 App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemOfficeInfo;
                 App.signUpWindow.SelectorBarItemPersonalInfo.IsEnabled = false;
                 App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = true;
-            }
+            //}
         }
 
         private async void ShowDialog()
