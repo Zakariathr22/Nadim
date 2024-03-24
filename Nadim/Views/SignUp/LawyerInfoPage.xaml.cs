@@ -253,11 +253,11 @@ namespace Nadim
 
         private void phoneTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            string Phone = phoneTextBox.Text;
             int currentPosition = phoneTextBox.SelectionStart - 1;
             string text = ((TextBox)sender).Text;
 
             Regex regex = new Regex("^[0-9]*$");
-            string Phone = phoneTextBox.Text;
 
             if (!regex.IsMatch(text))
             {
