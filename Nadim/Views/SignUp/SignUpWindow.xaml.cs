@@ -39,6 +39,7 @@ namespace Nadim.Views
         private bool isActivatedOnce = false;
         public static SignUpLawyerInfoViewModel signUpLawyerInfoViewModel;
         public static SignUpOfficeInfoViewModel signUpOfficeInfoViewModel;
+        public static SignUpEmailVerViewModel signUpEmailVerViewModel;
         public SignUpWindow()
         {
             this.InitializeComponent();

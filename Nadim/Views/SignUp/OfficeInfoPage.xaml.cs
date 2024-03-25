@@ -49,9 +49,9 @@ namespace Nadim.Views.SignUp
             SignUpWindow.signUpOfficeInfoViewModel.OfficeInfoValidationCommand.Execute(this);
             //if (SignUpWindow.signUpOfficeInfoViewModel.EveryThingValid)
             //{
-            //    App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemEmailVer;
-            //    App.signUpWindow.SelectorBarItemEmailVer.IsEnabled = true;
-            //    App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = false;
+                App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemEmailVer;
+                App.signUpWindow.SelectorBarItemEmailVer.IsEnabled = true;
+                App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = false;
             //}
         }
 
