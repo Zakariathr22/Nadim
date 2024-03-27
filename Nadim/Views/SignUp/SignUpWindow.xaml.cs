@@ -40,6 +40,7 @@ namespace Nadim.Views
         public static SignUpLawyerInfoViewModel signUpLawyerInfoViewModel;
         public static SignUpOfficeInfoViewModel signUpOfficeInfoViewModel;
         public static SignUpEmailVerViewModel signUpEmailVerViewModel;
+        public static SignUpPhoneVerViewModel signUpPhoneVerViewModel;
         public SignUpWindow()
         {
             this.InitializeComponent();
