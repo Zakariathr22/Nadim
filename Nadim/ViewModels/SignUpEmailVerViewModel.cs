@@ -25,6 +25,7 @@ namespace Nadim.ViewModels
         [ObservableProperty] private Brush verificationCodeTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
 
         [ObservableProperty] private Visibility verificationCodeIsNotValidVisibility = Visibility.Collapsed;
+        [ObservableProperty] private Visibility verificationCodeIsRequiredErrorVisibility = Visibility.Collapsed;
 
         public SignUpEmailVerViewModel()
         {
@@ -35,23 +36,41 @@ namespace Nadim.ViewModels
         void GenerateSendOTP()
         {
             emailOTP = EmailVerificationService.GenerateRandomOTP();
-            EmailVerificationService.SendAccountCreationEmailOTP("zakotahri@outlook.com", emailOTP);
+            EmailVerificationService.SendAccountCreationEmailOTP(Email, emailOTP);
         }
 
         [RelayCommand]
         void verifyOTP()
         {
             EmailCodeIsValid = true;
-            if (int.Parse(VerificationCode.TrimEnd().TrimStart()) == emailOTP)
+            if (VerificationCode.TrimStart() == "" || int.Parse(VerificationCode.TrimEnd().TrimStart()) != emailOTP)
             {
-                EmailCodeIsValid = true;
+                EmailCodeIsValid = false;
                 VerificationCodeTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
-                VerificationCodeIsNotValidVisibility = Visibility.Visible;
+
+                if (VerificationCode.TrimStart() == "")
+                {
+                    VerificationCodeIsRequiredErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    VerificationCodeIsRequiredErrorVisibility = Visibility.Collapsed;
+                }
+
+                if (VerificationCode.TrimStart() != "" && int.Parse(VerificationCode.TrimEnd().TrimStart()) != emailOTP)
+                {
+                    VerificationCodeIsNotValidVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    VerificationCodeIsNotValidVisibility = Visibility.Collapsed;
+                }
             }
             else
             {
                 VerificationCodeTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
                 VerificationCodeIsNotValidVisibility = Visibility.Collapsed;
+                VerificationCodeIsRequiredErrorVisibility = Visibility.Collapsed;
             }
         }
     }

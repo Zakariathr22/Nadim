@@ -47,12 +47,12 @@
                             <FontIcon Glyph="&#xE946;" />
                         </SelectorBarItem.Icon>
                     </SelectorBarItem>
-                    <SelectorBarItem x:Name="SelectorBarItemEmailVer" Text="تأكيد 1" IsEnabled="False" Visibility="Visible" x:FieldModifier="public">
+                    <SelectorBarItem x:Name="SelectorBarItemEmailVer" Text="تحقق 1" IsEnabled="False" Visibility="Visible" x:FieldModifier="public">
                         <SelectorBarItem.Icon>
                             <FontIcon Glyph="&#xE715;" />
                         </SelectorBarItem.Icon>
                     </SelectorBarItem>
-                    <SelectorBarItem x:Name="SelectorBarItemphoneVer" Text="تأكيد 2" IsEnabled="False" Visibility="Visible" x:FieldModifier="public">
+                    <SelectorBarItem x:Name="SelectorBarItemphoneVer" Text="تحقق 2" IsEnabled="False" Visibility="Visible" x:FieldModifier="public">
                         <SelectorBarItem.Icon>
                             <FontIcon Glyph="&#xE717;" />
                         </SelectorBarItem.Icon>

@@ -47,12 +47,12 @@ namespace Nadim.Views.SignUp
         private void Validate()
         {
             SignUpWindow.signUpOfficeInfoViewModel.OfficeInfoValidationCommand.Execute(this);
-            //if (SignUpWindow.signUpOfficeInfoViewModel.EveryThingValid)
-            //{
+            if (SignUpWindow.signUpOfficeInfoViewModel.EveryThingValid)
+            {
                 App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemEmailVer;
                 App.signUpWindow.SelectorBarItemEmailVer.IsEnabled = true;
                 App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = false;
-            //}
+            }
         }
 
         private void namingTextBox_TextChanged(object sender, TextChangedEventArgs e)

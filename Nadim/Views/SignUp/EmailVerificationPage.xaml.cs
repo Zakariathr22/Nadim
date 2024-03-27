@@ -24,15 +24,49 @@ namespace Nadim.Views.SignUp
     /// </summary>
     public sealed partial class EmailVerificationPage : Page
     {
-        private int emailOTP;
+        public DispatcherTimer timer;
+        public TimeSpan timeRemaining;
         public EmailVerificationPage()
         {
             this.InitializeComponent();
+            SignUpWindow.signUpEmailVerViewModel = new ViewModels.SignUpEmailVerViewModel();
+            mainPanel.DataContext = SignUpWindow.signUpEmailVerViewModel;
+
+            // Create a new DispatcherTimer instance
+            timer = new DispatcherTimer();
+
+            // Set the interval for the timer
+            timer.Interval = TimeSpan.FromSeconds(1);
+
+            // Set the initial time (2 minutes in this case)
+            timeRemaining = TimeSpan.FromMinutes(2);
+
+            timer.Tick += Timer_Tick;
+
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, object e)
+        {
+            // Subtract one second from the remaining time
+            timeRemaining = timeRemaining.Add(-timer.Interval);
+
+            // Update a TextBlock with the remaining time
+            sendAgainHyperlinkButton.Content = "لم تتلقى البريد الإلكتروني؟ إعادة إرسال خلال " + timeRemaining.ToString(@"mm\:ss");
+
+            // If the time has run out, stop the timer
+            if (timeRemaining <= TimeSpan.Zero)
+            {
+                timer.Stop();
+                sendAgainHyperlinkButton.Content = "لم تتلقى البريد الإلكتروني؟ إعادة إرسال";
+                sendAgainHyperlinkButton.IsEnabled = true;
+            }
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            if (int.Parse(verificationCodeTextBox.Text.TrimEnd().TrimStart()) == emailOTP)
+            SignUpWindow.signUpEmailVerViewModel.verifyOTPCommand.Execute(true);
+            if (SignUpWindow.signUpEmailVerViewModel.EmailCodeIsValid)
             {
                 App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemphoneVer;
                 App.signUpWindow.SelectorBarItemphoneVer.IsEnabled = true;
@@ -44,8 +78,7 @@ namespace Nadim.Views.SignUp
         {
             try
             {
-                emailOTP = EmailVerificationService.GenerateRandomOTP();
-                EmailVerificationService.SendAccountCreationEmailOTP("zakotahri@outlook.com", emailOTP);
+                SignUpWindow.signUpEmailVerViewModel.GenerateSendOTPCommand.Execute(this);
             }
             catch
             {
@@ -62,7 +95,7 @@ namespace Nadim.Views.SignUp
             dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
             dialog.Title = new Views.SystemMessages.ConnectionFailedTitleControl();
             dialog.PrimaryButtonText = "حاول مرة أخرى";
-            dialog.CloseButtonText = "إغلاق البرنامج";
+            dialog.CloseButtonText = "تخطي";
             dialog.DefaultButton = ContentDialogButton.Primary;
             dialog.Content = new Views.SystemMessages.ConnectionFailedPage();
             dialog.FlowDirection = FlowDirection.RightToLeft;
@@ -73,8 +106,7 @@ namespace Nadim.Views.SignUp
             {
                 try
                 {
-                    emailOTP = EmailVerificationService.GenerateRandomOTP();
-                    EmailVerificationService.SendAccountCreationEmailOTP("zakotahri@outlook.com", emailOTP);
+                    SignUpWindow.signUpEmailVerViewModel.GenerateSendOTPCommand.Execute(this);
                 }
                 catch
                 {
@@ -83,8 +115,25 @@ namespace Nadim.Views.SignUp
             }
             else
             {
-                App.signUpWindow.Close();
+                App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemphoneVer;
+                App.signUpWindow.SelectorBarItemphoneVer.IsEnabled = true;
+                App.signUpWindow.SelectorBarItemEmailVer.IsEnabled = false;
             }
+        }
+
+        private void sendAgainHyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            sendAgainHyperlinkButton.IsEnabled = false;
+            SignUpWindow.signUpEmailVerViewModel.GenerateSendOTPCommand.Execute(this);
+            // Set the interval for the timer
+            timer.Interval = TimeSpan.FromSeconds(1);
+
+            // Set the initial time (2 minutes in this case)
+            timeRemaining = TimeSpan.FromMinutes(2);
+
+            timer.Tick += Timer_Tick;
+
+            timer.Start();
         }
     }
 }

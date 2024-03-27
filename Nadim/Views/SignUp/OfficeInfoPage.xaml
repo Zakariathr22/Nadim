@@ -45,7 +45,9 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Margin="4" Grid.Column="0">
-                        <ComboBox x:Name="wilayaComboBox" PlaceholderText="الولاية" Width="174" SelectedIndex="{Binding Wilaya ,Mode=TwoWay}" Background="{Binding WilayaComboBoxBackground}" SelectionChanged="wilayaComboBox_SelectionChanged"/>
+                        <ComboBox x:Name="wilayaComboBox" PlaceholderText="الولاية" Width="174" SelectedIndex="{Binding Wilaya ,Mode=TwoWay}" Background="{Binding WilayaComboBoxBackground}" SelectionChanged="wilayaComboBox_SelectionChanged">
+                            <ComboBoxItem Content="بوسعادة"/>
+                        </ComboBox>
                         <TextBlock x:Name="wilayaRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding WilayaRequiredErrorVisibility}">*يجب إدخال الولاية</TextBlock>
                     </StackPanel>
                     <StackPanel Margin="4" Grid.Column="1">
