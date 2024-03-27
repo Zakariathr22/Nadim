@@ -15,7 +15,8 @@ namespace Nadim.ViewModels
 {
     public partial class SignUpEmailVerViewModel: ObservableObject
     {
-        private int emailOTP;
+        private int emailOTP = 0;
+        public int failedAttempts = 0;
 
         [ObservableProperty] private string email;
         [ObservableProperty] private string verificationCode;
@@ -43,7 +44,9 @@ namespace Nadim.ViewModels
         void verifyOTP()
         {
             EmailCodeIsValid = true;
-            if (VerificationCode.TrimStart() == "" || int.Parse(VerificationCode.TrimEnd().TrimStart()) != emailOTP)
+            if (VerificationCode.TrimStart() == "" 
+                || int.Parse(VerificationCode.TrimEnd().TrimStart()) != emailOTP
+                || int.Parse(VerificationCode.TrimEnd().TrimStart()) == 0)
             {
                 EmailCodeIsValid = false;
                 VerificationCodeTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
@@ -57,8 +60,10 @@ namespace Nadim.ViewModels
                     VerificationCodeIsRequiredErrorVisibility = Visibility.Collapsed;
                 }
 
-                if (VerificationCode.TrimStart() != "" && int.Parse(VerificationCode.TrimEnd().TrimStart()) != emailOTP)
+                if (VerificationCode.TrimStart() != "" && (int.Parse(VerificationCode.TrimEnd().TrimStart()) != emailOTP
+                    || int.Parse(VerificationCode.TrimEnd().TrimStart()) == 0))
                 {
+                    failedAttempts++;
                     VerificationCodeIsNotValidVisibility = Visibility.Visible;
                 }
                 else
