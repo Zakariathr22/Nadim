@@ -9,7 +9,7 @@ namespace Nadim.Models
     public class Lawyer : User
     {
         public string accreditation { get; set; }
-        public DateTime? startingDate { get; set; }
+        public DateTimeOffset? startingDate { get; set; }
         public User creator { get; set; }
     }
 }
