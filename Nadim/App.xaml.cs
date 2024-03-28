@@ -21,6 +21,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Globalization;
+using Windows.Security.Credentials;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -35,6 +36,7 @@ namespace Nadim
         public static DataAccessService dataAccess = DataAccessService.CreateInstance("server=localhost;port=3306;database=nadim_db;uid=root;pwd=");
         public static int openWindowCount;
         public static SignUpWindow signUpWindow;
+        public static PasswordVault vault = new PasswordVault();
         public App()
         {
             this.InitializeComponent();

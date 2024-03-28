@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
 using MySqlConnector;
+using Nadim.Models;
 using Nadim.Services;
 using System;
 using System.Collections.Generic;
@@ -87,7 +88,6 @@ namespace Nadim.ViewModels
                         };
 
                         salt = App.dataAccess.ExecuteScalar(query, parameters) as string;
-                        salt = salt;
                     }
                 }
                 else
@@ -111,14 +111,13 @@ namespace Nadim.ViewModels
                         };
 
                         salt = App.dataAccess.ExecuteScalar(query, parameters) as string;
-                        salt = salt;
                     }
                 }
             }
         }
 
         [RelayCommand]
-        private void VerifyPassword()
+        private void Login()
         {
             VerifyEmailOrPhone();
             if (EmailOrPhoneIsCorrect)
@@ -133,8 +132,7 @@ namespace Nadim.ViewModels
                     new MySqlParameter("@p_user_agent", "Windows"),
                     new MySqlParameter("@p_machine_name", MachineInfoService.GetComputerName())
                 };
-                string result = salt = App.dataAccess.ExecuteScalar(query, parameters) as string;
-                result = result;
+                string result = App.dataAccess.ExecuteScalar(query, parameters) as string;
 
                 if(result == "Invalid credentials")
                 {
@@ -146,6 +144,12 @@ namespace Nadim.ViewModels
                 {
                     PasswordBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
                     PasswordIncorrectVisibility = Visibility.Collapsed;
+                    App.vault.Add(new Windows.Security.Credentials.PasswordCredential("MyApp", "token", result));
+                    result = null;
+                    //var vault = new Windows.Security.Credentials.PasswordVault();
+                    //var credential = vault.Retrieve("MyApp", "token");
+                    //var token = credential.Password;
+                    //token = token;
                 }
             }
         }
