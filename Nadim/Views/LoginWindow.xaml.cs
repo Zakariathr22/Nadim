@@ -62,7 +62,7 @@ namespace Nadim.Views
             if (!App.dataAccess.ConnectionStatIsOpened())
             {
                 ShowDialog();
-                emailOrPasswordTextBox.IsEnabled = false;
+                emailOrPhoneTextBox.IsEnabled = false;
                 passwordBox.IsEnabled = false;
                 forgetPasswordlinkButton.IsEnabled = false;
                 signUpButton.IsEnabled = false;
@@ -163,7 +163,7 @@ namespace Nadim.Views
                 try
                 {
                     App.dataAccess.OpenConnection();
-                    emailOrPasswordTextBox.IsEnabled = true;
+                    emailOrPhoneTextBox.IsEnabled = true;
                     passwordBox.IsEnabled = true;
                     forgetPasswordlinkButton.IsEnabled = true;
                     signUpButton.IsEnabled = true;
