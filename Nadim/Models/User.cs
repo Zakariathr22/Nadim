@@ -17,8 +17,8 @@ namespace Nadim.Models
         public bool emailVerified { get; set; }
         public string phone { get; set; }
         public bool phoneVerified { get; set; }
-        public string passwordHash { get; set; }
         public string salt { get; set; }
+        public string passwordHash { get; set; }
         public Office office { get; set; }
     }
 }

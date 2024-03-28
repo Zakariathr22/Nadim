@@ -19,7 +19,7 @@ namespace Nadim.ViewModels
         public int failedAttempts = 0;
 
         [ObservableProperty] private string email;
-        [ObservableProperty] private string verificationCode;
+        [ObservableProperty] private string verificationCode="";
 
         [ObservableProperty] private bool emailCodeIsValid = false;
 

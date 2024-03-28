@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -30,6 +30,82 @@ namespace Nadim.Views.SignUp
             SignUpWindow.signUpPhoneVerViewModel = new SignUpPhoneVerViewModel();
 
             mainPanel.DataContext = SignUpWindow.signUpPhoneVerViewModel;
+        }
+
+        private void skipAndSignUp_Click(object sender, RoutedEventArgs e)
+        {
+            SignUpWindow.signUpViewModel = new SignUpViewModel();
+            try
+            {
+                SignUpWindow.signUpViewModel.LawyerSignUpCommand.Execute(this);
+                skipAndSignUp.IsEnabled = false;
+                ShowSuccessDialog();
+            }
+            catch 
+            {
+                ShowErrorDialog();
+            }
+
+        }
+
+        private async void ShowErrorDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new Views.SystemMessages.ConnectionFailedTitleControl();
+            dialog.PrimaryButtonText = "حاول مرة أخرى";
+            dialog.CloseButtonText = "إغلاق البرنامج";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new Views.SystemMessages.ConnectionFailedPage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                try
+                {
+                    SignUpWindow.signUpViewModel.LawyerSignUpCommand.Execute(this);
+                }
+                catch
+                {
+                    ShowErrorDialog();
+                }
+            }
+            else
+            {
+                App.signUpWindow.Close();
+            }
+        }
+
+        private async void ShowSuccessDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new Views.SystemMessages.SignUpSuccessTitleControl();
+            dialog.PrimaryButtonText = "تسجيل الدخول";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new Views.SystemMessages.SignUpSuccessPage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                    LoginWindow login = new LoginWindow();
+                    login.Activate();
+                    App.signUpWindow.Close();
+            }
+            else
+            {
+                App.signUpWindow.Close();
+            }
         }
     }
 }

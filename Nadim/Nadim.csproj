@@ -23,6 +23,8 @@
     <None Remove="Views\SignUp\PhoneVerificationPage.xaml" />
     <None Remove="Views\SystemMessages\ConnectionFailedPage.xaml" />
     <None Remove="Views\SystemMessages\ConnectionFailedTitleControl.xaml" />
+    <None Remove="Views\SystemMessages\SignUpSuccessPage.xaml" />
+    <None Remove="Views\SystemMessages\SignUpSuccessTitleControl.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,6 +57,12 @@
     <None Update="Assets\Logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\SystemMessages\SignUpSuccessPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\SystemMessages\SignUpSuccessTitleControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\SystemMessages\ConnectionFailedTitleControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

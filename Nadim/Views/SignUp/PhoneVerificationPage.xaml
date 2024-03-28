@@ -15,7 +15,7 @@
             <TextBox HorizontalAlignment="Center" TextAlignment="Center" Margin="4 8 4 8" Width="357" PlaceholderText="قم بإدخال الرمز"></TextBox>
             <Button HorizontalAlignment="Center" Margin="4 8 4 8" Width="357" Style="{ThemeResource AccentButtonStyle}">التحقق وإنشاء حساب نديم</Button>
             <HyperlinkButton HorizontalAlignment="Center" Margin="4 8 4 8" IsEnabled="False">لم تتلقى الرسالة؟ إعادة إرسال</HyperlinkButton>
-            <Button HorizontalAlignment="Center" Margin="4 8 4 8" Width="357">تخطي وإنشاء حساب نديم</Button>
+            <Button x:Name="skipAndSignUp" HorizontalAlignment="Center" Margin="4 8 4 8" Width="357" Click="skipAndSignUp_Click">تخطي وإنشاء حساب نديم</Button>
         </StackPanel>
     </Grid>
 </Page>

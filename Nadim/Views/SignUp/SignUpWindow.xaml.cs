@@ -41,6 +41,7 @@ namespace Nadim.Views
         public static SignUpOfficeInfoViewModel signUpOfficeInfoViewModel;
         public static SignUpEmailVerViewModel signUpEmailVerViewModel;
         public static SignUpPhoneVerViewModel signUpPhoneVerViewModel;
+        public static SignUpViewModel signUpViewModel;
         public SignUpWindow()
         {
             this.InitializeComponent();
