@@ -18,7 +18,8 @@ namespace Nadim.ViewModels
         [ObservableProperty] private Brush emailOrPhoneTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
 
         [ObservableProperty] Visibility emailOrPhoneRequiredErrorVisibility = Visibility.Collapsed;
+        [ObservableProperty] Visibility inputIsNotConnectedToAnAccountVisibility = Visibility.Collapsed;
         [ObservableProperty] Visibility passwordRequiredErrorVisibility = Visibility.Collapsed;
-        [ObservableProperty] Visibility emailOrPhoneOrPasswordIncorrectVisibility = Visibility.Collapsed;
+        [ObservableProperty] Visibility passwordIncorrectVisibility = Visibility.Collapsed;
     }
 }
