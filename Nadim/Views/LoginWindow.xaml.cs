@@ -30,6 +30,7 @@ namespace Nadim.Views
         private OverlappedPresenter overlappedPresenter;
         private AppWindowTitleBar titleBar;
         private bool isActivatedOnce = false;
+        private LoginViewModel loginViewModel;
         public LoginWindow()
         {
             this.InitializeComponent();
@@ -57,7 +58,7 @@ namespace Nadim.Views
 
             MainGrid.Loaded += MainGrid_Loaded;
 
-            LoginViewModel loginViewModel = new LoginViewModel();
+            loginViewModel = new LoginViewModel();
             MainGrid.DataContext = loginViewModel;
         }
 
@@ -183,5 +184,9 @@ namespace Nadim.Views
             }
         }
 
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            loginViewModel.VerifyPasswordCommand.Execute(this);
+        }
     }
 }
