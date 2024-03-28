@@ -6,10 +6,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Security.Cryptography;
 using MySqlConnector;
 using Windows.Networking;
 using CommunityToolkit.Mvvm.Input;
+using Nadim.Services;
 
 namespace Nadim.ViewModels
 {
@@ -27,7 +27,7 @@ namespace Nadim.ViewModels
             this.Lawyer.phone = SignUpWindow.signUpLawyerInfoViewModel.Phone;
             this.Lawyer.phoneVerified = SignUpWindow.signUpPhoneVerViewModel.PhoneCodeIsValid;
             this.Lawyer.salt = GenerateSalt();
-            this.Lawyer.passwordHash = HashPassword(SignUpWindow.signUpLawyerInfoViewModel.Password + Lawyer.salt);
+            this.Lawyer.passwordHash = CryptographyService.HashPassword(SignUpWindow.signUpLawyerInfoViewModel.Password + Lawyer.salt);
 
             if (SignUpWindow.signUpLawyerInfoViewModel.Accreditation == 0)
                 this.Lawyer.accreditation = "لدى المحكمة العليا ومجلس الدولة";
@@ -53,21 +53,6 @@ namespace Nadim.ViewModels
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
             return new string(Enumerable.Repeat(chars, 100)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
-
-        private string HashPassword(string password)
-        {
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
-
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2"));
-                }
-                return builder.ToString();
-            }
         }
 
         [RelayCommand]
