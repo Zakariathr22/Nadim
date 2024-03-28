@@ -14,7 +14,6 @@ namespace Nadim.ViewModels
         [ObservableProperty] string emailOrPhone = "";
         [ObservableProperty] string password = "";
 
-
         [ObservableProperty] private Brush passwordBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
         [ObservableProperty] private Brush emailOrPhoneTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
 

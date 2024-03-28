@@ -8,6 +8,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Nadim.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -55,6 +56,9 @@ namespace Nadim.Views
             Closed += LoginWindow_Closed;
 
             MainGrid.Loaded += MainGrid_Loaded;
+
+            LoginViewModel loginViewModel = new LoginViewModel();
+            MainGrid.DataContext = loginViewModel;
         }
 
         private void MainGrid_Loaded(object sender, RoutedEventArgs e)

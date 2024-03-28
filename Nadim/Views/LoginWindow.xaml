@@ -95,14 +95,16 @@
                          Margin="8 8 8 0" 
                          Width="300" 
                          PlaceholderText="رقم الهاتف المحمول أو البريد الإلكتروني"
-                         TextAlignment="Left"></TextBox>
-                <TextBlock x:Name="emailOrPhoneRequiredError" Margin="8 0" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Visible">*يجب إدخال البريد الإلكتروني أو رقم الهاتف</TextBlock>
+                         TextAlignment="Left"
+                         Text="{Binding EmailOrPassword, Mode=TwoWay}"></TextBox>
+                <TextBlock x:Name="emailOrPhoneRequiredError" Margin="8 0" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailOrPhoneRequiredErrorVisibility}">*يجب إدخال البريد الإلكتروني أو رقم الهاتف</TextBlock>
                 <PasswordBox x:Name="passwordBox"
                              Margin="8 16 8 0" 
                              Width="300" 
-                             PlaceholderText="كلمة المرور"></PasswordBox>
-                <TextBlock x:Name="passwordRequiredError" Margin="8 0" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Visible">*يجب إدخال كلمة المرور</TextBlock>
-                <TextBlock x:Name="emailOrPhoneOrPasswordIncorrect" Margin="8 0" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Visible">*أحد المدخلين أو كلاهما خاطئ</TextBlock>
+                             PlaceholderText="كلمة المرور"
+                             Password="{Binding Password ,Mode=TwoWay}"></PasswordBox>
+                <TextBlock x:Name="passwordRequiredError" Margin="8 0" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PasswordRequiredErrorVisibility}">*يجب إدخال كلمة المرور</TextBlock>
+                <TextBlock x:Name="emailOrPhoneOrPasswordIncorrect" Margin="8 0" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailOrPhoneOrPasswordIncorrectVisibility}">*أحد المدخلين أو كلاهما خاطئ</TextBlock>
                 <Button x:Name="LoginButton"
                         Margin="8 16 8 8" 
                         Width="300" 
