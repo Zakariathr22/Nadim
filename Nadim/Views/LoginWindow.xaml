@@ -91,10 +91,11 @@
                            TextAlignment="Center" 
                            FontSize="24" 
                            FontWeight="Bold">تسجيل الدخول</TextBlock>
-                <TextBox x:Name="emailOrPasswordTextBox"
+                <TextBox x:Name="emailOrPhoneTextBox"
                          Margin="8" 
                          Width="300" 
-                         PlaceholderText="رقم الهاتف المحمول أو البريد الإلكتروني"></TextBox>
+                         PlaceholderText="رقم الهاتف المحمول أو البريد الإلكتروني"
+                         TextAlignment="Left"></TextBox>
                 <PasswordBox x:Name="passwordBox"
                              Margin="8" 
                              Width="300" 
