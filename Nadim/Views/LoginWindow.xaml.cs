@@ -186,7 +186,14 @@ namespace Nadim.Views
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            loginViewModel.VerifyPasswordCommand.Execute(this);
+            loginViewModel.LoginCommand.Execute(this);
+            if (loginViewModel.LoginIsCorrect)
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Activate();
+                this.Close();
+            }
         }
+
     }
 }

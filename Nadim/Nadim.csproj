@@ -17,6 +17,7 @@
   <ItemGroup>
     <None Remove="LawyerInfoPage.xaml" />
     <None Remove="Views\LoginWindow.xaml" />
+    <None Remove="Views\MainWindow.xaml" />
     <None Remove="Views\SignUpWindow.xaml" />
     <None Remove="Views\SignUp\EmailVerificationPage.xaml" />
     <None Remove="Views\SignUp\OfficeInfoPage.xaml" />
@@ -58,6 +59,9 @@
     <None Update="Assets\Logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\SystemMessages\SignUpSuccessPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
