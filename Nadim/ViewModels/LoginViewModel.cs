@@ -35,6 +35,7 @@ namespace Nadim.ViewModels
         private void Validate()
         {
             EverythingValid = true;
+            PasswordIncorrectVisibility = Visibility.Collapsed;
             if (EmailOrPhone.TrimStart() == "") 
             {
                 EverythingValid = false;
@@ -120,7 +121,7 @@ namespace Nadim.ViewModels
         private void Login()
         {
             VerifyEmailOrPhone();
-            if (EmailOrPhoneIsCorrect)
+            if (EverythingValid && EmailOrPhoneIsCorrect)
             {
                 LoginIsCorrect = true;
 
@@ -133,7 +134,7 @@ namespace Nadim.ViewModels
                 {
                     new MySqlParameter("@p_email_or_phone", loginToken.user.loger),
                     new MySqlParameter("@p_password", loginToken.user.passwordHash),
-                    new MySqlParameter("@p_ip_address", loginToken.machineName),
+                    new MySqlParameter("@p_ip_address", loginToken.ipAddress),
                     new MySqlParameter("@p_user_agent", loginToken.userAgent),
                     new MySqlParameter("@p_machine_name", loginToken.machineName)
                 };
@@ -152,6 +153,8 @@ namespace Nadim.ViewModels
                     PasswordBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
                     PasswordIncorrectVisibility = Visibility.Collapsed;
                     App.vault.Add(new Windows.Security.Credentials.PasswordCredential("MyApp", "token", result));
+                    EmailOrPhone = "";
+                    Password = "";
                     result = null;
                     //var vault = new Windows.Security.Credentials.PasswordVault();
                     //var credential = vault.Retrieve("MyApp", "token");
