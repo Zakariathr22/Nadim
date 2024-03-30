@@ -16,6 +16,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="LawyerInfoPage.xaml" />
+    <None Remove="Views\AccountRecovery\AccountRecoveryWindow.xaml" />
+    <None Remove="Views\AccountRecovery\EmailVerificationPage.xaml" />
+    <None Remove="Views\AccountRecovery\FindAccountPage.xaml" />
+    <None Remove="Views\AccountRecovery\NewPasswordPage.xaml" />
     <None Remove="Views\LoginWindow.xaml" />
     <None Remove="Views\MainWindow.xaml" />
     <None Remove="Views\SignUpWindow.xaml" />
@@ -59,6 +63,18 @@
     <None Update="Assets\Logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\AccountRecovery\NewPasswordPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\AccountRecovery\EmailVerificationPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\AccountRecovery\FindAccountPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\AccountRecovery\AccountRecoveryWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

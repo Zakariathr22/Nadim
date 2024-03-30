@@ -9,6 +9,7 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using Nadim.ViewModels;
+using Nadim.Views.AccountRecovery;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -249,5 +250,11 @@ namespace Nadim.Views
             }
         }
 
+        private void forgetPasswordlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            AccountRecoveryWindow recoveryWindow = new AccountRecoveryWindow();
+            recoveryWindow.Activate();
+            this.Close();
+        }
     }
 }

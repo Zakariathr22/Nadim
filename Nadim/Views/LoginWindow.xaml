@@ -117,7 +117,8 @@
                     x:Name="forgetPasswordlinkButton"
                     Margin="8" 
                     Width="300" 
-                    Content="نسيت كلمة المرور؟"/>
+                    Content="نسيت كلمة المرور؟"
+                    Click="forgetPasswordlinkButton_Click"/>
                 <Line Stroke="{ThemeResource SystemFillColorNeutralBrush}"
                       X1="0" Y1="0"
                       X2="300" Y2="0"
