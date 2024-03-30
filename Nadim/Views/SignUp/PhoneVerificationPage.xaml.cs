@@ -98,9 +98,9 @@ namespace Nadim.Views.SignUp
 
             if (result == ContentDialogResult.Primary)
             {
-                    LoginWindow login = new LoginWindow();
-                    login.Activate();
-                    App.signUpWindow.Close();
+                LoginWindow login = new LoginWindow();
+                login.Activate();
+                App.signUpWindow.Close();
             }
             else
             {

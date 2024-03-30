@@ -123,16 +123,23 @@ namespace Nadim.ViewModels
             if (EmailOrPhoneIsCorrect)
             {
                 LoginIsCorrect = true;
+
+                if (!App.dataAccess.ConnectionStatIsOpened()) App.dataAccess.OpenConnection();
+
+                Token loginToken = new Token(EmailOrPhone, Password, salt);
+
                 string query = "CALL `UserLoginAndGenerateToken`(@p_email_or_phone, @p_password, @p_ip_address, @p_user_agent, @p_machine_name)";
                 MySqlParameter[] parameters = new MySqlParameter[]
                 {
-                    new MySqlParameter("@p_email_or_phone", EmailOrPhone.TrimStart().TrimEnd()),
-                    new MySqlParameter("@p_password", CryptographyService.HashPassword(Password+salt)),
-                    new MySqlParameter("@p_ip_address", MachineInfoService.GetLocalIPAddress()),
-                    new MySqlParameter("@p_user_agent", "Windows"),
-                    new MySqlParameter("@p_machine_name", MachineInfoService.GetComputerName())
+                    new MySqlParameter("@p_email_or_phone", loginToken.user.loger),
+                    new MySqlParameter("@p_password", loginToken.user.passwordHash),
+                    new MySqlParameter("@p_ip_address", loginToken.machineName),
+                    new MySqlParameter("@p_user_agent", loginToken.userAgent),
+                    new MySqlParameter("@p_machine_name", loginToken.machineName)
                 };
                 string result = App.dataAccess.ExecuteScalar(query, parameters) as string;
+                loginToken.Clear();
+                loginToken = null;
 
                 if(result == "Invalid credentials")
                 {

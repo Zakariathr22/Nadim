@@ -37,7 +37,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                     <StackPanel Margin="4" Grid.Column="0">
-                        <TextBox x:Name="lastNameTextBox" PlaceholderText="اللقب" Text="{Binding LastName, Mode=TwoWay}" Background="{Binding LastNameTextBoxBackground, Mode=OneWay}" TextChanged="lastNameTextBox_TextChanged"/>
+                        <TextBox x:Name="lastNameTextBox" Header="اللقب" PlaceholderText="اللقب" Text="{Binding LastName, Mode=TwoWay}" Background="{Binding LastNameTextBoxBackground, Mode=OneWay}" TextChanged="lastNameTextBox_TextChanged"/>
                         <TextBlock x:Name="lastNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameRequiredErrorVisiblity}">*يجب إدخال اللقب</TextBlock>
                         <TextBlock x:Name="lastNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameTooLongErrorVisiblity}">*اللقب أطول من اللازم</TextBlock>
                         <TextBlock x:Name="lastNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameTooShortErrorVisiblity}">*اللقب أقصر من اللازم</TextBlock>
@@ -45,7 +45,7 @@
                         <TextBlock x:Name="lastNameContainsNumberError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameContainsNumberErrorVisibility}">*يجب ألا يحتوي اللقب على رقم</TextBlock>
                     </StackPanel>
                     <StackPanel Margin="4" Grid.Column="1">
-                        <TextBox x:Name="firstNameTextBox" PlaceholderText="الاسم" Text="{Binding FirstName, Mode=TwoWay}" Background="{Binding FirstNameTextBoxBackground, Mode=OneWay}" TextChanged="firstNameTextBox_TextChanged"/>
+                        <TextBox x:Name="firstNameTextBox" Header="الاسم" PlaceholderText="الاسم" Text="{Binding FirstName, Mode=TwoWay}" Background="{Binding FirstNameTextBoxBackground, Mode=OneWay}" TextChanged="firstNameTextBox_TextChanged"/>
                         <TextBlock x:Name="firstNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameRequiredErrorVisiblity}">*يجب إدخال الاسم</TextBlock>
                         <TextBlock x:Name="firstNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameTooLongErrorVisiblity}">*الاسم أطول من اللازم</TextBlock>
                         <TextBlock x:Name="firstNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameTooShortErrorVisiblity}">*الاسم أقصر من اللازم</TextBlock>

@@ -85,7 +85,11 @@ namespace Nadim.ViewModels
                 new MySqlParameter("@p_office_email", this.Lawyer.office.email),
                 new MySqlParameter("@p_isCompany", this.Lawyer.office.isCompany)                
             };
-           App.dataAccess.ExecuteNonQuery(query, parameters);
+            App.dataAccess.ExecuteNonQuery(query, parameters);
+
+            Lawyer.clear();
+            Lawyer.ClearRest();
+            Lawyer = null;
         }
     }
 }

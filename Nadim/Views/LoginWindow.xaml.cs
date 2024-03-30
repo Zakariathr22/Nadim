@@ -186,11 +186,65 @@ namespace Nadim.Views
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            loginViewModel.LoginCommand.Execute(this);
+            try
+            {
+                loginViewModel.LoginCommand.Execute(this);
+            }
+            catch
+            {
+                ShowLoginDialog();
+            }
             if (loginViewModel.LoginIsCorrect)
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Activate();
+                this.Close();
+            }
+        }
+
+        private async void ShowLoginDialog()
+        {
+
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new SystemMessages.ConnectionFailedTitleControl();
+            dialog.PrimaryButtonText = "حاول مرة أخرى";
+            dialog.CloseButtonText = "إغلاق البرنامج";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new SystemMessages.ConnectionFailedPage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                try
+                {
+                    try
+                    {
+                        loginViewModel.LoginCommand.Execute(this);
+                    }
+                    catch
+                    {
+                        ShowLoginDialog();
+                    }
+                    if (loginViewModel.LoginIsCorrect)
+                    {
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Activate();
+                        this.Close();
+                    }
+                }
+                catch
+                {
+                    ShowLoginDialog();
+                }
+            }
+            else
+            {
                 this.Close();
             }
         }
