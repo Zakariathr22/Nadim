@@ -152,7 +152,7 @@ namespace Nadim.ViewModels
                 {
                     PasswordBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
                     PasswordIncorrectVisibility = Visibility.Collapsed;
-                    App.vault.Add(new Windows.Security.Credentials.PasswordCredential("MyApp", "token", result));
+                    App.vault.Add(new Windows.Security.Credentials.PasswordCredential("NadimApplication", "token", result));
                     EmailOrPhone = "";
                     Password = "";
                     result = null;

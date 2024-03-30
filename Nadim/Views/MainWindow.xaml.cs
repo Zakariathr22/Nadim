@@ -32,7 +32,7 @@ namespace Nadim.Views
             this.InitializeComponent();
 
             var vault = new Windows.Security.Credentials.PasswordVault();
-            var credential = vault.Retrieve("MyApp", "token");
+            var credential = vault.Retrieve("NadimApplication", "token");
             var token = credential.Password;
 
             string query = "CALL GetUserInfoByToken(@token)";
