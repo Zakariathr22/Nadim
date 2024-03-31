@@ -2,13 +2,14 @@
 using System.Net.Mail;
 using System.Net;
 using System.Security.Cryptography;
+using Windows.Security.Credentials;
 
 namespace Nadim.Services
 {
     public class EmailVerificationService
     {
         private static readonly RandomNumberGenerator Rng = RandomNumberGenerator.Create();
-
+        public static PasswordVault vault = new PasswordVault();
         public static int GenerateRandomOTP()
         {
             byte[] otpBytes = new byte[4]; // Use 4 bytes (32 bits) for the OTP
@@ -22,7 +23,7 @@ namespace Nadim.Services
             return otp;
         }
 
-        public static void SendAccountCreationEmailOTP(string email, int otp)
+        public static void SendAccountCreationEmailOTP(string email, PasswordCredential credential)
         {
             using (SmtpClient smtpClient = new SmtpClient("smtp.mailersend.net"))
             {
@@ -45,7 +46,7 @@ namespace Nadim.Services
                     $"        <h2 style=\"text-align: center; color: #0078D4;\">مرحبا بكم في برنامج نديم</h2>" +
                     $"        <p>عزيزي المستخدم</p>" +
                     $"        <p>شكرا لكم على إنشاء حساب لدى نديم، يرجى التحقق من عنوان بريدك الإلكتروني عن طريق إدخال رمز التحقق التالي:</p>" +
-                    $"        <h3 style=\"text-align: center; color: #0078D4;\">{otp.ToString()}</h3>" +
+                    $"        <h3 style=\"text-align: center; color: #0078D4;\">{credential.Password}</h3>" +
                     $"        <p>إذا لم تطلبوا هذا الرمز، فيرجى تجاهل هذا البريد الإلكتروني.</p>" +
                     $"        <p>أطيب التحيات،</p>" +
                     $"        <p>فريق عمل نديم</p>" +

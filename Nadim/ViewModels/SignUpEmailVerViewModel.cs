@@ -7,15 +7,18 @@ using Nadim.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Networking.NetworkOperators;
+using Windows.Security.Credentials;
 
 namespace Nadim.ViewModels
 {
     public partial class SignUpEmailVerViewModel: ObservableObject
     {
-        private int emailOTP = 0;
+        public static PasswordVault vault = new PasswordVault();
+        private PasswordCredential emailOTP = new PasswordCredential();
         public int failedAttempts = 0;
 
         [ObservableProperty] private string email;
@@ -36,7 +39,8 @@ namespace Nadim.ViewModels
         [RelayCommand]
         void GenerateSendOTP()
         {
-            emailOTP = EmailVerificationService.GenerateRandomOTP();
+            vault.Add(new PasswordCredential("NadimApplication", "otp", EmailVerificationService.GenerateRandomOTP().ToString()));
+            emailOTP = vault.Retrieve("NadimApplication", "otp");
             EmailVerificationService.SendAccountCreationEmailOTP(Email, emailOTP);
         }
 
@@ -45,7 +49,7 @@ namespace Nadim.ViewModels
         {
             EmailCodeIsValid = true;
             if (VerificationCode.TrimStart() == "" 
-                || int.Parse(VerificationCode.TrimEnd().TrimStart()) != emailOTP
+                || VerificationCode.TrimEnd().TrimStart() != emailOTP.Password
                 || int.Parse(VerificationCode.TrimEnd().TrimStart()) == 0)
             {
                 EmailCodeIsValid = false;
@@ -60,7 +64,7 @@ namespace Nadim.ViewModels
                     VerificationCodeIsRequiredErrorVisibility = Visibility.Collapsed;
                 }
 
-                if (VerificationCode.TrimStart() != "" && (int.Parse(VerificationCode.TrimEnd().TrimStart()) != emailOTP
+                if (VerificationCode.TrimStart() != "" && (VerificationCode.TrimEnd().TrimStart() != emailOTP.Password
                     || int.Parse(VerificationCode.TrimEnd().TrimStart()) == 0))
                 {
                     failedAttempts++;

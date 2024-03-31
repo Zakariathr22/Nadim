@@ -16,7 +16,7 @@ namespace Nadim.Models
         {
             accreditation = null;
             startingDate = null;
-            creator.clear();
+            if(creator != null) creator.clear();
             creator = null;
         }
     }
