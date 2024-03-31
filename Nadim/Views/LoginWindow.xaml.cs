@@ -252,8 +252,8 @@ namespace Nadim.Views
 
         private void forgetPasswordlinkButton_Click(object sender, RoutedEventArgs e)
         {
-            AccountRecoveryWindow recoveryWindow = new AccountRecoveryWindow();
-            recoveryWindow.Activate();
+            App.recoveryWindow = new AccountRecoveryWindow();
+            App.recoveryWindow.Activate();
             this.Close();
         }
     }

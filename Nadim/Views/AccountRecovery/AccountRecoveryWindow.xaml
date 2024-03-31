@@ -37,17 +37,17 @@
         Margin="0 0 0 8"
         Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}">إسترجاع حساب</TextBlock>
                     <SelectorBar x:Name="selectorBar" SelectionChanged="selectorBar_SelectionChanged"  HorizontalAlignment="Center" Visibility="Visible" x:FieldModifier="public">
-                        <SelectorBarItem x:Name="SelectorBarItemPersonalInfo" IsSelected="True" Text="عثور على الحساب" Visibility="Visible" x:FieldModifier="public">
+                        <SelectorBarItem x:Name="SelectorBarItemFindAccount" IsSelected="True" Text="عثور على الحساب" Visibility="Visible" x:FieldModifier="public">
                             <SelectorBarItem.Icon>
                                 <FontIcon Glyph="&#xE910;" />
                             </SelectorBarItem.Icon>
                         </SelectorBarItem>
-                        <SelectorBarItem x:Name="SelectorBarItemEmailVer" Text="تحقق" IsEnabled="False" Visibility="Visible" x:FieldModifier="public">
+                        <SelectorBarItem x:Name="SelectorBarItemVerification" Text="تحقق" IsEnabled="False" Visibility="Visible" x:FieldModifier="public">
                             <SelectorBarItem.Icon>
                                 <FontIcon Glyph="&#xE715;" />
                             </SelectorBarItem.Icon>
                         </SelectorBarItem>
-                        <SelectorBarItem x:Name="SelectorBarItemOfficeInfo" Text="تعيين كلمة المرور"  IsEnabled="False" Visibility="Visible" x:FieldModifier="public">
+                        <SelectorBarItem x:Name="SelectorBarItemNewPassword" Text="تعيين كلمة المرور"  IsEnabled="False" Visibility="Visible" x:FieldModifier="public">
                             <SelectorBarItem.Icon>
                                 <FontIcon  Glyph="&#xE755;" />
                             </SelectorBarItem.Icon>

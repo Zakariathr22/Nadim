@@ -8,6 +8,7 @@ using Microsoft.UI.Xaml.Navigation;
 using Microsoft.UI.Xaml.Shapes;
 using Nadim.Services;
 using Nadim.Views;
+using Nadim.Views.AccountRecovery;
 using Nadim.Views.SystemMessages;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,7 @@ namespace Nadim
         public static int openWindowCount;
         public static SignUpWindow signUpWindow;
         public static PasswordVault vault = new PasswordVault();
+        public static AccountRecoveryWindow recoveryWindow;
         public App()
         {
             this.InitializeComponent();

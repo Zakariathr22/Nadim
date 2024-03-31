@@ -6,10 +6,22 @@
     xmlns:local="using:Nadim.Views.AccountRecovery"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
+    <StackPanel x:Name="mainPanel" FlowDirection="RightToLeft" VerticalAlignment="Center">
+        <TextBlock Margin="4 0 4 8" Width="357" FontWeight="Bold">عثور على الحساب عن طريق:</TextBlock>
+        <ComboBox SelectedIndex="0" Width="357" Margin="4 0 4 8" HorizontalAlignment="Center">
+            <ComboBox.Items>
+                <x:String>البريد الإلكتروني</x:String>
+            </ComboBox.Items>
+        </ComboBox>
+        <TextBlock Margin="4 8 4 8" Width="357">الرجاء إدخال بريدك الإلكتروني للبحث عن حسابك</TextBlock>
+        <TextBox Margin="4 0 4 8" PlaceholderText="البريد الإلكتروني" Width="357" HorizontalAlignment="Center"></TextBox>
+        <Button x:Name="searchButton" Margin="4 8 4 8" Style="{ThemeResource AccentButtonStyle}" Width="357" HorizontalAlignment="Center" Click="searchButton_Click">
+            <StackPanel FlowDirection="RightToLeft" Orientation="Horizontal">
+                <FontIcon Margin="4 0" Glyph="&#xE721;" />
+                <TextBlock Margin="4 0">بحث</TextBlock>
+            </StackPanel>
+        </Button>
+    </StackPanel>
 
-    <Grid>
-
-    </Grid>
 </Page>
