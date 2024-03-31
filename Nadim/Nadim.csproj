@@ -63,6 +63,9 @@
     <None Update="Assets\Logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\AccountRecovery\AccountRecoveryWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\AccountRecovery\NewPasswordPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -70,9 +73,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Update="Views\AccountRecovery\FindAccountPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Update="Views\AccountRecovery\AccountRecoveryWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Update="Views\MainWindow.xaml">

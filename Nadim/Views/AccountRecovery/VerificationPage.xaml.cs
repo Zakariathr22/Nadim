@@ -21,9 +21,9 @@ namespace Nadim.Views.AccountRecovery
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class EmailVerificationPage : Page
+    public sealed partial class VerificationPage : Page
     {
-        public EmailVerificationPage()
+        public VerificationPage()
         {
             this.InitializeComponent();
         }
