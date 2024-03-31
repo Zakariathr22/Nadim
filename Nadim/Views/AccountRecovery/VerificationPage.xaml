@@ -6,10 +6,17 @@
     xmlns:local="using:Nadim.Views.AccountRecovery"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
-    <Grid>
-
-    </Grid>
+    <StackPanel x:Name="mainPanel" VerticalAlignment="Center">
+        <TextBlock Margin="4 0 4 8" FontWeight="Bold" Width="357">التحقق عبر البريد الإلكتروني</TextBlock>
+        <TextBlock Margin="4 8 4 8" TextWrapping="Wrap" TextAlignment="Justify" Width="357">لقد تم إرسال رمز الأمان، تأكد من بريدك الإلكتروني للحصول على رمز الأمان الخاص بك.<LineBreak/>(تحقق من البريد المهمل "Courrier Indésirable" أو "Spam")</TextBlock>
+        <TextBox Name="verificationCodeTextBox" HorizontalAlignment="Center" TextAlignment="Center" Margin="4 8 4 0" Width="357" PlaceholderText="قم بإدخال الرمز"
+                 ></TextBox>
+        <TextBlock x:Name="verificationCodeIsNotValid" Margin="4 0 4 8" Width="357" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" >*رمز الأمان غير صحيح</TextBlock>
+        <TextBlock x:Name="verificationCodeIsRequiredError" Margin="4 0 4 8" Width="357" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" >*يجب إدخال رمز الأمان</TextBlock>
+        <TextBlock x:Name="manyFailedAttempsError" Margin="4 0 4 8" Width="357" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed"/>
+        <Button x:Name="nextButton" HorizontalAlignment="Center" Margin="4 8 4 8" Width="357" Style="{StaticResource AccentButtonStyle}" Click="nextButton_Click">التالي</Button>
+        <HyperlinkButton x:Name="sendAgainHyperlinkButton" HorizontalAlignment="Center" Margin="4 8 4 8" IsEnabled="False">لم تتلقى البريد الإلكتروني؟ إعادة إرسال</HyperlinkButton>
+    </StackPanel>
 </Page>

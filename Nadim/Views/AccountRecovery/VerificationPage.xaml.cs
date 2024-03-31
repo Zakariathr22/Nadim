@@ -27,5 +27,12 @@ namespace Nadim.Views.AccountRecovery
         {
             this.InitializeComponent();
         }
+
+        private void nextButton_Click(object sender, RoutedEventArgs e)
+        {
+            App.recoveryWindow.selectorBar.SelectedItem = App.recoveryWindow.SelectorBarItemNewPassword;
+            App.recoveryWindow.SelectorBarItemVerification.IsEnabled = false;
+            App.recoveryWindow.SelectorBarItemNewPassword.IsEnabled = true;
+        }
     }
 }
