@@ -32,9 +32,13 @@ namespace Nadim.Views.AccountRecovery
 
         private void searchButton_Click(object sender, RoutedEventArgs e)
         {
-            App.recoveryWindow.selectorBar.SelectedItem = App.recoveryWindow.SelectorBarItemVerification;
-            App.recoveryWindow.SelectorBarItemFindAccount.IsEnabled = false;
-            App.recoveryWindow.SelectorBarItemVerification.IsEnabled = true;
+            AccountRecoveryWindow.accountRecoveryFindAccountViewModel.ValidateCommand.Execute(this);
+            if (AccountRecoveryWindow.accountRecoveryFindAccountViewModel.EverythingIsValid)
+            {
+                App.recoveryWindow.selectorBar.SelectedItem = App.recoveryWindow.SelectorBarItemVerification;
+                App.recoveryWindow.SelectorBarItemFindAccount.IsEnabled = false;
+                App.recoveryWindow.SelectorBarItemVerification.IsEnabled = true;
+            }
         }
     }
 }
