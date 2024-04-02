@@ -11,7 +11,7 @@ namespace Nadim.ViewModels
 {
     public partial class AccountRecoveryFindAccountViewModel: ObservableObject
     {
-        [ObservableProperty] string email = "";
+        [ObservableProperty] string email = "zakotahri@gmail.com";
 
         [ObservableProperty] Brush emailTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
 

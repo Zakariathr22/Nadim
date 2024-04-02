@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Nadim.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -26,6 +27,9 @@ namespace Nadim.Views.AccountRecovery
         public VerificationPage()
         {
             this.InitializeComponent();
+
+            AccountRecoveryWindow.accountRecoveryVerificationViewModel = new AccountRecoveryVerificationViewModel();
+            mainPanel.DataContext = AccountRecoveryWindow.accountRecoveryVerificationViewModel;
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)

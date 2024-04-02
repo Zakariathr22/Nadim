@@ -8,6 +8,7 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
+using Nadim.ViewModels;
 using Nadim.Views.SignUp;
 using System;
 using System.Collections.Generic;
@@ -34,6 +35,9 @@ namespace Nadim.Views.AccountRecovery
         private AppWindowTitleBar titleBar;
         private int previousSelectedIndex;
         private bool isActivatedOnce = false;
+        public static AccountRecoveryFindAccountViewModel accountRecoveryFindAccountViewModel;
+        public static AccountRecoveryVerificationViewModel accountRecoveryVerificationViewModel;
+        public static AccountRecoveryNewPasswordViewModel accountRecoveryNewPasswordViewModel;
         public AccountRecoveryWindow()
         {
             this.InitializeComponent();

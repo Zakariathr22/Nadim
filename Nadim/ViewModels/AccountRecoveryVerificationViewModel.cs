@@ -11,7 +11,7 @@ namespace Nadim.ViewModels
 {
     public partial class AccountRecoveryVerificationViewModel:ObservableObject
     {
-        [ObservableProperty] string verificationCode = "";
+        [ObservableProperty] string verificationCode = "576881";
 
         [ObservableProperty] Brush verificationCodeTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
 

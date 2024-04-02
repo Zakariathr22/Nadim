@@ -15,9 +15,9 @@
             </ComboBox.Items>
         </ComboBox>
         <TextBlock Margin="4 8 4 8" Width="357">الرجاء إدخال بريدك الإلكتروني للبحث عن حسابك</TextBlock>
-        <TextBox x:Name="emailTextBox" Margin="4 0 4 0" PlaceholderText="البريد الإلكتروني" Width="357" HorizontalAlignment="Center"></TextBox>
-        <TextBlock x:Name="emailOrPhoneRequiredError" Margin="8 0" FontSize="12" Width="357" Foreground="{ThemeResource SystemFillColorCriticalBrush}">*يجب إدخال البريد الإلكتروني أو رقم الهاتف</TextBlock>
-        <TextBlock x:Name="inputIsNotConnectedToAnAccount" Margin="8 0" FontSize="12" Width="357" Foreground="{ThemeResource SystemFillColorCriticalBrush}">*البريد الإلكتروني أو رقم الهاتف الذي أدخلته غير مرتبط بحساب</TextBlock>
+        <TextBox x:Name="emailTextBox" Margin="4 0 4 0" PlaceholderText="البريد الإلكتروني" Width="357" HorizontalAlignment="Center" Text="{Binding Email, Mode=TwoWay}" Background="{Binding EmailTextBoxBackground}" TextAlignment="Left"></TextBox>
+        <TextBlock x:Name="emailOrPhoneRequiredError" Margin="8 0" FontSize="12" Width="357" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailOrPhoneRequiredErrorVisbility}">*يجب إدخال البريد الإلكتروني أو رقم الهاتف</TextBlock>
+        <TextBlock x:Name="inputIsNotConnectedToAnAccount" Margin="8 0" FontSize="12" Width="357" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding InputIsNotConnectedToAnAccountVisibility}">*البريد الإلكتروني أو رقم الهاتف الذي أدخلته غير مرتبط بحساب</TextBlock>
         <Button x:Name="searchButton" Margin="4 16 4 8" Style="{ThemeResource AccentButtonStyle}" Width="357" HorizontalAlignment="Center" Click="searchButton_Click">
             <StackPanel FlowDirection="RightToLeft" Orientation="Horizontal">
                 <FontIcon Margin="4 0" Glyph="&#xE721;" />
