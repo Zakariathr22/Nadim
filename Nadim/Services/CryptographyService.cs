@@ -23,5 +23,13 @@ namespace Nadim.Services
                 return builder.ToString();
             }
         }
+
+        public static string GenerateSalt()
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+            return new string(Enumerable.Repeat(chars, 100)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
     }
 }

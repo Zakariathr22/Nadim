@@ -26,7 +26,7 @@ namespace Nadim.ViewModels
             this.Lawyer.emailVerified = SignUpWindow.signUpEmailVerViewModel.EmailCodeIsValid;
             this.Lawyer.phone = SignUpWindow.signUpLawyerInfoViewModel.Phone;
             this.Lawyer.phoneVerified = SignUpWindow.signUpPhoneVerViewModel.PhoneCodeIsValid;
-            this.Lawyer.salt = GenerateSalt();
+            this.Lawyer.salt = CryptographyService.GenerateSalt();
             this.Lawyer.passwordHash = CryptographyService.HashPassword(SignUpWindow.signUpLawyerInfoViewModel.Password + Lawyer.salt);
 
             if (SignUpWindow.signUpLawyerInfoViewModel.Accreditation == 0)
@@ -45,14 +45,6 @@ namespace Nadim.ViewModels
             this.lawyer.office.phone2 = SignUpWindow.signUpOfficeInfoViewModel.Phone2;
             this.lawyer.office.email = SignUpWindow.signUpOfficeInfoViewModel.Email;
             this.lawyer.office.fax = SignUpWindow.signUpOfficeInfoViewModel.Fax;
-        }
-
-        private string GenerateSalt()
-        {
-            Random random = new Random();
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
-            return new string(Enumerable.Repeat(chars, 100)
-                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
         [RelayCommand]
