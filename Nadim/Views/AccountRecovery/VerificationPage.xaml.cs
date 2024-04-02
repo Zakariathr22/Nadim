@@ -34,9 +34,13 @@ namespace Nadim.Views.AccountRecovery
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
         {
-            App.recoveryWindow.selectorBar.SelectedItem = App.recoveryWindow.SelectorBarItemNewPassword;
-            App.recoveryWindow.SelectorBarItemVerification.IsEnabled = false;
-            App.recoveryWindow.SelectorBarItemNewPassword.IsEnabled = true;
+            AccountRecoveryWindow.accountRecoveryVerificationViewModel.verifyAccountRecoveryCodeCommand.Execute(this);
+            if (AccountRecoveryWindow.accountRecoveryVerificationViewModel.EmailCodeIsValid)
+            {
+                App.recoveryWindow.selectorBar.SelectedItem = App.recoveryWindow.SelectorBarItemNewPassword;
+                App.recoveryWindow.SelectorBarItemVerification.IsEnabled = false;
+                App.recoveryWindow.SelectorBarItemNewPassword.IsEnabled = true;
+            }
         }
 
         private void mainPanel_Loaded(object sender, RoutedEventArgs e)
