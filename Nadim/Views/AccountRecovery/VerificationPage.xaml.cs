@@ -1,4 +1,4 @@
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -37,6 +37,53 @@ namespace Nadim.Views.AccountRecovery
             App.recoveryWindow.selectorBar.SelectedItem = App.recoveryWindow.SelectorBarItemNewPassword;
             App.recoveryWindow.SelectorBarItemVerification.IsEnabled = false;
             App.recoveryWindow.SelectorBarItemNewPassword.IsEnabled = true;
+        }
+
+        private void mainPanel_Loaded(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                AccountRecoveryWindow.accountRecoveryVerificationViewModel.GenerateSendAccountRecoveryCodeCommand.Execute(this);
+            }
+            catch
+            {
+                ShowDialog();
+            }
+        }
+
+        private async void ShowDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new Views.SystemMessages.ConnectionFailedTitleControl();
+            dialog.PrimaryButtonText = "حاول مرة أخرى";
+            dialog.CloseButtonText = "تخطي";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new Views.SystemMessages.ConnectionFailedPage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                try
+                {
+                    SignUpWindow.signUpEmailVerViewModel.GenerateSendOTPCommand.Execute(this);
+                }
+                catch
+                {
+                    ShowDialog();
+                }
+            }
+            else
+            {
+                App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemphoneVer;
+                App.signUpWindow.SelectorBarItemphoneVer.IsEnabled = true;
+                App.signUpWindow.SelectorBarItemEmailVer.IsEnabled = false;
+            }
         }
     }
 }
