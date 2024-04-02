@@ -5,6 +5,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Nadim.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -38,6 +39,29 @@ namespace Nadim.Views.AccountRecovery
                 App.recoveryWindow.selectorBar.SelectedItem = App.recoveryWindow.SelectorBarItemVerification;
                 App.recoveryWindow.SelectorBarItemFindAccount.IsEnabled = false;
                 App.recoveryWindow.SelectorBarItemVerification.IsEnabled = true;
+            }
+        }
+
+        private void emailTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string Email = emailTextBox.Text;
+            if (Email.TrimStart() != "" && !DataValidationService.IsValidEmail(Email.TrimStart().TrimStart()))
+            {
+                emailTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+
+                if (!DataValidationService.IsValidEmail(Email.TrimStart().TrimStart()) && Email.TrimStart() != "")
+                {
+                    emailIsNotValidError.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    emailIsNotValidError.Visibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                emailTextBox.Background = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+                emailIsNotValidError.Visibility = Visibility.Collapsed;
             }
         }
     }

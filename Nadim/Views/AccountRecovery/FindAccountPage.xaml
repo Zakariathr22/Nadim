@@ -15,7 +15,7 @@
             </ComboBox.Items>
         </ComboBox>
         <TextBlock Margin="4 8 4 8" Width="357">الرجاء إدخال بريدك الإلكتروني للبحث عن حسابك</TextBlock>
-        <TextBox x:Name="emailTextBox" Margin="4 0 4 0" PlaceholderText="البريد الإلكتروني" Width="357" HorizontalAlignment="Center" Text="{Binding Email, Mode=TwoWay}" Background="{Binding EmailTextBoxBackground}" TextAlignment="Left"></TextBox>
+        <TextBox x:Name="emailTextBox" Margin="4 0 4 0" PlaceholderText="البريد الإلكتروني" Width="357" HorizontalAlignment="Center" Text="{Binding Email, Mode=TwoWay}" Background="{Binding EmailTextBoxBackground}" TextAlignment="Left" TextChanged="emailTextBox_TextChanged"></TextBox>
         <TextBlock x:Name="emailOrPhoneRequiredError" Margin="8 0" FontSize="12" Width="357" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailRequiredErrorVisbility}">*يجب إدخال البريد الإلكتروني</TextBlock>
         <TextBlock x:Name="inputIsNotConnectedToAnAccount" Margin="8 0" FontSize="12" Width="357" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding InputIsNotConnectedToAnAccountVisibility}">*البريد الإلكتروني الذي أدخلته غير مرتبط بحساب</TextBlock>
         <TextBlock x:Name="emailIsNotValidError" Margin="8 0" FontSize="12" Width="357" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailIsNotValidErrorVisibility}">*البريد الإلكتروني غير صالح</TextBlock>
