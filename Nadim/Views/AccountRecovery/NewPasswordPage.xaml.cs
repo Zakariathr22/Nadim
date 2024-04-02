@@ -29,5 +29,10 @@ namespace Nadim.Views.AccountRecovery
             AccountRecoveryWindow.accountRecoveryNewPasswordViewModel = new ViewModels.AccountRecoveryNewPasswordViewModel();
             mainPanel.DataContext = AccountRecoveryWindow.accountRecoveryNewPasswordViewModel;
         }
+
+        private void confirmPasswordBox_Click(object sender, RoutedEventArgs e)
+        {
+            AccountRecoveryWindow.accountRecoveryNewPasswordViewModel.ValdateCommand.Execute(this);
+        }
     }
 }
