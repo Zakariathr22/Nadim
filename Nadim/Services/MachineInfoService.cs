@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Management;
 using System.Net;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +11,23 @@ namespace Nadim.Services
 {
     public static class MachineInfoService
     {
+        public static IPAddress GetExternalIpAddress()
+        {
+            using (var client = new HttpClient())
+            {
+                var externalIpString = client.GetStringAsync("http://icanhazip.com").Result
+                    .Replace("\r\n", "").Replace("\n", "").Trim();
+
+                if (IPAddress.TryParse(externalIpString, out var ipAddress))
+                {
+                    return ipAddress;
+                }
+
+            }
+
+            return null;
+        }
+
         public static string GetLocalIPAddress()
         {
             // Get the hostname

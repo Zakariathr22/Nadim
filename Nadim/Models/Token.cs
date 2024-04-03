@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +11,7 @@ namespace Nadim.Models
     public class Token
     {
         public User user { get; }
+        public string tokenValue { get; set; }
         public DateTime? expirationDate { get; set; }
         public bool? isActive { get; set; }
         public DateTime? createdAt { get; set; }
@@ -25,7 +27,30 @@ namespace Nadim.Models
             user = new User();
             user.loger = EmailOrPhone.TrimStart().TrimEnd();
             user.passwordHash = CryptographyService.HashPassword(Password + salt);
-            ipAddress = MachineInfoService.GetLocalIPAddress();
+            try
+            {
+                ipAddress = MachineInfoService.GetExternalIpAddress().ToString();
+            }
+            catch 
+            {
+                ipAddress = "";
+            }
+            userAgent = "Windows";
+            machineName = MachineInfoService.GetComputerName();
+        }
+
+        public Token(string EmailOrPassword)
+        {
+            user = new User();
+            user.loger = EmailOrPassword.TrimStart().TrimEnd();
+            try
+            {
+                ipAddress = MachineInfoService.GetExternalIpAddress().ToString();
+            }
+            catch
+            {
+                ipAddress = "";
+            }
             userAgent = "Windows";
             machineName = MachineInfoService.GetComputerName();
         }

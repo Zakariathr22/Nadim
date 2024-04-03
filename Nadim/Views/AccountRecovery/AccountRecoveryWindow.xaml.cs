@@ -38,6 +38,7 @@ namespace Nadim.Views.AccountRecovery
         public static AccountRecoveryFindAccountViewModel accountRecoveryFindAccountViewModel;
         public static AccountRecoveryVerificationViewModel accountRecoveryVerificationViewModel;
         public static AccountRecoveryNewPasswordViewModel accountRecoveryNewPasswordViewModel;
+        public static AccountRecoveryViewModel accountRecoveryViewModel = new AccountRecoveryViewModel();
         public AccountRecoveryWindow()
         {
             this.InitializeComponent();

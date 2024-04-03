@@ -2,7 +2,10 @@
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
+using MySqlConnector;
+using Nadim.Models;
 using Nadim.Services;
+using Nadim.Views.AccountRecovery;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -65,7 +68,23 @@ namespace Nadim.ViewModels
                 EmailRequiredErrorVisbility = Visibility.Collapsed;
                 InputIsNotConnectedToAnAccountVisibility = Visibility.Collapsed;
                 EmailIsNotValidErrorVisibility = Visibility.Collapsed;
+                AccountRecoveryWindow.accountRecoveryViewModel.ResetPasswordToken = new Token(Email);
+                GenerateResetPasswordToken(AccountRecoveryWindow.accountRecoveryViewModel.ResetPasswordToken);
             }
+        }
+
+        private void GenerateResetPasswordToken(Token token)
+        {
+            string query = "CALL `GeneratePasswordResetToken`(@p_email_or_phone, @p_ip_address, @p_user_agent, @p_machine_name)";
+            MySqlParameter[] parameters = new MySqlParameter[]
+            {
+                    new MySqlParameter("@p_email_or_phone", token.user.loger),
+                    new MySqlParameter("@p_ip_address", token.ipAddress),
+                    new MySqlParameter("@p_user_agent", token.userAgent),
+                    new MySqlParameter("@p_machine_name", token.machineName)
+            };
+            string result = App.dataAccess.ExecuteScalar(query, parameters) as string;
+            token.tokenValue = result;
         }
     }
 
