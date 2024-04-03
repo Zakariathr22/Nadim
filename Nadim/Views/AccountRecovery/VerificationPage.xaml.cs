@@ -119,10 +119,14 @@ namespace Nadim.Views.AccountRecovery
             try
             {
                 AccountRecoveryWindow.accountRecoveryVerificationViewModel.GenerateSendAccountRecoveryCodeCommand.Execute(this);
+                verificationCodeTextBox.IsEnabled = true;
+                nextButton.IsEnabled = true;
             }
             catch
             {
                 ShowDialog();
+                verificationCodeTextBox.IsEnabled = false;
+                nextButton.IsEnabled = false;
             }
         }
 
@@ -135,7 +139,7 @@ namespace Nadim.Views.AccountRecovery
             dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
             dialog.Title = new Views.SystemMessages.ConnectionFailedTitleControl();
             dialog.PrimaryButtonText = "حاول مرة أخرى";
-            dialog.CloseButtonText = "تخطي";
+            dialog.CloseButtonText = "إغلاق البرنامج";
             dialog.DefaultButton = ContentDialogButton.Primary;
             dialog.Content = new Views.SystemMessages.ConnectionFailedPage();
             dialog.FlowDirection = FlowDirection.RightToLeft;
@@ -147,17 +151,19 @@ namespace Nadim.Views.AccountRecovery
                 try
                 {
                     AccountRecoveryWindow.accountRecoveryVerificationViewModel.GenerateSendAccountRecoveryCodeCommand.Execute(this);
+                    verificationCodeTextBox.IsEnabled = true;
+                    nextButton.IsEnabled = true;
                 }
                 catch
                 {
                     ShowDialog();
+                    verificationCodeTextBox.IsEnabled = false;
+                    nextButton.IsEnabled = false;
                 }
             }
             else
             {
-                App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemphoneVer;
-                App.signUpWindow.SelectorBarItemphoneVer.IsEnabled = true;
-                App.signUpWindow.SelectorBarItemEmailVer.IsEnabled = false;
+                App.recoveryWindow.Close();
             }
         }
 
