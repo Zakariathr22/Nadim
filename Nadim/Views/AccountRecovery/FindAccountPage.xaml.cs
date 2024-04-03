@@ -1,4 +1,4 @@
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -45,7 +45,7 @@ namespace Nadim.Views.AccountRecovery
             }
             catch
             {
-                string a = "showdialogue here";
+                ShowDialog();
             }
         }
 
@@ -69,6 +69,45 @@ namespace Nadim.Views.AccountRecovery
             {
                 emailTextBox.Background = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
                 emailIsNotValidError.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private async void ShowDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new Views.SystemMessages.ConnectionFailedTitleControl();
+            dialog.PrimaryButtonText = "حاول مرة أخرى";
+            dialog.CloseButtonText = "إغلاق البرنامج";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new Views.SystemMessages.ConnectionFailedPage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                try
+                {
+                    AccountRecoveryWindow.accountRecoveryFindAccountViewModel.ValidateCommand.Execute(this);
+                    if (AccountRecoveryWindow.accountRecoveryFindAccountViewModel.EverythingIsValid)
+                    {
+                        App.recoveryWindow.selectorBar.SelectedItem = App.recoveryWindow.SelectorBarItemVerification;
+                        App.recoveryWindow.SelectorBarItemFindAccount.IsEnabled = false;
+                        App.recoveryWindow.SelectorBarItemVerification.IsEnabled = true;
+                    }
+                }
+                catch
+                {
+                    ShowDialog();
+                }
+            }
+            else
+            {
+                App.signUpWindow.Close();
             }
         }
     }
