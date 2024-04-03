@@ -34,7 +34,7 @@ namespace Nadim.ViewModels
         [RelayCommand]
         private void Valdate()
         {
-            EveryThingValid = false;
+            EveryThingValid = true;
             if (Password == ""
                 || !DataValidationService.HasMinimumCharacters(Password, 8)
                 || !DataValidationService.HasMaximumCharacters(Password, 128)

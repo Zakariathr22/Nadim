@@ -75,6 +75,7 @@ namespace Nadim.ViewModels
 
         private void GenerateResetPasswordToken(Token token)
         {
+            if (!App.dataAccess.ConnectionStatIsOpened()) App.dataAccess.OpenConnection();
             string query = "CALL `GeneratePasswordResetToken`(@p_email_or_phone, @p_ip_address, @p_user_agent, @p_machine_name)";
             MySqlParameter[] parameters = new MySqlParameter[]
             {

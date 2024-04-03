@@ -34,6 +34,9 @@ namespace Nadim.Views.AccountRecovery
         private void resetPasswordButton_Click(object sender, RoutedEventArgs e)
         {
             AccountRecoveryWindow.accountRecoveryNewPasswordViewModel.ValdateCommand.Execute(this);
+            
+            if (AccountRecoveryWindow.accountRecoveryNewPasswordViewModel.EveryThingValid)
+                AccountRecoveryWindow.accountRecoveryViewModel.ResetPasswordCommand.Execute(null);
         }
 
         private void passwordBox_PasswordChanged(object sender, RoutedEventArgs e)
