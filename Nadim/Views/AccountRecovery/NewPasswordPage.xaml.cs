@@ -200,6 +200,8 @@ namespace Nadim.Views.AccountRecovery
             }
             else
             {
+                AccountRecoveryWindow.accountRecoveryViewModel.ClearCommand.Execute(this);
+                AccountRecoveryWindow.accountRecoveryViewModel = null;
                 App.recoveryWindow.Close();
             }
         }
@@ -221,12 +223,16 @@ namespace Nadim.Views.AccountRecovery
 
             if (result == ContentDialogResult.Primary)
             {
+                AccountRecoveryWindow.accountRecoveryViewModel.ClearCommand.Execute(this);
+                AccountRecoveryWindow.accountRecoveryViewModel = null;
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.Activate();
                 App.recoveryWindow.Close();
             }
             else
             {
+                AccountRecoveryWindow.accountRecoveryViewModel.ClearCommand.Execute(this);
+                AccountRecoveryWindow.accountRecoveryViewModel = null;
                 App.recoveryWindow.Close();
             }
         }
@@ -239,7 +245,8 @@ namespace Nadim.Views.AccountRecovery
             dialog.XamlRoot = Content.XamlRoot;
             dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
             dialog.Title = new Views.SystemMessages.ResetPasswordFailedTitleControl();
-            dialog.PrimaryButtonText = "حسنا";
+            dialog.PrimaryButtonText = "العودة لنافذة تسجيل الدخول";
+            dialog.SecondaryButtonText = "إغلاق البرنامج";
             dialog.DefaultButton = ContentDialogButton.Primary;
             dialog.Content = new Views.SystemMessages.ResetPasswordFailedPage();
             dialog.FlowDirection = FlowDirection.RightToLeft;
@@ -248,12 +255,16 @@ namespace Nadim.Views.AccountRecovery
 
             if (result == ContentDialogResult.Primary)
             {
+                AccountRecoveryWindow.accountRecoveryViewModel.ClearCommand.Execute(this);
+                AccountRecoveryWindow.accountRecoveryViewModel = null;
                 LoginWindow loginWindow = new LoginWindow();
                 loginWindow.Activate();
                 App.recoveryWindow.Close();
             }
             else
             {
+                AccountRecoveryWindow.accountRecoveryViewModel.ClearCommand.Execute(this);
+                AccountRecoveryWindow.accountRecoveryViewModel = null;
                 App.recoveryWindow.Close();
             }
         }

@@ -21,7 +21,7 @@ namespace Nadim.ViewModels
         public bool EmailCodeIsValid = false;
 
         [ObservableProperty] string verificationCode = "";
-        [ObservableProperty] string email = "";
+        private string Email = "";
 
         [ObservableProperty] Brush verificationCodeTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
 
@@ -80,5 +80,12 @@ namespace Nadim.ViewModels
                 VerificationCodeIsRequiredErrorVisibility = Visibility.Collapsed;
             }
         }
+        public void Clear()
+        {
+            VerificationCode = "";
+            Email = null;
+            emailOTP = null;
+        }
+
     }
 }

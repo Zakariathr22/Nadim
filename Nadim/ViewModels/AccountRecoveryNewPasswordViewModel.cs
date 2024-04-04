@@ -135,5 +135,11 @@ namespace Nadim.ViewModels
                 ConfirmPasswoedMatchErrorVisibility = Visibility.Collapsed;
             }
         }
+
+        public void Clear()
+        {
+            Password = "";
+            ConfirmPassword = "";
+        }
     }
 }

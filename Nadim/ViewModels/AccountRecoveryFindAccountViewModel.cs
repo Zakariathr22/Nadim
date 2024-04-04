@@ -87,6 +87,11 @@ namespace Nadim.ViewModels
             string result = App.dataAccess.ExecuteScalar(query, parameters) as string;
             token.tokenValue = result;
         }
+
+        public void Clear()
+        {
+            Email = "";
+        }
     }
 
 }

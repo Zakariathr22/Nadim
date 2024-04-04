@@ -47,5 +47,14 @@ namespace Nadim.ViewModels
                 EmailVerificationService.SendPasswordResetNotification(ResetPasswordToken.user.email);
             }
         }
+
+        [RelayCommand]
+        private void Clear()
+        {
+            AccountRecoveryWindow.accountRecoveryFindAccountViewModel.Clear();
+            AccountRecoveryWindow.accountRecoveryVerificationViewModel.Clear();
+            AccountRecoveryWindow.accountRecoveryNewPasswordViewModel.Clear();
+            ResetPasswordToken.Clear();
+        }
     }
 }
