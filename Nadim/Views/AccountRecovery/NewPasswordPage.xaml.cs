@@ -1,4 +1,4 @@
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -37,7 +37,22 @@ namespace Nadim.Views.AccountRecovery
 
             if (AccountRecoveryWindow.accountRecoveryNewPasswordViewModel.EveryThingValid)
             {
-                AccountRecoveryWindow.accountRecoveryViewModel.ResetPasswordCommand.Execute(null);
+                try
+                {
+                    AccountRecoveryWindow.accountRecoveryViewModel.ResetPasswordCommand.Execute(null);
+                    if (AccountRecoveryWindow.accountRecoveryViewModel.Result != "")
+                    {
+                        ShowFailedDialog();
+                    }
+                    else
+                    {
+                        ShowSuccessDialog();
+                    }
+                }
+                catch 
+                {
+                    ShowDialog();
+                }
             }
         }
 
@@ -153,6 +168,93 @@ namespace Nadim.Views.AccountRecovery
                 confirmPasswordBox.Background = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
                 confirmPasswoedRequiredError.Visibility = Visibility.Collapsed;
                 confirmPasswoedMatchError.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private async void ShowDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new Views.SystemMessages.ConnectionFailedTitleControl();
+            dialog.PrimaryButtonText = "حاول مرة أخرى";
+            dialog.CloseButtonText = "إغلاق البرنامج";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new Views.SystemMessages.ConnectionFailedPage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                try
+                {
+                    AccountRecoveryWindow.accountRecoveryViewModel.ResetPasswordCommand.Execute(null);
+                }
+                catch
+                {
+                    ShowDialog();
+                }
+            }
+            else
+            {
+                App.recoveryWindow.Close();
+            }
+        }
+
+        private async void ShowSuccessDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new Views.SystemMessages.ResetPasswordSuccessTitleControl();
+            dialog.PrimaryButtonText = "تسجيل الدخول";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new Views.SystemMessages.ResetPasswordSuccessPage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Activate();
+                App.recoveryWindow.Close();
+            }
+            else
+            {
+                App.recoveryWindow.Close();
+            }
+        }
+
+        private async void ShowFailedDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new Views.SystemMessages.ResetPasswordFailedTitleControl();
+            dialog.PrimaryButtonText = "حسنا";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new Views.SystemMessages.ResetPasswordFailedPage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Activate();
+                App.recoveryWindow.Close();
+            }
+            else
+            {
+                App.recoveryWindow.Close();
             }
         }
     }

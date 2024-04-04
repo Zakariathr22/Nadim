@@ -28,6 +28,10 @@
     <None Remove="Views\SignUp\PhoneVerificationPage.xaml" />
     <None Remove="Views\SystemMessages\ConnectionFailedPage.xaml" />
     <None Remove="Views\SystemMessages\ConnectionFailedTitleControl.xaml" />
+    <None Remove="Views\SystemMessages\ResetPasswordFailedPage.xaml" />
+    <None Remove="Views\SystemMessages\ResetPasswordFailedTitleControl.xaml" />
+    <None Remove="Views\SystemMessages\ResetPasswordSuccessPage.xaml" />
+    <None Remove="Views\SystemMessages\ResetPasswordSuccessTitleControl.xaml" />
     <None Remove="Views\SystemMessages\SignUpSuccessPage.xaml" />
     <None Remove="Views\SystemMessages\SignUpSuccessTitleControl.xaml" />
   </ItemGroup>
@@ -63,6 +67,18 @@
     <None Update="Assets\Logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Views\SystemMessages\ResetPasswordFailedPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\SystemMessages\ResetPasswordFailedTitleControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\SystemMessages\ResetPasswordSuccessTitleControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\SystemMessages\ResetPasswordSuccessPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\AccountRecovery\AccountRecoveryWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
