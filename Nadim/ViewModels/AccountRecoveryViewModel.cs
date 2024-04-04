@@ -41,6 +41,11 @@ namespace Nadim.ViewModels
             {
                 Result = o as string;
             }
+            else
+            {
+                ResetPasswordToken.user.email = AccountRecoveryWindow.accountRecoveryFindAccountViewModel.Email;
+                EmailVerificationService.SendPasswordResetNotification(ResetPasswordToken.user.email);
+            }
         }
     }
 }
