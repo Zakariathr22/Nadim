@@ -69,11 +69,11 @@ namespace Nadim.Services
             {
                 smtpClient.Port = 587;
                 smtpClient.EnableSsl = true;
-                smtpClient.Credentials = new NetworkCredential("MS_kv2WNQ@trial-yzkq340kpn2gd796.mlsender.net", "OOVVA0OrhASOzhd6");
+                smtpClient.Credentials = new NetworkCredential(ConfigurationService.GetCoGetConnectionString("SMTP_USER"), ConfigurationService.GetCoGetConnectionString("SMTP_PASS"));
 
                 MailMessage mailMessage = new MailMessage
                 {
-                    From = new MailAddress("MS_kv2WNQ@trial-yzkq340kpn2gd796.mlsender.net"),
+                    From = new MailAddress(ConfigurationService.GetCoGetConnectionString("SMTP_USER")),
                     Subject = "رمز الأمان لإعادة تعيين كلمة المرور",
                     Body = $"<!DOCTYPE html>" +
                     $"<html>" +
@@ -104,7 +104,6 @@ namespace Nadim.Services
                 mailMessage.To.Add(email);
 
                 smtpClient.Send(mailMessage);
-                Console.WriteLine("OTP sent successfully!");
             }
         }
 
