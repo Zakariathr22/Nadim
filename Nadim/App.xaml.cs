@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using Microsoft.Extensions.Configuration;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -34,7 +35,7 @@ namespace Nadim
     /// </summary>
     public partial class App : Application
     {
-        public static DataAccessService dataAccess = DataAccessService.CreateInstance("server=localhost;port=3306;database=nadim_db;uid=root;pwd=");
+        public static DataAccessService dataAccess;
         public static int openWindowCount;
         public static SignUpWindow signUpWindow;
         public static PasswordVault vault = new PasswordVault();
@@ -57,6 +58,7 @@ namespace Nadim
 
             try
             {
+                dataAccess = DataAccessService.CreateInstance(ConfigurationService.GetCoGetConnectionString("Database"));
                 dataAccess.OpenConnection();
             }
             catch

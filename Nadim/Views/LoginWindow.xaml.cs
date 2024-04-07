@@ -65,7 +65,7 @@ namespace Nadim.Views
 
         private void MainGrid_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!App.dataAccess.ConnectionStatIsOpened())
+            if (!App.dataAccess.ConnectionStatIsOpened() || App.dataAccess.ConnectionStatIsOpened==null)
             {
                 ShowDialog();
                 emailOrPhoneTextBox.IsEnabled = false;
