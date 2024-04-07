@@ -29,11 +29,11 @@ namespace Nadim.Services
             {
                 smtpClient.Port = 587;
                 smtpClient.EnableSsl = true;
-                smtpClient.Credentials = new NetworkCredential("MS_kv2WNQ@trial-yzkq340kpn2gd796.mlsender.net", "OOVVA0OrhASOzhd6");
+                smtpClient.Credentials = new NetworkCredential(ConfigurationService.GetCoGetConnectionString("SMTP_USER"), ConfigurationService.GetCoGetConnectionString("SMTP_PASS"));
 
                 MailMessage mailMessage = new MailMessage
                 {
-                    From = new MailAddress("MS_kv2WNQ@trial-yzkq340kpn2gd796.mlsender.net"),
+                    From = new MailAddress(ConfigurationService.GetCoGetConnectionString("SMTP_USER")),
                     Subject = "رمز التحقق لإنشاء حساب نديم",
                     Body = $"<!DOCTYPE html>" +
                     $"<html>" +
@@ -114,11 +114,11 @@ namespace Nadim.Services
             {
                 smtpClient.Port = 587;
                 smtpClient.EnableSsl = true;
-                smtpClient.Credentials = new NetworkCredential("MS_kv2WNQ@trial-yzkq340kpn2gd796.mlsender.net", "OOVVA0OrhASOzhd6");
+                smtpClient.Credentials = new NetworkCredential(ConfigurationService.GetCoGetConnectionString("SMTP_USER"), ConfigurationService.GetCoGetConnectionString("SMTP_PASS"));
 
                 MailMessage mailMessage = new MailMessage
                 {
-                    From = new MailAddress("MS_kv2WNQ@trial-yzkq340kpn2gd796.mlsender.net"),
+                    From = new MailAddress(ConfigurationService.GetCoGetConnectionString("SMTP_USER")),
                     Subject = "تم إعادة تعيين كلمة المرور بنجاح",
                     Body = $"<!DOCTYPE html>" +
                     $"<html>" +
