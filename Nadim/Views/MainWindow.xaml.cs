@@ -91,7 +91,7 @@ namespace Nadim.Views
             }
             catch
             {
-                vault.Add(new Windows.Security.Credentials.PasswordCredential("NadimApplication", "token", "nothing"));
+                vault.Add(new Windows.Security.Credentials.PasswordCredential("NadimApplication", "token", "empty"));
             }
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Activate();

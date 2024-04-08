@@ -56,6 +56,12 @@ namespace Nadim
 
             ApplicationLanguages.PrimaryLanguageOverride = "ar-DZ";
 
+            if (bool.Parse(ConfigurationService.GetAppSetting("IsFirstLaunch")))
+            {
+                vault.Add(new Windows.Security.Credentials.PasswordCredential("NadimApplication", "token", "empty"));
+                ConfigurationService.SetAppSetting("IsFirstLaunch", false);
+            }
+
             try
             {
                 dataAccess = DataAccessService.CreateInstance(ConfigurationService.GetConnectionString("Database"));

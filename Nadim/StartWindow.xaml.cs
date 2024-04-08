@@ -43,8 +43,7 @@ namespace Nadim
 
             var vault = new Windows.Security.Credentials.PasswordVault();
             var credential = vault.Retrieve("NadimApplication", "token");
-            var token = credential.Password;
-            if (credential.Password == null || credential.Password == "")
+            if (credential.Password == "empty")
             {
                 loginWindow = new LoginWindow();
                 loginWindow.Activate();
