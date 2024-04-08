@@ -14,6 +14,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Security.Credentials;
 using Windows.System;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -79,6 +80,22 @@ namespace Nadim.Views
                 isActivatedOnce = true;
                 App.openWindowCount++;
             }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            PasswordVault vault = new PasswordVault();
+            try
+            {
+                vault.Add(new Windows.Security.Credentials.PasswordCredential("NadimApplication", "token", null));
+            }
+            catch
+            {
+                vault.Add(new Windows.Security.Credentials.PasswordCredential("NadimApplication", "token", "nothing"));
+            }
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Activate();
+            this.Close();
         }
     }
 }

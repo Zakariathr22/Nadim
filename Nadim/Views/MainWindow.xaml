@@ -11,7 +11,8 @@
         <MicaBackdrop />
     </Window.SystemBackdrop>
     
-    <StackPanel FlowDirection="RightToLeft" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <StackPanel FlowDirection="RightToLeft" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
         <TextBlock Name="textblock" FontSize="72"></TextBlock>
+        <Button Click="Button_Click_1">Logout</Button>
     </StackPanel>
 </Window>

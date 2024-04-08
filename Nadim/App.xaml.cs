@@ -58,7 +58,7 @@ namespace Nadim
 
             try
             {
-                dataAccess = DataAccessService.CreateInstance(ConfigurationService.GetCoGetConnectionString("Database"));
+                dataAccess = DataAccessService.CreateInstance(ConfigurationService.GetConnectionString("Database"));
                 dataAccess.OpenConnection();
             }
             catch

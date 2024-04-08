@@ -29,11 +29,11 @@ namespace Nadim.Services
             {
                 smtpClient.Port = 587;
                 smtpClient.EnableSsl = true;
-                smtpClient.Credentials = new NetworkCredential(ConfigurationService.GetCoGetConnectionString("SMTP_USER"), ConfigurationService.GetCoGetConnectionString("SMTP_PASS"));
+                smtpClient.Credentials = new NetworkCredential(ConfigurationService.GetConnectionString("SMTP_USER"), ConfigurationService.GetConnectionString("SMTP_PASS"));
 
                 MailMessage mailMessage = new MailMessage
                 {
-                    From = new MailAddress(ConfigurationService.GetCoGetConnectionString("SMTP_USER")),
+                    From = new MailAddress(ConfigurationService.GetConnectionString("SMTP_USER")),
                     Subject = "رمز التحقق لإنشاء حساب نديم",
                     Body = $"<!DOCTYPE html>" +
                     $"<html>" +
@@ -69,11 +69,11 @@ namespace Nadim.Services
             {
                 smtpClient.Port = 587;
                 smtpClient.EnableSsl = true;
-                smtpClient.Credentials = new NetworkCredential(ConfigurationService.GetCoGetConnectionString("SMTP_USER"), ConfigurationService.GetCoGetConnectionString("SMTP_PASS"));
+                smtpClient.Credentials = new NetworkCredential(ConfigurationService.GetConnectionString("SMTP_USER"), ConfigurationService.GetConnectionString("SMTP_PASS"));
 
                 MailMessage mailMessage = new MailMessage
                 {
-                    From = new MailAddress(ConfigurationService.GetCoGetConnectionString("SMTP_USER")),
+                    From = new MailAddress(ConfigurationService.GetConnectionString("SMTP_USER")),
                     Subject = "رمز الأمان لإعادة تعيين كلمة المرور",
                     Body = $"<!DOCTYPE html>" +
                     $"<html>" +
@@ -113,11 +113,11 @@ namespace Nadim.Services
             {
                 smtpClient.Port = 587;
                 smtpClient.EnableSsl = true;
-                smtpClient.Credentials = new NetworkCredential(ConfigurationService.GetCoGetConnectionString("SMTP_USER"), ConfigurationService.GetCoGetConnectionString("SMTP_PASS"));
+                smtpClient.Credentials = new NetworkCredential(ConfigurationService.GetConnectionString("SMTP_USER"), ConfigurationService.GetConnectionString("SMTP_PASS"));
 
                 MailMessage mailMessage = new MailMessage
                 {
-                    From = new MailAddress(ConfigurationService.GetCoGetConnectionString("SMTP_USER")),
+                    From = new MailAddress(ConfigurationService.GetConnectionString("SMTP_USER")),
                     Subject = "تم إعادة تعيين كلمة المرور بنجاح",
                     Body = $"<!DOCTYPE html>" +
                     $"<html>" +

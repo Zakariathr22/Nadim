@@ -40,9 +40,20 @@ namespace Nadim
             overlappedPresenter = GetAppWindowOverlappedPresenter(appWindow);
 
             appWindow.Title = "Nadim";
-            loginWindow = new LoginWindow();
-            loginWindow.Activate();
 
+            var vault = new Windows.Security.Credentials.PasswordVault();
+            var credential = vault.Retrieve("NadimApplication", "token");
+            var token = credential.Password;
+            if (credential.Password == null || credential.Password == "")
+            {
+                loginWindow = new LoginWindow();
+                loginWindow.Activate();
+            }
+            else
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Activate();
+            }
             appWindow.IsShownInSwitchers = false;           
             this.Activated += MainWindow_Activated;
         }
