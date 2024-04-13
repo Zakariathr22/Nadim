@@ -59,7 +59,7 @@ namespace Nadim.Services
 
         public static bool IsValidEmail(string email)
         {
-            if (string.IsNullOrEmpty(email))
+            if (string.IsNullOrEmpty(email) || email.Length >= 200)
             {
                 return false;
             }

@@ -12,7 +12,7 @@
         <StackPanel x:Name="mainPanel" VerticalAlignment="Center">
             <TextBlock Margin="4 0 4 8" FontWeight="Bold" Width="357">التحقق عبر رسالة SMS</TextBlock>
             <TextBlock Margin="4 8 4 8" TextWrapping="Wrap" TextAlignment="Justify" Width="357">لقد تم إرسال رمز التحقق على شكل رسالة SMS إلى رقم الهاتف الذي سجلته، يرجى التحقق.</TextBlock>
-            <TextBox HorizontalAlignment="Center" TextAlignment="Center" Margin="4 8 4 8" Width="357" PlaceholderText="قم بإدخال الرمز"></TextBox>
+            <TextBox HorizontalAlignment="Center" TextAlignment="Center" Margin="4 8 4 8" Width="357" PlaceholderText="قم بإدخال الرمز" IsSpellCheckEnabled="False"></TextBox>
             <Button HorizontalAlignment="Center" Margin="4 8 4 8" Width="357" Style="{ThemeResource AccentButtonStyle}">التحقق وإنشاء حساب نديم</Button>
             <HyperlinkButton HorizontalAlignment="Center" Margin="4 8 4 8" IsEnabled="False">لم تتلقى الرسالة؟ إعادة إرسال</HyperlinkButton>
             <Button x:Name="skipAndSignUp" HorizontalAlignment="Center" Margin="4 8 4 8" Width="357" Click="skipAndSignUp_Click">تخطي وإنشاء حساب نديم</Button>

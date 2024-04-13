@@ -97,7 +97,8 @@
                          PlaceholderText="رقم الهاتف المحمول أو البريد الإلكتروني"
                          TextAlignment="Left"
                          Text="{Binding EmailOrPhone, Mode=TwoWay}"
-                         Background="{Binding EmailOrPhoneTextBoxBackground}"></TextBox>
+                         Background="{Binding EmailOrPhoneTextBoxBackground}"
+                         IsSpellCheckEnabled="False"></TextBox>
                 <TextBlock x:Name="emailOrPhoneRequiredError" Margin="8 0" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailOrPhoneRequiredErrorVisibility}">*يجب إدخال البريد الإلكتروني أو رقم الهاتف</TextBlock>
                 <TextBlock x:Name="inputIsNotConnectedToAnAccount" Margin="8 0" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding InputIsNotConnectedToAnAccountVisibility}">*البريد الإلكتروني أو رقم الهاتف الذي أدخلته غير مرتبط بحساب</TextBlock>
                 <PasswordBox x:Name="passwordBox"

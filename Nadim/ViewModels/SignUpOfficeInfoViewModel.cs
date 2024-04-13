@@ -44,6 +44,7 @@ namespace Nadim.ViewModels
         [ObservableProperty] private Visibility namingRequiredErrorVisibility = Visibility.Collapsed;
 
         [ObservableProperty] private Visibility headquartersRequiredErrorVisibility = Visibility.Collapsed;
+        [ObservableProperty] private Visibility headquartersToLongErrorVisibility = Visibility.Collapsed;
 
         [ObservableProperty] private Visibility wilayaRequiredErrorVisibility = Visibility.Collapsed;
 
@@ -108,7 +109,7 @@ namespace Nadim.ViewModels
                 NamingRequiredErrorVisibility = Visibility.Collapsed;
             }
 
-            if (Headquarters.TrimStart() == "")
+            if (Headquarters.TrimStart() == "" || !DataValidationService.HasMaximumCharacters(Headquarters.TrimStart().TrimEnd(),199))
             {
                 EveryThingValid = false;
                 HeadquartersTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
@@ -122,11 +123,20 @@ namespace Nadim.ViewModels
                 {
                     HeadquartersRequiredErrorVisibility = Visibility.Collapsed;
                 }
+                if (!DataValidationService.HasMaximumCharacters(Headquarters.TrimStart().TrimEnd(), 199))
+                {
+                    HeadquartersToLongErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    HeadquartersRequiredErrorVisibility = Visibility.Collapsed;
+                }
             }
             else
             {
                 HeadquartersTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
                 Headquarters = Headquarters.TrimStart().TrimEnd();
+                HeadquartersRequiredErrorVisibility = Visibility.Collapsed;
                 HeadquartersRequiredErrorVisibility = Visibility.Collapsed;
             }
 

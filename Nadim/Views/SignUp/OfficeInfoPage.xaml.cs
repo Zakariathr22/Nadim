@@ -80,7 +80,7 @@ namespace Nadim.Views.SignUp
         private void headquartersTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             string Headquarters = headquartersTextBox.Text;
-            if (Headquarters.TrimStart() == "")
+            if (Headquarters.TrimStart() == "" || !DataValidationService.HasMaximumCharacters(Headquarters.TrimStart().TrimEnd(), 100))
             {
                 headquartersTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
                 if (Headquarters.TrimStart() == "")
@@ -91,10 +91,19 @@ namespace Nadim.Views.SignUp
                 {
                     headquartersRequiredError.Visibility = Visibility.Collapsed;
                 }
+                if (!DataValidationService.HasMaximumCharacters(Headquarters.TrimStart().TrimEnd(), 100))
+                {
+                    headquartersToLongError.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    headquartersRequiredError.Visibility = Visibility.Collapsed;
+                }
             }
             else
             {
                 headquartersTextBox.Background = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+                headquartersRequiredError.Visibility = Visibility.Collapsed;
                 headquartersRequiredError.Visibility = Visibility.Collapsed;
             }
         }

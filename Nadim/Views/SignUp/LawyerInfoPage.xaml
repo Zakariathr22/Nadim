@@ -37,7 +37,7 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                     <StackPanel Margin="4" Grid.Column="0">
-                        <TextBox x:Name="lastNameTextBox" Header="اللقب" PlaceholderText="اللقب" Text="{Binding LastName, Mode=TwoWay}" Background="{Binding LastNameTextBoxBackground, Mode=OneWay}" TextChanged="lastNameTextBox_TextChanged"/>
+                        <TextBox x:Name="lastNameTextBox" Header="اللقب" PlaceholderText="اللقب" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding LastName, Mode=TwoWay}" Background="{Binding LastNameTextBoxBackground, Mode=OneWay}" TextChanged="lastNameTextBox_TextChanged"/>
                         <TextBlock x:Name="lastNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameRequiredErrorVisiblity}">*يجب إدخال اللقب</TextBlock>
                         <TextBlock x:Name="lastNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameTooLongErrorVisiblity}">*اللقب أطول من اللازم</TextBlock>
                         <TextBlock x:Name="lastNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameTooShortErrorVisiblity}">*اللقب أقصر من اللازم</TextBlock>
@@ -45,7 +45,7 @@
                         <TextBlock x:Name="lastNameContainsNumberError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameContainsNumberErrorVisibility}">*يجب ألا يحتوي اللقب على رقم</TextBlock>
                     </StackPanel>
                     <StackPanel Margin="4" Grid.Column="1">
-                        <TextBox x:Name="firstNameTextBox" Header="الاسم" PlaceholderText="الاسم" Text="{Binding FirstName, Mode=TwoWay}" Background="{Binding FirstNameTextBoxBackground, Mode=OneWay}" TextChanged="firstNameTextBox_TextChanged"/>
+                        <TextBox x:Name="firstNameTextBox" Header="الاسم" PlaceholderText="الاسم" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding FirstName, Mode=TwoWay}" Background="{Binding FirstNameTextBoxBackground, Mode=OneWay}" TextChanged="firstNameTextBox_TextChanged"/>
                         <TextBlock x:Name="firstNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameRequiredErrorVisiblity}">*يجب إدخال الاسم</TextBlock>
                         <TextBlock x:Name="firstNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameTooLongErrorVisiblity}">*الاسم أطول من اللازم</TextBlock>
                         <TextBlock x:Name="firstNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameTooShortErrorVisiblity}">*الاسم أقصر من اللازم</TextBlock>
@@ -88,13 +88,13 @@
             </StackPanel>
             <TextBlock Margin="4 8 4 4" Grid.Row="7" Text="3- معلومات الحساب:" FontWeight="bold"/>
             <StackPanel Margin="4" Grid.Row="8">
-                <TextBox x:Name="emailTextBox" PlaceholderText="البريد الإلكتروني" TextAlignment="Left" Text="{Binding Email, Mode=TwoWay}"  Background="{Binding EmailTextBoxBackground}" TextChanged="emailTextBox_TextChanged"/>
+                <TextBox x:Name="emailTextBox" PlaceholderText="البريد الإلكتروني" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding Email, Mode=TwoWay}"  Background="{Binding EmailTextBoxBackground}" TextChanged="emailTextBox_TextChanged"/>
                 <TextBlock x:Name="emailRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailRequiredErrorVisibilty}">*يجب إدخال البريد الإلكتروني</TextBlock>
                 <TextBlock x:Name="emailIsNotValidError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailIsNotValidErrorVisibilty}">*البريد الإلكتروني غير صالح</TextBlock>
                 <TextBlock x:Name="emailAllreadyExistsError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding EmailAllreadyExistsErrorVisibilty, Mode=TwoWay}">*هذا الحساب موجود بالفعل</TextBlock>
             </StackPanel>
             <StackPanel Margin="4" Grid.Row="9">
-                <TextBox x:Name="phoneTextBox" PlaceholderText="رقم الهاتف" TextAlignment="Left" Text="{Binding Phone, Mode=TwoWay}" Background="{Binding PhoneTextBoxBackground}" TextChanged="phoneTextBox_TextChanged"/>
+                <TextBox x:Name="phoneTextBox" PlaceholderText="رقم الهاتف" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding Phone, Mode=TwoWay}" Background="{Binding PhoneTextBoxBackground}" TextChanged="phoneTextBox_TextChanged"/>
                 <TextBlock x:Name="phoneRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PhoneRequiredErrorVisibilty}">*يجب إدخال رقم الهاتف</TextBlock>
                 <TextBlock x:Name="phoneIsNotValidError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PhoneIsNotValidErrorVisibilty}">*رقم الهاتف غير صالح</TextBlock>
                 <TextBlock x:Name="phoneTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding PhoneTooLongErrorVisiblity}">*رقم الهاتف أطول من اللازم</TextBlock>
