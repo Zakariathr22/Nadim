@@ -38,7 +38,7 @@ namespace Nadim
         public static DataAccessService dataAccess;
         public static int openWindowCount;
         public static SignUpWindow signUpWindow;
-        public static PasswordVault vault = new PasswordVault();
+        public static PasswordVault valut = new PasswordVault();
         public static AccountRecoveryWindow recoveryWindow;
         public App()
         {
@@ -58,13 +58,14 @@ namespace Nadim
 
             if (bool.Parse(ConfigurationService.GetAppSetting("IsFirstLaunch")))
             {
-                vault.Add(new Windows.Security.Credentials.PasswordCredential("NadimApplication", "token", "empty"));
+                valut.Add(new PasswordCredential("NadimApplication", "token", "empty"));
                 ConfigurationService.SetAppSetting("IsFirstLaunch", false);
+                valut.Add(new PasswordCredential("NadimApplication", "Database", CryptographyService.onifojij(ConfigurationService.GetConnectionString("Database"))));
             }
 
             try
             {
-                dataAccess = DataAccessService.CreateInstance(ConfigurationService.GetConnectionString("Database"));
+                dataAccess = DataAccessService.CreateInstance(valut.Retrieve("NadimApplication", "Database").Password);
                 dataAccess.OpenConnection();
             }
             catch
