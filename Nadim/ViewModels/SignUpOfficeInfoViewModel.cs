@@ -129,7 +129,7 @@ namespace Nadim.ViewModels
                 }
                 else
                 {
-                    HeadquartersRequiredErrorVisibility = Visibility.Collapsed;
+                    HeadquartersToLongErrorVisibility = Visibility.Collapsed;
                 }
             }
             else
