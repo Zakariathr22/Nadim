@@ -88,7 +88,8 @@ namespace Nadim.ViewModels
                             new MySqlParameter("@p_phone", phone)
                         };
 
-                        salt = App.dataAccess.ExecuteScalar(query, parameters) as string;
+                        object obj = App.dataAccess.ExecuteScalar(query, parameters);
+                        salt = (string)obj;
                     }
                 }
                 else
@@ -111,7 +112,8 @@ namespace Nadim.ViewModels
                             new MySqlParameter("@p_email", email)
                         };
 
-                        salt = App.dataAccess.ExecuteScalar(query, parameters) as string;
+                        object obj = App.dataAccess.ExecuteScalar(query, parameters);
+                        salt = (string)obj;
                     }
                 }
             }
@@ -138,7 +140,9 @@ namespace Nadim.ViewModels
                     new MySqlParameter("@p_user_agent", loginToken.userAgent),
                     new MySqlParameter("@p_machine_name", loginToken.machineName)
                 };
-                string result = App.dataAccess.ExecuteScalar(query, parameters) as string;
+                object obj = App.dataAccess.ExecuteScalar(query, parameters);
+                string result = (string)obj;
+
                 loginToken.Clear();
                 loginToken = null;
 

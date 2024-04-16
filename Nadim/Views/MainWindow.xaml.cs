@@ -42,17 +42,19 @@ namespace Nadim.Views
                new MySqlParameter("@token", token)
             };
 
-            MySqlDataReader reader = App.dataAccess.ExecuteQuery(query, parameters);
             Models.User user = new Models.User();
-
-            while (reader.Read())
+            using (var reader = App.dataAccess.ExecuteQuery(query, parameters))
             {
-                user.firstName = reader["firstname"] as string;
-                user.lastName = reader["lastname"] as string;
+                while (reader.Read())
+                {
+                    user.firstName = reader["firstname"] as string;
+                    user.lastName = reader["lastname"] as string;
+                }
+
+                // Close the reader automatically when the 'using' block ends
             }
 
             textblock.Text = $"مرحبا {user.firstName} {user.lastName}";
-            
             token = null;
             parameters = null;
 
