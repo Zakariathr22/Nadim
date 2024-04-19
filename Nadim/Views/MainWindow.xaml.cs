@@ -36,28 +36,6 @@ namespace Nadim.Views
             var credential = vault.Retrieve("NadimApplication", "token");
             var token = credential.Password;
 
-            string query = "CALL GetUserInfoByToken(@token)";
-            MySqlParameter[] parameters = new MySqlParameter[]
-            {
-               new MySqlParameter("@token", token)
-            };
-
-            Models.User user = new Models.User();
-            using (var reader = App.dataAccess.ExecuteQuery(query, parameters))
-            {
-                while (reader.Read())
-                {
-                    user.firstName = reader["firstname"] as string;
-                    user.lastName = reader["lastname"] as string;
-                }
-
-                // Close the reader automatically when the 'using' block ends
-            }
-
-            textblock.Text = $"مرحبا {user.firstName} {user.lastName}";
-            token = null;
-            parameters = null;
-
             Activated += MainWindow_Activated;
             Closed += MainWindow_Closed;
         }

@@ -107,7 +107,7 @@ namespace Nadim.Views.AccountRecovery
             }
             else
             {
-                App.signUpWindow.Close();
+                App.recoveryWindow.Close();
             }
         }
     }
