@@ -12,6 +12,19 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Assets\Icons\Account.png" />
+    <None Remove="Assets\Icons\Cash.png" />
+    <None Remove="Assets\Icons\Chat.png" />
+    <None Remove="Assets\Icons\Clients.png" />
+    <None Remove="Assets\Icons\Comunity.png" />
+    <None Remove="Assets\Icons\Folders.png" />
+    <None Remove="Assets\Icons\Home.png" />
+    <None Remove="Assets\Icons\Laws.png" />
+    <None Remove="Assets\Icons\Note.png" />
+    <None Remove="Assets\Icons\Office.png" />
+    <None Remove="Assets\Icons\Schedule.png" />
+    <None Remove="Assets\Icons\Settings.png" />
+    <None Remove="Assets\Icons\Task.png" />
     <None Remove="Assets\LockScreenLogo.scale-200.png" />
     <None Remove="Assets\Logo.png" />
     <None Remove="Assets\SplashScreen.scale-200.png" />
@@ -66,6 +79,45 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <Content Update="Assets\Icons\Account.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Chat.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Folders.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Laws.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Cash.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Clients.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Comunity.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Office.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Schedule.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Note.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Settings.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Task.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="Assets\LockScreenLogo.scale-200.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -10,9 +10,104 @@
     <Window.SystemBackdrop>
         <MicaBackdrop />
     </Window.SystemBackdrop>
-    
-    <StackPanel FlowDirection="RightToLeft" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Vertical">
-        <TextBlock Name="textblock" FontSize="72"></TextBlock>
-        <Button Click="Button_Click_1">Logout</Button>
-    </StackPanel>
+
+    <Grid FlowDirection="LeftToRight">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border x:Name="AppTitleBar" Grid.Row="0" VerticalAlignment="Top">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Image Source="/Assets/Logo.png" Height="24" Width="24" Margin="8 4 4 4" VerticalAlignment="Center"/>
+                <TextBlock x:Name="AppTitle" Text="نديم" Margin="4" VerticalAlignment="Center" />
+            </StackPanel>
+        </Border>
+        <NavigationView Grid.Row="1" x:Name="navigationView" Width="auto" FlowDirection="RightToLeft"                            
+                        PaneDisplayMode="Left"
+                        IsSettingsVisible="False">
+            <NavigationView.AutoSuggestBox>
+                <AutoSuggestBox PlaceholderText="بحث" QueryIcon="Find" AutomationProperties.Name="Search"/>
+            </NavigationView.AutoSuggestBox>
+            
+            <NavigationView.MenuItems>
+                <NavigationViewItem Tag="SamplePage1">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Home.png"></Image>
+                        <TextBlock Margin="8 0">الرئيسية</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="SamplePage2">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Clients.png"></Image>
+                        <TextBlock Margin="8 0">الموكلون</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="SamplePage3">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Folders.png"></Image>
+                        <TextBlock Margin="8 0">الملفات</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="SamplePage4">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Schedule.png"></Image>
+                        <TextBlock Margin="8 0">الجلسات والمواعيد</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="SamplePage3">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Cash.png"></Image>
+                        <TextBlock Margin="8 0">الأتعاب</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="SamplePage3">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Task.png"></Image>
+                        <TextBlock Margin="8 0">المهام</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="SamplePage3">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Note.png"></Image>
+                        <TextBlock Margin="8 0">الملاحظات</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="SamplePage3">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Comunity.png"></Image>
+                        <TextBlock Margin="8 0">مجتمع نديم</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="SamplePage3">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Chat.png"></Image>
+                        <TextBlock Margin="8 0">الرسائل</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+
+            </NavigationView.MenuItems>
+            <NavigationView.FooterMenuItems>
+                <NavigationViewItem Tag="SamplePage3">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Account.png"></Image>
+                        <TextBlock Margin="8 0">الحساب</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="SamplePage3">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Office.png"></Image>
+                        <TextBlock Margin="8 0">المكتب</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="SamplePage3">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Settings.png"></Image>
+                        <TextBlock Margin="8 0">الإعدادات</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+            </NavigationView.FooterMenuItems>
+            <Frame x:Name="contentFrame9" />
+        </NavigationView>
+    </Grid>
+
 </Window>

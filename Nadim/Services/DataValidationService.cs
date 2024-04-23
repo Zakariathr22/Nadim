@@ -133,7 +133,7 @@ namespace Nadim.Services
                 App.dataAccess.OpenConnection();
 
             string sql = "CALL `CountUserByEmail`(@email);";
-            object? countObj = App.dataAccess.ExecuteScalar(sql, new MySqlParameter("@email", email));
+            object countObj = App.dataAccess.ExecuteScalar(sql, new MySqlParameter("@email", email));
             Int64 count = (Int64)countObj;
             if (count > 0)
             {
