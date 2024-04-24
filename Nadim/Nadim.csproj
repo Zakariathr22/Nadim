@@ -19,7 +19,9 @@
     <None Remove="Assets\Icons\Comunity.png" />
     <None Remove="Assets\Icons\Folders.png" />
     <None Remove="Assets\Icons\Home.png" />
+    <None Remove="Assets\Icons\Key.png" />
     <None Remove="Assets\Icons\Laws.png" />
+    <None Remove="Assets\Icons\Logout.png" />
     <None Remove="Assets\Icons\Note.png" />
     <None Remove="Assets\Icons\Office.png" />
     <None Remove="Assets\Icons\Schedule.png" />
@@ -37,6 +39,7 @@
     <None Remove="Views\AccountRecovery\EmailVerificationPage.xaml" />
     <None Remove="Views\AccountRecovery\FindAccountPage.xaml" />
     <None Remove="Views\AccountRecovery\NewPasswordPage.xaml" />
+    <None Remove="Views\Account\AccountPage.xaml" />
     <None Remove="Views\LoginWindow.xaml" />
     <None Remove="Views\MainWindow.xaml" />
     <None Remove="Views\SignUpWindow.xaml" />
@@ -88,6 +91,9 @@
     <Content Update="Assets\Icons\Folders.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Update="Assets\Icons\Key.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Update="Assets\Icons\Laws.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -101,6 +107,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Assets\Icons\Comunity.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Logout.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Assets\Icons\Office.png">
@@ -196,6 +205,11 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\LoginWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Account\AccountPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

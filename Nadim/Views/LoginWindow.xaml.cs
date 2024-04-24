@@ -18,6 +18,7 @@ using System.Net;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics;
 using Windows.UI;
 using Windows.UI.Core;
 using WinRT.Interop;

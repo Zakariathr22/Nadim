@@ -24,89 +24,102 @@
         </Border>
         <NavigationView Grid.Row="1" x:Name="navigationView" Width="auto" FlowDirection="RightToLeft"                            
                         PaneDisplayMode="Left"
-                        IsSettingsVisible="False">
+                        IsBackEnabled="True"
+                        SelectionChanged="navigationView_SelectionChanged"
+                        IsSettingsVisible="False"
+                        PaneTitle="الكاتب لعكيريم عبد الوهاب">
             <NavigationView.AutoSuggestBox>
                 <AutoSuggestBox PlaceholderText="بحث" QueryIcon="Find" AutomationProperties.Name="Search"/>
             </NavigationView.AutoSuggestBox>
             
             <NavigationView.MenuItems>
-                <NavigationViewItem Tag="SamplePage1">
+                <NavigationViewItem Tag="SamplePage1" ToolTipService.ToolTip="الرئيسية">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Home.png"></Image>
-                        <TextBlock Margin="8 0">الرئيسية</TextBlock>
+                        <TextBlock Margin="8 0" >الرئيسية</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage2">
+                <NavigationViewItem Tag="SamplePage2" ToolTipService.ToolTip="الموكلون">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Clients.png"></Image>
-                        <TextBlock Margin="8 0">الموكلون</TextBlock>
+                        <TextBlock Margin="8 0" >الموكلون</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3">
+                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="الملفات">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Folders.png"></Image>
-                        <TextBlock Margin="8 0">الملفات</TextBlock>
+                        <TextBlock Margin="8 0" >الملفات</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage4">
+                <NavigationViewItem Tag="SamplePage4" ToolTipService.ToolTip="الجلسات والمواعيد">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Schedule.png"></Image>
-                        <TextBlock Margin="8 0">الجلسات والمواعيد</TextBlock>
+                        <TextBlock Margin="8 0" >الجلسات والمواعيد</TextBlock>
                     </StackPanel>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge x:Name="infoBadge1" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                    </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3">
+                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="الأتعاب">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Cash.png"></Image>
-                        <TextBlock Margin="8 0">الأتعاب</TextBlock>
+                        <TextBlock Margin="8 0" >الأتعاب</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3">
+                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="النصوص القانونية">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Laws.png"></Image>
+                        <TextBlock Margin="8 0" >النصوص القانونية</TextBlock>
+                    </StackPanel>
+                </NavigationViewItem>
+                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="المهام">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Task.png"></Image>
-                        <TextBlock Margin="8 0">المهام</TextBlock>
+                        <TextBlock Margin="8 0" >المهام</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3">
+                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="الملاحظات">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Note.png"></Image>
-                        <TextBlock Margin="8 0">الملاحظات</TextBlock>
+                        <TextBlock Margin="8 0" >الملاحظات</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3">
+                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="مجتمع نديم">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Comunity.png"></Image>
-                        <TextBlock Margin="8 0">مجتمع نديم</TextBlock>
+                        <TextBlock Margin="8 0" >مجتمع نديم</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3">
-                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                        <Image Width="24" Height="24" Source="/Assets/Icons/Chat.png"></Image>
-                        <TextBlock Margin="8 0">الرسائل</TextBlock>
-                    </StackPanel>
-                </NavigationViewItem>
-
             </NavigationView.MenuItems>
             <NavigationView.FooterMenuItems>
-                <NavigationViewItem Tag="SamplePage3">
+                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="الحساب">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Account.png"></Image>
-                        <TextBlock Margin="8 0">الحساب</TextBlock>
+                        <TextBlock Margin="8 0"  Visibility="Visible">الحساب</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3">
+                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="المكتب">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Office.png"></Image>
-                        <TextBlock Margin="8 0">المكتب</TextBlock>
+                        <TextBlock Margin="8 0"  Visibility="Visible">المكتب</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3">
+                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="الإعدادات">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Settings.png"></Image>
-                        <TextBlock Margin="8 0">الإعدادات</TextBlock>
+                        <TextBlock Margin="8 0"  Visibility="Visible">الإعدادات</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
             </NavigationView.FooterMenuItems>
-            <Frame x:Name="contentFrame9" />
+            <NavigationView.PaneFooter>
+                <Button Margin="2 0" Width="400" Background="Transparent" BorderBrush="Transparent" ToolTipService.ToolTip="تسجيل الخروج" Click="Button_Click_1" HorizontalContentAlignment="Left">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                        <Image Width="24" Height="24" Source="/Assets/Icons/Logout.png"></Image>
+                        <TextBlock Margin="8 0" Visibility="Visible">تسجيل الخروج</TextBlock>
+                    </StackPanel>
+                </Button>
+            </NavigationView.PaneFooter>
+            <Frame Margin="0,0,0,0" x:Name="contentFrame" />
         </NavigationView>
     </Grid>
 

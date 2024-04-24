@@ -16,6 +16,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics;
 using Windows.Security.Credentials;
 using Windows.System;
 using Windows.UI;
@@ -49,6 +50,8 @@ namespace Nadim.Views
             titleBar.ButtonBackgroundColor = Color.FromArgb(1, 0, 0, 0);
 
             titleBar.ButtonForegroundColor = Color.FromArgb(0, 128, 128, 128);
+
+            appWindow.Resize(new Windows.Graphics.SizeInt32(1130, 480));
 
             //overlappedPresenter.Maximize();
             //navigationView.Height = "auto";
@@ -141,6 +144,19 @@ namespace Nadim.Views
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Activate();
             this.Close();
+        }
+
+        private void navigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            var selectedItem = (Microsoft.UI.Xaml.Controls.NavigationViewItem)args.SelectedItem;
+            if (selectedItem != null)
+            {
+                string selectedItemTag = ((string)selectedItem.Tag);
+                //sender.Header = "Sample Page " + selectedItemTag.Substring(selectedItemTag.Length - 1);
+                string pageName = "Nadim.Views.Account.AccountPage" /*+ selectedItemTag*/;
+                Type pageType = Type.GetType(pageName);
+                contentFrame.Navigate(pageType);
+            }
         }
     }
 }
