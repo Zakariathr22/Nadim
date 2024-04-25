@@ -27,31 +27,31 @@
                         IsBackEnabled="True"
                         SelectionChanged="navigationView_SelectionChanged"
                         IsSettingsVisible="False"
-                        PaneTitle="الكاتب لعكيريم عبد الوهاب">
+                        PaneTitle="مكتب الأستاذ طاهري زكرياء">
             <NavigationView.AutoSuggestBox>
                 <AutoSuggestBox PlaceholderText="بحث" QueryIcon="Find" AutomationProperties.Name="Search"/>
             </NavigationView.AutoSuggestBox>
             
             <NavigationView.MenuItems>
-                <NavigationViewItem Tag="SamplePage1" ToolTipService.ToolTip="الرئيسية">
+                <NavigationViewItem Tag="Home" ToolTipService.ToolTip="الرئيسية">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Home.png"></Image>
                         <TextBlock Margin="8 0" >الرئيسية</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage2" ToolTipService.ToolTip="الموكلون">
+                <NavigationViewItem Tag="Clients" ToolTipService.ToolTip="الموكلون">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Clients.png"></Image>
                         <TextBlock Margin="8 0" >الموكلون</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="الملفات">
+                <NavigationViewItem Tag="Folders" ToolTipService.ToolTip="الملفات">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Folders.png"></Image>
                         <TextBlock Margin="8 0" >الملفات</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage4" ToolTipService.ToolTip="الجلسات والمواعيد">
+                <NavigationViewItem Tag="Schedule" ToolTipService.ToolTip="الجلسات والمواعيد">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Schedule.png"></Image>
                         <TextBlock Margin="8 0" >الجلسات والمواعيد</TextBlock>
@@ -60,31 +60,31 @@
                         <InfoBadge x:Name="infoBadge1" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="الأتعاب">
+                <NavigationViewItem Tag="Fees" ToolTipService.ToolTip="الأتعاب">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Cash.png"></Image>
                         <TextBlock Margin="8 0" >الأتعاب</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="النصوص القانونية">
+                <NavigationViewItem Tag="Laws" ToolTipService.ToolTip="النصوص القانونية">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Laws.png"></Image>
                         <TextBlock Margin="8 0" >النصوص القانونية</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="المهام">
+                <NavigationViewItem Tag="Tasks" ToolTipService.ToolTip="المهام">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Task.png"></Image>
                         <TextBlock Margin="8 0" >المهام</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="الملاحظات">
+                <NavigationViewItem Tag="Notes" ToolTipService.ToolTip="الملاحظات">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Note.png"></Image>
                         <TextBlock Margin="8 0" >الملاحظات</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="مجتمع نديم">
+                <NavigationViewItem Tag="Comunity" ToolTipService.ToolTip="مجتمع نديم">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Comunity.png"></Image>
                         <TextBlock Margin="8 0" >مجتمع نديم</TextBlock>
@@ -92,19 +92,19 @@
                 </NavigationViewItem>
             </NavigationView.MenuItems>
             <NavigationView.FooterMenuItems>
-                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="الحساب">
+                <NavigationViewItem Tag="Account" ToolTipService.ToolTip="الحساب">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Account.png"></Image>
                         <TextBlock Margin="8 0"  Visibility="Visible">الحساب</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="المكتب">
+                <NavigationViewItem Tag="Office" ToolTipService.ToolTip="المكتب">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Office.png"></Image>
                         <TextBlock Margin="8 0"  Visibility="Visible">المكتب</TextBlock>
                     </StackPanel>
                 </NavigationViewItem>
-                <NavigationViewItem Tag="SamplePage3" ToolTipService.ToolTip="الإعدادات">
+                <NavigationViewItem Tag="Settings" ToolTipService.ToolTip="الإعدادات">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Settings.png"></Image>
                         <TextBlock Margin="8 0"  Visibility="Visible">الإعدادات</TextBlock>

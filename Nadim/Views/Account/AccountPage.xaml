@@ -11,8 +11,7 @@
     <NavigationView x:Name="navigationView" Width="auto" FlowDirection="RightToLeft"                            
                 PaneDisplayMode="Top"
                 IsBackButtonVisible="Collapsed"
-                IsSettingsVisible="False"
-                >
+                IsSettingsVisible="False">
 
         <NavigationView.MenuItems>
             <NavigationViewItem Tag="SamplePage1">

@@ -40,8 +40,18 @@
     <None Remove="Views\AccountRecovery\FindAccountPage.xaml" />
     <None Remove="Views\AccountRecovery\NewPasswordPage.xaml" />
     <None Remove="Views\Account\AccountPage.xaml" />
+    <None Remove="Views\Clients\ClientsPage.xaml" />
+    <None Remove="Views\Comunity\ComunityPage.xaml" />
+    <None Remove="Views\Fees\FeesPage.xaml" />
+    <None Remove="Views\Folders\FoldersPage.xaml" />
+    <None Remove="Views\Home\HomePage.xaml" />
+    <None Remove="Views\Laws\LawsPage.xaml" />
     <None Remove="Views\LoginWindow.xaml" />
     <None Remove="Views\MainWindow.xaml" />
+    <None Remove="Views\Notes\NotesPage.xaml" />
+    <None Remove="Views\Office\OfficePage.xaml" />
+    <None Remove="Views\Schedule\SchedulePage.xaml" />
+    <None Remove="Views\Settings\SettingsPage.xaml" />
     <None Remove="Views\SignUpWindow.xaml" />
     <None Remove="Views\SignUp\EmailVerificationPage.xaml" />
     <None Remove="Views\SignUp\OfficeInfoPage.xaml" />
@@ -54,6 +64,7 @@
     <None Remove="Views\SystemMessages\ResetPasswordSuccessTitleControl.xaml" />
     <None Remove="Views\SystemMessages\SignUpSuccessPage.xaml" />
     <None Remove="Views\SystemMessages\SignUpSuccessTitleControl.xaml" />
+    <None Remove="Views\Tasks\TasksPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -62,6 +73,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.0.240109" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
@@ -210,6 +222,61 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Account\AccountPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Tasks\TasksPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Settings\SettingsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Schedule\SchedulePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Office\OfficePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Laws\LawsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Home\HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Folders\FoldersPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Fees\FeesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Clients\ClientsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Notes\NotesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Comunity\ComunityPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

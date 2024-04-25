@@ -62,6 +62,8 @@ namespace Nadim.Views
 
             Activated += MainWindow_Activated;
             Closed += MainWindow_Closed;
+
+            navigationView.SelectedItem = navigationView.MenuItems.OfType<Microsoft.UI.Xaml.Controls.NavigationViewItem>().First();
         }
 
         private void MainWindow_Closed(object sender, WindowEventArgs args)
@@ -153,9 +155,10 @@ namespace Nadim.Views
             {
                 string selectedItemTag = ((string)selectedItem.Tag);
                 //sender.Header = "Sample Page " + selectedItemTag.Substring(selectedItemTag.Length - 1);
-                string pageName = "Nadim.Views.Account.AccountPage" /*+ selectedItemTag*/;
+                string pageName = $"Nadim.Views.{selectedItemTag}.{selectedItemTag}Page";
                 Type pageType = Type.GetType(pageName);
                 contentFrame.Navigate(pageType);
+                Console.Write("Hi");
             }
         }
     }
