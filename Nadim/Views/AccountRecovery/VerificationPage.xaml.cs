@@ -34,7 +34,7 @@ namespace Nadim.Views.AccountRecovery
         {
             this.InitializeComponent();
 
-            AccountRecoveryWindow.accountRecoveryVerificationViewModel = new AccountRecoveryVerificationViewModel();
+            AccountRecoveryWindow.accountRecoveryVerificationViewModel = new Nadim.ViewModels.AccountRecovery.AccountRecoveryVerificationViewModel();
             mainPanel.DataContext = AccountRecoveryWindow.accountRecoveryVerificationViewModel;
 
             // Create a new DispatcherTimer instance

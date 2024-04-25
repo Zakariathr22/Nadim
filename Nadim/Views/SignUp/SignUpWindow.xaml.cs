@@ -18,8 +18,8 @@ using WinRT.Interop;
 using Windows.UI;
 using Microsoft.UI.Xaml.Media.Animation;
 using Nadim.Views.SignUp;
+using Nadim.ViewModels.SignUp;
 using System.Runtime.CompilerServices;
-using Nadim.ViewModels;
 using Nadim.Services;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -68,6 +68,7 @@ namespace Nadim.Views
             Closed += SignUpWindow_Closed;
 
             signUpLawyerInfoViewModel = new SignUpLawyerInfoViewModel();
+            Console.WriteLine("");
             
     }
 
@@ -174,7 +175,6 @@ namespace Nadim.Views
 
         private void haveAccountAlready_Click(object sender, RoutedEventArgs e)
         {
-
             LoginWindow login = new LoginWindow();
             login.Activate();
             this.Close();

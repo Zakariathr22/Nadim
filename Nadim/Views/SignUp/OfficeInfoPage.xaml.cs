@@ -28,7 +28,7 @@ namespace Nadim.Views.SignUp
         public OfficeInfoPage()
         {
             this.InitializeComponent();
-            SignUpWindow.signUpOfficeInfoViewModel = new ViewModels.SignUpOfficeInfoViewModel();
+            SignUpWindow.signUpOfficeInfoViewModel = new ViewModels.SignUp.SignUpOfficeInfoViewModel();
             mainPanel.DataContext = SignUpWindow.signUpOfficeInfoViewModel;
         }
 

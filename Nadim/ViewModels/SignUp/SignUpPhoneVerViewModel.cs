@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nadim.ViewModels
+namespace Nadim.ViewModels.SignUp
 {
     public partial class SignUpPhoneVerViewModel : ObservableObject
     {

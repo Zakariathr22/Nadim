@@ -40,6 +40,10 @@
     <None Remove="Views\AccountRecovery\FindAccountPage.xaml" />
     <None Remove="Views\AccountRecovery\NewPasswordPage.xaml" />
     <None Remove="Views\Account\AccountPage.xaml" />
+    <None Remove="Views\Account\DevicesPage.xaml" />
+    <None Remove="Views\Account\InfoPage.xaml" />
+    <None Remove="Views\Account\PrivacyPage.xaml" />
+    <None Remove="Views\Account\SecurityPage.xaml" />
     <None Remove="Views\Clients\ClientsPage.xaml" />
     <None Remove="Views\Comunity\ComunityPage.xaml" />
     <None Remove="Views\Fees\FeesPage.xaml" />
@@ -160,6 +164,18 @@
     <Content Update="Assets\Logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Page Update="Views\Account\PrivacyPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Account\SecurityPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Account\DevicesPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Views\Account\InfoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="Views\SystemMessages\ResetPasswordFailedPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,15 +213,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Update="Views\SystemMessages\ConnectionFailedPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Update="Views\SignUp\PhoneVerificationPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Update="Views\SignUp\EmailVerificationPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Update="Views\SignUp\OfficeInfoPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Update="LawyerInfoPage.xaml">

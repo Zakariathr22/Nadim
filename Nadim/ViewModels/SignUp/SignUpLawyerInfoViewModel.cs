@@ -10,9 +10,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nadim.ViewModels
+namespace Nadim.ViewModels.SignUp
 {
-
     public partial class SignUpLawyerInfoViewModel : ObservableObject
     {
         public bool EveryThingValid = false;
@@ -28,7 +27,7 @@ namespace Nadim.ViewModels
         [ObservableProperty] private string password = "";
         [ObservableProperty] private string confirmPassword = "";
 
-    //------------------------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------------------
 
         [ObservableProperty] private Brush lastNameTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
         [ObservableProperty] private Brush firstNameTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
@@ -39,7 +38,7 @@ namespace Nadim.ViewModels
         [ObservableProperty] private Brush passwordBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
         [ObservableProperty] private Brush confirmPasswordBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
 
-    //------------------------------------------------------------------------------------------------------------------------------------------
+        //------------------------------------------------------------------------------------------------------------------------------------------
 
         [ObservableProperty] private Visibility lastNameRequiredErrorVisiblity = Visibility.Collapsed;
         [ObservableProperty] private Visibility lastNameTooLongErrorVisiblity = Visibility.Collapsed;
@@ -82,9 +81,9 @@ namespace Nadim.ViewModels
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------
 
-        public SignUpLawyerInfoViewModel() 
+        public SignUpLawyerInfoViewModel()
         {
-            
+
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------
@@ -97,7 +96,7 @@ namespace Nadim.ViewModels
             bool phoneExistBefor = DataValidationService.DoesPhoneExist(Phone.Replace(" ", ""));
 
 
-            if ( LastName.TrimStart() == ""
+            if (LastName.TrimStart() == ""
                 || !DataValidationService.HasMaximumCharacters(LastName.TrimStart().TrimEnd(), 49)
                 || !DataValidationService.HasMinimumCharacters(LastName.TrimStart().TrimEnd(), 2)
                 || !DataValidationService.IsArabic(LastName.TrimStart().TrimEnd())
@@ -125,7 +124,7 @@ namespace Nadim.ViewModels
                 }
 
                 if (!DataValidationService.HasMinimumCharacters(LastName.TrimStart().TrimEnd(), 2)
-                    && LastName.TrimStart()!="")
+                    && LastName.TrimStart() != "")
                 {
                     LastNameTooShortErrorVisiblity = Visibility.Visible;
                 }
@@ -244,7 +243,7 @@ namespace Nadim.ViewModels
             }
 
 
-            if(Accreditation != 0 && Accreditation != 1)
+            if (Accreditation != 0 && Accreditation != 1)
             {
                 EveryThingValid = false;
                 AccreditationComboBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
@@ -256,12 +255,12 @@ namespace Nadim.ViewModels
                 AccreditationRequiredErrorVisibilty = Visibility.Collapsed;
             }
 
-            if(StartingDate > DateTimeOffset.Now)
+            if (StartingDate > DateTimeOffset.Now)
             {
                 EveryThingValid = false;
                 StartingDateDatePickerBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
                 StartingDateErrorVisibilty = Visibility.Visible;
-            } 
+            }
             else
             {
                 StartingDateDatePickerBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
@@ -274,7 +273,7 @@ namespace Nadim.ViewModels
             {
                 EveryThingValid = false;
                 EmailTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
-                if (Email.TrimStart() == "") 
+                if (Email.TrimStart() == "")
                 {
                     Email = "";
                     EmailRequiredErrorVisibilty = Visibility.Visible;
@@ -282,7 +281,7 @@ namespace Nadim.ViewModels
                 else
                 {
                     Email = Email.TrimStart().TrimEnd();
-                    EmailRequiredErrorVisibilty = Visibility.Collapsed;                    
+                    EmailRequiredErrorVisibilty = Visibility.Collapsed;
                 }
                 if (!DataValidationService.IsValidEmail(Email.TrimStart().TrimStart()) && Email.TrimStart() != "")
                 {
@@ -377,8 +376,8 @@ namespace Nadim.ViewModels
             }
 
             if (Password == ""
-                || !DataValidationService.HasMinimumCharacters(Password,8)
-                || !DataValidationService.HasMaximumCharacters(Password,128)
+                || !DataValidationService.HasMinimumCharacters(Password, 8)
+                || !DataValidationService.HasMaximumCharacters(Password, 128)
                 || !Password.Any(char.IsLetter)
                 || !DataValidationService.ContainsSymbol(Password)
                 || !DataValidationService.ContainsNumber(Password))
@@ -394,7 +393,7 @@ namespace Nadim.ViewModels
                     PasswordRequiredErrorVisibilty = Visibility.Collapsed;
                 }
 
-                if(!DataValidationService.HasMinimumCharacters(Password, 8) && Password != "")
+                if (!DataValidationService.HasMinimumCharacters(Password, 8) && Password != "")
                 {
                     PasswordTooShortErrorVisiblity = Visibility.Visible;
                 }
@@ -405,7 +404,7 @@ namespace Nadim.ViewModels
 
                 if (!DataValidationService.HasMaximumCharacters(Password, 128))
                 {
-                    PasswordTooLongErrorVisiblity= Visibility.Visible;
+                    PasswordTooLongErrorVisiblity = Visibility.Visible;
                 }
                 else
                 {
@@ -428,7 +427,7 @@ namespace Nadim.ViewModels
                 {
                     PasswordMustContainSymbolErrorVisiblity = Visibility.Collapsed;
                 }
-                if(!DataValidationService.ContainsNumber(Password) && Password != "")
+                if (!DataValidationService.ContainsNumber(Password) && Password != "")
                 {
                     PasswordMustContainNumberErrorVisiblity = Visibility.Visible;
                 }

@@ -27,7 +27,7 @@ namespace Nadim.Views.AccountRecovery
         public FindAccountPage()
         {
             this.InitializeComponent();
-            AccountRecoveryWindow.accountRecoveryFindAccountViewModel = new ViewModels.AccountRecoveryFindAccountViewModel();
+            AccountRecoveryWindow.accountRecoveryFindAccountViewModel = new ViewModels.AccountRecovery.AccountRecoveryFindAccountViewModel();
             mainPanel.DataContext = AccountRecoveryWindow.accountRecoveryFindAccountViewModel;
         }
 

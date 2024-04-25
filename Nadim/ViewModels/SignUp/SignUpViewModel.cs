@@ -11,7 +11,8 @@ using Windows.Networking;
 using CommunityToolkit.Mvvm.Input;
 using Nadim.Services;
 
-namespace Nadim.ViewModels
+
+namespace Nadim.ViewModels.SignUp
 {
     public partial class SignUpViewModel : ObservableObject
     {
@@ -31,7 +32,7 @@ namespace Nadim.ViewModels
 
             if (SignUpWindow.signUpLawyerInfoViewModel.Accreditation == 0)
                 this.Lawyer.accreditation = "لدى المحكمة العليا ومجلس الدولة";
-            else if(SignUpWindow.signUpLawyerInfoViewModel.Accreditation == 1)
+            else if (SignUpWindow.signUpLawyerInfoViewModel.Accreditation == 1)
                 this.Lawyer.accreditation = "لدى المجلس القضائي";
             this.Lawyer.startingDate = SignUpWindow.signUpLawyerInfoViewModel.StartingDate;
             this.Lawyer.office = new Office();
@@ -75,7 +76,7 @@ namespace Nadim.ViewModels
                 new MySqlParameter("@p_phone2", this.Lawyer.office.phone2),
                 new MySqlParameter("@p_fax", this.Lawyer.office.fax),
                 new MySqlParameter("@p_office_email", this.Lawyer.office.email),
-                new MySqlParameter("@p_isCompany", this.Lawyer.office.isCompany)                
+                new MySqlParameter("@p_isCompany", this.Lawyer.office.isCompany)
             };
             App.dataAccess.ExecuteNonQuery(query, parameters);
 

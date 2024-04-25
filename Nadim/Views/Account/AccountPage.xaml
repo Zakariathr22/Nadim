@@ -11,28 +11,29 @@
     <NavigationView x:Name="navigationView" Width="auto" FlowDirection="RightToLeft"                            
                 PaneDisplayMode="Top"
                 IsBackButtonVisible="Collapsed"
-                IsSettingsVisible="False">
+                IsSettingsVisible="False"
+                SelectionChanged="navigationView_SelectionChanged">
 
         <NavigationView.MenuItems>
-            <NavigationViewItem Tag="SamplePage1">
+            <NavigationViewItem Tag="Info">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <FontIcon Glyph="&#xEA4A;" />
                     <TextBlock Margin="8 0" >معلوماتك</TextBlock>
                 </StackPanel>
             </NavigationViewItem>
-            <NavigationViewItem x:Name="homePageNavigationViewItem" Tag="SamplePage2">
+            <NavigationViewItem Tag="Devices">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <FontIcon Glyph="&#xEA6C;" />
                     <TextBlock Margin="8 0" >الأجهزة</TextBlock>
                 </StackPanel>
             </NavigationViewItem>
-            <NavigationViewItem Tag="SamplePage3">
+            <NavigationViewItem Tag="Security">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <FontIcon Glyph="&#xEA18;" />
                     <TextBlock Margin="8 0" >الأمان</TextBlock>
                 </StackPanel>
             </NavigationViewItem>
-            <NavigationViewItem Tag="SamplePage4">
+            <NavigationViewItem Tag="Privacy">
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <FontIcon Glyph="&#xE72E;" />
                     <TextBlock Margin="8 0" >الخصوصية</TextBlock>

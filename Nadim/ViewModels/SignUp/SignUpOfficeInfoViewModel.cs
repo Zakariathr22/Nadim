@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Networking;
 
-namespace Nadim.ViewModels
+namespace Nadim.ViewModels.SignUp
 {
     public partial class SignUpOfficeInfoViewModel : ObservableObject
     {
@@ -26,7 +26,7 @@ namespace Nadim.ViewModels
         [ObservableProperty] private string phone1 = "";
         [ObservableProperty] private string phone2 = "";
         [ObservableProperty] private string email = "";
-        [ObservableProperty] private string fax = "";        
+        [ObservableProperty] private string fax = "";
 
         //------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -66,7 +66,7 @@ namespace Nadim.ViewModels
         //-------------------------------------------------------------------------------------------------------------------------------------------------
 
         public SignUpOfficeInfoViewModel()
-        { 
+        {
             if (SignUpWindow.signUpLawyerInfoViewModel.Gender == "ذكر")
             {
                 naming = $"مكتب الأستاذ {SignUpWindow.signUpLawyerInfoViewModel.LastName} {SignUpWindow.signUpLawyerInfoViewModel.FirstName}";
@@ -109,7 +109,7 @@ namespace Nadim.ViewModels
                 NamingRequiredErrorVisibility = Visibility.Collapsed;
             }
 
-            if (Headquarters.TrimStart() == "" || !DataValidationService.HasMaximumCharacters(Headquarters.TrimStart().TrimEnd(),199))
+            if (Headquarters.TrimStart() == "" || !DataValidationService.HasMaximumCharacters(Headquarters.TrimStart().TrimEnd(), 199))
             {
                 EveryThingValid = false;
                 HeadquartersTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
@@ -140,7 +140,7 @@ namespace Nadim.ViewModels
                 HeadquartersRequiredErrorVisibility = Visibility.Collapsed;
             }
 
-            if (Wilaya <= -1  || Wilaya >= 58)
+            if (Wilaya <= -1 || Wilaya >= 58)
             {
                 EveryThingValid = false;
                 WilayaComboBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
@@ -316,6 +316,5 @@ namespace Nadim.ViewModels
                 FaxTooShortErrorVisibility = Visibility.Collapsed;
             }
         }
-
     }
 }

@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Nadim.ViewModels
+namespace Nadim.ViewModels.AccountRecovery
 {
     public partial class AccountRecoveryNewPasswordViewModel:ObservableObject
     {

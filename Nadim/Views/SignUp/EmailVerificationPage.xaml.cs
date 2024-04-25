@@ -33,7 +33,7 @@ namespace Nadim.Views.SignUp
         public EmailVerificationPage()
         {
             this.InitializeComponent();
-            SignUpWindow.signUpEmailVerViewModel = new ViewModels.SignUpEmailVerViewModel();
+            SignUpWindow.signUpEmailVerViewModel = new ViewModels.SignUp.SignUpEmailVerViewModel();
             mainPanel.DataContext = SignUpWindow.signUpEmailVerViewModel;
 
             // Create a new DispatcherTimer instance

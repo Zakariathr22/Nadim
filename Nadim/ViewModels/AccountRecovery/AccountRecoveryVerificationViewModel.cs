@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Security.Credentials;
 
-namespace Nadim.ViewModels
+namespace Nadim.ViewModels.AccountRecovery
 {
     public partial class AccountRecoveryVerificationViewModel:ObservableObject
     {

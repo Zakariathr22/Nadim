@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 using Windows.Networking.NetworkOperators;
 using Windows.Security.Credentials;
 
-namespace Nadim.ViewModels
+namespace Nadim.ViewModels.SignUp
 {
     public partial class SignUpEmailVerViewModel: ObservableObject
     {
@@ -22,7 +22,7 @@ namespace Nadim.ViewModels
         public int failedAttempts = 0;
 
         [ObservableProperty] private string email;
-        [ObservableProperty] private string verificationCode="";
+        [ObservableProperty] private string verificationCode = "";
 
         [ObservableProperty] private bool emailCodeIsValid = false;
 
@@ -48,7 +48,7 @@ namespace Nadim.ViewModels
         void verifyOTP()
         {
             EmailCodeIsValid = true;
-            if (VerificationCode.TrimStart() == "" 
+            if (VerificationCode.TrimStart() == ""
                 || VerificationCode.TrimEnd().TrimStart() != emailOTP.Password
                 || int.Parse(VerificationCode.TrimEnd().TrimStart()) == 0)
             {

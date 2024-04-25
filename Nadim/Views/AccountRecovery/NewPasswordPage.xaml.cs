@@ -27,7 +27,7 @@ namespace Nadim.Views.AccountRecovery
         public NewPasswordPage()
         {
             this.InitializeComponent();
-            AccountRecoveryWindow.accountRecoveryNewPasswordViewModel = new ViewModels.AccountRecoveryNewPasswordViewModel();
+            AccountRecoveryWindow.accountRecoveryNewPasswordViewModel = new ViewModels.AccountRecovery.AccountRecoveryNewPasswordViewModel();
             mainPanel.DataContext = AccountRecoveryWindow.accountRecoveryNewPasswordViewModel;
         }
 
