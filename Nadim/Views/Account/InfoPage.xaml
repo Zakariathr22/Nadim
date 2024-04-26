@@ -10,56 +10,219 @@
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     xmlns:ui="using:CommunityToolkit.WinUI"
     xmlns:viewControls ="using:Nadim.Views.Controls">
-
-    <StackPanel Padding="32 16 32 32">
-        <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
-                المعلومات الشخصية
-        </TextBlock>
-        <ContentPresenter
-                            x:Name="CControlPresenter"
-                            Padding="20"
-                            HorizontalAlignment="Stretch"
-                            VerticalAlignment="Center"
-                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                            BorderThickness="1"
-                            BorderBrush="{ThemeResource ControlElevationBorderBrush}"
-                            CornerRadius="4">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" VerticalAlignment="Center">اللقب والاسم</TextBlock>
-                <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">طاهري زكرياء</TextBlock>
-                <HyperlinkButton Grid.Column="2" HorizontalAlignment="Right" Padding="0">
-                    تعديل اللقب أو الاسم
-                </HyperlinkButton>
-            </Grid>
-        </ContentPresenter>
-        <viewControls:NewButton x:Name="clickablePresenter" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0" BorderThickness="0">
+    <ScrollView>
+        <StackPanel Padding="32 16 32 32">
+            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+                    المعلومات الشخصية
+            </TextBlock>
             <ContentPresenter
-                    x:Name="CCControlPresenter"
+                    x:Name="CCovntrolPresenter"
+                    Padding="20"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderThickness="1 1 1 0"
+                    BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                    CornerRadius="4 4 0 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <PersonPicture  Grid.Column="0" Height="140" Width="140" 
+                                    Margin="0 0 16 0" ProfilePicture="/Assets/Icons/LawyerPic.jpeg" />
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" MaxWidth="400" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                            إضفاء الطابع الشخصي على حسابك باستخدام صورة. ستظهر صورة ملف التعريف الخاص بك على التطبيقات والأجهزة التي تستخدم حساب نديم الخاص بك.
+                        </TextBlock>
+                        <Button Grid.Row="1"  MinWidth="150">تغيير الصورة</Button>
+                    </Grid>
+                    <!--<HyperlinkButton Grid.Column="2" HorizontalAlignment="Right" Padding="0">
+                        تعديل اللقب أو الاسم
+                    </HyperlinkButton>-->
+                </Grid>
+            </ContentPresenter>
+            <ContentPresenter
+                                x:Name="CControlPresenter"
+                                Padding="20"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                BorderThickness="1"
+                                BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                                CornerRadius="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Center">اللقب والاسم</TextBlock>
+                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">طاهري زكرياء</TextBlock>
+                    <HyperlinkButton Grid.Column="2" HorizontalAlignment="Right" Padding="0">
+                        تعديل اللقب أو الاسم
+                    </HyperlinkButton>
+                </Grid>
+            </ContentPresenter>
+            <viewControls:NewButton x:Name="clickablePresenter" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0" BorderThickness="0"
+                                    CornerRadius="0">
+                <ContentPresenter
+                        x:Name="CCControlPresenter"
+                        Padding="20"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderThickness="1 0 1 1"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Center">تاريخ الميلاد</TextBlock>
+                        <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">08 جوان 1999</TextBlock>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center">يتم استخدام تاريخ ميلادك لإعدادات أمان الحساب</TextBlock>
+                        <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
+
+                    </Grid>
+                </ContentPresenter>
+            </viewControls:NewButton>
+            <viewControls:NewButton x:Name="clickablePresenter2" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0 0 0 8" BorderThickness="0"
+                            CornerRadius="0">
+                <ContentPresenter
+                x:Name="CCCXontrolPresenter"
+                Padding="20"
+                VerticalAlignment="Center"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderThickness="1 0 1 1"
+                BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                CornerRadius="0 0 4 4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Center">الجنس</TextBlock>
+                        <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">ذكر</TextBlock>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">تهم معرفة الجنس في المساعدة على الخطاب بصفة المؤنث أو المذكر</TextBlock>
+                        <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
+
+                    </Grid>
+                </ContentPresenter>
+            </viewControls:NewButton>
+            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+                    المعلومات المهنية
+            </TextBlock>
+
+            <viewControls:NewButton x:Name="clickablePresenter3" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0" BorderThickness="0"
+                            CornerRadius="0">
+                <ContentPresenter
+                Padding="20"
+                VerticalAlignment="Center"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                CornerRadius="4 4 0 0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Center">الإعتماد</TextBlock>
+                        <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" TextWrapping="Wrap">محامي معتمد لدى المحكمة العليا ومجلس الدولة</TextBlock>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">تساعد معرفة الإعتماد في تحرير الوثائق وتحديد الأذونات</TextBlock>
+                        <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
+
+                    </Grid>
+                </ContentPresenter>
+            </viewControls:NewButton>
+            <viewControls:NewButton x:Name="clickablePresenter4" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0 0 0 8" BorderThickness="0"
+                    CornerRadius="0">
+                <ContentPresenter
                     Padding="20"
                     VerticalAlignment="Center"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                    BorderThickness="1"
+                    BorderThickness="1 0 1 1"
                     BorderBrush="{ThemeResource ControlElevationBorderBrush}"
-                    CornerRadius="4">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="2.5*"/>
-                        <ColumnDefinition Width="4*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" VerticalAlignment="Center">تاريخ الميلاد</TextBlock>
-                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">08 جوان 1999</TextBlock>
-                    <TextBlock Grid.Column="2" VerticalAlignment="Center">يتم استخدام تاريخ ميلادك لإعدادات أمان الحساب</TextBlock>
-                    <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
+                    CornerRadius="0 0 4 4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Center">تاريخ بداية النشاط</TextBlock>
+                        <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">جانفي 2024</TextBlock>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">يتم استخدامه في تحديد خبرة المستخدم في المجال.</TextBlock>
+                        <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
-                </Grid>
-            </ContentPresenter>
-        </viewControls:NewButton>
-    </StackPanel>
+                    </Grid>
+                </ContentPresenter>
+            </viewControls:NewButton>
+
+            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+                    معلومات الحساب
+            </TextBlock>
+
+            <viewControls:NewButton x:Name="clickablePresenter5" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0" BorderThickness="0"
+                            CornerRadius="0">
+                <ContentPresenter
+                Padding="20"
+                VerticalAlignment="Center"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                CornerRadius="4 4 0 0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Center">البريد الإلكتروني</TextBlock>
+                        <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" TextWrapping="Wrap">zakotahri@gmail.com</TextBlock>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">يتم استخدام البريد الإلكتروني في التحقق من الهوية والإتصال</TextBlock>
+                        <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
+
+                    </Grid>
+                </ContentPresenter>
+            </viewControls:NewButton>
+            <viewControls:NewButton x:Name="clickablePresenter6" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0 0 0 8" BorderThickness="0"
+                    CornerRadius="0">
+                <ContentPresenter
+                    Padding="20"
+                    VerticalAlignment="Center"
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderThickness="1 0 1 1"
+                    BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                    CornerRadius="0 0 4 4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0" VerticalAlignment="Center">رقم الهاتف المحمول</TextBlock>
+                        <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">0659707528</TextBlock>
+                        <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">يتم استخدام رقم الهاتف المحمول في التحقق من الهوية والإتصال.</TextBlock>
+                        <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
+
+                    </Grid>
+                </ContentPresenter>
+            </viewControls:NewButton>
+        </StackPanel>
+    </ScrollView>
 </Page>

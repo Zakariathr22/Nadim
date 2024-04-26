@@ -142,35 +142,35 @@ namespace Nadim.Views
 
         private void selectorBar_SelectionChanged(SelectorBar sender, SelectorBarSelectionChangedEventArgs args)
         {
-                SelectorBarItem selectedItem = sender.SelectedItem;
-                int currentSelectedIndex = sender.Items.IndexOf(selectedItem);
-                System.Type pageType;
+            SelectorBarItem selectedItem = sender.SelectedItem;
+            int currentSelectedIndex = sender.Items.IndexOf(selectedItem);
+            System.Type pageType;
 
-                switch (currentSelectedIndex)
-                {
-                    case 0:
-                        pageType = typeof(LawyerInfoPage);
-                        break;
-                    case 1:
-                        pageType = typeof(OfficeInfoPage);
-                        break;
-                    case 2:
-                        pageType = typeof(EmailVerificationPage);
-                        break;
-                    case 3:
-                        pageType = typeof(PhoneVerificationPage);
-                        break;
+            switch (currentSelectedIndex)
+            {
+                case 0:
+                    pageType = typeof(LawyerInfoPage);
+                    break;
+                case 1:
+                    pageType = typeof(OfficeInfoPage);
+                    break;
+                case 2:
+                    pageType = typeof(EmailVerificationPage);
+                    break;
+                case 3:
+                    pageType = typeof(PhoneVerificationPage);
+                    break;
                 default:
-                        pageType = typeof(Page);
-                        break;
-                }
+                    pageType = typeof(Page);
+                    break;
+            }
 
-                var slideNavigationTransitionEffect = currentSelectedIndex - previousSelectedIndex > 0 ? SlideNavigationTransitionEffect.FromRight : SlideNavigationTransitionEffect.FromLeft;
+            var slideNavigationTransitionEffect = currentSelectedIndex - previousSelectedIndex > 0 ? SlideNavigationTransitionEffect.FromRight : SlideNavigationTransitionEffect.FromLeft;
 
-                ContentFrame.Navigate(pageType, new SlideNavigationTransitionInfo() { Effect = slideNavigationTransitionEffect });
-                
-                previousSelectedIndex = currentSelectedIndex;
-            
+            ContentFrame.Navigate(pageType, new SlideNavigationTransitionInfo() { Effect = slideNavigationTransitionEffect });
+
+            previousSelectedIndex = currentSelectedIndex;
+
         }
 
         private void haveAccountAlready_Click(object sender, RoutedEventArgs e)

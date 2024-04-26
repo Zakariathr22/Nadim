@@ -34,9 +34,9 @@ namespace Nadim.Views.SignUp
 
         private void previousButton_Click(object sender, RoutedEventArgs e)
         {
-            App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemPersonalInfo;
-            App.signUpWindow.SelectorBarItemPersonalInfo.IsEnabled = true;
-            App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = false;
+            //App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemPersonalInfo;
+            //App.signUpWindow.SelectorBarItemPersonalInfo.IsEnabled = true;
+            //App.signUpWindow.SelectorBarItemOfficeInfo.IsEnabled = false;
         }
 
         private void createAccount_Click(object sender, RoutedEventArgs e)

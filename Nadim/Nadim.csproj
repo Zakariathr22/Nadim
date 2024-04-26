@@ -21,6 +21,7 @@
     <None Remove="Assets\Icons\Home.png" />
     <None Remove="Assets\Icons\Key.png" />
     <None Remove="Assets\Icons\Laws.png" />
+    <None Remove="Assets\Icons\LawyerPic.jpeg" />
     <None Remove="Assets\Icons\Logout.png" />
     <None Remove="Assets\Icons\Note.png" />
     <None Remove="Assets\Icons\Office.png" />
@@ -57,9 +58,6 @@
     <None Remove="Views\Schedule\SchedulePage.xaml" />
     <None Remove="Views\Settings\SettingsPage.xaml" />
     <None Remove="Views\SignUpWindow.xaml" />
-    <None Remove="Views\SignUp\EmailVerificationPage.xaml" />
-    <None Remove="Views\SignUp\OfficeInfoPage.xaml" />
-    <None Remove="Views\SignUp\PhoneVerificationPage.xaml" />
     <None Remove="Views\SystemMessages\ConnectionFailedPage.xaml" />
     <None Remove="Views\SystemMessages\ConnectionFailedTitleControl.xaml" />
     <None Remove="Views\SystemMessages\ResetPasswordFailedPage.xaml" />
@@ -81,9 +79,9 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240311000" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240404000" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.3233" />
-    <PackageReference Include="MySqlConnector" Version="2.3.6" />
+    <PackageReference Include="MySqlConnector" Version="2.3.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="System.Management" Version="8.0.0" />
     <Manifest Include="$(ApplicationManifest)" />
@@ -123,6 +121,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Assets\Icons\Comunity.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\LawyerPic.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Assets\Icons\Logout.png">
@@ -209,9 +210,6 @@
     <Page Update="Views\SystemMessages\SignUpSuccessTitleControl.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Update="Views\SystemMessages\ConnectionFailedTitleControl.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Update="Views\SystemMessages\ConnectionFailedPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -286,6 +284,9 @@
     <Page Update="Views\Comunity\ComunityPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\SignUp\" />
   </ItemGroup>
 
   <!-- 

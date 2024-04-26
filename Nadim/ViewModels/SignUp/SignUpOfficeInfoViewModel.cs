@@ -3,6 +3,7 @@ using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
 using Nadim.Services;
+using Nadim.Views.SignUp;
 using Nadim.Views;
 using System;
 using System.Collections.Generic;

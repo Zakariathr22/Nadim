@@ -10,6 +10,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using Nadim.ViewModels;
 using Nadim.Views.AccountRecovery;
+using Nadim.Views.SignUp;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -146,6 +147,7 @@ namespace Nadim.Views
             App.signUpWindow = new SignUpWindow();
             App.signUpWindow.Activate();
             this.Close();
+            Console.WriteLine();
         }
 
         private async void ShowDialog()
