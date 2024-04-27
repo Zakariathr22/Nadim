@@ -42,7 +42,7 @@
                     </Grid.ColumnDefinitions>
                     <FontIcon Grid.Column="0" Glyph="&#xEC4E;" HorizontalAlignment="Left" Margin="0 0 20 0"/>
                     <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">NR4F6JE - Latitude E5470</TextBlock>
-                    <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">Windows</TextBlock>
+                    <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">نظام تشغيل ويندوز</TextBlock>
                 </Grid>
             </ContentPresenter>
             <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
@@ -67,7 +67,7 @@
                     </Grid.ColumnDefinitions>
                     <FontIcon Grid.Column="0" Glyph="&#xE8CC;" HorizontalAlignment="Left" Margin="0 0 20 0"/>
                     <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">X3FD5D - Poco X3 Pro</TextBlock>
-                    <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">Android</TextBlock>
+                    <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">نظام تشغيل أندرويد</TextBlock>
                     <HyperlinkButton Grid.Column="3" HorizontalAlignment="Right" Padding="0" VerticalContentAlignment="Center">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock>تسجيل الخروج</TextBlock>
@@ -94,7 +94,7 @@
                     </Grid.ColumnDefinitions>
                     <FontIcon Grid.Column="0" Glyph="&#xE8CC;" HorizontalAlignment="Left" Margin="0 0 20 0"/>
                     <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">FJGH4S - Samsung S24 Ultra Pro</TextBlock>
-                    <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">Android</TextBlock>
+                    <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">نظام تشغيل أندرويد</TextBlock>
                     <HyperlinkButton Grid.Column="3" HorizontalAlignment="Right" Padding="0" VerticalContentAlignment="Center">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock>تسجيل الخروج</TextBlock>

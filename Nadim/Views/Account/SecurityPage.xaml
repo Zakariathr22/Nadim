@@ -6,9 +6,83 @@
     xmlns:local="using:Nadim.Views.Account"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     mc:Ignorable="d">
 
-    <Grid>
-        <TextBlock>Security Page</TextBlock>
-    </Grid>
+    <ScrollView>
+        <StackPanel Padding="24 16 24 24" HorizontalAlignment="Stretch">
+            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+                    معرفة متى وأين استخدمت حسابك (آخر 28 يوم)
+            </TextBlock>
+            <TextBlock Margin="0 0 0 8" TextWrapping="Wrap">
+                يجب أن تتعرف على كل من هذه الأنشطة الأخيرة. إذا بدا أحدهم غير مألوف، فانقر عليه لإعلامنا بذلك.
+            </TextBlock>
+            <controls:SettingsExpander
+                Header="تسجيل دخول"
+                Description="بتاريخ: 27/04/2024 | على الساعة: 20:54:34 | عنوان IP رقم: 41.99.178.1"
+                CornerRadius="4 4 0 0">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xEC4E;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <HyperlinkButton>
+                    نشاط غير مألوف؟
+                </HyperlinkButton>
+            </controls:SettingsExpander>
+            <controls:SettingsExpander
+                Header="تسجيل دخول"
+                Description="بتاريخ: 27/04/2024 | على الساعة: 20:54:34 | عنوان IP رقم: 41.99.178.1"
+                CornerRadius="0">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xEC4E;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <HyperlinkButton>
+                    نشاط غير مألوف؟
+                </HyperlinkButton>
+            </controls:SettingsExpander>
+            <controls:SettingsExpander
+                Header="تسجيل دخول"
+                Description="بتاريخ: 27/04/2024 | على الساعة: 20:54:34 | عنوان IP رقم: 41.99.178.1"
+                CornerRadius="0">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xEC4E;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <HyperlinkButton>
+                    نشاط غير مألوف؟
+                </HyperlinkButton>
+            </controls:SettingsExpander>
+            <controls:SettingsExpander
+                Header="تسجيل دخول"
+                Description="بتاريخ: 27/04/2024 | على الساعة: 20:54:34 | عنوان IP رقم: 41.99.178.1"
+                CornerRadius="0">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xEC4E;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <HyperlinkButton>
+                    نشاط غير مألوف؟
+                </HyperlinkButton>
+            </controls:SettingsExpander>
+            <controls:SettingsExpander
+                Header="تسجيل دخول"
+                Description="بتاريخ: 27/04/2024 | على الساعة: 20:54:34 | عنوان IP رقم: 41.99.178.1"
+                CornerRadius="0">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xEC4E;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <HyperlinkButton>
+                    نشاط غير مألوف؟
+                </HyperlinkButton>
+            </controls:SettingsExpander>
+            <controls:SettingsExpander
+                Header="تسجيل دخول"
+                Description="بتاريخ: 27/04/2024 | على الساعة: 20:54:34 | عنوان IP رقم: 41.99.178.1"
+                CornerRadius="0 0 4 4">
+                <controls:SettingsExpander.HeaderIcon>
+                    <FontIcon Glyph="&#xEC4E;" />
+                </controls:SettingsExpander.HeaderIcon>
+                <HyperlinkButton>
+                    نشاط غير مألوف؟
+                </HyperlinkButton>
+            </controls:SettingsExpander>
+        </StackPanel>
+    </ScrollView>
 </Page>
