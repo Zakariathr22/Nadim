@@ -11,7 +11,7 @@
     xmlns:ui="using:CommunityToolkit.WinUI"
     xmlns:viewControls ="using:Nadim.Views.Controls">
     <ScrollView>
-        <StackPanel Padding="32 16 32 32">
+        <StackPanel Padding="24 16 24 24">
             <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
                     المعلومات الشخصية
             </TextBlock>
@@ -30,7 +30,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <PersonPicture  Grid.Column="0" Height="140" Width="140" 
-                                    Margin="0 0 16 0" ProfilePicture="/Assets/Icons/LawyerPic.jpeg" />
+                                    Margin="0 0 16 0" ProfilePicture="https://www.399d-23h-59m-59s.com/press/images/Longing_shade_pics_0.png"/>
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -41,9 +41,6 @@
                         </TextBlock>
                         <Button Grid.Row="1"  MinWidth="150">تغيير الصورة</Button>
                     </Grid>
-                    <!--<HyperlinkButton Grid.Column="2" HorizontalAlignment="Right" Padding="0">
-                        تعديل اللقب أو الاسم
-                    </HyperlinkButton>-->
                 </Grid>
             </ContentPresenter>
             <ContentPresenter

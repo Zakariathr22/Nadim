@@ -11,7 +11,7 @@
     xmlns:ui="using:CommunityToolkit.WinUI"
     FlowDirection="RightToLeft">
     <ScrollView>
-        <StackPanel Padding="32">
+        <StackPanel Padding="24">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                 <FontIcon Glyph="&#xE713;" Margin="0 0 16 0" FontSize="28"/>
                 <TextBlock Margin="0 0 0 16"
@@ -120,8 +120,7 @@
                                     Description="تم تطوير التطبيق من قبل فريق نديم، © جميع الحقوق محفوظة 2024."
                                     Header="نديم 1.0.0.0"
                                     HeaderIcon="{ui:FontIcon Glyph=&#xE946;}"
-                                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                                    CornerRadius="4 4 0 0">
+                                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}">
             </controls:SettingsCard>
             <StackPanel Orientation="Horizontal">
                 <Button Margin=" 0 0 4 0" CornerRadius="4" Padding="8">

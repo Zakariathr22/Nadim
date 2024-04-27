@@ -14,9 +14,8 @@ namespace Nadim.Views.Controls
 
         {
             this.DefaultStyleKey = typeof(Button);
+            this.ProtectedCursor = InputSystemCursor.Create(InputSystemCursorShape.Hand);
         }
-
-
 
         public void ChangeCursor(InputCursor cursor)
 

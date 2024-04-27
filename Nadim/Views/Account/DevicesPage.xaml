@@ -8,7 +8,114 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <TextBlock>Devices Page</TextBlock>
-    </Grid>
+    <ScrollView>
+        <StackPanel Padding="24 16 24 24">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" Margin="0 0 0 8">
+                إليك جميع الأجهزة التي تم تسجيل الدخول بها حاليًا باستخدام حساب
+                <Bold> نديم</Bold>
+                الخاص بك. يمكنك تسجيل الخروج من كل جهاز على حدة أو من جميع الأجهزة الأخرى.
+            </TextBlock>
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" Margin="0 0 0 8" Foreground="{ThemeResource SystemFillColorCriticalBrush}">
+                إذا رأيت جهازا لا تعرفه، قم بتسجيل الخروج منه وقم بتغيير كلمة مرور حساب نديم الخاص بك على الفور و
+               <Hyperlink>أبلغ فريق نديم </Hyperlink>
+                بذلك.
+            </TextBlock>
+            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+                الجهاز الحالي
+            </TextBlock>
+            <ContentPresenter
+                    x:Name="CControlPresenter"
+                    Padding="20"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderThickness="1"
+                    BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                    CornerRadius="4"
+                    Margin="0 0 0 8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <FontIcon Grid.Column="0" Glyph="&#xEC4E;" HorizontalAlignment="Left" Margin="0 0 20 0"/>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">NR4F6JE - Latitude E5470</TextBlock>
+                    <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">Windows</TextBlock>
+                </Grid>
+            </ContentPresenter>
+            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+                الأجهزة الأخرى
+            </TextBlock>
+            <ContentPresenter
+                    x:Name="CCVontrolPresenter"
+                    Padding="20"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderThickness="1"
+                    BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                    CornerRadius="4"
+                    Margin="0 0 0 4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <FontIcon Grid.Column="0" Glyph="&#xE8CC;" HorizontalAlignment="Left" Margin="0 0 20 0"/>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">X3FD5D - Poco X3 Pro</TextBlock>
+                    <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">Android</TextBlock>
+                    <HyperlinkButton Grid.Column="3" HorizontalAlignment="Right" Padding="0" VerticalContentAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>تسجيل الخروج</TextBlock>
+                            <FontIcon Glyph="&#xF3B1;" Margin="4"/>
+                        </StackPanel>
+                    </HyperlinkButton>
+                </Grid>
+            </ContentPresenter>
+            <ContentPresenter
+                Padding="20"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Center"
+                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                BorderThickness="1"
+                BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                CornerRadius="4"
+                Margin="0 0 0 8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <FontIcon Grid.Column="0" Glyph="&#xE8CC;" HorizontalAlignment="Left" Margin="0 0 20 0"/>
+                    <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">FJGH4S - Samsung S24 Ultra Pro</TextBlock>
+                    <TextBlock Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap">Android</TextBlock>
+                    <HyperlinkButton Grid.Column="3" HorizontalAlignment="Right" Padding="0" VerticalContentAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>تسجيل الخروج</TextBlock>
+                            <FontIcon Glyph="&#xF3B1;" Margin="4"/>
+                        </StackPanel>
+                    </HyperlinkButton>
+                </Grid>
+            </ContentPresenter>
+            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+                تسجيل الخروج من جميع الأجهزة
+            </TextBlock>
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" Margin="0 0 0 8">
+                سيتعين عليك تسجيل الدخول مرة أخرى على جميع الأجهزة التي تم تسجيل الخروج منها (بما فيها هذا الجهاز).
+            </TextBlock>
+            <Button BorderBrush="{ThemeResource SystemFillColorCriticalBrush}"
+                    Background="{ThemeResource SystemFillColorCriticalBackground}">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <FontIcon Glyph="&#xF3B1;" Margin="4"/>
+                    <TextBlock VerticalAlignment="Center">تسجيل الخروج من جميع الأجهزة</TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+    </ScrollView>
 </Page>

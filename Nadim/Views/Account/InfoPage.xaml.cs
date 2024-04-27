@@ -27,7 +27,7 @@ namespace Nadim.Views.Account
         public InfoPage()
         {
             this.InitializeComponent();
-            clickablePresenter.ChangeCursor(InputSystemCursor.Create(InputSystemCursorShape.Hand));
+            //clickablePresenter.ChangeCursor(InputSystemCursor.Create(InputSystemCursorShape.Hand));
         }
     }
 }
