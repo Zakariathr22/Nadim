@@ -19,7 +19,7 @@
             </TextBlock>
             <controls:SettingsExpander
                 Header="تسجيل دخول"
-                Description="بتاريخ: 27/04/2024 | على الساعة: 20:54:34 | عنوان IP رقم: 41.99.178.1"
+                Description="27/04/2024 - 20:54:34 | الجهاز: NR4F6JE - Latitude E5470"
                 CornerRadius="4 4 0 0">
                 <controls:SettingsExpander.HeaderIcon>
                     <FontIcon Glyph="&#xEC4E;" />
@@ -27,6 +27,83 @@
                 <HyperlinkButton>
                     نشاط غير مألوف؟
                 </HyperlinkButton>
+                <controls:SettingsExpander.Items>
+                    <ContentPresenter
+                        Padding="20 4"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" VerticalAlignment="Center">التاريخ</TextBlock>
+                            <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">27/04/2024</TextBlock>
+                        </Grid>
+                    </ContentPresenter>
+                    <ContentPresenter
+                        Padding="20 4"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" VerticalAlignment="Center">الوقت</TextBlock>
+                            <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">20:54:34</TextBlock>
+                        </Grid>
+                    </ContentPresenter>
+                    <ContentPresenter
+                        Padding="20 4"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" VerticalAlignment="Center">الجهاز</TextBlock>
+                            <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">NR4F6JE - Latitude E5470</TextBlock>
+                        </Grid>
+                    </ContentPresenter>
+                    <ContentPresenter
+                        Padding="20 4"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" VerticalAlignment="Center">نظام التشغيل</TextBlock>
+                            <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">ويندوز</TextBlock>
+                        </Grid>
+                    </ContentPresenter>
+                    <ContentPresenter
+                        Padding="20 4"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" VerticalAlignment="Center">عنوان IP</TextBlock>
+                            <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">41.99.178.1</TextBlock>
+                        </Grid>
+                    </ContentPresenter>
+                </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
             <controls:SettingsExpander
                 Header="تسجيل دخول"
@@ -40,7 +117,7 @@
                 </HyperlinkButton>
             </controls:SettingsExpander>
             <controls:SettingsExpander
-                Header="تسجيل دخول"
+                Header="تغيير كلمة المرور"
                 Description="بتاريخ: 27/04/2024 | على الساعة: 20:54:34 | عنوان IP رقم: 41.99.178.1"
                 CornerRadius="0">
                 <controls:SettingsExpander.HeaderIcon>
