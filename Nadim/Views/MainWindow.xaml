@@ -23,7 +23,7 @@
             </StackPanel>
         </Border>
         <NavigationView Grid.Row="1" x:Name="navigationView" Width="auto" FlowDirection="RightToLeft"                            
-                        PaneDisplayMode="Left"
+                        PaneDisplayMode="Auto"
                         IsBackEnabled="True"
                         SelectionChanged="navigationView_SelectionChanged"
                         IsSettingsVisible="False"

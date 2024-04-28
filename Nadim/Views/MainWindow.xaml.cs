@@ -161,5 +161,14 @@ namespace Nadim.Views
                 Console.Write("Hi");
             }
         }
+
+        private void Window_SizeChanged(object sender, WindowSizeChangedEventArgs args)
+        {
+            //Microsoft.UI.Windowing.DisplayArea displayArea = Microsoft.UI.Windowing.DisplayArea.GetFromWindowId(windowId, Microsoft.UI.Windowing.DisplayAreaFallback.Nearest);
+            //if (appWindow.Size.Width <= displayArea.WorkArea.Width / 2)
+            //{
+            //    navigationView.PaneDisplayMode = NavigationViewPaneDisplayMode.Auto;
+            //}
+        }
     }
 }
