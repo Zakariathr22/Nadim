@@ -134,6 +134,8 @@ namespace Nadim.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            //testwindow testwindow = new testwindow();
+            //testwindow.Activate();
             PasswordVault vault = new PasswordVault();
             try
             {

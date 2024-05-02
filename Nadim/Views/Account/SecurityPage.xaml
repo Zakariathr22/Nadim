@@ -28,81 +28,85 @@
                     نشاط غير مألوف؟
                 </HyperlinkButton>
                 <controls:SettingsExpander.Items>
-                    <ContentPresenter
+                    <controls:SettingsCard Padding="0" ContentAlignment="Left">
+                        <StackPanel>
+                            <ContentPresenter
                         Padding="20 4"
                         VerticalAlignment="Center"
                         Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                         CornerRadius="0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" VerticalAlignment="Center">التاريخ</TextBlock>
-                            <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">27/04/2024</TextBlock>
-                        </Grid>
-                    </ContentPresenter>
-                    <ContentPresenter
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" VerticalAlignment="Center">التاريخ</TextBlock>
+                                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">27/04/2024</TextBlock>
+                                </Grid>
+                            </ContentPresenter>
+                            <ContentPresenter
                         Padding="20 4"
                         VerticalAlignment="Center"
                         Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                         CornerRadius="0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" VerticalAlignment="Center">الوقت</TextBlock>
-                            <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">20:54:34</TextBlock>
-                        </Grid>
-                    </ContentPresenter>
-                    <ContentPresenter
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" VerticalAlignment="Center">الوقت</TextBlock>
+                                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">20:54:34</TextBlock>
+                                </Grid>
+                            </ContentPresenter>
+                            <ContentPresenter
                         Padding="20 4"
                         VerticalAlignment="Center"
                         Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                         CornerRadius="0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" VerticalAlignment="Center">الجهاز</TextBlock>
-                            <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">NR4F6JE - Latitude E5470</TextBlock>
-                        </Grid>
-                    </ContentPresenter>
-                    <ContentPresenter
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" VerticalAlignment="Center">الجهاز</TextBlock>
+                                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">NR4F6JE - Latitude E5470</TextBlock>
+                                </Grid>
+                            </ContentPresenter>
+                            <ContentPresenter
                         Padding="20 4"
                         VerticalAlignment="Center"
                         Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                         CornerRadius="0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" VerticalAlignment="Center">نظام التشغيل</TextBlock>
-                            <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">ويندوز</TextBlock>
-                        </Grid>
-                    </ContentPresenter>
-                    <ContentPresenter
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" VerticalAlignment="Center">نظام التشغيل</TextBlock>
+                                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">ويندوز</TextBlock>
+                                </Grid>
+                            </ContentPresenter>
+                            <ContentPresenter
                         Padding="20 4"
                         VerticalAlignment="Center"
                         Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                         CornerRadius="0">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="150"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Grid.Column="0" VerticalAlignment="Center">عنوان IP</TextBlock>
-                            <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">41.99.178.1</TextBlock>
-                        </Grid>
-                    </ContentPresenter>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" VerticalAlignment="Center">عنوان IP</TextBlock>
+                                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">41.99.178.1</TextBlock>
+                                </Grid>
+                            </ContentPresenter>
+                        </StackPanel>
+                    </controls:SettingsCard>
                 </controls:SettingsExpander.Items>
             </controls:SettingsExpander>
             <controls:SettingsExpander

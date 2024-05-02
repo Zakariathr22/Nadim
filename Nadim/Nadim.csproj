@@ -67,6 +67,7 @@
     <None Remove="Views\SystemMessages\SignUpSuccessPage.xaml" />
     <None Remove="Views\SystemMessages\SignUpSuccessTitleControl.xaml" />
     <None Remove="Views\Tasks\TasksPage.xaml" />
+    <None Remove="Views\testwindow.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -75,11 +76,12 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="CommunityToolkit.WinUI.Controls.Segmented" Version="8.0.240109" />
     <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.0.240109" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
-    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240404000" />
+    <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.5.240428000" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.3233" />
     <PackageReference Include="MySqlConnector" Version="2.3.7" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
@@ -287,6 +289,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\SignUp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\testwindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 
   <!-- 
