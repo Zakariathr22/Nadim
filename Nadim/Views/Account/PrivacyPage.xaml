@@ -8,7 +8,74 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <TextBlock>Privacy Page</TextBlock>
-    </Grid>
+    <ScrollView>
+        <StackPanel Padding="24 16 24 24">
+            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+                    معلومات النشاط الحالي
+            </TextBlock>
+
+            <ContentPresenter
+                        x:Name="CCControlPresenter"
+                        Padding="20"
+                        Margin="0 0 0 4"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderThickness="1"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Center">اسم الجهاز</TextBlock>
+                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" TextWrapping="Wrap">NR4F6JE - Latitude E5470</TextBlock>
+                    <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">يساعد اسم الجهاز على تخصيص الخدمات واستكشاف المشكلات وإصلاحها بكفاءة</TextBlock>
+
+                </Grid>
+            </ContentPresenter>
+
+            <ContentPresenter
+                        Padding="20"
+                        Margin="0 0 0 4"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderThickness="1"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Center">نظام التشغيل</TextBlock>
+                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" TextWrapping="Wrap">ويندوز</TextBlock>
+                    <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">تتيح المعرفة بنظام التشغيل التوافق والأداء الأمثل للتطبيق</TextBlock>
+
+                </Grid>
+            </ContentPresenter>
+
+            <ContentPresenter
+                        Padding="20"
+                        Margin="0 0 0 4"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderThickness="1"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="2.5*"/>
+                        <ColumnDefinition Width="5*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Center">عنوان IP</TextBlock>
+                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" TextWrapping="Wrap">41.99.178.1</TextBlock>
+                    <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">يساعد عنوان IP في تحديد التهديدات والانتهاكات الأمنية المحتملة</TextBlock>
+                </Grid>
+            </ContentPresenter>
+        </StackPanel>
+    </ScrollView>
 </Page>
