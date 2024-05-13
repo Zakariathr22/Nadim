@@ -50,8 +50,8 @@ namespace Nadim
             }
             else
             {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Activate();
+                App.mainWindow = new MainWindow();
+                App.mainWindow.Activate();
             }
             appWindow.IsShownInSwitchers = false;           
             this.Activated += MainWindow_Activated;

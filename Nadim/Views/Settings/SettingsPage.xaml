@@ -28,13 +28,13 @@
                                     HeaderIcon="{ui:FontIcon Glyph=&#xE790;}"
                                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                     Margin="0 0 0 4">
-                    <ComboBox SelectedIndex="0">
-                        <ComboBoxItem>الوضع الإفتراضي</ComboBoxItem>
-                        <ComboBoxItem>الوضع الفاتح</ComboBoxItem>
-                        <ComboBoxItem>الوضع المظلم</ComboBoxItem>
+                    <ComboBox x:Name="themeComboBox" SelectedIndex="0" SelectionChanged="ThemeComboBox_SelectionChanged">
+                        <ComboBoxItem Tag="Default">الوضع الإفتراضي</ComboBoxItem>
+                        <ComboBoxItem Tag="Light">الوضع الفاتح</ComboBoxItem>
+                        <ComboBoxItem Tag="Dark">الوضع المظلم</ComboBoxItem>
                     </ComboBox>
                 </controls:SettingsCard>
-            <controls:SettingsCard x:Name="backDropSettingsCard"
+            <controls:SettingsCard x:Name="backDropSettingCard"
                                     Description="خلفية التطبيق هي الألوان الرئيسية التي تظهر خلف الواجهة الرئيسية للتطبيق."
                                     Header="الخلفية"
                                     HeaderIcon="{ui:FontIcon Glyph=&#xE81E;}"
@@ -49,23 +49,23 @@
             <TextBlock Margin="0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
                 إعدادات عامة
             </TextBlock>
-            <controls:SettingsCard x:Name="tthemeSettingCard"
+            <controls:SettingsCard x:Name="fileFontFamilySettingCard"
                                     Description="نوع الخط المستخدم في الوثائق التي يتم إنشائها في التطبيق."
                                     Header="نوع خط الوثائق"
                                     HeaderIcon="{ui:FontIcon Glyph=&#xE8D2;}"
                                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                     CornerRadius="4 4 0 0"
                                    BorderThickness="1 1 1 0">
-                <ComboBox SelectedIndex="0">
-                    <ComboBoxItem FontFamily="Times New Roman">الخط رقم 1: "Times New Roman"</ComboBoxItem>
-                    <ComboBoxItem FontFamily="Arial">الخط رقم 2: "Arial"</ComboBoxItem>
-                    <ComboBoxItem FontFamily="Calibri">الخط رقم 3: "Calibri"</ComboBoxItem>
-                        <ComboBoxItem FontFamily="Sakkal Majalla">الخط رقم 4: "Sakkal Majalla"</ComboBoxItem>
-                        <ComboBoxItem FontFamily="Traditional Arabic">الخط رقم 5: "Traditional Arabic"</ComboBoxItem>
+                <ComboBox x:Name="filesFontFamilyComboBox" SelectedIndex="0">
+                    <ComboBoxItem>الخط رقم 1: "Times New Roman"</ComboBoxItem>
+                    <ComboBoxItem>الخط رقم 2: "Arial"</ComboBoxItem>
+                    <ComboBoxItem>الخط رقم 3: "Calibri"</ComboBoxItem>
+                        <ComboBoxItem>الخط رقم 4: "Sakkal Majalla"</ComboBoxItem>
+                        <ComboBoxItem>الخط رقم 5: "Traditional Arabic"</ComboBoxItem>
                     </ComboBox>
             </controls:SettingsCard>
             <ContentPresenter
-                            x:Name="CControlPresenter"
+                            x:Name="fontTestPresenter"
                             Margin="0 0 0 4"
                             Padding="20 4 20 16"
                             HorizontalAlignment="Stretch"
@@ -85,14 +85,14 @@
                                     [سورة النحل: 90]
                 </TextBlock>
             </ContentPresenter>
-            <controls:SettingsCard x:Name="bbackDropSettingsCard"
+            <controls:SettingsCard x:Name="landingPageSettingCard"
                                     Description="صفحة الهبوط هي الصفحة التي تظهر أولا عند فتح التطبيق."
                                     Header="صفحة الهبوط"
                                     HeaderIcon="{ui:FontIcon Glyph=&#xE89A;}"
                                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                     HorizontalAlignment="Stretch"
                                     Margin="0 0 0 4">
-                <ComboBox SelectedIndex="0">
+                <ComboBox x:Name="landingPageComboBox" SelectedIndex="0">
                         <ComboBoxItem>الرئيسية</ComboBoxItem>
                         <ComboBoxItem>الموكلون</ComboBoxItem>
                         <ComboBoxItem>الملفات</ComboBoxItem>
@@ -104,18 +104,18 @@
                         <ComboBoxItem>مجتمع نديم</ComboBoxItem>
                     </ComboBox>
             </controls:SettingsCard>
-            <controls:SettingsCard x:Name="bbbackDropSettingsCard"
+            <controls:SettingsCard x:Name="ShortCutSettingCard"
                                 Description="لوصول أسرع، ضع أيقونة إختصار التطبيق في سطح المكتب."
                                 Header="إنشاء إختصار"
                                 HeaderIcon="{ui:FontIcon Glyph=&#xE8A7;}"
                                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                 HorizontalAlignment="Stretch">
-                <ToggleSwitch OnContent="" OffContent=""/>
+                <ToggleSwitch x:Name="ShortCutToggleSwitch" OnContent="" OffContent=""/>
             </controls:SettingsCard>
             <TextBlock Margin="0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
                 حول التطبيق
             </TextBlock>
-            <controls:SettingsCard x:Name="ttthemeSettingCard"
+            <controls:SettingsCard x:Name="aboutAppSettingCard"
                                    Margin="0 0 0 4"
                                     Description="تم تطوير التطبيق من قبل فريق نديم، © جميع الحقوق محفوظة 2024."
                                     Header="نديم 1.0.0.0"

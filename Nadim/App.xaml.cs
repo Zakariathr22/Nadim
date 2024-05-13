@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading;
 using Windows.ApplicationModel;
@@ -40,6 +41,7 @@ namespace Nadim
         public static SignUpWindow signUpWindow;
         public static PasswordVault valut = new PasswordVault();
         public static AccountRecoveryWindow recoveryWindow;
+        public static MainWindow mainWindow { get; set; }
         public App()
         {
             this.InitializeComponent();
@@ -86,5 +88,15 @@ namespace Nadim
         }
 
         public static Window s_window;
+
+        public static TEnum GetEnum<TEnum>(string text) where TEnum : struct
+        {
+            if (!typeof(TEnum).GetTypeInfo().IsEnum)
+            {
+                throw new InvalidOperationException("Generic parameter 'TEnum' must be an enum.");
+            }
+            return (TEnum)Enum.Parse(typeof(TEnum), text);
+        }
+
     }
 }

@@ -200,8 +200,8 @@ namespace Nadim.Views
             }
             if (loginViewModel.LoginIsCorrect)
             {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Activate();
+                App.mainWindow = new MainWindow();
+                App.mainWindow.Activate();
                 this.Close();
             }
         }
@@ -237,8 +237,8 @@ namespace Nadim.Views
                     }
                     if (loginViewModel.LoginIsCorrect)
                     {
-                        MainWindow mainWindow = new MainWindow();
-                        mainWindow.Activate();
+                        App.mainWindow = new MainWindow();
+                        App.mainWindow.Activate();
                         this.Close();
                     }
                 }

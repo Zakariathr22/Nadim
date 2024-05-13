@@ -12,6 +12,8 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Microsoft.UI;
+using Nadim.Services;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -26,6 +28,20 @@ namespace Nadim.Views.Settings
         public SettingsPage()
         {
             this.InitializeComponent();
+        }
+
+        private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (themeComboBox.SelectedIndex == 0) 
+            {
+                ThemeSelectorService.SetTheme(ElementTheme.Default);
+            } else if (themeComboBox.SelectedIndex == 1)
+            {
+                ThemeSelectorService.SetTheme(ElementTheme.Light);
+            } else
+            {
+                ThemeSelectorService.SetTheme(ElementTheme.Dark);
+            }
         }
     }
 }
