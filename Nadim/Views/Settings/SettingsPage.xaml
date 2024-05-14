@@ -40,10 +40,10 @@
                                     HeaderIcon="{ui:FontIcon Glyph=&#xE81E;}"
                                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                     HorizontalAlignment="Stretch">
-                <ComboBox SelectedIndex="0">
+                <ComboBox x:Name="backDropComboBox" SelectedIndex="0" SelectionChanged="backDropComboBox_SelectionChanged">
                     <ComboBoxItem>الخلفية الإفتراضية 1</ComboBoxItem>
                     <ComboBoxItem>الخلفية الإفتراضية 2</ComboBoxItem>
-                    <ComboBoxItem>بدون خلفية</ComboBoxItem>
+                    <ComboBoxItem>خلفية شبه شفافة</ComboBoxItem>
                 </ComboBox>
             </controls:SettingsCard>
             <TextBlock Margin="0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
@@ -56,7 +56,7 @@
                                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                     CornerRadius="4 4 0 0"
                                    BorderThickness="1 1 1 0">
-                <ComboBox x:Name="filesFontFamilyComboBox" SelectedIndex="0">
+                <ComboBox x:Name="filesFontFamilyComboBox" SelectedIndex="0" SelectionChanged="filesFontFamilyComboBox_SelectionChanged">
                     <ComboBoxItem>الخط رقم 1: "Times New Roman"</ComboBoxItem>
                     <ComboBoxItem>الخط رقم 2: "Arial"</ComboBoxItem>
                     <ComboBoxItem>الخط رقم 3: "Calibri"</ComboBoxItem>
@@ -74,10 +74,10 @@
                             BorderThickness="1 0 1 1"
                             BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                             CornerRadius="0 0 4 4">
-                <TextBlock HorizontalAlignment="Center" 
+                <TextBlock x:Name="fontTestTextBlock"
+                                    HorizontalAlignment="Center" 
                                     VerticalAlignment="Center" 
-                                    FontSize="20" 
-                                    FontFamily="Times New Roman" 
+                                    FontSize="20"
                                     TextAlignment="Center"
                                     TextWrapping="Wrap">
                                     ﴿ إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ وَإِيتَاءِ ذِي الْقُرْبَىٰ وَيَنْهَىٰ
