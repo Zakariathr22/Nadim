@@ -109,8 +109,9 @@
                                 Header="إنشاء إختصار"
                                 HeaderIcon="{ui:FontIcon Glyph=&#xE8A7;}"
                                 Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                                HorizontalAlignment="Stretch">
-                <ToggleSwitch x:Name="ShortCutToggleSwitch" OnContent="" OffContent=""/>
+                                HorizontalAlignment="Stretch"
+                                IsEnabled="False">
+                <ToggleSwitch x:Name="ShortCutToggleSwitch" OnContent="" OffContent="" Toggled="ShortCutToggleSwitch_Toggled"/>
             </controls:SettingsCard>
             <TextBlock Margin="0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
                 حول التطبيق
