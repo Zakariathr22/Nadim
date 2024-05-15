@@ -29,7 +29,7 @@
                                     HeaderIcon="{ui:FontIcon Glyph=&#xE790;}"
                                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                     Margin="0 0 0 4">
-                    <ComboBox x:Name="themeComboBox" SelectedIndex="0" SelectionChanged="ThemeComboBox_SelectionChanged">
+                    <ComboBox x:Name="themeComboBox" SelectedIndex="{Binding AppTheme, Mode=TwoWay}" SelectionChanged="ThemeComboBox_SelectionChanged">
                         <ComboBoxItem Tag="Default">الوضع الإفتراضي</ComboBoxItem>
                         <ComboBoxItem Tag="Light">الوضع الفاتح</ComboBoxItem>
                         <ComboBoxItem Tag="Dark">الوضع المظلم</ComboBoxItem>
@@ -41,7 +41,7 @@
                                     HeaderIcon="{ui:FontIcon Glyph=&#xE81E;}"
                                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                     HorizontalAlignment="Stretch">
-                <ComboBox x:Name="backDropComboBox" SelectedIndex="0" SelectionChanged="backDropComboBox_SelectionChanged">
+                <ComboBox x:Name="backDropComboBox" SelectedIndex="{Binding AppBackDrop, Mode=TwoWay}" SelectionChanged="backDropComboBox_SelectionChanged">
                     <ComboBoxItem>الخلفية الإفتراضية 1</ComboBoxItem>
                     <ComboBoxItem>الخلفية الإفتراضية 2</ComboBoxItem>
                     <ComboBoxItem>خلفية شبه شفافة</ComboBoxItem>
@@ -57,7 +57,7 @@
                                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                     CornerRadius="4 4 0 0"
                                    BorderThickness="1 1 1 0">
-                <ComboBox x:Name="filesFontFamilyComboBox" SelectedIndex="0" SelectionChanged="filesFontFamilyComboBox_SelectionChanged">
+                <ComboBox x:Name="filesFontFamilyComboBox" SelectedIndex="{Binding FilesFontFamily, Mode=TwoWay}" SelectionChanged="filesFontFamilyComboBox_SelectionChanged">
                     <ComboBoxItem>الخط رقم 1: "Times New Roman"</ComboBoxItem>
                     <ComboBoxItem>الخط رقم 2: "Arial"</ComboBoxItem>
                     <ComboBoxItem>الخط رقم 3: "Calibri"</ComboBoxItem>
@@ -93,7 +93,7 @@
                                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                                     HorizontalAlignment="Stretch"
                                     Margin="0 0 0 4">
-                <ComboBox x:Name="landingPageComboBox" SelectedIndex="0">
+                <ComboBox x:Name="landingPageComboBox" SelectedIndex="{Binding LandingPage, Mode=TwoWay}" SelectionChanged="landingPageComboBox_SelectionChanged">
                         <ComboBoxItem>الرئيسية</ComboBoxItem>
                         <ComboBoxItem>الموكلون</ComboBoxItem>
                         <ComboBoxItem>الملفات</ComboBoxItem>

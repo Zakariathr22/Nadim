@@ -32,10 +32,11 @@ namespace Nadim.Views.Settings
     /// </summary>
     public sealed partial class SettingsPage : Page
     {
+        private SettingsViewModel viewModel;
         public SettingsPage()
         {
             this.InitializeComponent();
-            SettingsViewModel viewModel = new SettingsViewModel();
+            viewModel = new SettingsViewModel();
             DataContext = viewModel;
 
             themeComboBox.SelectedIndex = viewModel.AppTheme;
@@ -56,6 +57,7 @@ namespace Nadim.Views.Settings
             {
                 ThemeSelectorService.SetTheme(ElementTheme.Dark);
             }
+            viewModel.ThemeChangedCommand.Execute(this);
         }
 
         private void backDropComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -72,7 +74,7 @@ namespace Nadim.Views.Settings
             {
                 App.mainWindow.SystemBackdrop = new DesktopAcrylicBackdrop();
             }
-            
+            viewModel.BackDropChangedCommand.Execute(this);
         }
 
         private void filesFontFamilyComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -103,6 +105,7 @@ namespace Nadim.Views.Settings
                 {
                     fontTestTextBlock.FontFamily = new FontFamily("Times New Roman");
                 }
+                viewModel.FilesFontFamilyChangedCommand.Execute(this);
             }
         }
 
@@ -136,6 +139,11 @@ namespace Nadim.Views.Settings
             shortcut.Hotkey = "Ctrl+Shift+N";
             shortcut.TargetPath = lpExeName.ToString();
             shortcut.Save();
+        }
+
+        private void landingPageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            viewModel.LandingPageChangedCommand.Execute(this);
         }
     }
 }

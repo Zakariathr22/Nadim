@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using Nadim.Services;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,29 @@ namespace Nadim.ViewModels
             filesFontFamily = int.Parse(ConfigurationService.GetAppSetting("FilesFontFamily"));
             landingPage = int.Parse(ConfigurationService.GetAppSetting("LandingPage"));
         }
-        
+
+        [RelayCommand]
+        void ThemeChanged()
+        {
+            ConfigurationService.SetAppSetting("AppTheme", AppTheme);
+        }
+
+        [RelayCommand]
+        void BackDropChanged()
+        {
+            ConfigurationService.SetAppSetting("AppBackDrop", AppBackDrop);
+        }
+
+        [RelayCommand]
+        void FilesFontFamilyChanged() 
+        {
+            ConfigurationService.SetAppSetting("FilesFontFamily", FilesFontFamily);
+        }
+
+        [RelayCommand]
+        void LandingPageChanged()
+        {
+            ConfigurationService.SetAppSetting("LandingPage", LandingPage);
+        }
     }
 }
