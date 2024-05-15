@@ -9,7 +9,8 @@
     mc:Ignorable="d"
     xmlns:controls="using:CommunityToolkit.WinUI.Controls"
     xmlns:ui="using:CommunityToolkit.WinUI"
-    FlowDirection="RightToLeft">
+    FlowDirection="RightToLeft"
+    NavigationCacheMode="Enabled">
     <ScrollView>
         <StackPanel Padding="24">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">

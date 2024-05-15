@@ -20,6 +20,7 @@ using IWshRuntimeLibrary;
 using System.Diagnostics;
 using System.Text;
 using System.Runtime.InteropServices;
+using Nadim.ViewModels;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -34,6 +35,13 @@ namespace Nadim.Views.Settings
         public SettingsPage()
         {
             this.InitializeComponent();
+            SettingsViewModel viewModel = new SettingsViewModel();
+            DataContext = viewModel;
+
+            themeComboBox.SelectedIndex = viewModel.AppTheme;
+            backDropComboBox.SelectedIndex = viewModel.AppBackDrop;
+            filesFontFamilyComboBox.SelectedIndex = viewModel.FilesFontFamily;
+            landingPageComboBox.SelectedIndex = viewModel.LandingPage;
         }
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using Nadim.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +10,18 @@ namespace Nadim.ViewModels
 {
     public partial class SettingsViewModel : ObservableObject
     {
-        [ObservableProperty] private string appTheme;
-        [ObservableProperty] private string appBackDrop;
-        [ObservableProperty] private string filesFontFamily;
-        [ObservableProperty] private string landingPage;
+        [ObservableProperty] private int appTheme;
+        [ObservableProperty] private int appBackDrop;
+        [ObservableProperty] private int filesFontFamily;
+        [ObservableProperty] private int landingPage;
 
-
+        public SettingsViewModel()
+        {
+            appTheme = int.Parse(ConfigurationService.GetAppSetting("AppTheme"));
+            appBackDrop = int.Parse(ConfigurationService.GetAppSetting("AppBackDrop"));
+            filesFontFamily = int.Parse(ConfigurationService.GetAppSetting("FilesFontFamily"));
+            landingPage = int.Parse(ConfigurationService.GetAppSetting("LandingPage"));
+        }
+        
     }
 }
