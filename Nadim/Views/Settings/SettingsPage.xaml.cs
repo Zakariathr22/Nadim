@@ -47,16 +47,6 @@ namespace Nadim.Views.Settings
 
         private void ThemeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (themeComboBox.SelectedIndex == 0) 
-            {
-                ThemeSelectorService.SetTheme(ElementTheme.Default);
-            } else if (themeComboBox.SelectedIndex == 1)
-            {
-                ThemeSelectorService.SetTheme(ElementTheme.Light);
-            } else
-            {
-                ThemeSelectorService.SetTheme(ElementTheme.Dark);
-            }
             viewModel.ThemeChangedCommand.Execute(this);
         }
 

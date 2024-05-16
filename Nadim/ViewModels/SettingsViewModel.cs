@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.UI.Xaml;
 using Nadim.Services;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,18 @@ namespace Nadim.ViewModels
         [RelayCommand]
         void ThemeChanged()
         {
+            if (AppTheme == 0)
+            {
+                ThemeSelectorService.SetTheme(ElementTheme.Default, App.mainWindow);
+            }
+            else if (AppTheme == 1)
+            {
+                ThemeSelectorService.SetTheme(ElementTheme.Light, App.mainWindow);
+            }
+            else
+            {
+                ThemeSelectorService.SetTheme(ElementTheme.Dark, App.mainWindow);
+            }
             ConfigurationService.SetAppSetting("AppTheme", AppTheme);
         }
 
