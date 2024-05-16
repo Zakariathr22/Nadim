@@ -18,9 +18,9 @@ namespace Nadim.Services
             return ElementTheme.Default;
         }
 
-        public static void SetTheme(ElementTheme theme)
+        public static void SetTheme(ElementTheme theme, Window window)
         {
-            if (App.mainWindow?.Content is FrameworkElement element)
+            if (window?.Content is FrameworkElement element)
             {
                 element.RequestedTheme = theme;
             }
