@@ -9,6 +9,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using MySqlConnector;
 using Nadim.Models;
+using Nadim.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -36,6 +37,7 @@ namespace Nadim.Views
         private OverlappedPresenter overlappedPresenter;
         private AppWindowTitleBar titleBar;
         private bool isActivatedOnce = false;
+        private MainViewModel mainViewModel;
         public MainWindow()
         {
             this.InitializeComponent();
@@ -43,6 +45,9 @@ namespace Nadim.Views
             var vault = new Windows.Security.Credentials.PasswordVault();
             var credential = vault.Retrieve("NadimApplication", "token");
             var token = credential.Password;
+
+            mainViewModel = new MainViewModel();
+            mainPanel.DataContext = mainViewModel;
 
             appWindow = GetAppWindowForCurrentWindow();
             overlappedPresenter = GetAppWindowOverlappedPresenter(appWindow);
@@ -63,7 +68,10 @@ namespace Nadim.Views
             Activated += MainWindow_Activated;
             Closed += MainWindow_Closed;
 
-            navigationView.SelectedItem = navigationView.MenuItems.OfType<Microsoft.UI.Xaml.Controls.NavigationViewItem>().First();
+            mainViewModel.SetAppTheme(this);
+            mainViewModel.SetAppBackDrop(this);
+
+            navigationView.SelectedItem = navigationView.MenuItems.OfType<Microsoft.UI.Xaml.Controls.NavigationViewItem>().ElementAt(mainViewModel.LandingPage);
         }
 
         private void MainWindow_Closed(object sender, WindowEventArgs args)
@@ -172,5 +180,6 @@ namespace Nadim.Views
             //    navigationView.PaneDisplayMode = NavigationViewPaneDisplayMode.Auto;
             //}
         }
+
     }
 }
