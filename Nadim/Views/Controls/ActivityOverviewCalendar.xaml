@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UserControl
+    x:Class="Nadim.Views.Controls.ActivityOverviewCalendar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Nadim.Views.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Padding="0 0 0 20"
+          Background="Transparent"
+          CornerRadius="4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0"/>
+        <Grid Grid.Row="0" Grid.Column="1" Width="936" Padding="0 4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" HorizontalAlignment="Center" FontSize="12">جانفي</TextBlock>
+            <TextBlock Grid.Column="1" HorizontalAlignment="Center" FontSize="12">فيفري</TextBlock>
+            <TextBlock Grid.Column="2" HorizontalAlignment="Center" FontSize="12">مارس</TextBlock>
+            <TextBlock Grid.Column="3" HorizontalAlignment="Center" FontSize="12">أفريل</TextBlock>
+            <TextBlock Grid.Column="4" HorizontalAlignment="Center" FontSize="12">ماي</TextBlock>
+            <TextBlock Grid.Column="5" HorizontalAlignment="Center" FontSize="12">جوان</TextBlock>
+            <TextBlock Grid.Column="6" HorizontalAlignment="Center" FontSize="12">جويلية</TextBlock>
+            <TextBlock Grid.Column="7" HorizontalAlignment="Center" FontSize="12">أوت</TextBlock>
+            <TextBlock Grid.Column="8" HorizontalAlignment="Center" FontSize="12">سبتمبر</TextBlock>
+            <TextBlock Grid.Column="9" HorizontalAlignment="Center" FontSize="12">أكتوبر</TextBlock>
+            <TextBlock Grid.Column="10" HorizontalAlignment="Center" FontSize="12">نوفمبر</TextBlock>
+            <TextBlock Grid.Column="11" HorizontalAlignment="Center" FontSize="12">ديسمبر</TextBlock>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0" Height="126" Padding="4 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" HorizontalAlignment="Right" FontSize="12">الأحد</TextBlock>
+            <TextBlock Grid.Row="2" HorizontalAlignment="Right" FontSize="12">الثلاثاء</TextBlock>
+            <TextBlock Grid.Row="4" HorizontalAlignment="Right" FontSize="12">الخميس</TextBlock>
+            <TextBlock Grid.Row="6" HorizontalAlignment="Right" FontSize="12">السبت</TextBlock>
+        </Grid>
+        <Grid x:Name="calendarGrid" Grid.Row="1" Grid.Column="1">
+            
+        </Grid>
+    </Grid>
+</UserControl>
