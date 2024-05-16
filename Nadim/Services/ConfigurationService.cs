@@ -46,17 +46,17 @@ namespace Nadim.Services
             return directoryInfo.FullName;
         }
 
-        // This is a public static method named Configure. It takes a string parameter named setting.
-        public static void Configure(string setting)
+        // This is a public static method named Configure. It takes a string parameter named settingsFile.
+        public static void Configure(string settingsFile)
         {
             // Instantiate a new ConfigurationBuilder and assign it to the builder field.
             builder = new ConfigurationBuilder();
             // Get the absolute path of the app settings.
-            string appSettingsPath = GetParentDirectoryPath(AppDomain.CurrentDomain.BaseDirectory, 6);
+            string appSettingsPath = GetParentDirectoryPath(AppDomain.CurrentDomain.BaseDirectory, 0);
             // Set the base path of the builder to the app settings path.
             FileConfigurationExtensions.SetBasePath(builder, appSettingsPath);
             // Add a JSON configuration source to the builder.
-            JsonConfigurationExtensions.AddJsonFile(builder, $"{setting}.json", false, true);
+            JsonConfigurationExtensions.AddJsonFile(builder, $"{settingsFile}.json", false, true);
             // Build the configuration and assign it to the configuration field.
             configuration = builder.Build();
         }
@@ -84,7 +84,7 @@ namespace Nadim.Services
         {
             // Get the absolute path of the app settings.
             // The GetParentDirectoryPath method is used to navigate up the directory structure.
-            string appSettingsPath = GetParentDirectoryPath(AppDomain.CurrentDomain.BaseDirectory, 6);
+            string appSettingsPath = GetParentDirectoryPath(AppDomain.CurrentDomain.BaseDirectory, 0);
 
             // Parse the appsettings.json file into a JObject.
             // JObject is a class of the Newtonsoft.Json library that represents a JSON object.
