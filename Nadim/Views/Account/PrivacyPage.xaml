@@ -17,12 +17,11 @@
             <ContentPresenter
                         x:Name="CCControlPresenter"
                         Padding="20"
-                        Margin="0 0 0 4"
                         VerticalAlignment="Center"
                         Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                        BorderThickness="1"
+                        BorderThickness="1 1 1 0"
                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
-                        CornerRadius="4">
+                        CornerRadius="4 4 0 0">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2.5*"/>
@@ -38,12 +37,10 @@
 
             <ContentPresenter
                         Padding="20"
-                        Margin="0 0 0 4"
                         VerticalAlignment="Center"
                         Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                        BorderThickness="1"
-                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
-                        CornerRadius="4">
+                        BorderThickness="1 1 1 0"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2.5*"/>
@@ -59,12 +56,12 @@
 
             <ContentPresenter
                         Padding="20"
-                        Margin="0 0 0 4"
                         VerticalAlignment="Center"
                         Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         BorderThickness="1"
                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
-                        CornerRadius="4">
+                        CornerRadius="0 0  4 4"
+                        Margin="0 0 0 8">
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2.5*"/>
@@ -75,6 +72,76 @@
                     <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" TextWrapping="Wrap">41.99.178.1</TextBlock>
                     <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">يساعد عنوان IP في تحديد التهديدات والانتهاكات الأمنية المحتملة</TextBlock>
                 </Grid>
+            </ContentPresenter>
+
+            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+        التحقق من الحساب
+            </TextBlock>
+
+            <ContentPresenter
+            Padding="20"
+            VerticalAlignment="Center"
+            Background="{ThemeResource SystemFillColorSuccessBackgroundBrush}"
+            BorderThickness="1 1 1 0"
+            BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+            CornerRadius="4 4 0 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Center">التحقق من البريد الإلكتروني</TextBlock>
+                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="{ThemeResource SystemFillColorSuccessBrush}">تم التحقق</TextBlock>
+                    <HyperlinkButton Grid.Column="2" HorizontalAlignment="Right" Padding="0" VerticalContentAlignment="Center" IsEnabled="False">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>طلب التحقق</TextBlock>
+                            <FontIcon Glyph="&#xE715;" Margin="4"/>
+                        </StackPanel>
+                    </HyperlinkButton>
+
+                </Grid>
+            </ContentPresenter>
+
+            <ContentPresenter
+            Padding="20"
+            VerticalAlignment="Center"
+            Background="{ThemeResource SystemFillColorCautionBackgroundBrush}"
+            BorderThickness="1"
+            BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                CornerRadius="0 0 4 4"
+                Margin="0 0 0 8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" VerticalAlignment="Center">التحقق من رقم الهاتف</TextBlock>
+                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" TextWrapping="Wrap" Foreground="{ThemeResource SystemFillColorCautionBrush}">لم يتم التحقق بعد</TextBlock>
+                    <HyperlinkButton Grid.Column="2" HorizontalAlignment="Right" Padding="0" VerticalContentAlignment="Center">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock>طلب التحقق</TextBlock>
+                            <FontIcon Glyph="&#xE717;" Margin="4"/>
+                        </StackPanel>
+                    </HyperlinkButton>
+
+                </Grid>
+            </ContentPresenter>
+
+
+            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+                نظرة عامة على النشاط
+            </TextBlock>
+
+            <ContentPresenter
+            Padding="20"
+            VerticalAlignment="Center"
+            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+            BorderThickness="1"
+            BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+            CornerRadius="4">
+
             </ContentPresenter>
         </StackPanel>
     </ScrollView>
