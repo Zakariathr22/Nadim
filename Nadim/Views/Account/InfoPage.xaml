@@ -12,7 +12,7 @@
     xmlns:viewControls ="using:Nadim.Views.Controls">
     <ScrollView>
         <StackPanel Padding="24 16 24 24">
-            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+            <TextBlock TextWrapping="Wrap" Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}" Padding="0 0 4 0">
                     المعلومات الشخصية
             </TextBlock>
             <ContentPresenter
@@ -36,7 +36,7 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" MaxWidth="400" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                        <TextBlock TextWrapping="Wrap" Grid.Row="0" MaxWidth="400"  HorizontalAlignment="Left" VerticalAlignment="Bottom"  Padding="0 0 4 0">
                             إضفاء الطابع الشخصي على حسابك باستخدام صورة. ستظهر صورة ملف التعريف الخاص بك على التطبيقات والأجهزة التي تستخدم حساب نديم الخاص بك.
                         </TextBlock>
                         <Button Grid.Row="1"  MinWidth="150">تغيير الصورة</Button>
@@ -58,8 +58,8 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" VerticalAlignment="Center">اللقب والاسم</TextBlock>
-                    <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">طاهري زكرياء</TextBlock>
+                    <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">اللقب والاسم</TextBlock>
+                    <TextBlock TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0">طاهري زكرياء</TextBlock>
                     <HyperlinkButton Grid.Column="2" HorizontalAlignment="Right" Padding="0">
                         تعديل اللقب أو الاسم
                     </HyperlinkButton>
@@ -82,9 +82,9 @@
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" VerticalAlignment="Center">تاريخ الميلاد</TextBlock>
-                        <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">08 جوان 1999</TextBlock>
-                        <TextBlock Grid.Column="2" VerticalAlignment="Center">يتم استخدام تاريخ ميلادك لإعدادات أمان الحساب</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">تاريخ الميلاد</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0">08 جوان 1999</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">يتم استخدام تاريخ ميلادك لإعدادات أمان الحساب</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
                     </Grid>
@@ -107,15 +107,15 @@
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" VerticalAlignment="Center">الجنس</TextBlock>
-                        <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">ذكر</TextBlock>
-                        <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">تهم معرفة الجنس في المساعدة على الخطاب بصفة المؤنث أو المذكر</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">الجنس</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0">ذكر</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">تهم معرفة الجنس في المساعدة على الخطاب بصفة المؤنث أو المذكر</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
                     </Grid>
                 </ContentPresenter>
             </viewControls:NewButton>
-            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+            <TextBlock TextWrapping="Wrap" Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}"  Padding="0 0 4 0">
                     المعلومات المهنية
             </TextBlock>
 
@@ -135,9 +135,9 @@
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" VerticalAlignment="Center">الإعتماد</TextBlock>
-                        <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" TextWrapping="Wrap">محامي معتمد لدى المحكمة العليا ومجلس الدولة</TextBlock>
-                        <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">تساعد معرفة الإعتماد في تحرير الوثائق وتحديد الأذونات</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">الإعتماد</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0">محامي معتمد لدى المحكمة العليا ومجلس الدولة</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">تساعد معرفة الإعتماد في تحرير الوثائق وتحديد الأذونات</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
                     </Grid>
@@ -159,16 +159,16 @@
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" VerticalAlignment="Center">تاريخ بداية النشاط</TextBlock>
-                        <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">جانفي 2024</TextBlock>
-                        <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">يتم استخدامه في تحديد خبرة المستخدم في المجال.</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">تاريخ بداية النشاط</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0">جانفي 2024</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">يتم استخدامه في تحديد خبرة المستخدم في المجال.</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
                     </Grid>
                 </ContentPresenter>
             </viewControls:NewButton>
 
-            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+            <TextBlock TextWrapping="Wrap" Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}"  Padding="0 0 4 0">
                     معلومات الحساب
             </TextBlock>
 
@@ -188,23 +188,23 @@
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" VerticalAlignment="Center">البريد الإلكتروني</TextBlock>
-                        <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" TextWrapping="Wrap">zakotahri@gmail.com</TextBlock>
-                        <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">يتم استخدام البريد الإلكتروني في التحقق من الهوية والإتصال</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">البريد الإلكتروني</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0">zakotahri@gmail.com</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">يتم استخدام البريد الإلكتروني في التحقق من الهوية والإتصال</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
                     </Grid>
                 </ContentPresenter>
             </viewControls:NewButton>
-            <viewControls:NewButton x:Name="clickablePresenter6" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0 0 0 8" BorderThickness="0"
+            <viewControls:NewButton x:Name="clickablePresenter6" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" BorderThickness="0"
                     CornerRadius="0">
                 <ContentPresenter
                     Padding="20"
                     VerticalAlignment="Center"
                     Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-                    BorderThickness="1 0 1 1"
+                    BorderThickness="1 0 1 0"
                     BorderBrush="{ThemeResource ControlElevationBorderBrush}"
-                    CornerRadius="0 0 4 4">
+                    CornerRadius="0">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2.5*"/>
@@ -212,14 +212,65 @@
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" VerticalAlignment="Center">رقم الهاتف المحمول</TextBlock>
-                        <TextBlock Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center">0659707528</TextBlock>
-                        <TextBlock Grid.Column="2" VerticalAlignment="Center" TextWrapping="Wrap">يتم استخدام رقم الهاتف المحمول في التحقق من الهوية والإتصال.</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">رقم الهاتف المحمول</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0">0659707528</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">يتم استخدام رقم الهاتف المحمول في التحقق من الهوية والإتصال.</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
                     </Grid>
                 </ContentPresenter>
             </viewControls:NewButton>
+            <ContentPresenter
+                                Padding="20"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                BorderThickness="1 1 1 0"
+                                BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                                CornerRadius="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">منشئ الحساب</TextBlock>
+                    <TextBlock TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0">طاهري زكرياء</TextBlock>
+                </Grid>
+            </ContentPresenter>
+            <ContentPresenter
+                                Padding="20"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                BorderThickness="1 1 1 0"
+                                BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                                CornerRadius="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">تاريخ ووقت إنشاء الحساب</TextBlock>
+                    <TextBlock TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0">يوم: 16/05/2024 ، على الساعة: 17:34</TextBlock>
+                </Grid>
+            </ContentPresenter>
+            <ContentPresenter
+                                Padding="20"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                BorderThickness="1"
+                                BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                                CornerRadius="0 0 4 4">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">تاريخ ووقت آخر تعديل للحساب</TextBlock>
+                    <TextBlock TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0">يوم: 16/05/2024 ، على الساعة: 17:34</TextBlock>
+                </Grid>
+            </ContentPresenter>
         </StackPanel>
     </ScrollView>
 </Page>
