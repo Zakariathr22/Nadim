@@ -75,7 +75,38 @@
                 </Grid>
             </ContentPresenter>
 
+
             <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
+                نظرة عامة على النشاط
+            </TextBlock>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Margin="0 4">
+                    0 مساهمات في هذه السنة
+                </TextBlock>
+                <ComboBox Grid.Column="1" HorizontalAlignment="Right" Margin="0 4" SelectedIndex="0">
+                    <ComboBoxItem>2024</ComboBoxItem>
+                </ComboBox>
+            </Grid>
+            <ScrollView
+            VerticalAlignment="Center"
+            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+            BorderThickness="1"
+            BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+            CornerRadius="4"
+            VerticalScrollBarVisibility="Hidden"
+            HorizontalScrollBarVisibility="Auto">
+                <localControls:ActivityOverviewCalendar Width="1010"
+                                                        HorizontalAlignment="Left"
+                                                        CornerRadius="4">
+
+                </localControls:ActivityOverviewCalendar>
+            </ScrollView>
+            
+            <TextBlock Margin="0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
         التحقق من الحساب
             </TextBlock>
 
@@ -130,36 +161,6 @@
                 </Grid>
             </ContentPresenter>
 
-
-            <TextBlock Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}">
-                نظرة عامة على النشاط
-            </TextBlock>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Grid.Column="0" Margin="0 4">
-                    0 مساهمات في هذه السنة
-                </TextBlock>
-                <ComboBox Grid.Column="1" HorizontalAlignment="Right" Margin="0 4" SelectedIndex="0">
-                    <ComboBoxItem>2024</ComboBoxItem>
-                </ComboBox>
-            </Grid>
-            <ScrollView
-            VerticalAlignment="Center"
-            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
-            BorderThickness="1"
-            BorderBrush="{ThemeResource ControlElevationBorderBrush}"
-            CornerRadius="4"
-            VerticalScrollBarVisibility="Hidden"
-            HorizontalScrollBarVisibility="Auto">
-                <localControls:ActivityOverviewCalendar Width="1010"
-                                                        HorizontalAlignment="Left"
-                                                        CornerRadius="4">
-
-                </localControls:ActivityOverviewCalendar>
-            </ScrollView>
         </StackPanel>
     </ScrollView>
 </Page>

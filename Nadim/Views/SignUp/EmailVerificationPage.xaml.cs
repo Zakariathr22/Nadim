@@ -107,9 +107,9 @@ namespace Nadim.Views.SignUp
             }
             if (SignUpWindow.signUpEmailVerViewModel.EmailCodeIsValid)
             {
-                //App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemphoneVer;
-                //App.signUpWindow.SelectorBarItemphoneVer.IsEnabled = true;
-                //App.signUpWindow.SelectorBarItemEmailVer.IsEnabled = false;
+                App.signUpWindow.selectorBar.SelectedItem = App.signUpWindow.SelectorBarItemphoneVer;
+                App.signUpWindow.SelectorBarItemphoneVer.IsEnabled = true;
+                App.signUpWindow.SelectorBarItemEmailVer.IsEnabled = false;
             }
         }
 

@@ -6,6 +6,7 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml.Shapes;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -71,7 +72,7 @@ namespace Nadim.Views.Controls
                         {
                             Border border = new Border
                             {
-                                Background = new SolidColorBrush(Color.FromArgb(128, 128, 128, 128)),
+                                Background = new SolidColorBrush(Color.FromArgb(32, 128, 128, 128)),
                                 Name = $"Cell_{date:yyyyMMdd}",
                                 CornerRadius = new CornerRadius(2),
                                 Width = 16,
@@ -89,19 +90,19 @@ namespace Nadim.Views.Controls
                             // Highlight today's date
                             if (date.Date == DateTime.Today)
                             {
-                                border.Background = new SolidColorBrush(Color.FromArgb(128, 0, 128, 0));
+                                border.Background = new SolidColorBrush(Color.FromArgb(128, 0, 128, 128));
                             }
                             if (date.Date == DateTime.Today.AddDays(1))
                             {
-                                border.Background = new SolidColorBrush(Color.FromArgb(64, 0, 128, 0));
+                                border.Background = new SolidColorBrush(Color.FromArgb(64, 0, 128, 128));
                             }
                             if (date.Date == DateTime.Today.AddDays(-1))
                             {
-                                border.Background = new SolidColorBrush(Color.FromArgb(192, 0, 128, 0));
+                                border.Background = new SolidColorBrush(Color.FromArgb(192, 0, 128, 128));
                             }
                             if (date.Date == DateTime.Today.AddDays(-2))
                             {
-                                border.Background = new SolidColorBrush(Color.FromArgb(255, 0, 128, 0));
+                                border.Background = new SolidColorBrush(Color.FromArgb(255, 0, 128, 128));
                             }
 
                             Grid.SetRow(border, row);
@@ -118,11 +119,3 @@ namespace Nadim.Views.Controls
         }
     }
 }
-
-
-//Background = new SolidColorBrush(Color.FromArgb(128, 128, 128, 128)),
-//                            Name = $"Cell_{date:yyyyMMdd}",
-//                            CornerRadius = new CornerRadius(2),
-//                            Width = 16,
-//                            Height = 16,
-//                            Margin = new Thickness(1),
