@@ -27,7 +27,7 @@ namespace Nadim.Views.Controls
         public ActivityOverviewCalendar()
         {
             this.InitializeComponent();
-            AddBordersToGrid(calendarGrid, 2024);
+            AddBordersToGrid(calendarGrid, 2020);
         }
 
         public void AddBordersToGrid(Grid grid, int year)
@@ -39,7 +39,7 @@ namespace Nadim.Views.Controls
             // Clear any existing definitions
             grid.RowDefinitions.Clear();
             grid.ColumnDefinitions.Clear();
-
+            
             // Define the rows and columns
             for (int i = 0; i < rows; i++)
             {
@@ -87,23 +87,8 @@ namespace Nadim.Views.Controls
                             };
                             ToolTipService.SetToolTip(border, tooltip);
 
-                            // Highlight today's date
-                            if (date.Date == DateTime.Today)
-                            {
-                                border.Background = new SolidColorBrush(Color.FromArgb(128, 0, 128, 128));
-                            }
-                            if (date.Date == DateTime.Today.AddDays(1))
-                            {
-                                border.Background = new SolidColorBrush(Color.FromArgb(64, 0, 128, 128));
-                            }
-                            if (date.Date == DateTime.Today.AddDays(-1))
-                            {
-                                border.Background = new SolidColorBrush(Color.FromArgb(192, 0, 128, 128));
-                            }
-                            if (date.Date == DateTime.Today.AddDays(-2))
-                            {
-                                border.Background = new SolidColorBrush(Color.FromArgb(255, 0, 128, 128));
-                            }
+                            // Add the PointerPressed event to the border
+                            border.PointerPressed += Border_PointerPressed;
 
                             Grid.SetRow(border, row);
                             Grid.SetColumn(border, col);
@@ -117,5 +102,35 @@ namespace Nadim.Views.Controls
                 }
             }
         }
+
+        private void Border_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Border border = sender as Border;
+            if (border != null)
+            {
+                // Change the color of the border
+                border.Background = new SolidColorBrush(Colors.Red);
+            }
+        }
     }
 }
+
+
+
+//// Highlight today's date
+//if (date.Date == DateTime.Today)
+//{
+//    border.Background = new SolidColorBrush(Color.FromArgb(128, 0, 128, 128));
+//}
+//if (date.Date == DateTime.Today.AddDays(1))
+//{
+//    border.Background = new SolidColorBrush(Color.FromArgb(64, 0, 128, 128));
+//}
+//if (date.Date == DateTime.Today.AddDays(-1))
+//{
+//    border.Background = new SolidColorBrush(Color.FromArgb(192, 0, 128, 128));
+//}
+//if (date.Date == DateTime.Today.AddDays(-2))
+//{
+//    border.Background = new SolidColorBrush(Color.FromArgb(255, 0, 128, 128));
+//}
