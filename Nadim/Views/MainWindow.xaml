@@ -95,7 +95,7 @@
                 <NavigationViewItem Tag="Account" ToolTipService.ToolTip="الحساب">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Account.png"></Image>
-                        <TextBlock Margin="8 0"  Visibility="Visible">الحساب</TextBlock>
+                        <TextBlock x:Name="accountNavigationViewItemTextBlock" Margin="8 0"  Visibility="Visible" Text="الحساب (طاهري زكرياء)"/>
                     </StackPanel>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Office" ToolTipService.ToolTip="المكتب">
