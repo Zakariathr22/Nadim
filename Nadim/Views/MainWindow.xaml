@@ -38,18 +38,27 @@
                         <Image Width="24" Height="24" Source="/Assets/Icons/Home.png"></Image>
                         <TextBlock Margin="8 0" >الرئيسية</TextBlock>
                     </StackPanel>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge x:Name="homeInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                    </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Clients" ToolTipService.ToolTip="الموكلون">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Clients.png"></Image>
                         <TextBlock Margin="8 0" >الموكلون</TextBlock>
                     </StackPanel>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge x:Name="clientsInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                    </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Folders" ToolTipService.ToolTip="الملفات">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Folders.png"></Image>
                         <TextBlock Margin="8 0" >الملفات</TextBlock>
                     </StackPanel>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge x:Name="foldersInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                    </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Schedule" ToolTipService.ToolTip="الجلسات والمواعيد">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
@@ -57,7 +66,7 @@
                         <TextBlock Margin="8 0" >الجلسات والمواعيد</TextBlock>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="infoBadge1" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="ScheduleInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Fees" ToolTipService.ToolTip="الأتعاب">
@@ -65,30 +74,45 @@
                         <Image Width="24" Height="24" Source="/Assets/Icons/Cash.png"></Image>
                         <TextBlock Margin="8 0" >الأتعاب</TextBlock>
                     </StackPanel>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge x:Name="feesInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                    </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Laws" ToolTipService.ToolTip="النصوص القانونية">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Laws.png"></Image>
                         <TextBlock Margin="8 0" >النصوص القانونية</TextBlock>
                     </StackPanel>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge x:Name="lawsInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                    </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Tasks" ToolTipService.ToolTip="المهام">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Task.png"></Image>
                         <TextBlock Margin="8 0" >المهام</TextBlock>
                     </StackPanel>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge x:Name="tasksInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                    </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Notes" ToolTipService.ToolTip="الملاحظات">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Note.png"></Image>
                         <TextBlock Margin="8 0" >الملاحظات</TextBlock>
                     </StackPanel>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge x:Name="NotesInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                    </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Comunity" ToolTipService.ToolTip="مجتمع نديم">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Comunity.png"></Image>
                         <TextBlock Margin="8 0" >مجتمع نديم</TextBlock>
                     </StackPanel>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge x:Name="comunityInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                    </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
             <NavigationView.FooterMenuItems>
