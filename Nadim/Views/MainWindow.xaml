@@ -27,7 +27,7 @@
                         IsBackEnabled="True"
                         SelectionChanged="navigationView_SelectionChanged"
                         IsSettingsVisible="False"
-                        PaneTitle="مكتب الأستاذ طاهري زكرياء">
+                        PaneTitle="{Binding NavigationViewPanTitle}">
             <NavigationView.AutoSuggestBox>
                 <AutoSuggestBox PlaceholderText="بحث" QueryIcon="Find" AutomationProperties.Name="Search"/>
             </NavigationView.AutoSuggestBox>
@@ -39,7 +39,7 @@
                         <TextBlock Margin="8 0" >الرئيسية</TextBlock>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="homeInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="homeInfoBadge" Visibility="{Binding HomeInfoBadgeVisibility}" Value="{Binding HomeInfoBadgeValue}" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Clients" ToolTipService.ToolTip="الموكلون">
@@ -48,7 +48,7 @@
                         <TextBlock Margin="8 0" >الموكلون</TextBlock>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="clientsInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="clientsInfoBadge" Visibility="{Binding ClientsInfoBadgeVisibility}" Value="{Binding ClientsInfoBadgeValue}" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Folders" ToolTipService.ToolTip="الملفات">
@@ -57,7 +57,7 @@
                         <TextBlock Margin="8 0" >الملفات</TextBlock>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="foldersInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="foldersInfoBadge" Visibility="{Binding FoldersInfoBadgeVisibility}" Value="{Binding FoldersInfoBadgeValue}" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Schedule" ToolTipService.ToolTip="الجلسات والمواعيد">
@@ -66,7 +66,7 @@
                         <TextBlock Margin="8 0" >الجلسات والمواعيد</TextBlock>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="scheduleInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="scheduleInfoBadge" Visibility="{Binding ScheduleInfoBadgeVisibility}" Value="{Binding ScheduleInfoBadgeValue}" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Fees" ToolTipService.ToolTip="الأتعاب">
@@ -75,7 +75,7 @@
                         <TextBlock Margin="8 0" >الأتعاب</TextBlock>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="feesInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="feesInfoBadge" Visibility="{Binding FeesInfoBadgeVisibility}" Value="{Binding FeesInfoBadgeValue}" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Laws" ToolTipService.ToolTip="النصوص القانونية">
@@ -84,7 +84,7 @@
                         <TextBlock Margin="8 0" >النصوص القانونية</TextBlock>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="lawsInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="lawsInfoBadge" Visibility="{Binding LawsInfoBadgeVisibility}" Value="{Binding LawsInfoBadgeValue}" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Tasks" ToolTipService.ToolTip="المهام">
@@ -93,7 +93,7 @@
                         <TextBlock Margin="8 0" >المهام</TextBlock>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="tasksInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="tasksInfoBadge" Visibility="{Binding TasksInfoBadgeVisibility}" Value="{Binding TasksInfoBadgeValue}" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Notes" ToolTipService.ToolTip="الملاحظات">
@@ -102,7 +102,7 @@
                         <TextBlock Margin="8 0" >الملاحظات</TextBlock>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="notesInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="notesInfoBadge" Visibility="{Binding NotesInfoBadgeVisibility}" Value="{Binding NotesInfoBadgeValue}" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Comunity" ToolTipService.ToolTip="مجتمع نديم">
@@ -111,7 +111,7 @@
                         <TextBlock Margin="8 0" >مجتمع نديم</TextBlock>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="comunityInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="comunityInfoBadge" Visibility="{Binding ComunityInfoBadgeVisibility}" Value="{Binding ComunityInfoBadgeValue}" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
             </NavigationView.MenuItems>
@@ -119,10 +119,10 @@
                 <NavigationViewItem Tag="Account" ToolTipService.ToolTip="الحساب">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Account.png"></Image>
-                        <TextBlock x:Name="accountNavigationViewItemTextBlock" Margin="8 0"  Visibility="Visible" Text="الحساب (طاهري زكرياء)"/>
+                        <TextBlock x:Name="accountNavigationViewItemTextBlock" Margin="8 0"  Visibility="Visible" Text="{Binding AccountNavigationViewItemTextBlockText}"/>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="accountInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="accountInfoBadge" Visibility="{Binding AccountInfoBadgeVisibility}" Value="{Binding AccountInfoBadgeValue}" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Office" ToolTipService.ToolTip="المكتب">

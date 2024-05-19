@@ -24,34 +24,34 @@ namespace Nadim.ViewModels
 
         [ObservableProperty] string navigationViewPanTitle;
 
-        [ObservableProperty] int homeInfoBadgeValue = 0;
+        [ObservableProperty] int homeInfoBadgeValue = 10;
         [ObservableProperty] Visibility homeInfoBadgeVisibility;
 
-        [ObservableProperty] int clientsInfoBadgeValue = 0;
+        [ObservableProperty] int clientsInfoBadgeValue = 10;
         [ObservableProperty] Visibility clientsInfoBadgeVisibility;
 
-        [ObservableProperty] int foldersInfoBadgeValue = 0;
+        [ObservableProperty] int foldersInfoBadgeValue = 10;
         [ObservableProperty] Visibility foldersInfoBadgeVisibility;
 
-        [ObservableProperty] int scheduleInfoBadgeValue = 0;
+        [ObservableProperty] int scheduleInfoBadgeValue = 10;
         [ObservableProperty] Visibility scheduleInfoBadgeVisibility;
 
-        [ObservableProperty] int feesInfoBadgeValue = 0;
+        [ObservableProperty] int feesInfoBadgeValue = 10;
         [ObservableProperty] Visibility feesInfoBadgeVisibility;
 
-        [ObservableProperty] int lawsInfoBadgeValue = 0;
+        [ObservableProperty] int lawsInfoBadgeValue = 10;
         [ObservableProperty] Visibility lawsInfoBadgeVisibility;
 
-        [ObservableProperty] int tasksInfoBadgeValue = 0;
+        [ObservableProperty] int tasksInfoBadgeValue = 10;
         [ObservableProperty] Visibility tasksInfoBadgeVisibility;
 
-        [ObservableProperty] int notesInfoBadgeValue = 0;
+        [ObservableProperty] int notesInfoBadgeValue = 10;
         [ObservableProperty] Visibility notesInfoBadgeVisibility;
 
-        [ObservableProperty] int comunityInfoBadgeValue = 0;
+        [ObservableProperty] int comunityInfoBadgeValue = 10;
         [ObservableProperty] Visibility comunityInfoBadgeVisibility;
 
-        [ObservableProperty] int accountInfoBadgeValue = 0;
+        [ObservableProperty] int accountInfoBadgeValue = 10;
         [ObservableProperty] Visibility accountInfoBadgeVisibility;
         [ObservableProperty] string accountNavigationViewItemTextBlockText;
         public MainViewModel()
@@ -61,10 +61,11 @@ namespace Nadim.ViewModels
             landingPage = int.Parse(ConfigurationService.GetAppSetting("LandingPage"));
 
             office = new Office();
-            office.naming = "مكتب الأستاذ طاهري زكرياء";
+            office.naming = "مكتب الأستاذ طاهري أحمد";
+            NavigationViewPanTitle = office.naming;
 
             user = new User();
-            user.firstName = "زكرياء";
+            user.firstName = "أحمد";
             user.lastName = "طاهري";
 
             HomeInfoBadgeVisibility = SetInfoBarVisbility(HomeInfoBadgeValue);
