@@ -19,6 +19,11 @@ namespace Nadim.Models
         public bool? phoneVerified { get; set; }
         public string salt { get; set; }
         public string passwordHash { get; set; }
+        public bool isUserCreatedPassword { get; set; }
+        public DateTimeOffset createdAt { get; set; }
+        public DateTimeOffset lastUpdate { get; set; }
+        public bool isDeleted { get; set; }
+        public DateTimeOffset deletedAt { get; set; }
         public string loger { get; set; }
         public Office office { get; set; }
 

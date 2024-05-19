@@ -19,6 +19,11 @@ namespace Nadim.Models
         public string fax { get; set; }
         public string email { get; set; }
         public DateTimeOffset? createdAt { get; set; }
+        public DateTimeOffset lastUpdate { get; set; }
+        public bool isDeleted { get; set; }
+        public DateTimeOffset deletedAt { get; set; }
+        public string loger { get; set; }
+        public Office office { get; set; }
         public bool? isCompany { get; set; }
 
         public void clear()
