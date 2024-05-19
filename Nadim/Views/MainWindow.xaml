@@ -66,7 +66,7 @@
                         <TextBlock Margin="8 0" >الجلسات والمواعيد</TextBlock>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="ScheduleInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="scheduleInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Fees" ToolTipService.ToolTip="الأتعاب">
@@ -102,7 +102,7 @@
                         <TextBlock Margin="8 0" >الملاحظات</TextBlock>
                     </StackPanel>
                     <NavigationViewItem.InfoBadge>
-                        <InfoBadge x:Name="NotesInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                        <InfoBadge x:Name="notesInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
                     </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Comunity" ToolTipService.ToolTip="مجتمع نديم">
@@ -121,6 +121,9 @@
                         <Image Width="24" Height="24" Source="/Assets/Icons/Account.png"></Image>
                         <TextBlock x:Name="accountNavigationViewItemTextBlock" Margin="8 0"  Visibility="Visible" Text="الحساب (طاهري زكرياء)"/>
                     </StackPanel>
+                    <NavigationViewItem.InfoBadge>
+                        <InfoBadge x:Name="accountInfoBadge" Visibility="Visible" Value="5" Style="{ThemeResource CriticalIconInfoBadgeStyle}"/>
+                    </NavigationViewItem.InfoBadge>
                 </NavigationViewItem>
                 <NavigationViewItem Tag="Office" ToolTipService.ToolTip="المكتب">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
