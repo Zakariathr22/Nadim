@@ -60,6 +60,8 @@
     <None Remove="Views\Schedule\SchedulePage.xaml" />
     <None Remove="Views\Settings\SettingsPage.xaml" />
     <None Remove="Views\SignUpWindow.xaml" />
+    <None Remove="Views\SystemMessages\ActivationRequiredPage.xaml" />
+    <None Remove="Views\SystemMessages\ActivationRequiredTitleControl.xaml" />
     <None Remove="Views\SystemMessages\ConnectionFailedPage.xaml" />
     <None Remove="Views\SystemMessages\ConnectionFailedTitleControl.xaml" />
     <None Remove="Views\SystemMessages\ResetPasswordFailedPage.xaml" />
@@ -305,6 +307,16 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\SignUp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\SystemMessages\ActivationRequiredPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\SystemMessages\ActivationRequiredTitleControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Controls\ActivityOverviewCalendar.xaml">

@@ -109,7 +109,7 @@ namespace Nadim.Views.Controls
             if (border != null)
             {
                 // Change the color of the border
-                border.Background = new SolidColorBrush(Colors.Red);
+                border.Background = new SolidColorBrush(Color.FromArgb(255, 0, 128, 128));
             }
         }
     }
