@@ -51,7 +51,7 @@ namespace Nadim.Views.Controls
             }
 
             // Start from the first day of the year
-            DateTime date = new DateTime(year, 1, 1);
+            DateTime date = new(year, 1, 1);
 
             // Determine the starting row based on the day of the week
             int startRow = (int)date.DayOfWeek;
@@ -70,7 +70,7 @@ namespace Nadim.Views.Controls
                         // Only add a border if the date is in the current year
                         if (date.Year == year)
                         {
-                            Border border = new Border
+                            Border border = new()
                             {
                                 Background = new SolidColorBrush(Color.FromArgb(32, 128, 128, 128)),
                                 Name = $"Cell_{date:yyyyMMdd}",
@@ -81,7 +81,7 @@ namespace Nadim.Views.Controls
                             };
 
                             // Add a tooltip to the border
-                            ToolTip tooltip = new ToolTip
+                            ToolTip tooltip = new()
                             {
                                 Content = $"{date:D}"
                             };

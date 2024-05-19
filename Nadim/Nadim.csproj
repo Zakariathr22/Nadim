@@ -62,6 +62,8 @@
     <None Remove="Views\SignUpWindow.xaml" />
     <None Remove="Views\SystemMessages\ActivationRequiredPage.xaml" />
     <None Remove="Views\SystemMessages\ActivationRequiredTitleControl.xaml" />
+    <None Remove="Views\SystemMessages\ActivationWillExpireSoonPage.xaml" />
+    <None Remove="Views\SystemMessages\ActivationWillExpireSoonTitleControl.xaml" />
     <None Remove="Views\SystemMessages\ConnectionFailedPage.xaml" />
     <None Remove="Views\SystemMessages\ConnectionFailedTitleControl.xaml" />
     <None Remove="Views\SystemMessages\ResetPasswordFailedPage.xaml" />
@@ -71,7 +73,6 @@
     <None Remove="Views\SystemMessages\SignUpSuccessPage.xaml" />
     <None Remove="Views\SystemMessages\SignUpSuccessTitleControl.xaml" />
     <None Remove="Views\Tasks\TasksPage.xaml" />
-    <None Remove="Views\testwindow.xaml" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="IWshRuntimeLibrary">
@@ -309,6 +310,16 @@
     <Folder Include="Views\SignUp\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Views\SystemMessages\ActivationWillExpireSoonPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\SystemMessages\ActivationWillExpireSoonTitleControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="Views\SystemMessages\ActivationRequiredPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -320,11 +331,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Controls\ActivityOverviewCalendar.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Views\testwindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
