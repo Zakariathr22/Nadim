@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows10.0.19041.0</TargetFramework>
@@ -12,6 +12,7 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="ActivationRequiredTitle.xaml" />
     <None Remove="appsettings.json" />
     <None Remove="Assets\Icons\Account.png" />
     <None Remove="Assets\Icons\Cash.png" />
@@ -308,6 +309,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\SignUp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ActivationRequiredTitle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\SystemMessages\ActivationWillExpireSoonPage.xaml">
