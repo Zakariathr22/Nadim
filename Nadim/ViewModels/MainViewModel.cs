@@ -3,10 +3,12 @@ using CommunityToolkit.Mvvm.Input;
 using Microsoft.UI.Composition.SystemBackdrops;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Media;
+using MySqlConnector;
 using Nadim.Models;
 using Nadim.Services;
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +21,7 @@ namespace Nadim.ViewModels
         [ObservableProperty] private int appBackDrop;
         [ObservableProperty] private int landingPage;
 
-        private Office office;
+        private Token token;
         private User user;
 
         [ObservableProperty] string navigationViewPanTitle;
@@ -56,17 +58,18 @@ namespace Nadim.ViewModels
         [ObservableProperty] string accountNavigationViewItemTextBlockText;
         public MainViewModel()
         {
+            var credential = App.valut.Retrieve("NadimApplication", "token");
+            token = new Token(credential);
+
             appTheme = int.Parse(ConfigurationService.GetAppSetting("AppTheme"));
             appBackDrop = int.Parse(ConfigurationService.GetAppSetting("AppBackDrop"));
             landingPage = int.Parse(ConfigurationService.GetAppSetting("LandingPage"));
 
-            office = new Office();
-            office.naming = "مكتب الأستاذ طاهري أحمد";
-            NavigationViewPanTitle = office.naming;
+            user = GetUserByToken(token);
 
-            user = new User();
-            user.firstName = "أحمد";
-            user.lastName = "طاهري";
+            user.office = new Office();
+            user.office.naming = "مكتب الأستاذ طاهري أحمد";
+            NavigationViewPanTitle = user.office.naming;
 
             HomeInfoBadgeVisibility = SetInfoBarVisbility(HomeInfoBadgeValue);
             ClientsInfoBadgeVisibility = SetInfoBarVisbility(ClientsInfoBadgeValue);
@@ -119,6 +122,53 @@ namespace Nadim.ViewModels
             if (value > 0)
             return Visibility.Visible;
             return Visibility.Collapsed;
+        }
+
+        public User GetUserByToken(Token token)
+        {
+            User user = null;
+
+            try
+            {
+                string query = "CALL GetUserByToken(@p_token_value, @p_ip_address, @p_user_agent, @p_machine_name)";
+
+                MySqlParameter[] parameters = new MySqlParameter[]
+                {
+                    new MySqlParameter("@p_token_value", token.tokenValue),
+                    new MySqlParameter("@p_ip_address", token.ipAddress),
+                    new MySqlParameter("@p_user_agent", token.userAgent),
+                    new MySqlParameter("@p_machine_name", token.machineName)
+                };
+
+                using var reader = App.dataAccess.ExecuteQuery(query, parameters);
+
+                if (reader.Read())
+                {
+                    user = new User
+                    {
+                        firstName = reader["firstname"].ToString(),
+                        lastName = reader["lastname"].ToString(),
+                        birthDate = reader["birthdate"] as DateTimeOffset?,
+                        gender = reader["gender"].ToString(),
+                        profilePic = reader["profilePic"] as byte[],
+                        email = reader["email"].ToString(),
+                        emailVerified = reader["emailVerified"] as bool?,
+                        phone = reader["phone"].ToString(),
+                        phoneVerified = reader["phoneVerified"] as bool?,
+                        isUserCreatedPassword = Convert.ToBoolean(reader["isUserCreatedPassword"]),
+                        createdAt = (DateTime)reader["createdAt"],
+                        lastUpdate = (DateTime)reader["lastUpdate"],
+                        isDeleted = Convert.ToBoolean(reader["isDeleted"]),
+                        office = null // You need to handle this according to your Office class
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return user;
         }
     }
 }

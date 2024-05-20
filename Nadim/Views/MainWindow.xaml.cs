@@ -72,6 +72,16 @@ namespace Nadim.Views
             mainViewModel.SetAppBackDrop(this);
 
             navigationView.SelectedItem = navigationView.MenuItems.OfType<Microsoft.UI.Xaml.Controls.NavigationViewItem>().ElementAt(mainViewModel.LandingPage);
+            mainPanel.Loaded += MainPanel_Loaded;
+        }
+
+        private void MainPanel_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (!App.dataAccess.ConnectionStatIsOpened() || App.dataAccess.ConnectionStatIsOpened == null)
+            { 
+                ShowDialog();
+                mainPanel.IsTapEnabled = false;
+            }
         }
 
         private void MainWindow_Closed(object sender, WindowEventArgs args)
@@ -179,6 +189,41 @@ namespace Nadim.Views
             //{
             //    navigationView.PaneDisplayMode = NavigationViewPaneDisplayMode.Auto;
             //}
+        }
+
+        private async void ShowDialog()
+        {
+
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new SystemMessages.ConnectionFailedTitleControl();
+            dialog.PrimaryButtonText = "حاول مرة أخرى";
+            dialog.CloseButtonText = "إغلاق البرنامج";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new SystemMessages.ConnectionFailedPage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                try
+                {
+                    App.dataAccess.OpenConnection();
+                    mainPanel.IsTapEnabled = true;
+                }
+                catch
+                {
+                    ShowDialog();
+                }
+            }
+            else
+            {
+                this.Close();
+            }
         }
 
     }

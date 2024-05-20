@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Security.Credentials;
 
 namespace Nadim.Models
 {
@@ -22,6 +23,20 @@ namespace Nadim.Models
         public string machineName { get; set; }
         public string additionalInfo { get; set; }
 
+        public Token(PasswordCredential tokenCredential)
+        {
+            this.tokenValue = tokenCredential.Password;
+            try
+            {
+                ipAddress = MachineInfoService.GetExternalIpAddress().ToString();
+            }
+            catch
+            {
+                ipAddress = "";
+            }
+            userAgent = "Windows";
+            machineName = MachineInfoService.GetComputerName();
+        }
         public Token(string EmailOrPhone, string Password, string salt)
         {
             user = new User();
