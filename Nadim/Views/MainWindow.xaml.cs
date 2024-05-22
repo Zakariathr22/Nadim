@@ -21,6 +21,7 @@ using Windows.Graphics;
 using Windows.Security.Credentials;
 using Windows.System;
 using Windows.UI;
+using Windows.UI.WebUI;
 using WinRT.Interop;
 
 // To learn more about WinUI, the WinUI project structure,
@@ -80,6 +81,11 @@ namespace Nadim.Views
             if (!App.dataAccess.ConnectionStatIsOpened() || App.dataAccess.ConnectionStatIsOpened == null)
             { 
                 ShowDialog();
+                mainPanel.IsTapEnabled = false;
+            } 
+            else if (mainViewModel.user == null)
+            {
+                ShowSessionExpiredDialog();
                 mainPanel.IsTapEnabled = false;
             }
         }
@@ -152,20 +158,7 @@ namespace Nadim.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //testwindow testwindow = new testwindow();
-            //testwindow.Activate();
-            PasswordVault vault = new PasswordVault();
-            try
-            {
-                vault.Add(new Windows.Security.Credentials.PasswordCredential("NadimApplication", "token", null));
-            }
-            catch
-            {
-                vault.Add(new Windows.Security.Credentials.PasswordCredential("NadimApplication", "token", "empty"));
-            }
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Activate();
-            this.Close();
+            this.Lougout();
         }
 
         private void navigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
@@ -191,7 +184,7 @@ namespace Nadim.Views
             //}
         }
 
-        private async void ShowDialog()
+        public async void ShowDialog()
         {
 
             ContentDialog dialog = new ContentDialog();
@@ -214,6 +207,13 @@ namespace Nadim.Views
                 {
                     App.dataAccess.OpenConnection();
                     mainPanel.IsTapEnabled = true;
+                    mainViewModel = new MainViewModel();
+                    mainPanel.DataContext = mainViewModel;
+                    if (mainViewModel.user == null)
+                    {
+                        ShowSessionExpiredDialog();
+                        mainPanel.IsTapEnabled = false;
+                    }
                 }
                 catch
                 {
@@ -223,6 +223,56 @@ namespace Nadim.Views
             else
             {
                 this.Close();
+            }
+        }
+
+        public async void ShowSessionExpiredDialog()
+        {
+
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new SystemMessages.SessionExpiredTitleControl();
+            dialog.PrimaryButtonText = "إعادة تسجيل الدخول";
+            dialog.CloseButtonText = "إغلاق البرنامج";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                this.Lougout();
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void Lougout()
+        {
+            try
+            {
+                mainViewModel.DeactivateTokenCommand.Execute(null);
+                PasswordVault vault = new PasswordVault();
+                try
+                {
+                    vault.Add(new Windows.Security.Credentials.PasswordCredential("NadimApplication", "token", null));
+                }
+                catch
+                {
+                    vault.Add(new Windows.Security.Credentials.PasswordCredential("NadimApplication", "token", "empty"));
+                }
+                LoginWindow loginWindow = new LoginWindow();
+                loginWindow.Activate();
+                this.Close();
+            }
+            catch
+            {
+                ShowDialog();
             }
         }
 

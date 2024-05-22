@@ -8,7 +8,6 @@ namespace Nadim.Models
 {
     public class Office
     {
-        public int? id { get; set; }
         public string naming { get; set; }
         public string accreditation { get; set; }
         public string wilaya { get; set; }
@@ -28,7 +27,6 @@ namespace Nadim.Models
 
         public void clear()
         {
-            id = null;
             naming = null;
             accreditation = null;
             wilaya = null;

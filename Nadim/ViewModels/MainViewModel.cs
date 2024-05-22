@@ -22,7 +22,7 @@ namespace Nadim.ViewModels
         [ObservableProperty] private int landingPage;
 
         private Token token;
-        private User user;
+        public User user;
 
         [ObservableProperty] string navigationViewPanTitle;
 
@@ -65,11 +65,17 @@ namespace Nadim.ViewModels
             appBackDrop = int.Parse(ConfigurationService.GetAppSetting("AppBackDrop"));
             landingPage = int.Parse(ConfigurationService.GetAppSetting("LandingPage"));
 
-            user = GetUserByToken(token);
+            user = GetUserByToken();
 
-            user.office = new Office();
-            user.office.naming = "مكتب الأستاذ طاهري أحمد";
-            NavigationViewPanTitle = user.office.naming;
+            if (user != null) 
+            {
+                NavigationViewPanTitle = user.office.naming;
+                AccountNavigationViewItemTextBlockText = $"الحساب ({user.lastName} {user.firstName})";
+            }
+            else
+            {
+                AccountNavigationViewItemTextBlockText = $"الحساب";
+            }
 
             HomeInfoBadgeVisibility = SetInfoBarVisbility(HomeInfoBadgeValue);
             ClientsInfoBadgeVisibility = SetInfoBarVisbility(ClientsInfoBadgeValue);
@@ -82,7 +88,6 @@ namespace Nadim.ViewModels
             ComunityInfoBadgeVisibility = SetInfoBarVisbility(ComunityInfoBadgeValue);
             AccountInfoBadgeVisibility = SetInfoBarVisbility(AccountInfoBadgeValue);
 
-            AccountNavigationViewItemTextBlockText = $"الحساب ({user.lastName} {user.firstName})";
         }
 
         public void SetAppTheme(Window window) 
@@ -124,20 +129,20 @@ namespace Nadim.ViewModels
             return Visibility.Collapsed;
         }
 
-        public User GetUserByToken(Token token)
+        public User GetUserByToken()
         {
             User user = null;
 
             try
             {
-                string query = "CALL GetUserByToken(@p_token_value, @p_ip_address, @p_user_agent, @p_machine_name)";
+                string query = "CALL GetUserAndOfficeByToken(@p_token_value, @p_ip_address, @p_user_agent, @p_machine_name)";
 
                 MySqlParameter[] parameters = new MySqlParameter[]
                 {
-                    new MySqlParameter("@p_token_value", token.tokenValue),
-                    new MySqlParameter("@p_ip_address", token.ipAddress),
-                    new MySqlParameter("@p_user_agent", token.userAgent),
-                    new MySqlParameter("@p_machine_name", token.machineName)
+            new MySqlParameter("@p_token_value", token.tokenValue),
+            new MySqlParameter("@p_ip_address", token.ipAddress),
+            new MySqlParameter("@p_user_agent", token.userAgent),
+            new MySqlParameter("@p_machine_name", token.machineName)
                 };
 
                 using var reader = App.dataAccess.ExecuteQuery(query, parameters);
@@ -159,7 +164,22 @@ namespace Nadim.ViewModels
                         createdAt = (DateTime)reader["createdAt"],
                         lastUpdate = (DateTime)reader["lastUpdate"],
                         isDeleted = Convert.ToBoolean(reader["isDeleted"]),
-                        office = null // You need to handle this according to your Office class
+                        office = new Office
+                        {
+                            naming = reader["naming"].ToString(),
+                            accreditation = reader["accreditation"].ToString(),
+                            wilaya = reader["wilaya"].ToString(),
+                            municipality = reader["municipality"].ToString(),
+                            headquarters = reader["headquarters"].ToString(),
+                            phone1 = reader["phone1"].ToString(),
+                            phone2 = reader["phone2"].ToString(),
+                            fax = reader["fax"].ToString(),
+                            email = reader["email"].ToString(),
+                            createdAt = (DateTime)reader["createdAt"],
+                            lastUpdate = (DateTime)reader["lastUpdate"],
+                            isDeleted = Convert.ToBoolean(reader["isDeleted"]),
+                            isCompany = Convert.ToBoolean(reader["isCompany"])
+                        }
                     };
                 }
             }
@@ -169,6 +189,30 @@ namespace Nadim.ViewModels
             }
 
             return user;
+        }
+
+        [RelayCommand]
+        public void DeactivateToken()
+        {
+            
+            string query = "CALL DeactivateToken(@p_token_value)";
+
+            MySqlParameter[] parameters = new MySqlParameter[]
+            {
+        new MySqlParameter("@p_token_value", token.tokenValue)
+            };
+
+            int rowsAffected = App.dataAccess.ExecuteNonQuery(query, parameters);
+
+            if (rowsAffected == 0)
+            {
+                Console.WriteLine("No token was deactivated. Please check the token value.");
+            }
+            else
+            {
+                Console.WriteLine("Token was successfully deactivated.");
+            }
+            
         }
     }
 }

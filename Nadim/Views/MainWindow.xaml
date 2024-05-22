@@ -139,11 +139,20 @@
                 </NavigationViewItem>
             </NavigationView.FooterMenuItems>
             <NavigationView.PaneFooter>
-                <Button Margin="2 0" Width="400" Background="Transparent" BorderBrush="Transparent" ToolTipService.ToolTip="تسجيل الخروج" Click="Button_Click_1" HorizontalContentAlignment="Left">
+                <Button Margin="2 0" Width="400" Background="Transparent" BorderBrush="Transparent" ToolTipService.ToolTip="تسجيل الخروج" HorizontalContentAlignment="Left">
                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
                         <Image Width="24" Height="24" Source="/Assets/Icons/Logout.png"></Image>
                         <TextBlock Margin="8 0" Visibility="Visible">تسجيل الخروج</TextBlock>
                     </StackPanel>
+                    <Button.Flyout>
+                        <Flyout>
+                            <StackPanel>
+                                <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="هل أنت متأكد من أنك تريد تسجيل الخروج؟" Margin="0,0,0,12" />
+                                <Button Click="Button_Click_1" Content="نعم، تسجيل الخروج" />
+                            </StackPanel>
+                        </Flyout>
+                    </Button.Flyout>
+
                 </Button>
             </NavigationView.PaneFooter>
             <Frame Margin="0,0,0,0" x:Name="contentFrame" />

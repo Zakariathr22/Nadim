@@ -71,6 +71,7 @@
     <None Remove="Views\SystemMessages\ResetPasswordFailedTitleControl.xaml" />
     <None Remove="Views\SystemMessages\ResetPasswordSuccessPage.xaml" />
     <None Remove="Views\SystemMessages\ResetPasswordSuccessTitleControl.xaml" />
+    <None Remove="Views\SystemMessages\SessionExpiredTitleControl.xaml" />
     <None Remove="Views\SystemMessages\SignUpSuccessPage.xaml" />
     <None Remove="Views\SystemMessages\SignUpSuccessTitleControl.xaml" />
     <None Remove="Views\Tasks\TasksPage.xaml" />
@@ -309,6 +310,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\SignUp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\SystemMessages\SessionExpiredTitleControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="ActivationRequiredTitle.xaml">
