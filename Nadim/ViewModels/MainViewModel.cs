@@ -131,6 +131,9 @@ namespace Nadim.ViewModels
 
         public User GetUserByToken()
         {
+            if (!App.dataAccess.ConnectionStatIsOpened())
+                App.dataAccess.OpenConnection();
+
             User user = null;
 
             try
@@ -194,12 +197,13 @@ namespace Nadim.ViewModels
         [RelayCommand]
         public void DeactivateToken()
         {
-            
+            if (!App.dataAccess.ConnectionStatIsOpened()) 
+                App.dataAccess.OpenConnection();
             string query = "CALL DeactivateToken(@p_token_value)";
 
             MySqlParameter[] parameters = new MySqlParameter[]
             {
-        new MySqlParameter("@p_token_value", token.tokenValue)
+                new MySqlParameter("@p_token_value", token.tokenValue)
             };
 
             int rowsAffected = App.dataAccess.ExecuteNonQuery(query, parameters);

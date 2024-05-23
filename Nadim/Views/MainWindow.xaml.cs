@@ -272,7 +272,41 @@ namespace Nadim.Views
             }
             catch
             {
-                ShowDialog();
+                ShowDialog2();
+            }
+        }
+
+        public async void ShowDialog2()
+        {
+
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new SystemMessages.ConnectionFailedTitleControl();
+            dialog.PrimaryButtonText = "حاول مرة أخرى";
+            dialog.CloseButtonText = "إغلاق البرنامج";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new SystemMessages.ConnectionFailedPage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                try
+                {
+                    this.Lougout();
+                }
+                catch
+                {
+                    ShowDialog2();
+                }
+            }
+            else
+            {
+                this.Close();
             }
         }
 
