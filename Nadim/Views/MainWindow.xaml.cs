@@ -53,7 +53,7 @@ namespace Nadim.Views
             appWindow = GetAppWindowForCurrentWindow();
             overlappedPresenter = GetAppWindowOverlappedPresenter(appWindow);
             titleBar = GetAppWindowTitleBar(appWindow);
-            titleBar.ButtonBackgroundColor = Color.FromArgb(1, 0, 0, 0);
+            titleBar.ButtonBackgroundColor = Color.FromArgb(0, 0, 0, 0);
 
             titleBar.ButtonForegroundColor = Color.FromArgb(0, 128, 128, 128);
 
@@ -72,7 +72,7 @@ namespace Nadim.Views
             mainViewModel.SetAppTheme(this);
             mainViewModel.SetAppBackDrop(this);
 
-            navigationView.SelectedItem = navigationView.MenuItems.OfType<Microsoft.UI.Xaml.Controls.NavigationViewItem>().ElementAt(mainViewModel.LandingPage);
+            navigationView.SelectedItem = navigationView.MenuItems.OfType<NavigationViewItem>().ElementAt(mainViewModel.LandingPage);
             mainPanel.Loaded += MainPanel_Loaded;
         }
 

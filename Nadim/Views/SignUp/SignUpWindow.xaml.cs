@@ -49,7 +49,7 @@ namespace Nadim.Views
             appWindow = GetAppWindowForCurrentWindow();
             overlappedPresenter = GetAppWindowOverlappedPresenter(appWindow);
             titleBar = GetAppWindowTitleBar(appWindow);
-            titleBar.ButtonBackgroundColor = Color.FromArgb(1, 0, 0, 0);
+            titleBar.ButtonBackgroundColor = Color.FromArgb(0, 0, 0, 0);
 
             titleBar.ButtonForegroundColor = Color.FromArgb(0, 128, 128, 128);
 
