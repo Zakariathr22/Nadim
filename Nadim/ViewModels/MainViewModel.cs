@@ -23,6 +23,8 @@ namespace Nadim.ViewModels
 
         private Token token;
         public User user;
+        public OfficeActivation officeActivation;
+        public bool isTokenValid;
 
         [ObservableProperty] string navigationViewPanTitle;
 
@@ -76,6 +78,8 @@ namespace Nadim.ViewModels
             {
                 AccountNavigationViewItemTextBlockText = $"الحساب";
             }
+
+            officeActivation = GetOfficeActivation();
 
             HomeInfoBadgeVisibility = SetInfoBarVisbility(HomeInfoBadgeValue);
             ClientsInfoBadgeVisibility = SetInfoBarVisbility(ClientsInfoBadgeValue);
@@ -226,6 +230,58 @@ namespace Nadim.ViewModels
                 Console.WriteLine("Token was successfully deactivated.");
             }
             
+        }
+        public OfficeActivation GetOfficeActivation()
+        {
+            if (!App.dataAccess.ConnectionStatIsOpened())
+                try
+                {
+                    App.dataAccess.OpenConnection();
+                }
+                catch { }
+            OfficeActivation officeActivation = null;
+            try
+            {
+                string query = "CALL GetLatestOfficeActivation(@p_token_value, @p_ip_address, @p_user_agent, @p_machine_name)";
+                MySqlParameter[] parameters = new MySqlParameter[]
+                {
+                    new MySqlParameter("@p_token_value", token.tokenValue),
+                    new MySqlParameter("@p_ip_address", token.ipAddress),
+                    new MySqlParameter("@p_user_agent", token.userAgent),
+                    new MySqlParameter("@p_machine_name", token.machineName)
+                };
+
+                using var reader = App.dataAccess.ExecuteQuery(query, parameters);
+
+                if (reader.Read())
+                {
+                    isTokenValid = reader.GetBoolean("IsTokenValid");
+                    if (isTokenValid)
+                    {
+                        officeActivation = new OfficeActivation();
+                        if (!reader.IsDBNull(reader.GetOrdinal("ActivationDate")))
+                            officeActivation.activationDate = (DateTimeOffset)reader.GetDateTime("ActivationDate");
+                        if (!reader.IsDBNull(reader.GetOrdinal("ExpiryDate")))
+                            officeActivation.expiryDate = (DateTimeOffset)reader.GetDateTime("ExpiryDate");
+                        if (!reader.IsDBNull(reader.GetOrdinal("PaymentAmount")))
+                            officeActivation.paymentAmount = (decimal)reader.GetDecimal("PaymentAmount");
+                        if (!reader.IsDBNull(reader.GetOrdinal("PaymentDate")))
+                            officeActivation.paymentDate = (DateTimeOffset)reader.GetDateTime("PaymentDate");
+                        if (!reader.IsDBNull(reader.GetOrdinal("PaymentMethod")))
+                            officeActivation.paymentMethod = reader.GetString("PaymentMethod").ToString();
+                        if (!reader.IsDBNull(reader.GetOrdinal("PaymentStatus")))
+                            officeActivation.paymentStatus = reader.GetString("PaymentStatus").ToString();
+                        if (!reader.IsDBNull(reader.GetOrdinal("createdAt")))
+                            officeActivation.createdAt = (DateTimeOffset)reader.GetDateTime("createdAt");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return officeActivation;
         }
     }
 }
