@@ -9,6 +9,7 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using MySqlConnector;
 using Nadim.Models;
+using Nadim.Services;
 using Nadim.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -84,6 +85,16 @@ namespace Nadim.Views
                 mainPanel.IsTapEnabled = false;
             } 
             else if (mainViewModel.user == null)
+            {
+                ShowSessionExpiredDialog();
+                mainPanel.IsTapEnabled = false;
+            } else if(mainViewModel.officeActivation == null)
+            {
+                ShowActivationRequiredDialog();
+            } else if (mainViewModel.officeActivation.expiryDate.AddDays(-14) <= DateTimeOffset.Now)
+            {
+                ActivationWillExpireSoonDialog();
+            } else if (!mainViewModel.isTokenValid)
             {
                 ShowSessionExpiredDialog();
                 mainPanel.IsTapEnabled = false;
@@ -198,6 +209,7 @@ namespace Nadim.Views
             dialog.DefaultButton = ContentDialogButton.Primary;
             dialog.Content = new SystemMessages.ConnectionFailedPage();
             dialog.FlowDirection = FlowDirection.RightToLeft;
+            dialog.RequestedTheme = ThemeSelectorService.GetTheme(this);
 
             var result = await dialog.ShowAsync();
 
@@ -239,6 +251,7 @@ namespace Nadim.Views
             dialog.CloseButtonText = "إغلاق البرنامج";
             dialog.DefaultButton = ContentDialogButton.Primary;
             dialog.FlowDirection = FlowDirection.RightToLeft;
+            dialog.RequestedTheme = ThemeSelectorService.GetTheme(this);
 
             var result = await dialog.ShowAsync();
 
@@ -290,6 +303,7 @@ namespace Nadim.Views
             dialog.DefaultButton = ContentDialogButton.Primary;
             dialog.Content = new SystemMessages.ConnectionFailedPage();
             dialog.FlowDirection = FlowDirection.RightToLeft;
+            dialog.RequestedTheme = ThemeSelectorService.GetTheme(this);
 
             var result = await dialog.ShowAsync();
 
@@ -308,6 +322,41 @@ namespace Nadim.Views
             {
                 this.Close();
             }
+        }
+
+        public async void ShowActivationRequiredDialog()
+        {
+
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new SystemMessages.ActivationRequiredTitleControl();
+            dialog.PrimaryButtonText = "حسنا";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new SystemMessages.ActivationRequiredPage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+            dialog.RequestedTheme = ThemeSelectorService.GetTheme(this);
+
+            var result = await dialog.ShowAsync();
+        }
+
+        public async void ActivationWillExpireSoonDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new SystemMessages.ActivationWillExpireSoonTitleControl();
+            dialog.PrimaryButtonText = "حسنا";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new SystemMessages.ActivationWillExpireSoonPage(mainViewModel.officeActivation.expiryDate);
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+            dialog.RequestedTheme = ThemeSelectorService.GetTheme(this);
+
+            var result = await dialog.ShowAsync();
         }
 
     }

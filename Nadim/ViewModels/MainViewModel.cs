@@ -24,7 +24,7 @@ namespace Nadim.ViewModels
         private Token token;
         public User user;
         public OfficeActivation officeActivation;
-        public bool isTokenValid;
+        public bool isTokenValid = true;
 
         [ObservableProperty] string navigationViewPanTitle;
 
