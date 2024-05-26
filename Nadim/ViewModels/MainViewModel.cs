@@ -27,35 +27,36 @@ namespace Nadim.ViewModels
         public bool isTokenValid = true;
 
         [ObservableProperty] string navigationViewPanTitle;
+        [ObservableProperty] string logOutMessageText;
 
-        [ObservableProperty] int homeInfoBadgeValue = 10;
+        [ObservableProperty] int homeInfoBadgeValue = 0;
         [ObservableProperty] Visibility homeInfoBadgeVisibility;
 
-        [ObservableProperty] int clientsInfoBadgeValue = 10;
+        [ObservableProperty] int clientsInfoBadgeValue = 0;
         [ObservableProperty] Visibility clientsInfoBadgeVisibility;
 
-        [ObservableProperty] int foldersInfoBadgeValue = 10;
+        [ObservableProperty] int foldersInfoBadgeValue = 0;
         [ObservableProperty] Visibility foldersInfoBadgeVisibility;
 
-        [ObservableProperty] int scheduleInfoBadgeValue = 10;
+        [ObservableProperty] int scheduleInfoBadgeValue = 5;
         [ObservableProperty] Visibility scheduleInfoBadgeVisibility;
 
-        [ObservableProperty] int feesInfoBadgeValue = 10;
+        [ObservableProperty] int feesInfoBadgeValue = 0;
         [ObservableProperty] Visibility feesInfoBadgeVisibility;
 
-        [ObservableProperty] int lawsInfoBadgeValue = 10;
+        [ObservableProperty] int lawsInfoBadgeValue = 0;
         [ObservableProperty] Visibility lawsInfoBadgeVisibility;
 
-        [ObservableProperty] int tasksInfoBadgeValue = 10;
+        [ObservableProperty] int tasksInfoBadgeValue = 0;
         [ObservableProperty] Visibility tasksInfoBadgeVisibility;
 
-        [ObservableProperty] int notesInfoBadgeValue = 10;
+        [ObservableProperty] int notesInfoBadgeValue = 0;
         [ObservableProperty] Visibility notesInfoBadgeVisibility;
 
-        [ObservableProperty] int comunityInfoBadgeValue = 10;
+        [ObservableProperty] int comunityInfoBadgeValue = 0;
         [ObservableProperty] Visibility comunityInfoBadgeVisibility;
 
-        [ObservableProperty] int accountInfoBadgeValue = 10;
+        [ObservableProperty] int accountInfoBadgeValue = 0;
         [ObservableProperty] Visibility accountInfoBadgeVisibility;
         [ObservableProperty] string accountNavigationViewItemTextBlockText;
         public MainViewModel()
@@ -74,10 +75,19 @@ namespace Nadim.ViewModels
                 NavigationViewPanTitle = user.office.naming;
                 officeActivation = GetOfficeActivation();
                 AccountNavigationViewItemTextBlockText = $"الحساب ({user.lastName} {user.firstName})";
+                if (user.gender == "أنثى")
+                {
+                    logOutMessageText = "هل أنتِ متأكدة من أنكِ تريدين تسجيل الخروج";
+                }
+                else
+                {
+                    logOutMessageText = "هل أنت متأكد من أنك تريد تسجيل الخروج";
+                }
             }
             else
             {
                 AccountNavigationViewItemTextBlockText = $"الحساب";
+                logOutMessageText = "هل أنت متأكد من أنك تريد تسجيل الخروج";
             }
 
             HomeInfoBadgeVisibility = SetInfoBarVisbility(HomeInfoBadgeValue);

@@ -147,7 +147,7 @@
                     <Button.Flyout>
                         <Flyout>
                             <StackPanel>
-                                <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="هل أنت متأكد من أنك تريد تسجيل الخروج؟" Margin="0,0,0,12" />
+                                <TextBlock Style="{ThemeResource BaseTextBlockStyle}" Text="{Binding LogOutMessageText}" Margin="0,0,0,12" />
                                 <Button Click="Button_Click_1" Content="نعم، تسجيل الخروج" />
                             </StackPanel>
                         </Flyout>
