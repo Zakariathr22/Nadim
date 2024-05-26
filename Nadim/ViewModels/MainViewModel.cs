@@ -72,14 +72,13 @@ namespace Nadim.ViewModels
             if (user != null) 
             {
                 NavigationViewPanTitle = user.office.naming;
+                officeActivation = GetOfficeActivation();
                 AccountNavigationViewItemTextBlockText = $"الحساب ({user.lastName} {user.firstName})";
             }
             else
             {
                 AccountNavigationViewItemTextBlockText = $"الحساب";
             }
-
-            officeActivation = GetOfficeActivation();
 
             HomeInfoBadgeVisibility = SetInfoBarVisbility(HomeInfoBadgeValue);
             ClientsInfoBadgeVisibility = SetInfoBarVisbility(ClientsInfoBadgeValue);
