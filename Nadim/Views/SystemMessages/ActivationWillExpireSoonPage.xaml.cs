@@ -1,4 +1,4 @@
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -23,9 +23,10 @@ namespace Nadim.Views.SystemMessages
     /// </summary>
     public sealed partial class ActivationWillExpireSoonPage : Page
     {
-        public ActivationWillExpireSoonPage()
+        public ActivationWillExpireSoonPage(DateTimeOffset date)
         {
             this.InitializeComponent();
+            description.Text = $"يوشك تفعيل حساب المكتب الذي تعملون فيه الآن على الإنتهاء، وذلك سيكون يوم {date:D}.";
         }
     }
 }

@@ -12,8 +12,8 @@
         <TextBlock FontWeight="Bold" Margin="4" TextWrapping="Wrap">
             يبدو أن حساب المكتب غير مفعل، لهذا يرجى تفعيل الحساب عن طريق تجديد الإشتراك.
         </TextBlock>
-        <TextBlock Margin="4" TextWrapping="Wrap">
-            يرجى أن تتفهموا أنكم لن تكونوا قادرين على إضافة، تعديل أو حدث أي مدخل إلى حين تفعيل الحساب، ما عدى ذلك يمكنكم الإطلاع والبحث في معلومات المكتب فقط.
+        <TextBlock Margin="4" TextWrapping="Wrap" TextAlignment="Justify">
+            يرجى التفهم أنكم لن تكونوا قادرين على إضافة، تعديل أو تحديث أي مدخل إلى حين تفعيل الحساب، ما عدى ذلك يمكنكم الإطلاع والبحث في معلومات المكتب فقط.
         </TextBlock>
         <TextBlock Margin="4" TextWrapping="Wrap">
             إذا كنتم ترغبون في تجديد الإشتراك يرجى

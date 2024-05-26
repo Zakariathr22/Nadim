@@ -6,10 +6,18 @@
     xmlns:local="using:Nadim.Views.SystemMessages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
-    <Grid>
-
-    </Grid>
+    <StackPanel FlowDirection="RightToLeft">
+        <TextBlock x:Name="description" FontWeight="Bold" Margin="4" TextWrapping="Wrap">
+            يوشك تفعيل حساب المكتب الذي تعملون فيه الآن على الإنتهاء، وذلك بتاريخ.
+        </TextBlock>
+        <TextBlock Margin="4" TextWrapping="Wrap">
+            إذا كنتم ترغبون في تجديد الإشتراك يرجى
+            <Hyperlink>
+            الإتصال بفريق نديم
+            </Hyperlink>
+            .
+        </TextBlock>
+    </StackPanel>
 </Page>

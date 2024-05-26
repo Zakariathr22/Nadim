@@ -8,7 +8,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-
+    <Grid FlowDirection="RightToLeft">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <FontIcon Margin="0 0 4 0" Grid.Column="0" Glyph="&#xE7BA;" FontSize="32" Foreground="{ThemeResource SystemFillColorCautionBrush}"/>
+        <TextBlock Margin="4 0" Grid.Column="1" FontSize="20" FontWeight="Bold" VerticalAlignment="Center" Foreground="{ThemeResource SystemFillColorCautionBrush}">تفعيل حساب المكتب سينتهي قريباً</TextBlock>
     </Grid>
 </UserControl>
