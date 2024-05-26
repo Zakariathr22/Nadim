@@ -9,9 +9,9 @@ namespace Nadim.Services
 {
     public  static class ThemeSelectorService
     {
-        public static ElementTheme GetTheme()
+        public static ElementTheme GetTheme(Window window)
         {
-            if (App.mainWindow?.Content is FrameworkElement element)
+            if (window?.Content is FrameworkElement element)
             {
                 return element.ActualTheme;
             }
