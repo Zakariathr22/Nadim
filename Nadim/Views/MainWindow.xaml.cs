@@ -79,7 +79,7 @@ namespace Nadim.Views
 
         private void MainPanel_Loaded(object sender, RoutedEventArgs e)
         {
-            if (!App.dataAccess.ConnectionStatIsOpened() || App.dataAccess.ConnectionStatIsOpened == null)
+            if (!App.dataAccess.ConnectionStatIsOpened())
             { 
                 ShowDialog();
                 mainPanel.IsTapEnabled = false;
@@ -94,11 +94,12 @@ namespace Nadim.Views
             } else if (mainViewModel.officeActivation.expiryDate.AddDays(-14) <= DateTimeOffset.Now)
             {
                 ActivationWillExpireSoonDialog();
-            } else if (!mainViewModel.isTokenValid)
-            {
-                ShowSessionExpiredDialog();
-                mainPanel.IsTapEnabled = false;
-            }
+            } 
+            //else if (!mainViewModel.isTokenValid)
+            //{
+            //    ShowSessionExpiredDialog();
+            //    mainPanel.IsTapEnabled = false;
+            //}
         }
 
         private void MainWindow_Closed(object sender, WindowEventArgs args)
@@ -182,7 +183,6 @@ namespace Nadim.Views
                 string pageName = $"Nadim.Views.{selectedItemTag}.{selectedItemTag}Page";
                 Type pageType = Type.GetType(pageName);
                 contentFrame.Navigate(pageType);
-                Console.Write("Hi");
             }
         }
 
