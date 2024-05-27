@@ -39,7 +39,7 @@
                         <TextBlock TextWrapping="Wrap" Grid.Row="0" MaxWidth="400"  HorizontalAlignment="Left" VerticalAlignment="Bottom"  Padding="0 0 4 0">
                             إضفاء الطابع الشخصي على حسابك باستخدام صورة. ستظهر صورة ملف التعريف الخاص بك على التطبيقات والأجهزة التي تستخدم حساب نديم الخاص بك.
                         </TextBlock>
-                        <Button Grid.Row="1"  MinWidth="150">تغيير الصورة</Button>
+                        <Button x:Name="changePictureButton" Grid.Row="1"  MinWidth="150" Click="changePictureButton_Click">تغيير الصورة</Button>
                     </Grid>
                 </Grid>
             </ContentPresenter>

@@ -43,6 +43,7 @@
     <None Remove="Views\AccountRecovery\FindAccountPage.xaml" />
     <None Remove="Views\AccountRecovery\NewPasswordPage.xaml" />
     <None Remove="Views\Account\AccountPage.xaml" />
+    <None Remove="Views\Account\ChangeProfilePicturePage.xaml" />
     <None Remove="Views\Account\DevicesPage.xaml" />
     <None Remove="Views\Account\InfoPage.xaml" />
     <None Remove="Views\Account\PrivacyPage.xaml" />
@@ -97,6 +98,7 @@
 
   <ItemGroup>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="CommunityToolkit.WinUI.Controls.ImageCropper" Version="8.0.240109" />
     <PackageReference Include="CommunityToolkit.WinUI.Controls.Segmented" Version="8.0.240109" />
     <PackageReference Include="CommunityToolkit.WinUI.Controls.SettingsControls" Version="8.0.240109" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="8.0.0" />
@@ -310,6 +312,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\SignUp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Account\ChangeProfilePicturePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\SystemMessages\SessionExpiredTitleControl.xaml">
