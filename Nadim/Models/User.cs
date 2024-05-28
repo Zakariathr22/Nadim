@@ -10,7 +10,21 @@ namespace Nadim.Models
     {
         public string firstName { get; set; }
         public string lastName { get; set; }
+        public string fullName
+        {
+            get
+            {
+                return $"{lastName} {firstName}";
+            }
+        }
         public DateTimeOffset? birthDate { get; set; }
+        public string birthDateString
+        {
+            get
+            {
+                return $"{birthDate:d MMM yyyy}";
+            }
+        }
         public string gender { get; set; }
         public byte[] profilePic { get; set; }
         public string email { get; set; }
@@ -21,7 +35,21 @@ namespace Nadim.Models
         public string passwordHash { get; set; }
         public bool isUserCreatedPassword { get; set; }
         public DateTimeOffset createdAt { get; set; }
+        public string createdAtString
+        {
+            get
+            {
+                return $"{createdAt:F}";
+            }
+        }
         public DateTimeOffset lastUpdate { get; set; }
+        public string lastUpdateString
+        {
+            get
+            {
+                return $"{lastUpdate:F}";
+            }
+        }
         public bool isDeleted { get; set; }
         public DateTimeOffset deletedAt { get; set; }
         public string loger { get; set; }
