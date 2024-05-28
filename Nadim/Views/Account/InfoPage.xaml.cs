@@ -35,7 +35,7 @@ namespace Nadim.Views.Account
             //clickablePresenter.ChangeCursor(InputSystemCursor.Create(InputSystemCursorShape.Hand));
         }
 
-        public async void ShowUpdatingDialog(StorageFile file)
+        public async void ShowUpdatingProfilePictureDialog(StorageFile file)
         {
             using (ChangeProfilePicturePage changeProfilePicturePage = new ChangeProfilePicturePage(file))
             {
@@ -92,7 +92,7 @@ namespace Nadim.Views.Account
             var file = await openPicker.PickSingleFileAsync();
             if (file != null)
             {
-                ShowUpdatingDialog(file);
+                ShowUpdatingProfilePictureDialog(file);
             }
             else
             {
