@@ -18,6 +18,7 @@ using Nadim.ViewModels;
 using Windows.Storage.Pickers;
 using Windows.Storage;
 using Nadim.Views.Controls;
+using Nadim.ViewModels.Account;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -33,6 +34,8 @@ namespace Nadim.Views.Account
         {
             this.InitializeComponent();
             //clickablePresenter.ChangeCursor(InputSystemCursor.Create(InputSystemCursorShape.Hand));
+            AccountInfoViewModel accountInfoViewModel = new AccountInfoViewModel();
+            this.DataContext = accountInfoViewModel;
         }
 
         public async void ShowUpdatingProfilePictureDialog(StorageFile file)

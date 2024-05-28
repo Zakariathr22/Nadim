@@ -28,8 +28,8 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
-                    <PersonPicture  Grid.Column="0" Height="140" Width="140" 
-                                    Margin="0 0 16 0" ProfilePicture="https://www.399d-23h-59m-59s.com/press/images/Longing_shade_pics_0.png"/>
+                    <PersonPicture x:Name="profilePucture" Grid.Column="0" Height="140" Width="140" 
+                                    Margin="0 0 16 0" ProfilePicture="{Binding Image}"/>
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -56,7 +56,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">اللقب والاسم</TextBlock>
-                    <TextBlock x:Name="fullNameTextBlock" Text="طاهري زكرياء" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" Padding="0 0 4 0"/>
+                    <TextBlock x:Name="fullNameTextBlock" Text="{Binding Lawyer.fullName}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" Padding="0 0 4 0"/>
                     <HyperlinkButton x:Name="editFullNameHyperlinkButton" Grid.Column="2" HorizontalAlignment="Right" Padding="0">
                         تعديل اللقب أو الاسم
                     </HyperlinkButton>
@@ -79,7 +79,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">تاريخ الميلاد</TextBlock>
-                        <TextBlock x:Name="birthDateTextBlock" Text="08 جوان 1999" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock x:Name="birthDateTextBlock" Text="{Binding User.birthDateString}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
                         <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">يتم استخدام تاريخ ميلادك لإعدادات أمان الحساب</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
                     </Grid>
@@ -103,7 +103,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">الجنس</TextBlock>
-                        <TextBlock x:Name="genderTextBlock" Text="ذكر" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock x:Name="genderTextBlock" Text="{Binding User.gender}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
                         <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">تهم معرفة الجنس في المساعدة على الخطاب بصفة المؤنث أو المذكر</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
@@ -131,7 +131,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">الإعتماد</TextBlock>
-                        <TextBlock x:Name="accreditationTextBlock" Text="محامي معتمد لدى المحكمة العليا ومجلس الدولة" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock x:Name="accreditationTextBlock" Text="{Binding Lawyer.accreditationString}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
                         <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">تساعد معرفة الإعتماد في تحرير الوثائق وتحديد الأذونات</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
                     </Grid>
@@ -154,7 +154,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">تاريخ بداية النشاط</TextBlock>
-                        <TextBlock x:Name="startingDateButton" Text="جانفي 2024" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock x:Name="startingDateButton" Text="{Binding Lawyer.startingDateString}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
                         <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">يتم استخدامه في تحديد خبرة المستخدم في المجال.</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
@@ -183,7 +183,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">البريد الإلكتروني</TextBlock>
-                        <TextBlock x:Name="emailTextBlock" Text="zakotahri@gmail.com" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock x:Name="emailTextBlock" Text="{Binding User.email}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
                         <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">يتم استخدام البريد الإلكتروني في التحقق من الهوية والإتصال</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
@@ -207,7 +207,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">رقم الهاتف المحمول</TextBlock>
-                        <TextBlock x:Name="phoneTextBlock" Text="0659707528" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock x:Name="phoneTextBlock" Text="{Binding User.phone}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
                         <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">يتم استخدام رقم الهاتف المحمول في التحقق من الهوية والإتصال.</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
@@ -245,7 +245,7 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">تاريخ ووقت إنشاء الحساب</TextBlock>
-                    <TextBlock x:Name="createdAtTextBlock" Text="يوم: 16/05/2024 ، على الساعة: 17:34" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                    <TextBlock x:Name="createdAtTextBlock" Text="{Binding User.createdAtString}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
                 </Grid>
             </ContentPresenter>
             <ContentPresenter
@@ -262,7 +262,7 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">تاريخ ووقت آخر تعديل للحساب</TextBlock>
-                    <TextBlock x:Name="lastUpdateTextBlock" Text="يوم: 16/05/2024 ، على الساعة: 17:34" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                    <TextBlock x:Name="lastUpdateTextBlock" Text="{Binding User.lastUpdateString}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
                 </Grid>
             </ContentPresenter>
         </StackPanel>
