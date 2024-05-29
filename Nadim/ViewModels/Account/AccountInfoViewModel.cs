@@ -30,23 +30,6 @@ namespace Nadim.ViewModels.Account
             token = new Token(credential);
             User = GetUserDetails(token);
             if (User.profilePic != null) Image = FileImageService.ByteArrayToBitmapImage(User.profilePic);
-
-            //User.profilePic = FileImageService.ConvertFileToByteArray("C:\\Users\\TAHRI.ZAKARIA\\source\\repos\\Nadim\\Nadim\\Assets\\Icons\\LawyerPic.jpeg");
-            //User.firstName = "زكرياء";
-            //User.lastName = "طاهري";
-            //User.birthDate = DateTime.Now;
-            //User.gender = "ذكر";
-            //User.accreditation = "لدى المحكمة العليا ومجلس الدولة";
-            //User.startingDate = DateTime.Now;
-            //User.email = "zakotahri@gmail.com";
-            //User.phone = "0659707528";
-            //User.createdAt = DateTime.Now;
-            //User.lastUpdate = DateTime.Now;
-            //User.creator = new User
-            //{
-            //    firstName = "زكرياء",
-            //    lastName = "طاهري"
-            //};
         }
 
         private Lawyer GetUserDetails(Token token)
