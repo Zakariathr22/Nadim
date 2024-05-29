@@ -56,7 +56,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">اللقب والاسم</TextBlock>
-                    <TextBlock x:Name="fullNameTextBlock" Text="{Binding Lawyer.fullName}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" Padding="0 0 4 0"/>
+                    <TextBlock x:Name="fullNameTextBlock" Text="{Binding User.fullName}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" Padding="0 0 4 0"/>
                     <HyperlinkButton x:Name="editFullNameHyperlinkButton" Grid.Column="2" HorizontalAlignment="Right" Padding="0">
                         تعديل اللقب أو الاسم
                     </HyperlinkButton>
@@ -131,7 +131,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">الإعتماد</TextBlock>
-                        <TextBlock x:Name="accreditationTextBlock" Text="{Binding Lawyer.accreditationString}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock x:Name="accreditationTextBlock" Text="{Binding User.accreditationString}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
                         <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">تساعد معرفة الإعتماد في تحرير الوثائق وتحديد الأذونات</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
                     </Grid>
@@ -154,7 +154,7 @@
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">تاريخ بداية النشاط</TextBlock>
-                        <TextBlock x:Name="startingDateButton" Text="{Binding Lawyer.startingDateString}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock x:Name="startingDateButton" Text="{Binding User.startingDateString}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
                         <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">يتم استخدامه في تحديد خبرة المستخدم في المجال.</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
@@ -228,7 +228,7 @@
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">منشئ الحساب</TextBlock>
-                    <TextBlock x:Name="creatorTextBlock" Text="الأستاذ طاهري زكرياء" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                    <TextBlock x:Name="creatorTextBlock" Text="{Binding User.creator.profitionalFullName}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
                 </Grid>
             </ContentPresenter>
             <ContentPresenter

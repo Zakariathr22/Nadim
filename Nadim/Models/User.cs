@@ -17,6 +17,19 @@ namespace Nadim.Models
                 return $"{lastName} {firstName}";
             }
         }
+
+        public string profitionalFullName
+        {
+            get
+            {
+                if (gender == "أنثى")
+                {
+                    return $"الأستاذة {lastName} {firstName}";
+                }
+                return $"الأستاذ {lastName} {firstName}";
+            }
+        }
+
         public DateTimeOffset? birthDate { get; set; }
         public string birthDateString
         {
