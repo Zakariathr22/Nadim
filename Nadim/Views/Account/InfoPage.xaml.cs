@@ -19,6 +19,7 @@ using Windows.Storage.Pickers;
 using Windows.Storage;
 using Nadim.Views.Controls;
 using Nadim.ViewModels.Account;
+using Windows.Security.Credentials;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -34,9 +35,30 @@ namespace Nadim.Views.Account
         public InfoPage()
         {
             this.InitializeComponent();
-            //clickablePresenter.ChangeCursor(InputSystemCursor.Create(InputSystemCursorShape.Hand));
-            AccountInfoViewModel accountInfoViewModel = new AccountInfoViewModel();
-            this.DataContext = accountInfoViewModel;
+            Loaded += InfoPage_Loaded;
+        }
+
+        private void InfoPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            accountInfoViewModel = new AccountInfoViewModel();
+            if (!App.dataAccess.ConnectionStatIsOpened())
+            {
+                ShowDialog();
+                App.mainWindow.mainPanel.IsTapEnabled = false;
+            }
+            else if (accountInfoViewModel.User == null)
+            {
+                if (accountInfoViewModel.isTokenValid)
+                {
+                    ShowDialog();
+                    App.mainWindow.mainPanel.IsTapEnabled = false;
+                }
+                else
+                {
+                    App.mainWindow.ShowSessionExpiredDialog();
+                    App.mainWindow.mainPanel.IsTapEnabled = false;
+                }
+            }
         }
 
         public async void ShowUpdatingProfilePictureDialog(StorageFile file)
@@ -101,6 +123,49 @@ namespace Nadim.Views.Account
             else
             {
                 //PickAPhotoOutputTextBlock.Text = "Operation cancelled.";
+            }
+        }
+
+        public async void ShowDialog()
+        {
+
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new SystemMessages.ConnectionFailedTitleControl();
+            dialog.PrimaryButtonText = "حاول مرة أخرى";
+            dialog.CloseButtonText = "إغلاق البرنامج";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new SystemMessages.ConnectionFailedPage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+            dialog.RequestedTheme = ThemeSelectorService.GetTheme(App.mainWindow);
+
+            var result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                try
+                {
+                    App.dataAccess.OpenConnection();
+                    this.IsTapEnabled = true;
+                    accountInfoViewModel = new AccountInfoViewModel();
+                    this.DataContext = accountInfoViewModel;
+                    if (accountInfoViewModel.isTokenValid == false)
+                    {
+                        App.mainWindow.ShowSessionExpiredDialog();
+                        App.mainWindow.mainPanel.IsTapEnabled = false;
+                    }
+                }
+                catch
+                {
+                    ShowDialog();
+                }
+            }
+            else
+            {
+                App.mainWindow.Close();
             }
         }
     }

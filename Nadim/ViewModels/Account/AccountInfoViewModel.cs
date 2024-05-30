@@ -29,7 +29,7 @@ namespace Nadim.ViewModels.Account
             var credential = App.valut.Retrieve("NadimApplication", "token");
             token = new Token(credential);
             User = GetUserDetails(token);
-            if (User.profilePic != null) Image = FileImageService.ByteArrayToBitmapImage(User.profilePic);
+            if (User != null) if (User.profilePic != null) Image = FileImageService.ByteArrayToBitmapImage(User.profilePic);
         }
 
         private Lawyer GetUserDetails(Token token)
@@ -96,6 +96,10 @@ namespace Nadim.ViewModels.Account
                         if (!reader.IsDBNull(reader.GetOrdinal("creator_gender")))
                             user.creator.gender = reader.GetString("creator_gender").ToString();
                     }
+                }
+                else
+                {
+                    isTokenValid = false;
                 }
             }
             catch (Exception ex)

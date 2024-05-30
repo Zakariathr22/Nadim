@@ -81,7 +81,7 @@ namespace Nadim.Views
         private void MainPanel_Loaded(object sender, RoutedEventArgs e)
         {
             if (!App.dataAccess.ConnectionStatIsOpened())
-            { 
+            {
                 ShowDialog();
                 mainPanel.IsTapEnabled = false;
             } 
@@ -212,6 +212,7 @@ namespace Nadim.Views
             dialog.FlowDirection = FlowDirection.RightToLeft;
             dialog.RequestedTheme = ThemeSelectorService.GetTheme(this);
 
+            
             var result = await dialog.ShowAsync();
 
             if (result == ContentDialogResult.Primary)
@@ -266,7 +267,7 @@ namespace Nadim.Views
             }
         }
 
-        private void Lougout()
+        public void Lougout()
         {
             try
             {

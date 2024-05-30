@@ -11,7 +11,7 @@
         <MicaBackdrop/>
     </Window.SystemBackdrop>
 
-    <Grid x:Name="mainPanel" FlowDirection="LeftToRight">
+    <Grid x:Name="mainPanel" FlowDirection="LeftToRight" x:FieldModifier="public">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
