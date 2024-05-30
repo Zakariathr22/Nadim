@@ -30,6 +30,7 @@ namespace Nadim.Views.Account
     /// </summary>
     public sealed partial class InfoPage : Page
     {
+        public AccountInfoViewModel accountInfoViewModel;
         public InfoPage()
         {
             this.InitializeComponent();

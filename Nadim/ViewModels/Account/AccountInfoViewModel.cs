@@ -93,6 +93,8 @@ namespace Nadim.ViewModels.Account
                             user.creator.firstName = reader.GetString("creator_firstname").ToString();
                         if (!reader.IsDBNull(reader.GetOrdinal("creator_lastname")))
                             user.creator.lastName = reader.GetString("creator_lastname").ToString();
+                        if (!reader.IsDBNull(reader.GetOrdinal("creator_gender")))
+                            user.creator.gender = reader.GetString("creator_gender").ToString();
                     }
                 }
             }
