@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -55,6 +55,8 @@ namespace Nadim.Views
 
 
             appWindow.Resize(new Windows.Graphics.SizeInt32(500, 600));
+            appWindow.Title = "نديم";
+            appWindow.SetIcon("Assets/Icons/Nadim.ico");
 
             overlappedPresenter.IsResizable = false;
             overlappedPresenter.IsMinimizable = false;

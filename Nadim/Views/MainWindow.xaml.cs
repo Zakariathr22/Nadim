@@ -59,7 +59,8 @@ namespace Nadim.Views
             titleBar.ButtonForegroundColor = Color.FromArgb(0, 128, 128, 128);
 
             appWindow.Resize(new Windows.Graphics.SizeInt32(1130, 480));
-
+            appWindow.Title = "نديم";
+            appWindow.SetIcon("Assets/Icons/Nadim.ico");
             //overlappedPresenter.Maximize();
             //navigationView.Height = "auto";
 
@@ -358,6 +359,5 @@ namespace Nadim.Views
 
             var result = await dialog.ShowAsync();
         }
-
     }
 }

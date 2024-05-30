@@ -47,6 +47,8 @@ namespace Nadim.Views
             
 
             appWindow.Resize(new Windows.Graphics.SizeInt32(840, 500));
+            appWindow.Title = "نديم";
+            appWindow.SetIcon("Assets/Icons/Nadim.ico");
 
             overlappedPresenter.IsResizable = false;
             overlappedPresenter.IsMinimizable = false;

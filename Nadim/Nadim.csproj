@@ -10,6 +10,9 @@
     <PublishProfile>win10-$(Platform).pubxml</PublishProfile>
     <UseWinUI>true</UseWinUI>
     <EnableMsixTooling>true</EnableMsixTooling>
+    <ApplicationIcon>Nadim.ico</ApplicationIcon>
+    <Title>Nadim</Title>
+    <PackageIcon>Logo.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
     <None Remove="ActivationRequiredTitle.xaml" />
@@ -25,6 +28,7 @@
     <None Remove="Assets\Icons\Laws.png" />
     <None Remove="Assets\Icons\LawyerPic.jpeg" />
     <None Remove="Assets\Icons\Logout.png" />
+    <None Remove="Assets\Icons\Nadim.ico" />
     <None Remove="Assets\Icons\Note.png" />
     <None Remove="Assets\Icons\Office.png" />
     <None Remove="Assets\Icons\Schedule.png" />
@@ -94,6 +98,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Nadim.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -152,6 +157,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Assets\Icons\Logout.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Assets\Icons\Nadim.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Update="Assets\Icons\Office.png">
@@ -312,6 +320,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\SignUp\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\..\Desktop\Logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Account\ChangeProfilePicturePage.xaml">

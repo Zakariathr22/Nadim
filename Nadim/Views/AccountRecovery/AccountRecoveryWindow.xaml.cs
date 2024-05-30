@@ -1,4 +1,4 @@
-using Microsoft.UI;
+﻿using Microsoft.UI;
 using Microsoft.UI.Windowing;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
@@ -52,6 +52,8 @@ namespace Nadim.Views.AccountRecovery
 
 
             appWindow.Resize(new Windows.Graphics.SizeInt32(500, 600));
+            appWindow.Title = "نديم";
+            appWindow.SetIcon("Assets/Icons/Nadim.ico");
 
             overlappedPresenter.IsResizable = false;
             overlappedPresenter.IsMinimizable = false;
