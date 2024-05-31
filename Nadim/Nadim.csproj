@@ -50,6 +50,8 @@
     <None Remove="Views\Account\ChangeProfilePicturePage.xaml" />
     <None Remove="Views\Account\DevicesPage.xaml" />
     <None Remove="Views\Account\InfoPage.xaml" />
+    <None Remove="Views\Account\InfoPageControls\EditNamePage.xaml" />
+    <None Remove="Views\Account\InfoPageControls\TitleControl.xaml" />
     <None Remove="Views\Account\PrivacyPage.xaml" />
     <None Remove="Views\Account\SecurityPage.xaml" />
     <None Remove="Views\Clients\ClientsPage.xaml" />
@@ -326,6 +328,16 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Account\InfoPageControls\EditNamePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Account\InfoPageControls\TitleControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Account\ChangeProfilePicturePage.xaml">

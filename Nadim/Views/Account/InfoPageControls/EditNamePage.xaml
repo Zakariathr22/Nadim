@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Nadim.Views.Account.InfoPageControls.EditNamePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Nadim.Views.Account.InfoPageControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="360">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Margin="4" Grid.Column="0">
+            <TextBox x:Name="lastNameTextBox" Header="اللقب" PlaceholderText="اللقب" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding User.lastName}" Background="{Binding LastNameTextBoxBackground, Mode=OneWay}" TextChanged="lastNameTextBox_TextChanged"/>
+            <TextBlock x:Name="lastNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*يجب إدخال اللقب</TextBlock>
+            <TextBlock x:Name="lastNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*اللقب أطول من اللازم</TextBlock>
+            <TextBlock x:Name="lastNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*اللقب أقصر من اللازم</TextBlock>
+            <TextBlock x:Name="lastNameIsNotArabicError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*اللقب يجب أن يكون بالعربية</TextBlock>
+            <TextBlock x:Name="lastNameContainsNumberError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*يجب ألا يحتوي اللقب على رقم</TextBlock>
+        </StackPanel>
+        <StackPanel Margin="4" Grid.Column="1">
+            <TextBox x:Name="firstNameTextBox" Header="الاسم" PlaceholderText="الاسم" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding User.firstName}" Background="{Binding FirstNameTextBoxBackground, Mode=OneWay}" TextChanged="firstNameTextBox_TextChanged"/>
+            <TextBlock x:Name="firstNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*يجب إدخال الاسم</TextBlock>
+            <TextBlock x:Name="firstNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*الاسم أطول من اللازم</TextBlock>
+            <TextBlock x:Name="firstNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*الاسم أقصر من اللازم</TextBlock>
+            <TextBlock x:Name="firstNameIsNotArabicError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*الاسم يجب أن يكون بالعربية</TextBlock>
+            <TextBlock x:Name="firstNameContainsNumberError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*يجب ألا يحتوي الاسم على رقم</TextBlock>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -20,6 +20,7 @@ using Windows.Storage;
 using Nadim.Views.Controls;
 using Nadim.ViewModels.Account;
 using Windows.Security.Credentials;
+using Nadim.Views.Account.InfoPageControls;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -41,6 +42,7 @@ namespace Nadim.Views.Account
         private void InfoPage_Loaded(object sender, RoutedEventArgs e)
         {
             accountInfoViewModel = new AccountInfoViewModel();
+            this.DataContext = accountInfoViewModel;
             if (!App.dataAccess.ConnectionStatIsOpened())
             {
                 ShowDialog();
@@ -167,6 +169,29 @@ namespace Nadim.Views.Account
             {
                 App.mainWindow.Close();
             }
+        }
+
+        private async void ShowEditNameDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new TitleControl("تعديل اللقب أو الاسم");
+            dialog.PrimaryButtonText = "حفظ";
+            dialog.CloseButtonText = "إلغاء";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new EditNamePage(dialog, accountInfoViewModel);
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+            dialog.RequestedTheme = ThemeSelectorService.GetTheme(App.mainWindow);
+            dialog.IsPrimaryButtonEnabled = false;
+            var result = await dialog.ShowAsync();
+        }
+
+        private void editFullNameHyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowEditNameDialog();
         }
     }
 }

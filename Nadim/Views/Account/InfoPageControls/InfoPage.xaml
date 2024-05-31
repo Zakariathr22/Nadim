@@ -29,7 +29,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <PersonPicture x:Name="profilePucture" Grid.Column="0" Height="140" Width="140" 
-                                    Margin="0 0 16 0" ProfilePicture="{Binding Image}"/>
+                                    Margin="0 0 16 0" ProfilePicture="{Binding Image}" Background="Transparent"/>
                     <Grid Grid.Column="1">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -57,7 +57,7 @@
                     </Grid.ColumnDefinitions>
                     <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">اللقب والاسم</TextBlock>
                     <TextBlock x:Name="fullNameTextBlock" Text="{Binding User.fullName}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" Padding="0 0 4 0"/>
-                    <HyperlinkButton x:Name="editFullNameHyperlinkButton" Grid.Column="2" HorizontalAlignment="Right" Padding="0">
+                    <HyperlinkButton x:Name="editFullNameHyperlinkButton" Grid.Column="2" HorizontalAlignment="Right" Padding="0" Click="editFullNameHyperlinkButton_Click">
                         تعديل اللقب أو الاسم
                     </HyperlinkButton>
                 </Grid>
