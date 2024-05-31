@@ -215,5 +215,28 @@ namespace Nadim.Views.Account
         {
             ShowEditBirthDateDialog();
         }
+
+        private async void ShowEditGenderDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new TitleControl("تعديل الجنس");
+            dialog.PrimaryButtonText = "حفظ";
+            dialog.CloseButtonText = "إلغاء";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new EditGenderPage(dialog,accountInfoViewModel);
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+            dialog.RequestedTheme = ThemeSelectorService.GetTheme(App.mainWindow);
+            dialog.IsPrimaryButtonEnabled = false;
+            var result = await dialog.ShowAsync();
+        }
+
+        private void editGenderButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowEditGenderDialog();
+        }
     }
 }

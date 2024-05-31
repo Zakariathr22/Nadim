@@ -86,7 +86,7 @@
                 </ContentPresenter>
             </viewControls:NewButton>
             <viewControls:NewButton x:Name="editGenderButton" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0 0 0 8" BorderThickness="0"
-                            CornerRadius="0">
+                            CornerRadius="0" Click="editGenderButton_Click">
                 <ContentPresenter
                 x:Name="CCCXontrolPresenter"
                 Padding="20"
