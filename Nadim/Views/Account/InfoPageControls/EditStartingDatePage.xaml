@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Nadim.Views.Account.InfoPageControls.EditStartingDatePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Nadim.Views.Account.InfoPageControls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="360">
+
+    <Grid>
+        <DatePicker x:Name="startingDateDatePicker" Language="ar-DZ" Width="360" DayVisible="False" SelectedDate="{Binding User.startingDate}" Background="{Binding StartingDateDatePickerBackground}" SelectedDateChanged="startingDateDatePicker_SelectedDateChanged"/>
+        <TextBlock x:Name="startingDateError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*يرجى التأكد من تاريخ بداية المهنة</TextBlock>
+    </Grid>
+</Page>

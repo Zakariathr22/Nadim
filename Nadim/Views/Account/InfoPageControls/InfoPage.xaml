@@ -138,7 +138,7 @@
                 </ContentPresenter>
             </viewControls:NewButton>
             <viewControls:NewButton x:Name="editStartingDateButton" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0 0 0 8" BorderThickness="0"
-                    CornerRadius="0">
+                    CornerRadius="0" Click="editStartingDateButton_Click">
                 <ContentPresenter
                     Padding="20"
                     VerticalAlignment="Center"
@@ -155,7 +155,7 @@
                         </Grid.ColumnDefinitions>
                         <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">تاريخ بداية النشاط</TextBlock>
                         <TextBlock x:Name="startingDateButton" Text="{Binding User.startingDateString}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
-                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">يتم استخدامه في تحديد خبرة المستخدم في المجال.</TextBlock>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">يتم استخدام تاريخ بداية النشاط في تحديد خبرة المستخدم في المجال</TextBlock>
                         <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
 
                     </Grid>
@@ -167,7 +167,7 @@
             </TextBlock>
 
             <viewControls:NewButton x:Name="editEmailButton" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0" BorderThickness="0"
-                            CornerRadius="0">
+                            CornerRadius="0" Click="editEmailButton_Click">
                 <ContentPresenter
                 Padding="20"
                 VerticalAlignment="Center"

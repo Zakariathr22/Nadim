@@ -261,5 +261,51 @@ namespace Nadim.Views.Account
         {
             ShowEditAccreditationDialog();
         }
+
+        private async void ShowEditStartingDateDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new TitleControl("تعديل تاريخ بداية النشاط");
+            dialog.PrimaryButtonText = "حفظ";
+            dialog.CloseButtonText = "إلغاء";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new EditStartingDatePage(dialog,accountInfoViewModel);
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+            dialog.RequestedTheme = ThemeSelectorService.GetTheme(App.mainWindow);
+            dialog.IsPrimaryButtonEnabled = false;
+            var result = await dialog.ShowAsync();
+        }
+
+        private void editStartingDateButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowEditStartingDateDialog();
+        }
+
+        private async void ShowEditEmailDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new TitleControl("تعديل تاريخ بداية النشاط");
+            dialog.PrimaryButtonText = "حفظ";
+            dialog.CloseButtonText = "إلغاء";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new EditStartingDatePage(dialog, accountInfoViewModel);
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+            dialog.RequestedTheme = ThemeSelectorService.GetTheme(App.mainWindow);
+            dialog.IsPrimaryButtonEnabled = false;
+            var result = await dialog.ShowAsync();
+        }
+
+        private void editEmailButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowEditEmailDialog();
+        }
     }
 }
