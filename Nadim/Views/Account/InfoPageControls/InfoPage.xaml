@@ -191,7 +191,7 @@
                 </ContentPresenter>
             </viewControls:NewButton>
             <viewControls:NewButton x:Name="editPhoneButton" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" BorderThickness="0"
-                    CornerRadius="0">
+                    CornerRadius="0" Click="editPhoneButton_Click">
                 <ContentPresenter
                     Padding="20"
                     VerticalAlignment="Center"

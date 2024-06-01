@@ -306,5 +306,28 @@ namespace Nadim.Views.Account
         {
             ShowEditEmailDialog();
         }
+
+        private async void ShowEditPhoneDialog()
+        {
+            ContentDialog dialog = new ContentDialog();
+
+            // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
+            dialog.XamlRoot = Content.XamlRoot;
+            dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
+            dialog.Title = new TitleControl("تغيير رقم الهاتف المحمول");
+            dialog.PrimaryButtonText = "حفظ";
+            dialog.CloseButtonText = "إلغاء";
+            dialog.DefaultButton = ContentDialogButton.Primary;
+            dialog.Content = new EditPhonePage();
+            dialog.FlowDirection = FlowDirection.RightToLeft;
+            dialog.RequestedTheme = ThemeSelectorService.GetTheme(App.mainWindow);
+            dialog.IsPrimaryButtonEnabled = false;
+            var result = await dialog.ShowAsync();
+        }
+
+        private void editPhoneButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowEditPhoneDialog();
+        }
     }
 }

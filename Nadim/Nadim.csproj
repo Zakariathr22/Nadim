@@ -60,6 +60,7 @@
     <None Remove="Views\Account\InfoPageControls\EditEmail\EditVerifiedEmail.xaml" />
     <None Remove="Views\Account\InfoPageControls\EditGenderPage.xaml" />
     <None Remove="Views\Account\InfoPageControls\EditNamePage.xaml" />
+    <None Remove="Views\Account\InfoPageControls\EditPhonePage.xaml" />
     <None Remove="Views\Account\InfoPageControls\EditStartingDatePage.xaml" />
     <None Remove="Views\Account\InfoPageControls\TitleControl.xaml" />
     <None Remove="Views\Account\PrivacyPage.xaml" />
@@ -338,6 +339,11 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Account\InfoPageControls\EditPhonePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Account\InfoPageControls\EditEmail\EditEmailSuccess.xaml">
