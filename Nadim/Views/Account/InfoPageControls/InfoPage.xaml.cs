@@ -21,6 +21,7 @@ using Nadim.Views.Controls;
 using Nadim.ViewModels.Account;
 using Windows.Security.Credentials;
 using Nadim.Views.Account.InfoPageControls;
+using Nadim.Views.Account.InfoPageControls.EditEmail;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -292,14 +293,14 @@ namespace Nadim.Views.Account
             // XamlRoot must be set in the case of a ContentDialog running in a Desktop app
             dialog.XamlRoot = Content.XamlRoot;
             dialog.Style = Application.Current.Resources["DefaultContentDialogStyle"] as Style;
-            dialog.Title = new TitleControl("تعديل تاريخ بداية النشاط");
-            dialog.PrimaryButtonText = "حفظ";
+            dialog.PrimaryButtonText = "إرسال رمز التحقق";
             dialog.CloseButtonText = "إلغاء";
             dialog.DefaultButton = ContentDialogButton.Primary;
-            dialog.Content = new EditStartingDatePage(dialog, accountInfoViewModel);
+            if (accountInfoViewModel.User.emailVerified)
+                dialog.Content = new EditVerifiedEmail(dialog,accountInfoViewModel);
+            else dialog.Content = new EditNonVerifiedEmail();
             dialog.FlowDirection = FlowDirection.RightToLeft;
             dialog.RequestedTheme = ThemeSelectorService.GetTheme(App.mainWindow);
-            dialog.IsPrimaryButtonEnabled = false;
             var result = await dialog.ShowAsync();
         }
 

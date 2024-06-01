@@ -41,9 +41,9 @@ namespace Nadim.Models
         public string gender { get; set; }
         public byte[] profilePic { get; set; }
         public string email { get; set; }
-        public bool? emailVerified { get; set; }
+        public bool emailVerified { get; set; }
         public string phone { get; set; }
-        public bool? phoneVerified { get; set; }
+        public bool phoneVerified { get; set; }
         public string salt { get; set; }
         public string passwordHash { get; set; }
         public bool isUserCreatedPassword { get; set; }
@@ -76,9 +76,7 @@ namespace Nadim.Models
             gender = null;
             profilePic = null;
             email = null;
-            emailVerified = null;
             phone = null;
-            phoneVerified = null;
             salt = null;
             passwordHash = null;
             loger = null;

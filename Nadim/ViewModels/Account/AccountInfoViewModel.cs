@@ -77,8 +77,12 @@ namespace Nadim.ViewModels.Account
                         }
                         if (!reader.IsDBNull(reader.GetOrdinal("email"))) 
                             user.email = reader.GetString("email").ToString();
+                        if (!reader.IsDBNull(reader.GetOrdinal("emailVerified")))
+                            user.emailVerified = reader.GetBoolean("emailVerified");
                         if (!reader.IsDBNull(reader.GetOrdinal("phone"))) 
                             user.phone = reader.GetString("phone").ToString();
+                        if (!reader.IsDBNull(reader.GetOrdinal("phoneVerified")))
+                            user.phoneVerified = reader.GetBoolean("phoneVerified");
                         if (!reader.IsDBNull(reader.GetOrdinal("starting_date")))
                             user.createdAt = (DateTimeOffset)reader.GetDateTime("createdAt");
                         if (!reader.IsDBNull(reader.GetOrdinal("createdAt")))
@@ -87,6 +91,8 @@ namespace Nadim.ViewModels.Account
                             user.accreditation = reader.GetString("accreditation").ToString();
                         if (!reader.IsDBNull(reader.GetOrdinal("starting_date")))
                             user.startingDate = (DateTimeOffset)reader.GetDateTime("starting_date");
+                        if (!reader.IsDBNull(reader.GetOrdinal("salt")))
+                            user.salt = reader.GetString("salt").ToString();
 
                         user.creator = new User();
                         if (!reader.IsDBNull(reader.GetOrdinal("creator_firstname")))
