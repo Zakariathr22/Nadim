@@ -21,24 +21,24 @@ namespace Nadim.Views.Account.InfoPageControls.EditEmail
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class EditEmailOldEmailVerificationPage : Page
+    public sealed partial class EditEmailAddNewEmailPage : Page
     {
         EditVerifiedEmail p;
-        public EditEmailOldEmailVerificationPage()
+        public EditEmailAddNewEmailPage()
         {
             this.InitializeComponent();
-            this.Loaded += EditEmailOldEmailVerificationPage_Loaded;
+            this.Loaded += EditEmailAddNewEmailPage_Loaded;
         }
 
-        private void EditEmailOldEmailVerificationPage_Loaded(object sender, RoutedEventArgs e)
+        private void EditEmailAddNewEmailPage_Loaded(object sender, RoutedEventArgs e)
         {
-            this.p.dialog.PrimaryButtonText = "تحقق";
+            this.p.dialog.PrimaryButtonText = "تغيير";
             p.dialog.PrimaryButtonClick += (sender, args) =>
             {
                 // Perform validation or other logic here
                 bool isValid = false; // Replace with your validation logic
 
-                p.NavigateWithSlideTransition(typeof(EditEmailAddNewEmailPage));
+                p.NavigateWithSlideTransition(typeof(EditEmailNewEmailVerificationPage));
 
                 if (!isValid)
                 {
