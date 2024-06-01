@@ -40,6 +40,8 @@ namespace Nadim.Views.Account.InfoPageControls.EditEmail
                 // Perform validation or other logic here
                 bool isValid = false; // Replace with your validation logic
 
+                p.NavigateWithSlideTransition(typeof(EditEmailOldEmailVerificationPage));
+
                 if (!isValid)
                 {
                     // If validation fails, cancel the button click event,
