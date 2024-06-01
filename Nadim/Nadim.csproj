@@ -57,7 +57,6 @@
     <None Remove="Views\Account\InfoPageControls\EditEmail\EditEmailNewEmailVerificationPage.xaml" />
     <None Remove="Views\Account\InfoPageControls\EditEmail\EditEmailOldEmailVerificationPage.xaml" />
     <None Remove="Views\Account\InfoPageControls\EditEmail\EditEmailSuccess.xaml" />
-    <None Remove="Views\Account\InfoPageControls\EditEmail\EditNonVerifiedEmail.xaml" />
     <None Remove="Views\Account\InfoPageControls\EditEmail\EditVerifiedEmail.xaml" />
     <None Remove="Views\Account\InfoPageControls\EditGenderPage.xaml" />
     <None Remove="Views\Account\InfoPageControls\EditNamePage.xaml" />
@@ -367,11 +366,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Account\InfoPageControls\EditEmail\EditVerifiedEmail.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Views\Account\InfoPageControls\EditEmail\EditNonVerifiedEmail.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

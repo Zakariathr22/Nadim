@@ -41,7 +41,10 @@ namespace Nadim.Views.Account.InfoPageControls.EditEmail
             this.user.email = accountInfoViewModel.User.email;
             this.user.emailVerified = accountInfoViewModel.User.emailVerified;
             this.user.salt = accountInfoViewModel.User.salt;
-            NavigateWithSlideTransition(typeof(EditEmailDescriptionPage));        }
+            if (user.emailVerified)
+            NavigateWithSlideTransition(typeof(EditEmailDescriptionPage)); 
+            else NavigateWithSlideTransition(typeof(EditEmailAddNewEmailPage));
+        }
 
         public void NavigateWithSlideTransition(Type pageType)
         {

@@ -296,9 +296,7 @@ namespace Nadim.Views.Account
             dialog.PrimaryButtonText = "إرسال رمز التحقق";
             dialog.CloseButtonText = "إلغاء";
             dialog.DefaultButton = ContentDialogButton.Primary;
-            if (accountInfoViewModel.User.emailVerified)
-                dialog.Content = new EditVerifiedEmail(dialog,accountInfoViewModel);
-            else dialog.Content = new EditNonVerifiedEmail();
+            dialog.Content = new EditVerifiedEmail(dialog,accountInfoViewModel);
             dialog.FlowDirection = FlowDirection.RightToLeft;
             dialog.RequestedTheme = ThemeSelectorService.GetTheme(App.mainWindow);
             var result = await dialog.ShowAsync();
