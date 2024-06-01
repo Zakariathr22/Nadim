@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Nadim.Views.Account.InfoPageControls.EditEmail.EditEmailSuccess"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Nadim.Views.Account.InfoPageControls.EditEmail"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Width="360">
+
+
+    <StackPanel>
+        <FontIcon Glyph="&#xE930;" Foreground="{ThemeResource SystemFillColorSuccessBrush}" FontSize="72"/>
+        <TextBlock x:Name="Title" Margin="0 8" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{ThemeResource SystemFillColorSuccessBrush}" TextWrapping="Wrap">
+            تم تغيير البريد الإلكتروني بنجاح
+        </TextBlock>
+    </StackPanel>
+</Page>

@@ -27,6 +27,7 @@ namespace Nadim.Views.Account.InfoPageControls.EditEmail
         public EditEmailAddNewEmailPage()
         {
             this.InitializeComponent();
+            title.Title.Text = "تغيير البريد الإلكتروني";
             this.Loaded += EditEmailAddNewEmailPage_Loaded;
         }
 

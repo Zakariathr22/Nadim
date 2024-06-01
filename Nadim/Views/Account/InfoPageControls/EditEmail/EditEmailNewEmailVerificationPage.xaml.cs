@@ -1,4 +1,4 @@
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -23,9 +23,40 @@ namespace Nadim.Views.Account.InfoPageControls.EditEmail
     /// </summary>
     public sealed partial class EditEmailNewEmailVerificationPage : Page
     {
+        EditVerifiedEmail p;
         public EditEmailNewEmailVerificationPage()
         {
             this.InitializeComponent();
+            this.Loaded += EditEmailNewEmailVerificationPage_Loaded;
+        }
+
+        private void EditEmailNewEmailVerificationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.p.dialog.PrimaryButtonText = "تحقق";
+            p.dialog.PrimaryButtonClick += (sender, args) =>
+            {
+                // Perform validation or other logic here
+                bool isValid = false; // Replace with your validation logic
+
+                p.NavigateWithSlideTransition(typeof(EditEmailSuccess));
+
+                if (!isValid)
+                {
+                    // If validation fails, cancel the button click event,
+                    // which will prevent the dialog from closing
+                    args.Cancel = true;
+                }
+            };
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is EditVerifiedEmail)
+            {
+                p = e.Parameter as EditVerifiedEmail;
+            }
+            base.OnNavigatedTo(e);
         }
     }
+
 }
