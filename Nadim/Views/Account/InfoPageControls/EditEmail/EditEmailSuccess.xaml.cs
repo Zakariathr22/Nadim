@@ -1,4 +1,4 @@
-using Microsoft.UI.Xaml;
+﻿using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -23,9 +23,27 @@ namespace Nadim.Views.Account.InfoPageControls.EditEmail
     /// </summary>
     public sealed partial class EditEmailSuccess : Page
     {
+        EditVerifiedEmail p;
         public EditEmailSuccess()
         {
             this.InitializeComponent();
+            this.Loaded += EditEmailSuccess_Loaded;
+        }
+
+        private void EditEmailSuccess_Loaded(object sender, RoutedEventArgs e)
+        {
+            this.p.dialog.PrimaryButtonText = null;
+            this.p.dialog.CloseButtonText = "حسنا";
+            this.p.dialog.DefaultButton = ContentDialogButton.Close;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is EditVerifiedEmail)
+            {
+                p = e.Parameter as EditVerifiedEmail;
+            }
+            base.OnNavigatedTo(e);
         }
     }
 }
