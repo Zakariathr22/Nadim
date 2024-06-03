@@ -15,7 +15,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Margin="4" Grid.Column="0">
-            <TextBox x:Name="lastNameTextBox" Header="اللقب" PlaceholderText="اللقب" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding User.lastName}" Background="{Binding LastNameTextBoxBackground, Mode=OneWay}" TextChanged="lastNameTextBox_TextChanged"/>
+            <TextBox x:Name="lastNameTextBox" Header="اللقب" PlaceholderText="اللقب" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding NewLastName, Mode=TwoWay}" Background="{Binding LastNameTextBoxBackground, Mode=OneWay}" TextChanged="lastNameTextBox_TextChanged"/>
             <TextBlock x:Name="lastNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*يجب إدخال اللقب</TextBlock>
             <TextBlock x:Name="lastNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*اللقب أطول من اللازم</TextBlock>
             <TextBlock x:Name="lastNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*اللقب أقصر من اللازم</TextBlock>
@@ -23,7 +23,7 @@
             <TextBlock x:Name="lastNameContainsNumberError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*يجب ألا يحتوي اللقب على رقم</TextBlock>
         </StackPanel>
         <StackPanel Margin="4" Grid.Column="1">
-            <TextBox x:Name="firstNameTextBox" Header="الاسم" PlaceholderText="الاسم" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding User.firstName}" Background="{Binding FirstNameTextBoxBackground, Mode=OneWay}" TextChanged="firstNameTextBox_TextChanged"/>
+            <TextBox x:Name="firstNameTextBox" Header="الاسم" PlaceholderText="الاسم" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding NewFirstName, Mode=TwoWay}" Background="{Binding FirstNameTextBoxBackground, Mode=OneWay}" TextChanged="firstNameTextBox_TextChanged"/>
             <TextBlock x:Name="firstNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*يجب إدخال الاسم</TextBlock>
             <TextBlock x:Name="firstNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*الاسم أطول من اللازم</TextBlock>
             <TextBlock x:Name="firstNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*الاسم أقصر من اللازم</TextBlock>

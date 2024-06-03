@@ -9,11 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Media.Imaging;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Storage.Streams;
 using Nadim.Services;
 using MySqlConnector;
+using Microsoft.UI.Xaml;
+using CommunityToolkit.Mvvm.Input;
+using Windows.Networking;
 
 namespace Nadim.ViewModels.Account
 {
@@ -115,5 +119,160 @@ namespace Nadim.ViewModels.Account
 
             return user;
         }
+
+        public bool FullNameIsValid;
+        [ObservableProperty] private string newLastName;
+        [ObservableProperty] private string newFirstName;
+
+        [ObservableProperty] private Brush lastNameTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+
+        [ObservableProperty] private Visibility lastNameRequiredErrorVisiblity = Visibility.Collapsed;
+        [ObservableProperty] private Visibility lastNameTooLongErrorVisiblity = Visibility.Collapsed;
+        [ObservableProperty] private Visibility lastNameTooShortErrorVisiblity = Visibility.Collapsed;
+        [ObservableProperty] private Visibility lastNameIsNotArabicErrorVisibility = Visibility.Collapsed;
+        [ObservableProperty] private Visibility lastNameContainsNumberErrorVisibility = Visibility.Collapsed;
+
+        [RelayCommand]
+        void FullNameValidation()
+        {
+            FullNameIsValid = true;
+            if (NewLastName.TrimStart() == ""
+                || !DataValidationService.HasMaximumCharacters(NewLastName.TrimStart().TrimEnd(), 49)
+                || !DataValidationService.HasMinimumCharacters(NewLastName.TrimStart().TrimEnd(), 2)
+                || !DataValidationService.IsArabic(NewLastName.TrimStart().TrimEnd())
+                || DataValidationService.ContainsNumber(NewLastName.TrimStart().TrimEnd()))
+            {
+                FullNameIsValid = false;
+                LastNameTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                if (NewLastName.TrimStart() == "")
+                {
+                    FullNameIsValid = false;
+                    NewLastName = "";
+                    LastNameRequiredErrorVisiblity = Visibility.Visible;
+                }
+                else
+                {
+                    LastNameRequiredErrorVisiblity = Visibility.Collapsed;
+                }
+                if (!DataValidationService.HasMaximumCharacters(NewLastName.TrimStart().TrimEnd(), 49))
+                {
+                    LastNameTooLongErrorVisiblity = Visibility.Visible;
+                }
+                else
+                {
+                    LastNameTooLongErrorVisiblity = Visibility.Collapsed;
+                }
+
+                if (!DataValidationService.HasMinimumCharacters(NewLastName.TrimStart().TrimEnd(), 2)
+                    && NewLastName.TrimStart() != "")
+                {
+                    LastNameTooShortErrorVisiblity = Visibility.Visible;
+                }
+                else
+                {
+                    LastNameTooShortErrorVisiblity = Visibility.Collapsed;
+                }
+
+                if (!DataValidationService.IsArabic(NewLastName.TrimStart().TrimEnd())
+                    && NewLastName.TrimStart() != "")
+                {
+                    LastNameIsNotArabicErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    LastNameIsNotArabicErrorVisibility = Visibility.Collapsed;
+                }
+
+                if (DataValidationService.ContainsNumber(NewLastName.TrimStart().TrimEnd())
+                    && NewLastName.TrimStart() != "")
+                {
+                    LastNameContainsNumberErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    LastNameContainsNumberErrorVisibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                LastNameTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+                NewLastName = NewLastName.TrimStart().TrimEnd();
+                LastNameRequiredErrorVisiblity = Visibility.Collapsed;
+                LastNameTooLongErrorVisiblity = Visibility.Collapsed;
+                LastNameTooShortErrorVisiblity = Visibility.Collapsed;
+                LastNameIsNotArabicErrorVisibility = Visibility.Collapsed;
+                LastNameContainsNumberErrorVisibility = Visibility.Collapsed;
+            }
+
+            //if (FirstName.TrimStart() == ""
+            //    || !DataValidationService.HasMaximumCharacters(FirstName.TrimStart().TrimEnd(), 49)
+            //    || !DataValidationService.HasMinimumCharacters(FirstName.TrimStart().TrimEnd(), 2)
+            //    || !DataValidationService.IsArabic(FirstName.TrimStart().TrimEnd())
+            //    || DataValidationService.ContainsNumber(FirstName.TrimStart().TrimEnd()))
+            //{
+            //    EveryThingValid = false;
+            //    FirstNameTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+            //    if (FirstName.TrimStart() == "")
+            //    {
+            //        FirstName = "";
+            //        FirstNameRequiredErrorVisiblity = Visibility.Visible;
+            //    }
+            //    else
+            //    {
+            //        FirstNameRequiredErrorVisiblity = Visibility.Collapsed;
+            //    }
+            //    if (!DataValidationService.HasMaximumCharacters(FirstName.TrimStart().TrimEnd(), 49))
+            //    {
+            //        FirstNameTooLongErrorVisiblity = Visibility.Visible;
+            //    }
+            //    else
+            //    {
+            //        FirstNameTooLongErrorVisiblity = Visibility.Collapsed;
+            //    }
+
+            //    if (!DataValidationService.HasMinimumCharacters(FirstName.TrimStart().TrimEnd(), 2)
+            //        && FirstName.TrimStart() != "")
+            //    {
+            //        FirstNameTooShortErrorVisiblity = Visibility.Visible;
+            //    }
+            //    else
+            //    {
+            //        FirstNameTooShortErrorVisiblity = Visibility.Collapsed;
+            //    }
+
+            //    if (!DataValidationService.IsArabic(FirstName.TrimStart().TrimEnd())
+            //        && FirstName.TrimStart() != "")
+            //    {
+            //        FirstNameIsNotArabicErrorVisibility = Visibility.Visible;
+            //    }
+            //    else
+            //    {
+            //        FirstNameIsNotArabicErrorVisibility = Visibility.Collapsed;
+            //    }
+
+            //    if (DataValidationService.ContainsNumber(FirstName.TrimStart().TrimEnd())
+            //        && FirstName.TrimStart() != "")
+            //    {
+            //        FirstNameContainsNumberErrorVisibility = Visibility.Visible;
+            //    }
+            //    else
+            //    {
+            //        FirstNameContainsNumberErrorVisibility = Visibility.Collapsed;
+            //    }
+            //}
+            //else
+            //{
+            //    FirstNameTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+            //    FirstName = FirstName.TrimStart().TrimEnd();
+            //    FirstNameRequiredErrorVisiblity = Visibility.Collapsed;
+            //    FirstNameTooLongErrorVisiblity = Visibility.Collapsed;
+            //    FirstNameTooShortErrorVisiblity = Visibility.Collapsed;
+            //    FirstNameIsNotArabicErrorVisibility = Visibility.Collapsed;
+            //    FirstNameContainsNumberErrorVisibility = Visibility.Collapsed;
+
+            //}
+
+        }
+
     }
 }

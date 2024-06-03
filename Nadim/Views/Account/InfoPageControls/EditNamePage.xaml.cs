@@ -26,7 +26,7 @@ namespace Nadim.Views.Account.InfoPageControls
     public sealed partial class EditNamePage : Page
     {
         ContentDialog dialog;
-        User user = new User();
+        AccountInfoViewModel accountInfoViewModel;
         public EditNamePage()
         {
             this.InitializeComponent();
@@ -37,20 +37,32 @@ namespace Nadim.Views.Account.InfoPageControls
             this.InitializeComponent();
             this.dialog = dialog;
             this.DataContext = accountInfoViewModel;
-            this.user.firstName = accountInfoViewModel.User.firstName;
-            this.user.lastName = accountInfoViewModel.User.lastName;
+            this.accountInfoViewModel = accountInfoViewModel;
+            this.accountInfoViewModel.NewFirstName = accountInfoViewModel.User.firstName;
+            this.accountInfoViewModel.NewLastName = accountInfoViewModel.User.lastName;
+            this.dialog.PrimaryButtonClick += (sender, args) =>
+            {
+                accountInfoViewModel.FullNameValidationCommand.Execute(null);
+
+                if (!accountInfoViewModel.FullNameIsValid)
+                {
+                    // If validation fails, cancel the button click event,
+                    // which will prevent the dialog from closing
+                    args.Cancel = true;
+                }
+            };
         }
 
         private void lastNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (firstNameTextBox.Text.Trim() != user.firstName || lastNameTextBox.Text.Trim() != user.lastName) 
+            if (firstNameTextBox.Text.Trim() != accountInfoViewModel.NewFirstName || lastNameTextBox.Text.Trim() != accountInfoViewModel.NewFirstName) 
                 dialog.IsPrimaryButtonEnabled = true;
             else dialog.IsPrimaryButtonEnabled = false;
         }
 
         private void firstNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (firstNameTextBox.Text.Trim() != user.firstName || lastNameTextBox.Text.Trim() != user.lastName)
+            if (firstNameTextBox.Text.Trim() != accountInfoViewModel.NewLastName || lastNameTextBox.Text.Trim() != accountInfoViewModel.NewLastName)
                 dialog.IsPrimaryButtonEnabled = true;
             else dialog.IsPrimaryButtonEnabled = false;
         }
