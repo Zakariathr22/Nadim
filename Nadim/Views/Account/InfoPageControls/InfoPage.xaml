@@ -56,7 +56,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">اللقب والاسم</TextBlock>
-                    <TextBlock x:Name="fullNameTextBlock" Text="{Binding User.fullName}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" Padding="0 0 4 0"/>
+                    <TextBlock x:Name="fullNameTextBlock" Text="{Binding User.fullName, Mode=TwoWay}" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" Padding="0 0 4 0"/>
                     <HyperlinkButton x:Name="editFullNameHyperlinkButton" Grid.Column="2" HorizontalAlignment="Right" Padding="0" Click="editFullNameHyperlinkButton_Click">
                         تعديل اللقب أو الاسم
                     </HyperlinkButton>

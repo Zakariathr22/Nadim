@@ -299,7 +299,30 @@ namespace Nadim.ViewModels.Account
             FirstNameTooShortErrorVisiblity = Visibility.Collapsed;
             FirstNameIsNotArabicErrorVisibility = Visibility.Collapsed;
             FirstNameContainsNumberErrorVisibility = Visibility.Collapsed;
+        }
 
+        [RelayCommand]
+        private void EditName()
+        {
+            var credential = App.valut.Retrieve("NadimApplication", "token");
+            Token token = new Token(credential);
+            string query = "CALL UpdateUserFullName(@p_token_value, @p_ip_address, @p_user_agent, @p_machine_name, @p_firstname, @p_lastname)";
+            MySqlParameter[] parameters = new MySqlParameter[]
+            {
+                new MySqlParameter("@p_token_value", token.tokenValue),
+                new MySqlParameter("@p_ip_address", token.ipAddress),
+                new MySqlParameter("@p_user_agent", token.userAgent),
+                new MySqlParameter("@p_machine_name", token.machineName),
+                new MySqlParameter("@p_firstname", NewFirstName),
+                new MySqlParameter("@p_lastname", NewLastName)
+            };
+            string message = App.dataAccess.ExecuteScalar(query, parameters).ToString();
+            if (message == "update success")
+            {
+                User.FirstName = NewFirstName;
+                User.LastName = NewLastName;
+                //User.fullName = user.fullName;
+            }
         }
 
     }

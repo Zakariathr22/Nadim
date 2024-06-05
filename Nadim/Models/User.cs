@@ -1,21 +1,49 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Nadim.Models
 {
-    public class User
+    public class User : INotifyPropertyChanged
     {
-        public string firstName { get; set; }
-        public string lastName { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string firstName;
+        public string FirstName
+        {
+            get => firstName;
+            set
+            {
+                firstName = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(fullName));
+            }
+        }
+        public string lastName;
+        public string LastName
+        {
+            get => lastName;
+            set
+            {
+                lastName = value;
+                OnPropertyChanged();
+                OnPropertyChanged(nameof(fullName));
+            }
+        }
+
         public string fullName
         {
             get
             {
                 return $"{lastName} {firstName}";
             }
+
         }
 
         public string profitionalFullName
@@ -67,6 +95,9 @@ namespace Nadim.Models
         public DateTimeOffset deletedAt { get; set; }
         public string loger { get; set; }
         public Office office { get; set; }
+
+        void OnPropertyChanged([CallerMemberName] string PropertyName = "") =>
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(PropertyName));
 
         public void clear()
         {

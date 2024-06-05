@@ -51,6 +51,10 @@ namespace Nadim.Views.Account.InfoPageControls
                     // which will prevent the dialog from closing
                     args.Cancel = true;
                 }
+                else
+                {
+                    accountInfoViewModel.EditNameCommand.Execute(null);
+                }
             };
             this.dialog.CloseButtonClick += (sender, args) =>
             {
