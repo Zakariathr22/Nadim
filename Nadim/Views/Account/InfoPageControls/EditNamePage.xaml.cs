@@ -51,6 +51,10 @@ namespace Nadim.Views.Account.InfoPageControls
                     args.Cancel = true;
                 }
             };
+            this.dialog.CloseButtonClick += (sender, args) =>
+            {
+                accountInfoViewModel.ResetFullNameValidationCommand.Execute(null);
+            };
         }
 
         private void lastNameTextBox_TextChanged(object sender, TextChangedEventArgs e)

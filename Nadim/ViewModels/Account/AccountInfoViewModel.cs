@@ -132,6 +132,14 @@ namespace Nadim.ViewModels.Account
         [ObservableProperty] private Visibility lastNameIsNotArabicErrorVisibility = Visibility.Collapsed;
         [ObservableProperty] private Visibility lastNameContainsNumberErrorVisibility = Visibility.Collapsed;
 
+        [ObservableProperty] private Brush firstNameTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+
+        [ObservableProperty] private Visibility firstNameRequiredErrorVisiblity = Visibility.Collapsed;
+        [ObservableProperty] private Visibility firstNameTooLongErrorVisiblity = Visibility.Collapsed;
+        [ObservableProperty] private Visibility firstNameTooShortErrorVisiblity = Visibility.Collapsed;
+        [ObservableProperty] private Visibility firstNameIsNotArabicErrorVisibility = Visibility.Collapsed;
+        [ObservableProperty] private Visibility firstNameContainsNumberErrorVisibility = Visibility.Collapsed;
+
         [RelayCommand]
         void FullNameValidation()
         {
@@ -204,73 +212,93 @@ namespace Nadim.ViewModels.Account
                 LastNameContainsNumberErrorVisibility = Visibility.Collapsed;
             }
 
-            //if (FirstName.TrimStart() == ""
-            //    || !DataValidationService.HasMaximumCharacters(FirstName.TrimStart().TrimEnd(), 49)
-            //    || !DataValidationService.HasMinimumCharacters(FirstName.TrimStart().TrimEnd(), 2)
-            //    || !DataValidationService.IsArabic(FirstName.TrimStart().TrimEnd())
-            //    || DataValidationService.ContainsNumber(FirstName.TrimStart().TrimEnd()))
-            //{
-            //    EveryThingValid = false;
-            //    FirstNameTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
-            //    if (FirstName.TrimStart() == "")
-            //    {
-            //        FirstName = "";
-            //        FirstNameRequiredErrorVisiblity = Visibility.Visible;
-            //    }
-            //    else
-            //    {
-            //        FirstNameRequiredErrorVisiblity = Visibility.Collapsed;
-            //    }
-            //    if (!DataValidationService.HasMaximumCharacters(FirstName.TrimStart().TrimEnd(), 49))
-            //    {
-            //        FirstNameTooLongErrorVisiblity = Visibility.Visible;
-            //    }
-            //    else
-            //    {
-            //        FirstNameTooLongErrorVisiblity = Visibility.Collapsed;
-            //    }
+            if (NewFirstName.TrimStart() == ""
+                || !DataValidationService.HasMaximumCharacters(NewFirstName.TrimStart().TrimEnd(), 49)
+                || !DataValidationService.HasMinimumCharacters(NewFirstName.TrimStart().TrimEnd(), 2)
+                || !DataValidationService.IsArabic(NewFirstName.TrimStart().TrimEnd())
+                || DataValidationService.ContainsNumber(NewFirstName.TrimStart().TrimEnd()))
+            {
+                FullNameIsValid = false;
+                FirstNameTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                if (NewFirstName.TrimStart() == "")
+                {
+                    NewFirstName = "";
+                    FirstNameRequiredErrorVisiblity = Visibility.Visible;
+                }
+                else
+                {
+                    FirstNameRequiredErrorVisiblity = Visibility.Collapsed;
+                }
+                if (!DataValidationService.HasMaximumCharacters(NewFirstName.TrimStart().TrimEnd(), 49))
+                {
+                    FirstNameTooLongErrorVisiblity = Visibility.Visible;
+                }
+                else
+                {
+                    FirstNameTooLongErrorVisiblity = Visibility.Collapsed;
+                }
 
-            //    if (!DataValidationService.HasMinimumCharacters(FirstName.TrimStart().TrimEnd(), 2)
-            //        && FirstName.TrimStart() != "")
-            //    {
-            //        FirstNameTooShortErrorVisiblity = Visibility.Visible;
-            //    }
-            //    else
-            //    {
-            //        FirstNameTooShortErrorVisiblity = Visibility.Collapsed;
-            //    }
+                if (!DataValidationService.HasMinimumCharacters(NewFirstName.TrimStart().TrimEnd(), 2)
+                    && NewFirstName.TrimStart() != "")
+                {
+                    FirstNameTooShortErrorVisiblity = Visibility.Visible;
+                }
+                else
+                {
+                    FirstNameTooShortErrorVisiblity = Visibility.Collapsed;
+                }
 
-            //    if (!DataValidationService.IsArabic(FirstName.TrimStart().TrimEnd())
-            //        && FirstName.TrimStart() != "")
-            //    {
-            //        FirstNameIsNotArabicErrorVisibility = Visibility.Visible;
-            //    }
-            //    else
-            //    {
-            //        FirstNameIsNotArabicErrorVisibility = Visibility.Collapsed;
-            //    }
+                if (!DataValidationService.IsArabic(NewFirstName.TrimStart().TrimEnd())
+                    && NewFirstName.TrimStart() != "")
+                {
+                    FirstNameIsNotArabicErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    FirstNameIsNotArabicErrorVisibility = Visibility.Collapsed;
+                }
 
-            //    if (DataValidationService.ContainsNumber(FirstName.TrimStart().TrimEnd())
-            //        && FirstName.TrimStart() != "")
-            //    {
-            //        FirstNameContainsNumberErrorVisibility = Visibility.Visible;
-            //    }
-            //    else
-            //    {
-            //        FirstNameContainsNumberErrorVisibility = Visibility.Collapsed;
-            //    }
-            //}
-            //else
-            //{
-            //    FirstNameTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
-            //    FirstName = FirstName.TrimStart().TrimEnd();
-            //    FirstNameRequiredErrorVisiblity = Visibility.Collapsed;
-            //    FirstNameTooLongErrorVisiblity = Visibility.Collapsed;
-            //    FirstNameTooShortErrorVisiblity = Visibility.Collapsed;
-            //    FirstNameIsNotArabicErrorVisibility = Visibility.Collapsed;
-            //    FirstNameContainsNumberErrorVisibility = Visibility.Collapsed;
+                if (DataValidationService.ContainsNumber(NewFirstName.TrimStart().TrimEnd())
+                    && NewFirstName.TrimStart() != "")
+                {
+                    FirstNameContainsNumberErrorVisibility = Visibility.Visible;
+                }
+                else
+                {
+                    FirstNameContainsNumberErrorVisibility = Visibility.Collapsed;
+                }
+            }
+            else
+            {
+                FirstNameTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+                NewFirstName = NewFirstName.TrimStart().TrimEnd();
+                FirstNameRequiredErrorVisiblity = Visibility.Collapsed;
+                FirstNameTooLongErrorVisiblity = Visibility.Collapsed;
+                FirstNameTooShortErrorVisiblity = Visibility.Collapsed;
+                FirstNameIsNotArabicErrorVisibility = Visibility.Collapsed;
+                FirstNameContainsNumberErrorVisibility = Visibility.Collapsed;
 
-            //}
+            }
+
+        }
+        [RelayCommand]
+        private void ResetFullNameValidation()
+        {
+            LastNameTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+
+            LastNameRequiredErrorVisiblity = Visibility.Collapsed;
+            LastNameTooLongErrorVisiblity = Visibility.Collapsed;
+            LastNameTooShortErrorVisiblity = Visibility.Collapsed;
+            LastNameIsNotArabicErrorVisibility = Visibility.Collapsed;
+            LastNameContainsNumberErrorVisibility = Visibility.Collapsed;
+
+            FirstNameTextBoxBackground = App.Current.Resources["ControlFillColorDefaultBrush"] as Brush;
+
+            FirstNameRequiredErrorVisiblity = Visibility.Collapsed;
+            FirstNameTooLongErrorVisiblity = Visibility.Collapsed;
+            FirstNameTooShortErrorVisiblity = Visibility.Collapsed;
+            FirstNameIsNotArabicErrorVisibility = Visibility.Collapsed;
+            FirstNameContainsNumberErrorVisibility = Visibility.Collapsed;
 
         }
 

@@ -24,11 +24,11 @@
         </StackPanel>
         <StackPanel Margin="4" Grid.Column="1">
             <TextBox x:Name="firstNameTextBox" Header="الاسم" PlaceholderText="الاسم" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding NewFirstName, Mode=TwoWay}" Background="{Binding FirstNameTextBoxBackground, Mode=OneWay}" TextChanged="firstNameTextBox_TextChanged"/>
-            <TextBlock x:Name="firstNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*يجب إدخال الاسم</TextBlock>
-            <TextBlock x:Name="firstNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*الاسم أطول من اللازم</TextBlock>
-            <TextBlock x:Name="firstNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*الاسم أقصر من اللازم</TextBlock>
-            <TextBlock x:Name="firstNameIsNotArabicError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*الاسم يجب أن يكون بالعربية</TextBlock>
-            <TextBlock x:Name="firstNameContainsNumberError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*يجب ألا يحتوي الاسم على رقم</TextBlock>
+            <TextBlock x:Name="firstNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameRequiredErrorVisiblity}">*يجب إدخال الاسم</TextBlock>
+            <TextBlock x:Name="firstNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameTooLongErrorVisiblity}">*الاسم أطول من اللازم</TextBlock>
+            <TextBlock x:Name="firstNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameTooLongErrorVisiblity}">*الاسم أقصر من اللازم</TextBlock>
+            <TextBlock x:Name="firstNameIsNotArabicError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameTooLongErrorVisiblity}">*الاسم يجب أن يكون بالعربية</TextBlock>
+            <TextBlock x:Name="firstNameContainsNumberError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding FirstNameTooLongErrorVisiblity}">*يجب ألا يحتوي الاسم على رقم</TextBlock>
         </StackPanel>
     </Grid>
 </Page>
