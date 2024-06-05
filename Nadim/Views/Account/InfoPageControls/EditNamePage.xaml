@@ -16,11 +16,11 @@
         </Grid.ColumnDefinitions>
         <StackPanel Margin="4" Grid.Column="0">
             <TextBox x:Name="lastNameTextBox" Header="اللقب" PlaceholderText="اللقب" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding NewLastName, Mode=TwoWay}" Background="{Binding LastNameTextBoxBackground, Mode=OneWay}" TextChanged="lastNameTextBox_TextChanged"/>
-            <TextBlock x:Name="lastNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*يجب إدخال اللقب</TextBlock>
-            <TextBlock x:Name="lastNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*اللقب أطول من اللازم</TextBlock>
-            <TextBlock x:Name="lastNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*اللقب أقصر من اللازم</TextBlock>
-            <TextBlock x:Name="lastNameIsNotArabicError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*اللقب يجب أن يكون بالعربية</TextBlock>
-            <TextBlock x:Name="lastNameContainsNumberError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="Collapsed">*يجب ألا يحتوي اللقب على رقم</TextBlock>
+            <TextBlock x:Name="lastNameRequiredError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameRequiredErrorVisiblity}">*يجب إدخال اللقب</TextBlock>
+            <TextBlock x:Name="lastNameTooLongError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameTooLongErrorVisiblity}">*اللقب أطول من اللازم</TextBlock>
+            <TextBlock x:Name="lastNameTooShortError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameTooShortErrorVisiblity}">*اللقب أقصر من اللازم</TextBlock>
+            <TextBlock x:Name="lastNameIsNotArabicError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameIsNotArabicErrorVisibility}">*اللقب يجب أن يكون بالعربية</TextBlock>
+            <TextBlock x:Name="lastNameContainsNumberError" FontSize="12" Foreground="{ThemeResource SystemFillColorCriticalBrush}" Visibility="{Binding LastNameContainsNumberErrorVisibility}">*يجب ألا يحتوي اللقب على رقم</TextBlock>
         </StackPanel>
         <StackPanel Margin="4" Grid.Column="1">
             <TextBox x:Name="firstNameTextBox" Header="الاسم" PlaceholderText="الاسم" IsSpellCheckEnabled="False" TextAlignment="Left" Text="{Binding NewFirstName, Mode=TwoWay}" Background="{Binding FirstNameTextBoxBackground, Mode=OneWay}" TextChanged="firstNameTextBox_TextChanged"/>

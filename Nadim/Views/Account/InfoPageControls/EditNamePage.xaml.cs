@@ -55,14 +55,14 @@ namespace Nadim.Views.Account.InfoPageControls
 
         private void lastNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (firstNameTextBox.Text.Trim() != accountInfoViewModel.NewFirstName || lastNameTextBox.Text.Trim() != accountInfoViewModel.NewFirstName) 
+            if (firstNameTextBox.Text.Trim() != accountInfoViewModel.User.firstName || lastNameTextBox.Text.Trim() != accountInfoViewModel.User.lastName) 
                 dialog.IsPrimaryButtonEnabled = true;
             else dialog.IsPrimaryButtonEnabled = false;
         }
 
         private void firstNameTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (firstNameTextBox.Text.Trim() != accountInfoViewModel.NewLastName || lastNameTextBox.Text.Trim() != accountInfoViewModel.NewLastName)
+            if (firstNameTextBox.Text.Trim() != accountInfoViewModel.User.firstName || lastNameTextBox.Text.Trim() != accountInfoViewModel.User.lastName)
                 dialog.IsPrimaryButtonEnabled = true;
             else dialog.IsPrimaryButtonEnabled = false;
         }
