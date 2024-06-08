@@ -66,7 +66,7 @@ namespace Nadim.Views.AccountRecovery
             || !DataValidationService.ContainsSymbol(Password)
             || !DataValidationService.ContainsNumber(Password))
             {
-                passwordBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                passwordBox.Background = ThemeSelectorService.SetBrush("Critical");
                 if (Password == "")
                 {
                     passwordRequiredError.Visibility = Visibility.Visible;
@@ -131,7 +131,7 @@ namespace Nadim.Views.AccountRecovery
             }
             if (confirmPasswordBox.Password != passwordBox.Password && confirmPasswordBox.Password != "")
             {
-                confirmPasswordBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                confirmPasswordBox.Background = ThemeSelectorService.SetBrush("Critical");
                 confirmPasswoedMatchError.Visibility = Visibility.Visible;
             }
             else
@@ -145,7 +145,7 @@ namespace Nadim.Views.AccountRecovery
         {
             if (confirmPasswordBox.Password == "" || confirmPasswordBox.Password != passwordBox.Password)
             {
-                confirmPasswordBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                confirmPasswordBox.Background = ThemeSelectorService.SetBrush("Critical");
                 if (confirmPasswordBox.Password == "")
                 {
                     confirmPasswoedRequiredError.Visibility = Visibility.Visible;

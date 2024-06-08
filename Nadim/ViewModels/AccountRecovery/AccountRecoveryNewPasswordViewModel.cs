@@ -43,7 +43,7 @@ namespace Nadim.ViewModels.AccountRecovery
                 || !DataValidationService.ContainsNumber(Password))
             {
                 EveryThingValid = false;
-                PasswordBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                PasswordBoxBackground = ThemeSelectorService.SetBrush("Critical");
                 if (Password == "")
                 {
                     PasswordRequiredErrorVisibility = Visibility.Visible;
@@ -110,7 +110,7 @@ namespace Nadim.ViewModels.AccountRecovery
             if (ConfirmPassword == "" || ConfirmPassword != Password)
             {
                 EveryThingValid = false;
-                ConfirmPasswordBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                ConfirmPasswordBoxBackground = ThemeSelectorService.SetBrush("Critical");
                 if (ConfirmPassword == "")
                 {
                     ConfirmPasswoedRequiredErrorVisibility = Visibility.Visible;

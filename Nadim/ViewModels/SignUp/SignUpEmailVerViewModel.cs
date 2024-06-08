@@ -53,7 +53,7 @@ namespace Nadim.ViewModels.SignUp
                 || int.Parse(VerificationCode.TrimEnd().TrimStart()) == 0)
             {
                 EmailCodeIsValid = false;
-                VerificationCodeTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                VerificationCodeTextBoxBackground = ThemeSelectorService.SetBrush("Critical");
 
                 if (VerificationCode.TrimStart() == "")
                 {

@@ -151,7 +151,8 @@ namespace Nadim.ViewModels.Account
                 || DataValidationService.ContainsNumber(NewLastName.TrimStart().TrimEnd()))
             {
                 FullNameIsValid = false;
-                LastNameTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                LastNameTextBoxBackground = ThemeSelectorService.SetBrush("Critical");
+                
                 if (NewLastName.TrimStart() == "")
                 {
                     FullNameIsValid = false;
@@ -219,7 +220,7 @@ namespace Nadim.ViewModels.Account
                 || DataValidationService.ContainsNumber(NewFirstName.TrimStart().TrimEnd()))
             {
                 FullNameIsValid = false;
-                FirstNameTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                FirstNameTextBoxBackground = ThemeSelectorService.SetBrush("Critical");
                 if (NewFirstName.TrimStart() == "")
                 {
                     NewFirstName = "";
@@ -321,7 +322,6 @@ namespace Nadim.ViewModels.Account
             {
                 User.FirstName = NewFirstName;
                 User.LastName = NewLastName;
-                //User.fullName = user.fullName;
             }
         }
 

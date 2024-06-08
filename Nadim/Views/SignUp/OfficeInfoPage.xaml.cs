@@ -60,7 +60,7 @@ namespace Nadim.Views.SignUp
             string Naming = namingTextBox.Text;
             if (Naming.TrimStart() == "")
             {
-                namingTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                namingTextBox.Background = ThemeSelectorService.SetBrush("Critical");
                 if (Naming.TrimStart() == "")
                 {
                     namingRequiredError.Visibility = Visibility.Visible;
@@ -82,7 +82,7 @@ namespace Nadim.Views.SignUp
             string Headquarters = headquartersTextBox.Text;
             if (Headquarters.TrimStart() == "" || !DataValidationService.HasMaximumCharacters(Headquarters.TrimStart().TrimEnd(), 100))
             {
-                headquartersTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                headquartersTextBox.Background = ThemeSelectorService.SetBrush("Critical");
                 if (Headquarters.TrimStart() == "")
                 {
                     headquartersRequiredError.Visibility = Visibility.Visible;
@@ -113,7 +113,7 @@ namespace Nadim.Views.SignUp
             int Wilaya = wilayaComboBox.SelectedIndex;
             if (Wilaya <= -1 || Wilaya >= 58)
             {
-                wilayaComboBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                wilayaComboBox.Background = ThemeSelectorService.SetBrush("Critical");
                 wilayaRequiredError.Visibility = Visibility.Visible;
             }
             else
@@ -146,7 +146,7 @@ namespace Nadim.Views.SignUp
                 || !DataValidationService.HasMaximumCharacters(Phone1.Replace(" ", ""), 10)
                 || !DataValidationService.HasMinimumCharacters(Phone1.Replace(" ", ""), 9))
             {
-                phone1TextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                phone1TextBox.Background = ThemeSelectorService.SetBrush("Critical");
 
                 if (Phone1.TrimStart() == "")
                 {
@@ -218,7 +218,7 @@ namespace Nadim.Views.SignUp
                 || !DataValidationService.HasMaximumCharacters(Phone2.Replace(" ", ""), 10)
                 || !DataValidationService.HasMinimumCharacters(Phone2.Replace(" ", ""), 9)))
             {
-                phone2TextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                phone2TextBox.Background = ThemeSelectorService.SetBrush("Critical");
 
                 if (!DataValidationService.IsNumber(Phone2) && Phone2.TrimStart() != "")
                 {
@@ -261,7 +261,7 @@ namespace Nadim.Views.SignUp
             string Email = emailTextBox.Text;
             if (Email.TrimStart() != "" && !DataValidationService.IsValidEmail(Email.TrimStart().TrimStart()))
             {
-                emailTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                emailTextBox.Background = ThemeSelectorService.SetBrush("Critical");
 
                 if (!DataValidationService.IsValidEmail(Email.TrimStart().TrimStart()) && Email.TrimStart() != "")
                 {
@@ -302,7 +302,7 @@ namespace Nadim.Views.SignUp
                 || !DataValidationService.HasMaximumCharacters(Fax.Replace(" ", ""), 10)
                 || !DataValidationService.HasMinimumCharacters(Fax.Replace(" ", ""), 9)))
             {
-                faxTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                faxTextBox.Background = ThemeSelectorService.SetBrush("Critical");
 
                 if (!DataValidationService.IsNumber(Fax) && Fax.TrimStart() != "")
                 {

@@ -39,7 +39,7 @@ namespace Nadim.ViewModels
             if (EmailOrPhone.TrimStart() == "") 
             {
                 EverythingValid = false;
-                EmailOrPhoneTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                EmailOrPhoneTextBoxBackground = ThemeSelectorService.SetBrush("Critical");
                 EmailOrPhoneRequiredErrorVisibility = Visibility.Visible;
             }
             else
@@ -51,7 +51,7 @@ namespace Nadim.ViewModels
             if (Password == "")
             {
                 EverythingValid=false;
-                PasswordBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                PasswordBoxBackground = ThemeSelectorService.SetBrush("Critical");
                 PasswordRequiredErrorVisibility = Visibility.Visible;
             }
             else
@@ -72,7 +72,7 @@ namespace Nadim.ViewModels
                     if (!DataValidationService.DoesPhoneExist(EmailOrPhone.TrimEnd().TrimStart()))
                     {
                         EmailOrPhoneIsCorrect = false;
-                        EmailOrPhoneTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                        EmailOrPhoneTextBoxBackground = ThemeSelectorService.SetBrush("Critical");
                         InputIsNotConnectedToAnAccountVisibility = Visibility.Visible;
                     }
                     else
@@ -97,7 +97,7 @@ namespace Nadim.ViewModels
                     if (!DataValidationService.DoesEmailExist(EmailOrPhone.TrimEnd().TrimStart()))
                     {
                         EmailOrPhoneIsCorrect = false;
-                        EmailOrPhoneTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                        EmailOrPhoneTextBoxBackground = ThemeSelectorService.SetBrush("Critical");
                         InputIsNotConnectedToAnAccountVisibility = Visibility.Visible;
                     }
                     else
@@ -149,7 +149,7 @@ namespace Nadim.ViewModels
                 if(result == "Invalid credentials")
                 {
                     LoginIsCorrect=false;
-                    PasswordBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                    PasswordBoxBackground = ThemeSelectorService.SetBrush("Critical");
                     PasswordIncorrectVisibility = Visibility.Visible;
                 }
                 else

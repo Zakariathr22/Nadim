@@ -74,7 +74,9 @@ namespace Nadim.Views.Account.InfoPageControls
                 || !DataValidationService.IsArabic(LastName.TrimStart().TrimEnd())
                 || DataValidationService.ContainsNumber(LastName.TrimStart().TrimEnd()))
             {
-                lastNameTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                lastNameTextBox.Background = ThemeSelectorService.SetBrush("Critical");
+
+                lastNameTextBox.RequestedTheme = ThemeSelectorService.GetTheme(App.mainWindow);
                 if (LastName.TrimStart() == "")
                 {
                     LastName = "";
@@ -146,7 +148,7 @@ namespace Nadim.Views.Account.InfoPageControls
                 || !DataValidationService.IsArabic(FirstName.TrimStart().TrimEnd())
                 || DataValidationService.ContainsNumber(FirstName.TrimStart().TrimEnd()))
             {
-                firstNameTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                firstNameTextBox.Background = ThemeSelectorService.SetBrush("Critical");
                 if (FirstName.TrimStart() == "")
                 {
                     FirstName = "";

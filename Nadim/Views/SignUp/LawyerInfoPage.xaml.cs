@@ -66,7 +66,7 @@ namespace Nadim
                 || !DataValidationService.IsArabic(LastName.TrimStart().TrimEnd())
                 || DataValidationService.ContainsNumber(LastName.TrimStart().TrimEnd()))
             {
-                lastNameTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                lastNameTextBox.Background = ThemeSelectorService.SetBrush("Critical");
                 if (LastName.TrimStart() == "")
                 {
                     LastName = "";
@@ -135,7 +135,7 @@ namespace Nadim
                 || !DataValidationService.IsArabic(FirstName.TrimStart().TrimEnd())
                 || DataValidationService.ContainsNumber(FirstName.TrimStart().TrimEnd()))
             {
-                firstNameTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                firstNameTextBox.Background = ThemeSelectorService.SetBrush("Critical");
                 if (FirstName.TrimStart() == "")
                 {
                     FirstName = "";
@@ -206,7 +206,7 @@ namespace Nadim
             DateTimeOffset StartingDate = startingDateDatePicker.Date;
             if (StartingDate > DateTimeOffset.Now)
             {
-                startingDateDatePicker.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                startingDateDatePicker.Background = ThemeSelectorService.SetBrush("Critical");
                 startingDateError.Visibility = Visibility.Visible;
             }
             else
@@ -223,7 +223,7 @@ namespace Nadim
                 || !DataValidationService.IsValidEmail(Email.TrimStart().TrimStart())
                 || ExistBeforeIn(DataValidationService.existedEmails,Email))
             {
-                emailTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                emailTextBox.Background = ThemeSelectorService.SetBrush("Critical");
                 if (Email.TrimStart() == "")
                 {
                     Email = "";
@@ -285,7 +285,7 @@ namespace Nadim
                 || !DataValidationService.HasMinimumCharacters(Phone.Replace(" ", ""), 9)
                 || ExistBeforeIn(DataValidationService.existedPhones, Phone))
             {
-                phoneTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                phoneTextBox.Background = ThemeSelectorService.SetBrush("Critical");
 
                 if (Phone.TrimStart() == "")
                 {
@@ -354,7 +354,7 @@ namespace Nadim
             || !DataValidationService.ContainsSymbol(Password)
             || !DataValidationService.ContainsNumber(Password))
             {
-                passwordBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                passwordBox.Background = ThemeSelectorService.SetBrush("Critical");
                 if (Password == "")
                 {
                     passwordRequiredError.Visibility = Visibility.Visible;
@@ -419,7 +419,7 @@ namespace Nadim
             }
             if (confirmPasswordBox.Password != passwordBox.Password && confirmPasswordBox.Password != "")
             {
-                confirmPasswordBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                confirmPasswordBox.Background = ThemeSelectorService.SetBrush("Critical");
                 confirmPasswoedMatchError.Visibility = Visibility.Visible;
             }
             else
@@ -433,7 +433,7 @@ namespace Nadim
         {
             if (confirmPasswordBox.Password == "" || confirmPasswordBox.Password != passwordBox.Password)
             {
-                confirmPasswordBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                confirmPasswordBox.Background = ThemeSelectorService.SetBrush("Critical");
                 if (confirmPasswordBox.Password == "")
                 {
                     confirmPasswoedRequiredError.Visibility = Visibility.Visible;

@@ -35,7 +35,7 @@ namespace Nadim.ViewModels.AccountRecovery
             if (Email.TrimStart() == "" || !doesEmailExist || !DataValidationService.IsValidEmail(Email.TrimStart().TrimEnd()))
             {
                 EverythingIsValid = false;
-                EmailTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                EmailTextBoxBackground = ThemeSelectorService.SetBrush("Critical");
                 if (Email.TrimStart() == "")
                 {
                     EmailRequiredErrorVisbility = Visibility.Visible;

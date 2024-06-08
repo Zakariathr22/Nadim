@@ -103,7 +103,7 @@ namespace Nadim.ViewModels.SignUp
                 || DataValidationService.ContainsNumber(LastName.TrimStart().TrimEnd()))
             {
                 EveryThingValid = false;
-                LastNameTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                LastNameTextBoxBackground = ThemeSelectorService.SetBrush("Critical");
                 if (LastName.TrimStart() == "")
                 {
                     EveryThingValid = false;
@@ -171,7 +171,7 @@ namespace Nadim.ViewModels.SignUp
                 || DataValidationService.ContainsNumber(FirstName.TrimStart().TrimEnd()))
             {
                 EveryThingValid = false;
-                FirstNameTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                FirstNameTextBoxBackground = ThemeSelectorService.SetBrush("Critical");
                 if (FirstName.TrimStart() == "")
                 {
                     FirstName = "";
@@ -246,7 +246,7 @@ namespace Nadim.ViewModels.SignUp
             if (Accreditation != 0 && Accreditation != 1)
             {
                 EveryThingValid = false;
-                AccreditationComboBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                AccreditationComboBoxBackground = ThemeSelectorService.SetBrush("Critical");
                 AccreditationRequiredErrorVisibilty = Visibility.Visible;
             }
             else
@@ -258,7 +258,7 @@ namespace Nadim.ViewModels.SignUp
             if (StartingDate > DateTimeOffset.Now)
             {
                 EveryThingValid = false;
-                StartingDateDatePickerBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                StartingDateDatePickerBackground = ThemeSelectorService.SetBrush("Critical");
                 StartingDateErrorVisibilty = Visibility.Visible;
             }
             else
@@ -272,7 +272,7 @@ namespace Nadim.ViewModels.SignUp
                 || emailExistBefor)
             {
                 EveryThingValid = false;
-                EmailTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                EmailTextBoxBackground = ThemeSelectorService.SetBrush("Critical");
                 if (Email.TrimStart() == "")
                 {
                     Email = "";
@@ -316,7 +316,7 @@ namespace Nadim.ViewModels.SignUp
                 || phoneExistBefor)
             {
                 EveryThingValid = false;
-                PhoneTextBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                PhoneTextBoxBackground = ThemeSelectorService.SetBrush("Critical");
 
                 if (Phone.TrimStart() == "")
                 {
@@ -383,7 +383,7 @@ namespace Nadim.ViewModels.SignUp
                 || !DataValidationService.ContainsNumber(Password))
             {
                 EveryThingValid = false;
-                PasswordBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                PasswordBoxBackground = ThemeSelectorService.SetBrush("Critical");
                 if (Password == "")
                 {
                     PasswordRequiredErrorVisibilty = Visibility.Visible;
@@ -450,7 +450,7 @@ namespace Nadim.ViewModels.SignUp
             if (ConfirmPassword == "" || ConfirmPassword != Password)
             {
                 EveryThingValid = false;
-                ConfirmPasswordBoxBackground = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                ConfirmPasswordBoxBackground = ThemeSelectorService.SetBrush("Critical");
                 if (ConfirmPassword == "")
                 {
                     ConfirmPasswoedRequiredErrorVisibilty = Visibility.Visible;

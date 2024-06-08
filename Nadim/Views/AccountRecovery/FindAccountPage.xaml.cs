@@ -54,7 +54,7 @@ namespace Nadim.Views.AccountRecovery
             string Email = emailTextBox.Text;
             if (Email.TrimStart() != "" && !DataValidationService.IsValidEmail(Email.TrimStart().TrimStart()))
             {
-                emailTextBox.Background = App.Current.Resources["SystemFillColorCriticalBackgroundBrush"] as Brush;
+                emailTextBox.Background = ThemeSelectorService.SetBrush("Critical");
 
                 if (!DataValidationService.IsValidEmail(Email.TrimStart().TrimStart()) && Email.TrimStart() != "")
                 {
