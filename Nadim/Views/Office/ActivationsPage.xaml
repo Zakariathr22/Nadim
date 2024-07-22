@@ -8,7 +8,112 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid>
-        <TextBlock>Activations</TextBlock>
-    </Grid>
+    <ScrollView>
+        <StackPanel Padding="24 16 24 24">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" Margin="0 0 0 8">
+                إليك جميع الاشتراكات الخاصة بهذا المكتب في تطبيق
+                <Bold> نديم</Bold>
+                . يمكنكم تجديد اشتراك المكتب في أي وقت تريدونه.
+            </TextBlock>
+            <TextBlock TextWrapping="Wrap" TextAlignment="Justify" Margin="0 0 0 16" Foreground="{ThemeResource SystemFillColorSuccessBrush}">
+                إذا كنتم ترغبون في تجديد الاشتراك يمكنكم
+                <Hyperlink>الاتصال بفريق مبيعات نديم </Hyperlink>
+                للقيام بذلك.
+            </TextBlock>
+            <StackPanel 
+                BorderThickness="1"
+                BorderBrush="{ThemeResource SurfaceStrokeColorFlyoutBrush}"
+                CornerRadius="4">
+                <Grid Padding="16 8 0 8"
+                  CornerRadius="4 4 0 0"
+                  Background="{ThemeResource CardBackgroundFillColorDefault}"
+                  BorderThickness="0 0 0 1"
+                  BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="64"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" TextAlignment="Center" FontWeight="Bold">تاريخ بداية الاشتراك</TextBlock>
+                    <TextBlock Grid.Column="1" TextAlignment="Center" FontWeight="Bold">تاريخ نهاية الاشتراك</TextBlock>
+                    <TextBlock Grid.Column="2" TextAlignment="Center" FontWeight="Bold">المبلغ المدفوع</TextBlock>
+                </Grid>
+                <StackPanel>
+                    <Expander HorizontalAlignment="Stretch" CornerRadius="0"
+                              VerticalAlignment="Center"
+                              BorderThickness="0">
+                        <Expander.Header>
+                            <Grid Padding="0"
+                          CornerRadius="4 4 0 0"
+                          BorderThickness="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" TextAlignment="Center">26 ماي 2024</TextBlock>
+                                <TextBlock Grid.Column="1" TextAlignment="Center">27 نوفمبر 2024</TextBlock>
+                                <TextBlock Grid.Column="2" TextAlignment="Center">3500 د.ج</TextBlock>
+                            </Grid>
+                        </Expander.Header>
+                    </Expander>
+                    <Expander HorizontalAlignment="Stretch" CornerRadius="0"
+                              VerticalAlignment="Center"
+                              BorderThickness="0">
+                        <Expander.Header>
+                            <Grid Padding="0"
+                          CornerRadius="4 4 0 0"
+                          BorderThickness="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" TextAlignment="Center">25 ماي 2023</TextBlock>
+                                <TextBlock Grid.Column="1" TextAlignment="Center">26 ماي 2024</TextBlock>
+                                <TextBlock Grid.Column="2" TextAlignment="Center">6000 د.ج</TextBlock>
+                            </Grid>
+                        </Expander.Header>
+                    </Expander>
+                    <Expander HorizontalAlignment="Stretch" CornerRadius="0"
+                              VerticalAlignment="Center"
+                              BorderThickness="0">
+                        <Expander.Header>
+                            <Grid Padding="0"
+                          CornerRadius="4 4 0 0"
+                          BorderThickness="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" TextAlignment="Center">25 ماي 2023</TextBlock>
+                                <TextBlock Grid.Column="1" TextAlignment="Center">26 ماي 2024</TextBlock>
+                                <TextBlock Grid.Column="2" TextAlignment="Center">6000 د.ج</TextBlock>
+                            </Grid>
+                        </Expander.Header>
+                    </Expander>
+                    <Expander HorizontalAlignment="Stretch" CornerRadius="0"
+                              VerticalAlignment="Center"
+                              BorderThickness="0">
+                        <Expander.Header>
+                            <Grid Padding="0"
+                          CornerRadius="4 4 0 0"
+                          BorderThickness="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" TextAlignment="Center">25 ماي 2023</TextBlock>
+                                <TextBlock Grid.Column="1" TextAlignment="Center">26 ماي 2024</TextBlock>
+                                <TextBlock Grid.Column="2" TextAlignment="Center">6000 د.ج</TextBlock>
+                            </Grid>
+                        </Expander.Header>
+                    </Expander>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </ScrollView>
 </Page>
