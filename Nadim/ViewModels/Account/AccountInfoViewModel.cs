@@ -323,6 +323,14 @@ namespace Nadim.ViewModels.Account
                 User.FirstName = NewFirstName;
                 User.LastName = NewLastName;
             }
+            else if (message == "token not valid")
+            {
+
+            } 
+            else if (message == "office not activated")
+            {
+
+            }
         }
 
     }

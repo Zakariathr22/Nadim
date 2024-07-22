@@ -16,7 +16,6 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
         <!--first Column-->
         <Border Grid.Column="0" Background="{ThemeResource LayerOnMicaBaseAltFillColorDefaultBrush}">
             <!--<TextBlock Text="Content for the first column" HorizontalAlignment="Center" VerticalAlignment="Center" />-->
