@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Nadim.Views.Office.OfficeInfoPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Nadim.Views.Office"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewControls ="using:Nadim.Views.Controls"
+    mc:Ignorable="d">
+
+    <ScrollView>
+        <StackPanel Padding="24 16 24 24">
+            <TextBlock TextWrapping="Wrap" Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}" Padding="0 0 4 0">
+                    المعلومات الرئيسية
+            </TextBlock>
+            <ContentPresenter   Padding="20"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center"
+                                Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                                BorderThickness="1"
+                                BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                                CornerRadius="4 4 0 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">تسمية المكتب</TextBlock>
+                    <TextBlock x:Name="namingTextBlock" Text="مكتب الأستاذ طاهري زكرياء" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" Padding="0 0 4 0"/>
+                    <HyperlinkButton x:Name="editNamingHyperlinkButton" Grid.Column="2" HorizontalAlignment="Right" Padding="0" Click="editNamingHyperlinkButton_Click">
+                        تعديل التسمية
+                    </HyperlinkButton>
+                </Grid>
+            </ContentPresenter>
+            <viewControls:NewButton x:Name="editHeadquartersButton" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0" BorderThickness="0"
+                                    CornerRadius="0" Click="editHeadquartersButton_Click">
+                <ContentPresenter
+                        Padding="20"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderThickness="1 0 1 1"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">مقر المكتب</TextBlock>
+                        <TextBlock x:Name="headquartersBlock" Text="11 شارع لغرور عباس - عين خرمام - بنزوه" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">تساعد معرفة المقر في تحرير وضمان صحة الوثائق الرسمية المصدرة</TextBlock>
+                        <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
+                    </Grid>
+                </ContentPresenter>
+            </viewControls:NewButton>
+            <viewControls:NewButton x:Name="editHeadquartersDetailsButton" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0" BorderThickness="0"
+                                    CornerRadius="0" Click="editHeadquartersDetailsButton_Click">
+                <ContentPresenter
+                        Padding="20"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderThickness="1 0 1 1"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">الولاية والبلدية</TextBlock>
+                        <TextBlock x:Name="headquartersDetailsTextBlock" Text="ولاية بوسعادة - بلدية بنزوه" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">لتحديد الأماكن ذات الاستخدام الأكبر لتطبيقنا بدقة</TextBlock>
+                        <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
+                    </Grid>
+                </ContentPresenter>
+            </viewControls:NewButton>
+            <ContentPresenter   Padding="20"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Center"
+                            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                            BorderThickness="1 0 1 1"
+                            BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                            CornerRadius="0 0 4 4"
+                            Margin="0 0 0 8">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">نوع المكتب</TextBlock>
+                    <TextBlock x:Name="officeTypeTextBlock" Text="مكتب عادي" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center" Padding="0 0 4 0"/>
+                    <HyperlinkButton x:Name="officeTypeHyperlinkButton" Grid.Column="2" HorizontalAlignment="Right" Padding="0" Click="editNamingHyperlinkButton_Click">
+                        تعديل نوع المكتب
+                    </HyperlinkButton>
+                </Grid>
+            </ContentPresenter>
+
+            <TextBlock TextWrapping="Wrap" Margin="0 0 0 8" Style="{ThemeResource SubtitleTextBlockStyle}" Padding="0 0 4 0">
+                    معلومات الإتصال بالمكتب
+            </TextBlock>
+            <viewControls:NewButton x:Name="phoneButton" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0" BorderThickness="0"
+                                    CornerRadius="0" Click="editHeadquartersButton_Click">
+                <ContentPresenter
+                        Padding="20"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderThickness="1"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="4 4 0 0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">رقم هاتف المكتب</TextBlock>
+                        <TextBlock x:Name="phoneTextBlock" Text="0659707528" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">يساعد رقم هاتف المكتب في توفير معلومات الاتصال اللازمة ضمن الوثائق المحررة</TextBlock>
+                        <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
+                    </Grid>
+                </ContentPresenter>
+            </viewControls:NewButton>
+            
+            <viewControls:NewButton x:Name="phone2Button" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0" BorderThickness="0"
+                                    CornerRadius="0" Click="editHeadquartersButton_Click">
+                <ContentPresenter
+                        Padding="20"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderThickness="1 0 1 1"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">رقم هاتف المكتب 2</TextBlock>
+                        <TextBlock x:Name="phone2TextBlock" Text="لا يوجد" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">إدخال رقم هاتف ثاني للمكتب إختياري</TextBlock>
+                        <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
+                    </Grid>
+                </ContentPresenter>
+            </viewControls:NewButton>
+
+            <viewControls:NewButton x:Name="emailButton" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0" BorderThickness="0"
+                                    CornerRadius="0" Click="editHeadquartersButton_Click">
+                <ContentPresenter
+                        Padding="20"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderThickness="1 0 1 1"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">البريد الإلكتروني</TextBlock>
+                        <TextBlock x:Name="emailTextBlock" Text="لا يوجد" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">إدخال بريد إلكتروني خاص بالمكتب إختياري</TextBlock>
+                        <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
+                    </Grid>
+                </ContentPresenter>
+            </viewControls:NewButton>
+
+            <viewControls:NewButton x:Name="faxButton" Background="Transparent" BorderBrush="Transparent" Padding="0" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Margin="0" BorderThickness="0"
+                                    CornerRadius="0" Click="editHeadquartersButton_Click">
+                <ContentPresenter
+                        Padding="20"
+                        VerticalAlignment="Center"
+                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                        BorderThickness="1 0 1 1"
+                        BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                        CornerRadius="0 0 4 4">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="2.5*"/>
+                            <ColumnDefinition Width="4*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="0" VerticalAlignment="Center"  Padding="0 0 4 0">الفاكس</TextBlock>
+                        <TextBlock x:Name="faxTextBlock" Text="لا يوجد" TextWrapping="Wrap" Grid.Column="1" FontWeight="Bold" VerticalAlignment="Center"  Padding="0 0 4 0"/>
+                        <TextBlock TextWrapping="Wrap" Grid.Column="2" VerticalAlignment="Center"  Padding="0 0 4 0">إدخال فاكس خاص بالمكتب إختياري</TextBlock>
+                        <FontIcon Grid.Column="3" Glyph="&#xE76B;" HorizontalAlignment="Right"/>
+                    </Grid>
+                </ContentPresenter>
+            </viewControls:NewButton>
+        </StackPanel>
+    </ScrollView>
+</Page>
