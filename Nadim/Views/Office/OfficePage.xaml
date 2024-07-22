@@ -6,10 +6,34 @@
     xmlns:local="using:Nadim.Views.Office"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
 
-    <Grid>
-        <TextBlock>Ofiice Page</TextBlock>
-    </Grid>
+    <NavigationView x:Name="navigationView" Width="auto" FlowDirection="RightToLeft"                            
+                PaneDisplayMode="Top"
+                IsBackButtonVisible="Collapsed"
+                IsSettingsVisible="False"
+                SelectionChanged="navigationView_SelectionChanged">
+
+        <NavigationView.MenuItems>
+            <NavigationViewItem Tag="OfficeInfo">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <FontIcon Glyph="&#xEA1F;" />
+                    <TextBlock Margin="8 0" >معلومات المكتب</TextBlock>
+                </StackPanel>
+            </NavigationViewItem>
+            <NavigationViewItem Tag="Activations">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <FontIcon Glyph="&#xF28B;" />
+                    <TextBlock Margin="8 0" >الاشتراكات والتفعيلات</TextBlock>
+                </StackPanel>
+            </NavigationViewItem>
+            <NavigationViewItem Tag="Users">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <FontIcon Glyph="&#xE716;" />
+                    <TextBlock Margin="8 0" >المستخدمون</TextBlock>
+                </StackPanel>
+            </NavigationViewItem>
+        </NavigationView.MenuItems>
+        <Frame Margin="0,0,0,0" x:Name="contentFrame"/>
+    </NavigationView>
 </Page>

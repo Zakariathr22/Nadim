@@ -26,6 +26,20 @@ namespace Nadim.Views.Office
         public OfficePage()
         {
             this.InitializeComponent();
+            navigationView.SelectedItem = navigationView.MenuItems.OfType<Microsoft.UI.Xaml.Controls.NavigationViewItem>().First();
+        }
+
+        private void navigationView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+        {
+            var selectedItem = (Microsoft.UI.Xaml.Controls.NavigationViewItem)args.SelectedItem;
+            if (selectedItem != null)
+            {
+                string selectedItemTag = ((string)selectedItem.Tag);
+                //sender.Header = "Sample Page " + selectedItemTag.Substring(selectedItemTag.Length - 1);
+                string pageName = $"Nadim.Views.Office.{selectedItemTag}Page";
+                Type pageType = Type.GetType(pageName);
+                contentFrame.Navigate(pageType);
+            }
         }
     }
 }

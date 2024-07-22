@@ -39,7 +39,6 @@ namespace Nadim.Views.Account
                 string pageName = $"Nadim.Views.Account.{selectedItemTag}Page";
                 Type pageType = Type.GetType(pageName);
                 contentFrame.Navigate(pageType);
-                Console.Write("Hi");
             }
         }
     }

@@ -75,7 +75,10 @@
     <None Remove="Views\LoginWindow.xaml" />
     <None Remove="Views\MainWindow.xaml" />
     <None Remove="Views\Notes\NotesPage.xaml" />
+    <None Remove="Views\Office\ActivationsPage.xaml" />
+    <None Remove="Views\Office\OfficeInfoPage.xaml" />
     <None Remove="Views\Office\OfficePage.xaml" />
+    <None Remove="Views\Office\UsersPage.xaml" />
     <None Remove="Views\Schedule\SchedulePage.xaml" />
     <None Remove="Views\Settings\SettingsPage.xaml" />
     <None Remove="Views\SignUpWindow.xaml" />
@@ -339,6 +342,21 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Office\UsersPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Office\ActivationsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\Office\OfficeInfoPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Views\Account\InfoPageControls\EditPhonePage.xaml">
