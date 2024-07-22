@@ -33,7 +33,6 @@
                             <ContentPresenter
                         Padding="20 4"
                         VerticalAlignment="Center"
-                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                         CornerRadius="0">
                                 <Grid>
@@ -48,7 +47,6 @@
                             <ContentPresenter
                         Padding="20 4"
                         VerticalAlignment="Center"
-                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                         CornerRadius="0">
                                 <Grid>
@@ -63,7 +61,6 @@
                             <ContentPresenter
                         Padding="20 4"
                         VerticalAlignment="Center"
-                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                         CornerRadius="0">
                                 <Grid>
@@ -78,7 +75,6 @@
                             <ContentPresenter
                         Padding="20 4"
                         VerticalAlignment="Center"
-                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                         CornerRadius="0">
                                 <Grid>
@@ -93,7 +89,6 @@
                             <ContentPresenter
                         Padding="20 4"
                         VerticalAlignment="Center"
-                        Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                         BorderBrush="{ThemeResource ControlElevationBorderBrush}"
                         CornerRadius="0">
                                 <Grid>
