@@ -21,32 +21,28 @@
                 للقيام بذلك.
             </TextBlock>
             <StackPanel 
-                BorderThickness="1"
-                BorderBrush="{ThemeResource SurfaceStrokeColorFlyoutBrush}"
                 CornerRadius="4">
                 <Grid Padding="16 8 0 8"
-                  CornerRadius="4 4 0 0"
-                  Background="{ThemeResource CardBackgroundFillColorDefault}"
-                  BorderThickness="0 0 0 1"
-                  BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}">
+                      CornerRadius="4 4 0 0"
+                      Background="{ThemeResource CardBackgroundFillColorDefault}"
+                      BorderThickness="1"
+                      BorderBrush="{ThemeResource SurfaceStrokeColorFlyoutBrush}">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="64"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" TextAlignment="Center" FontWeight="Bold">تاريخ بداية الاشتراك</TextBlock>
-                    <TextBlock Grid.Column="1" TextAlignment="Center" FontWeight="Bold">تاريخ نهاية الاشتراك</TextBlock>
-                    <TextBlock Grid.Column="2" TextAlignment="Center" FontWeight="Bold">المبلغ المدفوع</TextBlock>
+                    <TextBlock Grid.Column="0" TextAlignment="Center" FontWeight="Bold">تاريخ بداية التفعيل</TextBlock>
+                    <TextBlock Grid.Column="1" TextAlignment="Center" FontWeight="Bold">تاريخ نهاية التفعيل</TextBlock>
+                    <TextBlock Grid.Column="2" TextAlignment="Center" FontWeight="Bold">مبلغ الاشتراك</TextBlock>
                 </Grid>
                 <StackPanel>
                     <Expander HorizontalAlignment="Stretch" CornerRadius="0"
                               VerticalAlignment="Center"
-                              BorderThickness="0">
+                              BorderThickness="1 0 1 1">
                         <Expander.Header>
-                            <Grid Padding="0"
-                          CornerRadius="4 4 0 0"
-                          BorderThickness="1">
+                            <Grid Padding="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
@@ -60,11 +56,9 @@
                     </Expander>
                     <Expander HorizontalAlignment="Stretch" CornerRadius="0"
                               VerticalAlignment="Center"
-                              BorderThickness="0">
+                              BorderThickness="1 0 1 1">
                         <Expander.Header>
-                            <Grid Padding="0"
-                          CornerRadius="4 4 0 0"
-                          BorderThickness="1">
+                            <Grid Padding="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
@@ -78,11 +72,9 @@
                     </Expander>
                     <Expander HorizontalAlignment="Stretch" CornerRadius="0"
                               VerticalAlignment="Center"
-                              BorderThickness="0">
+                              BorderThickness="1 0 1 1">
                         <Expander.Header>
-                            <Grid Padding="0"
-                          CornerRadius="4 4 0 0"
-                          BorderThickness="1">
+                            <Grid Padding="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
@@ -94,13 +86,12 @@
                             </Grid>
                         </Expander.Header>
                     </Expander>
-                    <Expander HorizontalAlignment="Stretch" CornerRadius="0"
+                    <Expander HorizontalAlignment="Stretch"
                               VerticalAlignment="Center"
-                              BorderThickness="0">
+                              BorderThickness="1 0 1 1"
+                              CornerRadius="0 0 4 4">
                         <Expander.Header>
-                            <Grid Padding="0"
-                          CornerRadius="4 4 0 0"
-                          BorderThickness="1">
+                            <Grid Padding="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
