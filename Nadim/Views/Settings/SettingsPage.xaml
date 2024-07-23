@@ -73,7 +73,7 @@
                             VerticalAlignment="Stretch"
                             Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
                             BorderThickness="1 0 1 1"
-                            BorderBrush="{ThemeResource ControlElevationBorderBrush}"
+                            BorderBrush="{ThemeResource SurfaceStrokeColorFlyoutBrush}"
                             CornerRadius="0 0 4 4">
                 <TextBlock x:Name="fontTestTextBlock"
                                     HorizontalAlignment="Center" 
